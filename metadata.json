@@ -1,0 +1,6 @@
+{
+  "name": "HCMC-CultureHub",
+  "description": "Kho học liệu số giúp học sinh khám phá không gian văn hóa đô thị TP.HCM một cách trực quan, sinh động và thuận tiện.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

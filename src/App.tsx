@@ -1,0 +1,318 @@
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import contentDataRaw from './data/contentData.json';
+import { ContentData, PlaceItem, SlideData } from './types';
+import { Header } from './components/Header';
+import { SlideHero } from './components/SlideHero';
+import { SlideLearningGroup } from './components/SlideLearningGroup';
+import { SlideInteractiveMap } from './components/SlideInteractiveMap';
+import { SlideWebGame } from './components/SlideWebGame';
+import { CtaSection } from './components/CtaSection';
+import { SlideAbout } from './components/SlideAbout';
+import { SlideNavigator } from './components/SlideNavigator';
+import { PlaceDetailModal } from './components/PlaceDetailModal';
+import { SearchModal } from './components/SearchModal';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+const contentData = contentDataRaw as unknown as ContentData;
+
+export default function App() {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [selectedPlace, setSelectedPlace] = useState<PlaceItem | null>(null);
+  const [selectedPlaceCategory, setSelectedPlaceCategory] = useState<string>('');
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+
+  // Flatten places with their group identity for global search and map
+  const allPlaces = useMemo(() => {
+    const list: { place: PlaceItem; groupName: string; groupId: string; slideIndex: number }[] = [];
+    contentData.slides.forEach((slide, sIdx) => {
+      if (slide.places) {
+        slide.places.forEach((p) => {
+          list.push({
+            place: p,
+            groupName: slide.primaryTitle,
+            groupId: slide.id,
+            slideIndex: sIdx
+          });
+        });
+      }
+    });
+    return list;
+  }, []);
+
+  // GSAP ScrollTrigger setup for magazine slide transitions
+  useEffect(() => {
+    // Give DOM time to mount
+    const timer = setTimeout(() => {
+      const slideSections = document.querySelectorAll<HTMLElement>('.slide-section');
+      const triggers: ScrollTrigger[] = [];
+
+      slideSections.forEach((section, index) => {
+        // Active Slide tracking on scroll
+        const trigger = ScrollTrigger.create({
+          trigger: section,
+          start: 'top 45%',
+          end: 'bottom 45%',
+          onEnter: () => setCurrentSlide(index),
+          onEnterBack: () => setCurrentSlide(index),
+        });
+        triggers.push(trigger);
+
+        // Smooth magazine reveal animation
+        const contentBox = section.querySelector('.slide-inner-anim');
+        if (contentBox) {
+          gsap.fromTo(
+            contentBox,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 75%',
+                toggleActions: 'play none none none',
+              },
+            }
+          );
+        }
+      });
+
+      return () => {
+        triggers.forEach((t) => t.kill());
+      };
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  // Smooth scroll handler
+  const handleNavigateSlide = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+    const targetSlide = contentData.slides[slideIndex];
+    if (targetSlide) {
+      const element = document.getElementById(`slide-${targetSlide.id}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  const handleOpenPlace = (place: PlaceItem, categoryTitle: string) => {
+    setSelectedPlace(place);
+    setSelectedPlaceCategory(categoryTitle);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0b0f17] text-[#f1f5f9] selection:bg-[#c29b38] selection:text-slate-950 relative overflow-x-hidden">
+      
+      {/* Sticky Top Header Navigation */}
+      <Header
+        currentSlide={currentSlide}
+        slides={contentData.slides}
+        onSelectSlide={handleNavigateSlide}
+        onOpenSearch={() => setIsSearchOpen(true)}
+      />
+
+      {/* Floating Side Dot Navigator */}
+      <SlideNavigator
+        currentSlide={currentSlide}
+        slides={contentData.slides}
+        onNavigateSlide={handleNavigateSlide}
+      />
+
+      {/* Top Global Scroll Progress Bar */}
+      <div className="fixed top-18 left-0 right-0 h-[2px] bg-slate-800 z-30">
+        <div 
+          className="h-full bg-gradient-to-r from-[#c29b38] via-[#e6ca65] to-[#c29b38] transition-all duration-300 shadow-sm shadow-[#c29b38]"
+          style={{ width: `${((currentSlide + 1) / contentData.slides.length) * 100}%` }}
+        />
+      </div>
+
+      {/* 9 Slides Container */}
+      <main className="pt-20 pb-28 space-y-16 lg:space-y-24">
+        
+        {/* SLIDE 1 (S1): Trang chủ - Hero */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideHero
+              slide={contentData.slides[0]}
+              projectInfo={contentData.projectInfo}
+              onNavigateSlide={handleNavigateSlide}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 2 (S2): Nhóm 1 - Không gian lịch sử và ký ức đô thị */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideLearningGroup
+              slide={contentData.slides[1]}
+              onSelectPlace={handleOpenPlace}
+              onNextSlide={() => handleNavigateSlide(2)}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 3 (S3): Nhóm 2 - Không gian kiến trúc và tín ngưỡng */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideLearningGroup
+              slide={contentData.slides[2]}
+              onSelectPlace={handleOpenPlace}
+              onNextSlide={() => handleNavigateSlide(3)}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 4 (S4): Nhóm 3 - Không gian thương mại và đời sống cộng đồng */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideLearningGroup
+              slide={contentData.slides[3]}
+              onSelectPlace={handleOpenPlace}
+              onNextSlide={() => handleNavigateSlide(4)}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 5 (S5): Nhóm 4 - Không gian sáng tạo và làng nghề */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideLearningGroup
+              slide={contentData.slides[4]}
+              onSelectPlace={handleOpenPlace}
+              onNextSlide={() => handleNavigateSlide(5)}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 6 (S6): Nhóm 5 - Không gian biển, sông nước và đô thị hiện đại */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideLearningGroup
+              slide={contentData.slides[5]}
+              onSelectPlace={handleOpenPlace}
+              onNextSlide={() => handleNavigateSlide(6)}
+            />
+          </div>
+        </div>
+
+        {/* SLIDE 7 (S7): Bản đồ số & Không gian Văn hóa Đô thị Mới */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideInteractiveMap
+              slide={contentData.slides[6]}
+              allPlaces={allPlaces}
+              onSelectPlace={handleOpenPlace}
+            />
+          </div>
+        </div>
+
+        {/* PARALLAX CTA SECTION: Không gian Trải nghiệm Video & Dashboard Mock */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <CtaSection onNavigateSlide={handleNavigateSlide} />
+          </div>
+        </div>
+
+        {/* SLIDE 8: Web Game Trải Nghiệm Sài Gòn Kỳ Bí */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideWebGame onNextSlide={() => handleNavigateSlide(8)} />
+          </div>
+        </div>
+
+        {/* SLIDE 9: Giới thiệu về HCMC CultureHub */}
+        <div className="slide-section">
+          <div className="slide-inner-anim">
+            <SlideAbout
+              slide={contentData.slides[8] || contentData.slides[7]}
+              projectInfo={contentData.projectInfo}
+            />
+          </div>
+        </div>
+
+      </main>
+
+      {/* Magazine Footer */}
+      <footer className="border-t border-white/10 bg-black/80 backdrop-blur-xl py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-6">
+          {/* Survey Mini Banner */}
+          <div className="p-4 rounded-2xl liquid-glass border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <div className="text-center sm:text-left space-y-0.5">
+              <span className="text-[#f5e3a9] font-bold block text-sm">
+                Cảm ơn bạn đã dành thời gian trải nghiệm website!
+              </span>
+              <p className="text-white/70 text-xs">
+                Mỗi đóng góp ý kiến của bạn sẽ giúp hoàn thiện nền tảng học liệu di sản TP.HCM.
+              </p>
+            </div>
+            <a
+              href="https://forms.gle/baf2AwYp29T3joxd7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#c29b38] to-[#e6ca65] hover:opacity-90 text-slate-950 font-bold text-xs shrink-0 transition-all shadow-md shadow-[#c29b38]/20"
+            >
+              Đóng Góp Ý Kiến (Khảo Sát)
+            </a>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
+            <div className="space-y-1 text-center md:text-left">
+              <p className="font-accent font-bold text-[#f5e3a9] tracking-wider text-sm">
+                HCMC CULTUREHUB • KHO HỌC LIỆU DI SẢN SỐ
+              </p>
+              <p className="text-white/60">
+                {contentData.projectInfo.slogan}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 text-[11px]">
+              {contentData.slides.map((s, idx) => (
+                <button
+                  key={s.id}
+                  onClick={() => handleNavigateSlide(idx)}
+                  className="hover:text-[#c29b38] transition-colors"
+                >
+                  {s.id}
+                </button>
+              ))}
+            </div>
+
+            <div className="text-center md:text-right font-mono text-[11px] text-slate-400">
+              Liên hệ: <a href={`mailto:${contentData.projectInfo.contactEmail}`} className="text-[#c29b38] hover:underline font-semibold">{contentData.projectInfo.contactEmail}</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Modals */}
+      {selectedPlace && (
+        <PlaceDetailModal
+          place={selectedPlace}
+          categoryTitle={selectedPlaceCategory}
+          onClose={() => setSelectedPlace(null)}
+        />
+      )}
+
+      {isSearchOpen && (
+        <SearchModal
+          allPlaces={allPlaces}
+          onSelectPlace={handleOpenPlace}
+          onNavigateSlide={handleNavigateSlide}
+          onClose={() => setIsSearchOpen(false)}
+        />
+      )}
+
+    </div>
+  );
+}
