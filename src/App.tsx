@@ -9,7 +9,6 @@ import { SlideHero } from './components/SlideHero';
 import { SlideLearningGroup } from './components/SlideLearningGroup';
 import { SlideInteractiveMap } from './components/SlideInteractiveMap';
 import { SlideWebGame } from './components/SlideWebGame';
-import { CtaSection } from './components/CtaSection';
 import { SlideAbout } from './components/SlideAbout';
 import { SlideNavigator } from './components/SlideNavigator';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
@@ -217,13 +216,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* PARALLAX CTA SECTION: Không gian Trải nghiệm Video & Dashboard Mock */}
-        <div className="slide-section">
-          <div className="slide-inner-anim">
-            <CtaSection onNavigateSlide={handleNavigateSlide} />
-          </div>
-        </div>
-
         {/* SLIDE 8: Web Game Trải Nghiệm Sài Gòn Kỳ Bí */}
         <div className="slide-section">
           <div className="slide-inner-anim">
@@ -246,26 +238,6 @@ export default function App() {
       {/* Magazine Footer */}
       <footer className="border-t border-white/10 bg-black/80 backdrop-blur-xl py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
-          {/* Survey Mini Banner */}
-          <div className="p-4 rounded-2xl liquid-glass border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-            <div className="text-center sm:text-left space-y-0.5">
-              <span className="text-[#f5e3a9] font-bold block text-sm">
-                Cảm ơn bạn đã dành thời gian trải nghiệm website!
-              </span>
-              <p className="text-white/70 text-xs">
-                Mỗi đóng góp ý kiến của bạn sẽ giúp hoàn thiện nền tảng học liệu di sản TP.HCM.
-              </p>
-            </div>
-            <a
-              href="https://forms.gle/baf2AwYp29T3joxd7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#c29b38] to-[#e6ca65] hover:opacity-90 text-slate-950 font-bold text-xs shrink-0 transition-all shadow-md shadow-[#c29b38]/20"
-            >
-              Đóng Góp Ý Kiến (Khảo Sát)
-            </a>
-          </div>
-
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
             <div className="space-y-1 text-center md:text-left">
               <p className="font-accent font-bold text-[#f5e3a9] tracking-wider text-sm">

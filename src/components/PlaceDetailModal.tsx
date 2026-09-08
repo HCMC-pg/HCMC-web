@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   X, 
   MapPin, 
   ExternalLink, 
   Video, 
   Sparkles, 
-  Copy, 
-  Check, 
-  Bookmark, 
-  Share2, 
   Clock, 
   Landmark,
   ShieldCheck,
-  FileText
+  Camera,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  Tag,
+  Info
 } from 'lucide-react';
-import { PlaceItem } from '../types';
+import { PlaceItem, PlaceGalleryItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
 import { AIPlaceInfographic } from './AIPlaceInfographic';
 
@@ -29,7 +30,48 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   categoryTitle,
   onClose
 }) => {
-  const [activeTab, setActiveTab] = useState<'info' | 'infographic' | 'videos'>('info');
+  const [activeTab, setActiveTab] = useState<'info' | 'gallery' | 'infographic' | 'videos'>('info');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Normalize gallery items - ensure authentic gallery items, falling back to place.image
+  const galleryItems: { url: string }[] = React.useMemo(() => {
+    if (!place) return [];
+    if (place.gallery && place.gallery.length > 0) {
+      return place.gallery.map((item) => {
+        if (typeof item === 'string') {
+          return { url: item };
+        }
+        return { url: item.url };
+      });
+    }
+    if (place.image) {
+      return [{ url: place.image }];
+    }
+    return [];
+  }, [place]);
+
+  // Lightbox navigation handlers
+  const handlePrevImage = useCallback(() => {
+    if (lightboxIndex === null || galleryItems.length === 0) return;
+    setLightboxIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : galleryItems.length - 1));
+  }, [lightboxIndex, galleryItems.length]);
+
+  const handleNextImage = useCallback(() => {
+    if (lightboxIndex === null || galleryItems.length === 0) return;
+    setLightboxIndex((prev) => (prev !== null && prev < galleryItems.length - 1 ? prev + 1 : 0));
+  }, [lightboxIndex, galleryItems.length]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowLeft') handlePrevImage();
+      if (e.key === 'ArrowRight') handleNextImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, handlePrevImage, handleNextImage]);
 
   if (!place) return null;
 
@@ -59,9 +101,6 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
 
           {/* Title on Banner */}
           <div className="absolute bottom-4 left-6 right-6 z-10">
-            <span className="inline-block text-[11px] font-bold tracking-wider px-2.5 py-1 rounded bg-[#c29b38]/30 text-[#f5e3a9] border border-[#c29b38]/50 uppercase mb-2">
-              {categoryTitle}
-            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white tracking-wide">
               {place.name}
             </h2>
@@ -87,6 +126,21 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             <Landmark className="w-4 h-4" />
             Nội dung chi tiết di sản
           </button>
+
+          {/* DEDICATED TAB: HÌNH ẢNH DI SẢN */}
+          <button
+            id="modal-tab-gallery"
+            onClick={() => setActiveTab('gallery')}
+            className={`py-3.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 whitespace-nowrap ${
+              activeTab === 'gallery'
+                ? 'border-[#c29b38] text-[#f5e3a9]'
+                : 'border-transparent text-white/50 hover:text-white'
+            }`}
+          >
+            <Camera className="w-4 h-4 text-[#e6ca65]" />
+            Hình ảnh di sản
+          </button>
+
           <button
             id="modal-tab-infographic"
             onClick={() => setActiveTab('infographic')}
@@ -97,8 +151,9 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             }`}
           >
             <Sparkles className="w-4 h-4 text-[#e6ca65]" />
-            Infographic Tóm Tắt Di Sản
+            Phân Tích Di Sản
           </button>
+
           <button
             onClick={() => setActiveTab('videos')}
             className={`py-3.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 whitespace-nowrap ${
@@ -172,6 +227,50 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                 </div>
               )}
 
+              {/* MỤC HÌNH ẢNH DI SẢN (PHOTO SHOWCASE IN INFO TAB) */}
+              {galleryItems.length > 0 && (
+                <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-[#c29b38]/30 shadow-md">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#f5e3a9] flex items-center gap-2">
+                        <Camera className="w-4 h-4 text-[#c29b38]" />
+                        Mục Hình Ảnh
+                      </h4>
+                    </div>
+                    <button
+                      onClick={() => setActiveTab('gallery')}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 text-xs font-semibold border border-[#c29b38]/40 transition-colors shrink-0 w-fit"
+                    >
+                      Xem toàn bộ ảnh
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  {/* Grid of photos */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                    {galleryItems.map((item, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => setLightboxIndex(idx)}
+                        className="group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-[#c29b38]/60 cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-0.5"
+                      >
+                        <div className="relative aspect-[4/3] w-full overflow-hidden">
+                          <img 
+                            src={getMediaUrl(item.url)} 
+                            alt=""
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <span className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-black/60 text-white group-hover:bg-[#c29b38] group-hover:text-slate-950 transition-colors backdrop-blur-sm opacity-0 group-hover:opacity-100">
+                            <Maximize2 className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Vị trí & Google Maps */}
               {place.location && (
                 <div className="bg-[#161f30] p-4 sm:p-5 rounded-xl border border-slate-800">
@@ -239,7 +338,48 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             </div>
           )}
 
-          {/* TAB 2: VIDEOS & TƯ LIỆU */}
+          {/* TAB 2: DEDICATED FULL GALLERY TAB */}
+          {activeTab === 'gallery' && (
+            <div className="space-y-6">
+              <div className="pb-4 border-b border-slate-800">
+                <h3 className="text-base font-serif-display font-bold text-white flex items-center gap-2">
+                  <Camera className="w-5 h-5 text-[#c29b38]" />
+                  Hình ảnh di sản: {place.name}
+                </h3>
+              </div>
+
+              {/* Gallery Grid */}
+              {galleryItems.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {galleryItems.map((item, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => setLightboxIndex(idx)}
+                      className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-[#c29b38] cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-[#c29b38]/10 transition-all duration-300"
+                    >
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
+                        <img 
+                          src={getMediaUrl(item.url)} 
+                          alt=""
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <span className="absolute top-3 right-3 p-2 rounded-full bg-black/60 text-white group-hover:bg-[#c29b38] group-hover:text-slate-950 transition-colors backdrop-blur-sm shadow opacity-0 group-hover:opacity-100">
+                          <Maximize2 className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-12 text-center text-slate-400">
+                  <p>Đang cập nhật hình ảnh tư liệu</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 3: VIDEOS & TƯ LIỆU */}
           {activeTab === 'videos' && (
             <div className="space-y-4">
               <p className="text-xs text-slate-400">
@@ -293,7 +433,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             </div>
           )}
 
-          {/* TAB 2: INFOGRAPHIC */}
+          {/* TAB 4: INFOGRAPHIC */}
           {activeTab === 'infographic' && (
             <div className="space-y-4">
               <AIPlaceInfographic
@@ -318,6 +458,72 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
           </button>
         </div>
       </div>
+
+      {/* FULLSCREEN LIGHTBOX MODAL */}
+      {lightboxIndex !== null && galleryItems[lightboxIndex] && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Lightbox Top Header */}
+          <div 
+            className="w-full max-w-5xl flex items-center justify-between text-white z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3">
+              <h4 className="text-sm sm:text-base font-serif-display font-bold text-white line-clamp-1">
+                {place.name}
+              </h4>
+            </div>
+
+            <button
+              onClick={() => setLightboxIndex(null)}
+              className="p-2.5 rounded-full bg-white/10 hover:bg-[#c29b38] hover:text-slate-950 transition-all border border-white/20"
+              title="Đóng (Esc)"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Lightbox Center: Image with Navigation Controls */}
+          <div 
+            className="relative w-full max-w-5xl flex-1 flex items-center justify-center p-2 sm:p-4 my-2 overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Previous Button */}
+            {galleryItems.length > 1 && (
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-2 sm:left-4 z-20 p-3 rounded-full bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all border border-white/20 shadow-xl backdrop-blur-sm"
+                title="Ảnh trước (Mũi tên trái)"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            )}
+
+            {/* Main Image */}
+            <div className="relative max-h-[85vh] max-w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+              <img 
+                src={getMediaUrl(galleryItems[lightboxIndex].url)} 
+                alt=""
+                className="max-h-[85vh] w-auto object-contain"
+              />
+            </div>
+
+            {/* Next Button */}
+            {galleryItems.length > 1 && (
+              <button
+                onClick={handleNextImage}
+                className="absolute right-2 sm:right-4 z-20 p-3 rounded-full bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all border border-white/20 shadow-xl backdrop-blur-sm"
+                title="Ảnh tiếp theo (Mũi tên phải)"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+

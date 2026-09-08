@@ -1,3 +1,10 @@
+export interface PlaceGalleryItem {
+  url: string;
+  caption: string;
+  tag?: string;
+  authorOrSource?: string;
+}
+
 export interface PlaceItem {
   name: string;
   shortIntro: string;
@@ -7,6 +14,7 @@ export interface PlaceItem {
   historicalValue: string;
   significance: string;
   image: string;
+  gallery?: (PlaceGalleryItem | string)[];
   videos: string[];
   infographic: string;
   aiPrompts: string[];

@@ -58,9 +58,17 @@ export const PLACE_IMAGES: Record<string, string> = {
   "./assets/group5_modern.webp": thanhPhoMoiImg,
   "./assets/thanh_pho_moi_binh_duong.webp": thanhPhoMoiImg, // Authentic Binh Duong New City administrative twin towers & park
   "./assets/ho_dau_tieng.webp": hoDauTiengImg, // Authentic Dau Tieng Lake reservoir & Ba Den Mountain
+  "./assets/ho_dau_tieng.jpg": hoDauTiengImg,
+  "./assets/ho_dau_tieng_art_1788526034716.jpg": hoDauTiengImg,
   "./assets/bai_sau_vung_tau.webp": baiSauImg, // Authentic Bai Sau golden coast & Thuy Van avenue
+  "./assets/bai_sau_vung_tau.jpg": baiSauImg,
+  "./assets/bai_sau_vt_art_1788526051592.jpg": baiSauImg,
   "./assets/lang_chai_phuoc_hai.webp": phuocHaiImg, // Authentic Phuoc Hai round basket boats on the beach
+  "./assets/lang_chai_phuoc_hai.jpg": phuocHaiImg,
+  "./assets/phuoc_hai_village_art_1788526069010.jpg": phuocHaiImg,
   "./assets/pho_di_bo_nguyen_hue.webp": phoDiBoImg, // Authentic Nguyen Hue walking street with City Hall
+  "./assets/pho_di_bo_nguyen_hue.jpg": phoDiBoImg,
+  "./assets/pho_di_bo_nguyen_hue_art_1788525990806.jpg": phoDiBoImg,
 
   // Slides 7, 8, 9
   "./assets/cultural_map.webp": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80", // Cartography map
@@ -68,9 +76,53 @@ export const PLACE_IMAGES: Record<string, string> = {
   "./assets/about_culturehub.webp": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" // Education youth team
 };
 
+// Dynamically import all images from KHKT and root images directories using Vite's import.meta.glob
+const dynamicKHKTModules = import.meta.glob<string | { default: string }>(
+  '../assets/images/**/*.{jpg,jpeg,png,webp,PNG,JPG,WEBP}',
+  { eager: true, import: 'default' }
+);
+
+// Pre-populate dynamic image index
+const DYNAMIC_IMAGE_MAP: Record<string, string> = {};
+for (const [filePath, mod] of Object.entries(dynamicKHKTModules)) {
+  const url = typeof mod === 'string' ? mod : (mod as { default: string })?.default || '';
+  if (!url) continue;
+  
+  // filePath is like "../assets/images/KHKT/s2_bennharong_01.jpg"
+  const fileName = filePath.split('/').pop() || '';
+  DYNAMIC_IMAGE_MAP[filePath] = url;
+  DYNAMIC_IMAGE_MAP[fileName] = url;
+  DYNAMIC_IMAGE_MAP[`./assets/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`/assets/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`./assets/KHKT/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`/assets/KHKT/${fileName}`] = url;
+}
+
 export function getMediaUrl(assetPath: string): string {
+  if (!assetPath) {
+    return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";
+  }
+
+  // Check direct dynamic map
+  if (DYNAMIC_IMAGE_MAP[assetPath]) {
+    return DYNAMIC_IMAGE_MAP[assetPath];
+  }
+
+  // Check filename only in dynamic map
+  const cleanFileName = assetPath.split('/').pop() || '';
+  if (DYNAMIC_IMAGE_MAP[cleanFileName]) {
+    return DYNAMIC_IMAGE_MAP[cleanFileName];
+  }
+
+  // Check explicit curated mappings
   if (PLACE_IMAGES[assetPath]) {
     return PLACE_IMAGES[assetPath];
   }
+
+  // If already an absolute web URL, return as is
+  if (assetPath.startsWith('http://') || assetPath.startsWith('https://') || assetPath.startsWith('data:')) {
+    return assetPath;
+  }
+
   return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";
 }

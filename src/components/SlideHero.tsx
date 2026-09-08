@@ -36,13 +36,6 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
           <span className="text-xs font-accent tracking-widest text-[#c29b38] uppercase font-bold">
             Nền Tảng Học Liệu Di Sản Số
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#c29b38]" />
-          <span className="text-xs text-slate-400 font-medium">
-            Không Gian Văn Hóa Đô Thị TP.HCM
-          </span>
-        </div>
-        <div className="text-xs font-mono text-slate-500">
-          KHO HỌC LIỆU 2026 • 21 ĐỊA DANH DI SẢN
         </div>
       </div>
 
@@ -63,9 +56,11 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-extrabold text-white tracking-tight leading-[1.15]">
               {slide.primaryTitle}
             </h1>
-            <h2 className="text-lg sm:text-xl lg:text-2xl text-[#f5e3a9] font-serif-display italic font-medium leading-snug">
-              {slide.secondaryTitle}
-            </h2>
+            {slide.secondaryTitle && (
+              <h2 className="text-lg sm:text-xl lg:text-2xl text-[#f5e3a9] font-serif-display italic font-medium leading-snug">
+                {slide.secondaryTitle}
+              </h2>
+            )}
           </div>
 
           {/* Body Content - 100% PRESERVED with liquid-glass */}
@@ -75,30 +70,8 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
             </p>
           </div>
 
-          {/* Key Highlights Bullet Points */}
-          <div className="space-y-2">
-            <h4 className="text-xs uppercase font-bold tracking-wider text-[#e6ca65]">
-              Điểm nhấn cốt lõi (Key Highlights):
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {slide.keyHighlights.map((highlight, idx) => (
-                <div 
-                  key={idx} 
-                  className="flex items-start gap-2.5 p-3 rounded-xl liquid-glass border border-white/10 hover:border-[#c29b38]/50 transition-colors"
-                >
-                  <div className="w-5 h-5 rounded-full bg-[#c29b38]/30 flex items-center justify-center shrink-0 mt-0.5 border border-[#c29b38]/50">
-                    <span className="text-[10px] font-bold text-[#f5e3a9]">{idx + 1}</span>
-                  </div>
-                  <p className="text-xs text-white/80 leading-relaxed font-medium">
-                    {highlight}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Direct CTA Buttons */}
-          <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
             <button
               id="hero-explore-btn"
               onClick={() => onNavigateSlide(1)}
@@ -156,12 +129,12 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
               <div className="text-[11px] text-white/60">Nhóm không gian</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
-              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">21</div>
-              <div className="text-[11px] text-white/60">Địa danh & Di sản</div>
+              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">Toàn Diện</div>
+              <div className="text-[11px] text-white/60">Điểm đến di sản</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
-              <div className="text-xl font-serif-display font-bold text-[#c29b38]">2026</div>
-              <div className="text-[11px] text-white/60">Dữ liệu chuẩn hóa</div>
+              <div className="text-xl font-serif-display font-bold text-[#c29b38]">Số Hóa</div>
+              <div className="text-[11px] text-white/60">Dữ liệu chuẩn xác</div>
             </div>
           </div>
         </div>

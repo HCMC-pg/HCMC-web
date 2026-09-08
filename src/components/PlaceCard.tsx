@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ExternalLink, Video, Sparkles, BookOpen, ArrowUpRight, FileText } from 'lucide-react';
+import { MapPin, ExternalLink, Video, Sparkles, BookOpen, ArrowUpRight, FileText, Camera } from 'lucide-react';
 import { PlaceItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
 
@@ -29,11 +29,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#131b2a] via-[#131b2a]/30 to-transparent" />
-        
-        {/* Category Pill */}
-        <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0b0f17]/80 backdrop-blur-md text-[11px] font-semibold text-[#e6ca65] border border-[#c29b38]/30">
-          {categoryName.split('•')[0] || 'Học liệu'}
-        </span>
 
         {/* Quick External Map Link */}
         {place.mapUrl && (
@@ -75,6 +70,11 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         {/* Card Footer badges & CTA */}
         <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between">
           <div className="flex items-center gap-2 text-[11px] text-slate-400">
+            {place.gallery && place.gallery.length > 0 && (
+              <span className="flex items-center gap-1 text-[#f5e3a9] bg-[#c29b38]/20 px-1.5 py-0.5 rounded border border-[#c29b38]/30 font-medium" title="Hình ảnh di sản">
+                <Camera className="w-3 h-3 text-[#f5e3a9]" />
+              </span>
+            )}
             {place.videos && place.videos.length > 0 && (
               <span className="flex items-center gap-1 hover:text-red-400 transition-colors" title={`${place.videos.length} video`}>
                 <Video className="w-3.5 h-3.5 text-red-400" />
@@ -87,9 +87,9 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
                 {place.aiPrompts.length}
               </span>
             )}
-            <span className="flex items-center gap-1 text-[#c29b38] hover:text-[#f5e3a9] transition-colors" title="Đồ họa Infographic AI">
+            <span className="flex items-center gap-1 text-[#c29b38] hover:text-[#f5e3a9] transition-colors" title="Đồ họa Phân Tích Di Sản">
               <FileText className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Infographic</span>
+              <span className="hidden sm:inline">Phân tích</span>
             </span>
           </div>
 

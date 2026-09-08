@@ -60,9 +60,6 @@ export const Header: React.FC<HeaderProps> = ({
                 HCMC<span className="text-[#c29b38]">-CULTUREHUB</span>
               </span>
             </div>
-            <p className="text-[11px] text-white/60 font-medium hidden sm:block">
-              Không gian văn hóa & di sản Nam Bộ
-            </p>
           </div>
         </div>
 
@@ -95,6 +92,17 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Quick Search - Tra cứu */}
+          <button
+            id="header-search-btn"
+            onClick={onOpenSearch}
+            className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/10 hover:bg-white/15 text-white hover:text-[#f5e3a9] border border-white/15 hover:border-[#c29b38]/50 transition-all flex items-center gap-2 text-xs font-semibold shadow-sm group"
+            title="Tra cứu di tích, địa danh, học liệu"
+          >
+            <Search className="w-4 h-4 text-[#e6ca65] group-hover:scale-110 transition-transform" />
+            <span>Tra cứu</span>
+          </button>
+
           {/* Direct Web Game Link */}
           <a
             href="https://maries2345678-spec.github.io/HCMC-CulturzlHub/"
@@ -107,17 +115,6 @@ export const Header: React.FC<HeaderProps> = ({
             <Gamepad2 className="w-4 h-4 text-emerald-400 group-hover:text-slate-950 transition-colors" />
             <span className="hidden sm:inline">Web Game</span>
           </a>
-
-          {/* Quick Search */}
-          <button
-            id="header-search-btn"
-            onClick={onOpenSearch}
-            className="p-2 sm:px-3 sm:py-2 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 hover:border-white/20 transition-all flex items-center gap-2 text-xs"
-            title="Tìm kiếm di tích, nhóm học liệu"
-          >
-            <Search className="w-4 h-4 text-[#e6ca65]" />
-            <span className="hidden md:inline">Tra cứu</span>
-          </button>
 
           {/* Survey Feedback Link Button */}
           <a
@@ -146,6 +143,22 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-black/95 backdrop-blur-2xl border-b border-white/15 px-4 py-4 space-y-3 shadow-2xl animate-in fade-in duration-200">
+          {/* Quick Search on Mobile - Tra cứu */}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenSearch();
+            }}
+            id="mobile-search-btn"
+            className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-xs flex items-center justify-between shadow-sm hover:bg-white/15 transition-all"
+          >
+            <div className="flex items-center gap-2">
+              <Search className="w-4 h-4 text-[#e6ca65]" />
+              <span>Tra cứu di tích & địa danh</span>
+            </div>
+            <span className="text-[10px] text-slate-400 font-mono">Tìm kiếm</span>
+          </button>
+
           {/* Direct Web Game Link banner on mobile */}
           <a
             href="https://maries2345678-spec.github.io/HCMC-CulturzlHub/"

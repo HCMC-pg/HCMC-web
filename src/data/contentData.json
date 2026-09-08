@@ -13,14 +13,9 @@
       "slideNumber": 1,
       "category": "Trang chủ",
       "primaryTitle": "HCMC CultureHub",
-      "secondaryTitle": "Kho học liệu số giúp học sinh khám phá không gian văn hóa đô thị TP.HCM",
-      "bodyContent": "Mỗi địa danh đều lưu giữ những câu chuyện về lịch sử, văn hóa và con người. Website này được xây dựng như một kho học liệu số giúp học sinh khám phá không gian văn hóa đô thị TP.HCM mới một cách trực quan, sinh động và thuận tiện. Hy vọng đây sẽ là người bạn đồng hành, khơi gợi niềm yêu thích học tập và góp phần lan tỏa những giá trị văn hóa của quê hương.",
-      "keyHighlights": [
-        "Lưu giữ những câu chuyện về lịch sử, văn hóa và con người",
-        "Kho học liệu số trực quan, sinh động và thuận tiện cho học sinh",
-        "Khám phá không gian văn hóa đô thị TP.HCM mới",
-        "Người bạn đồng hành khơi gợi niềm yêu thích học tập và lan tỏa giá trị quê hương"
-      ],
+      "secondaryTitle": "",
+      "bodyContent": "Mỗi địa danh đều lưu giữ những câu chuyện về lịch sử, văn hóa và con người một cách trực quan, sinh động và thuận tiện. Hy vọng đây sẽ là người bạn đồng hành, khơi gợi niềm yêu thích học tập và góp phần lan tỏa những giá trị văn hóa của quê hương.",
+      "keyHighlights": [],
       "image": "./assets/hero_hcmc_hub.webp",
       "badge": "Trang Chủ • Khởi Đầu Hành Trình"
     },
@@ -37,7 +32,7 @@
         "Địa đạo Củ Chi: Kỳ tích trong lòng đất dài 250km độc nhất vô nhị",
         "Nhà tù Côn Đảo: Địa chỉ đỏ giáo dục truyền thống và ý chí kiên cường"
       ],
-      "image": "./assets/group1_history.webp",
+      "image": "./assets/s2_group1_banner_01.jpg",
       "places": [
         {
           "name": "Bến Nhà Rồng",
@@ -46,7 +41,7 @@
           "mapUrl": "https://maps.app.goo.gl/ZABe1oV6mshEFsDa7",
           "historicalValue": "Bến Nhà Rồng gắn liền với sự kiện ngày 5/6/1911, khi người thanh niên Nguyễn Tất Thành lên tàu Amiral Latouche Tréville ra đi tìm đường cứu nước, mở đầu hành trình hơn 30 năm tìm con đường giải phóng dân tộc. Đây là một trong những địa danh có ý nghĩa đặc biệt trong lịch sử cách mạng Việt Nam.",
           "significance": "Bến Nhà Rồng là biểu tượng của lòng yêu nước, khát vọng độc lập và ý chí vượt khó của dân tộc Việt Nam. Di tích góp phần giáo dục truyền thống cách mạng, bồi dưỡng lòng tự hào dân tộc và giúp thế hệ trẻ hiểu sâu sắc hơn về cuộc đời, sự nghiệp của Chủ tịch Hồ Chí Minh.",
-          "image": "./assets/ben_nha_rong.webp",
+          "image": "./assets/s2_bennharong_01.jpg",
           "officialSource": "Bảo tàng Hồ Chí Minh – Chi nhánh TP.HCM (baotanghochiminh.vn) & Cục Di sản Văn hóa",
           "verifiedOfficial": true,
           "establishedYear": "1862 – 1863",
@@ -65,7 +60,21 @@
             "Viết một đoạn nhật ký khoảng 150 chữ dưới góc nhìn của Nguyễn Tất Thành trong ngày 5/6/1911 trước khi lên tàu ra đi tìm đường cứu nước.",
             "Gợi ý 5 điều thú vị mà học sinh nên quan sát khi tham quan Bến Nhà Rồng."
           ],
-          "groupId": "group1"
+          "groupId": "group1",
+          "gallery": [
+            {
+              "url": "./assets/s2_bennharong_01.jpg"
+            },
+            {
+              "url": "./assets/s2_bennharong_02.jpg"
+            },
+            {
+              "url": "./assets/s2_bennharong_03.jpg"
+            },
+            {
+              "url": "./assets/s2_bennharong_04.png"
+            }
+          ]
         },
         {
           "name": "DINH ĐỘC LẬP",
@@ -74,7 +83,7 @@
           "mapUrl": "https://maps.app.goo.gl/jEfWRBE6SpyXRaHP9",
           "historicalValue": "Dinh Độc Lập là chứng nhân của nhiều biến cố lịch sử quan trọng, đặc biệt là sự kiện 30/4/1975, khi xe tăng Quân Giải phóng tiến vào Dinh, đánh dấu thắng lợi của Chiến dịch Hồ Chí Minh và sự thống nhất đất nước. Nơi đây còn lưu giữ nhiều hiện vật, không gian làm việc và dấu tích lịch sử, góp phần tái hiện một giai đoạn quan trọng của dân tộc. Năm 2009, Dinh Độc Lập được xếp hạng Di tích quốc gia đặc biệt.",
           "significance": "Ngày nay, Dinh Độc Lập là biểu tượng của hòa bình, độc lập và thống nhất dân tộc. Không chỉ mang giá trị lịch sử, công trình còn nổi bật với kiến trúc kết hợp hài hòa giữa phong cách hiện đại và bản sắc truyền thống Việt Nam. Đây là địa điểm giúp học sinh tìm hiểu lịch sử, bồi dưỡng lòng yêu nước, niềm tự hào dân tộc và ý thức gìn giữ các giá trị văn hóa, di sản của đất nước.",
-          "image": "./assets/dinh_doc_lap.webp",
+          "image": "./assets/s2_dinhdoclap_02.jpg",
           "officialSource": "Ban Quản lý Di tích Lịch sử Dinh Độc Lập (dinhdoclap.gov.vn) & Cục Di sản Văn hóa",
           "verifiedOfficial": true,
           "establishedYear": "1962 – 1966",
@@ -93,7 +102,18 @@
             "Viết một đoạn nhật ký (150 chữ) dưới góc nhìn của một học sinh tham quan Dinh Độc Lập và chia sẻ cảm xúc sau chuyến đi.",
             "Gợi ý 5 địa điểm hoặc hiện vật nổi bật mà học sinh không nên bỏ lỡ khi tham quan Dinh Độc Lập."
           ],
-          "groupId": "group1"
+          "groupId": "group1",
+          "gallery": [
+            {
+              "url": "./assets/s2_dinhdoclap_02.jpg"
+            },
+            {
+              "url": "./assets/s2_dinhdoclap_03.jpg"
+            },
+            {
+              "url": "./assets/s2_dinhdoclap_04.jpg"
+            }
+          ]
         },
         {
           "name": "ĐỊA ĐẠO CỦ CHI-TPHCM",
@@ -103,7 +123,7 @@
           "secondaryMapUrl": "https://maps.app.goo.gl/n1x32SbF35ypm7dK6",
           "historicalValue": "Được hình thành trong thời kỳ kháng chiến chống Pháp (khoảng năm 1946 - 1948) và phát triển mạnh mẽ nhất trong thời kỳ kháng chiến chống Mỹ. Địa đạo là nơi trú ẩn, hội họp, chiến đấu kiên cường của quân và dân Nam Bộ trước các cuộc càn quét khốc liệt của quân đội đối phương. Ngày 23/12/2015, di tích này đã được công nhận là Di tích Quốc gia Đặc biệt.",
           "significance": "Địa đạo Củ Chi là biểu tượng sáng ngời của chủ nghĩa anh hùng cách mạng, trí tuệ và ý chí bất khuất của con người Việt Nam. Nó thể hiện đỉnh cao của nghệ thuật chiến tranh nhân dân độc đáo, được mệnh danh là \"kỳ tích trong lòng đất\".",
-          "image": "./assets/dia_dao_cu_chi.webp",
+          "image": "./assets/s2_diadaocuchi_02.jpg",
           "officialSource": "Khu Di tích Lịch sử Địa đạo Củ Chi (diadaocuchi.com.vn) & Hồ sơ Di tích Quốc gia Đặc biệt",
           "verifiedOfficial": true,
           "establishedYear": "1946 – 1968",
@@ -118,7 +138,18 @@
           "aiPrompts": [
             "A cinematic, wide-angle photo of a historical underground tunnel system inside the Cu Chi Tunnels of Vietnam. Earthy red clay soil walls, narrow pathway with warm-toned vintage light bulbs hanging along the tunnel ceiling, creating long dramatic shadows and a mysterious atmosphere. A wooden ladder leading to a small hidden trapdoor above covered with forest leaves. Photorealistic, 8k resolution, high contrast, historical documentary style, volumetric lighting --ar 16:9"
           ],
-          "groupId": "group1"
+          "groupId": "group1",
+          "gallery": [
+            {
+              "url": "./assets/s2_diadaocuchi_02.jpg"
+            },
+            {
+              "url": "./assets/s2_diadaocuchi_03.jpg"
+            },
+            {
+              "url": "./assets/s2_diadaocuchi_04.jpg"
+            }
+          ]
         },
         {
           "name": "NHÀ TÙ CÔN ĐẢO-BRVT",
@@ -127,7 +158,7 @@
           "mapUrl": "https://maps.app.goo.gl/cS8TkxunxnSWgLre6",
           "historicalValue": "Nhà tù Côn Đảo là chứng tích về chế độ giam cầm, cưỡng bức lao động và đàn áp khắc nghiệt đối với các chiến sĩ cách mạng và người yêu nước trong thời kỳ thuộc địa và chiến tranh. Đồng thời, nơi đây ghi dấu ý chí kiên cường, tinh thần đấu tranh và khí tiết của những người tù cách mạng. Hệ thống di tích còn gắn với Nghĩa trang Hàng Dương – nơi yên nghỉ của hàng vạn chiến sĩ cách mạng và đồng bào yêu nước.",
           "significance": "Nhà tù Côn Đảo ngày nay là một “địa chỉ đỏ” giúp thế hệ trẻ tìm hiểu lịch sử dân tộc và tưởng nhớ những người đã hy sinh. Di tích góp phần giáo dục lòng yêu nước, ý thức gìn giữ hòa bình và truyền thống “uống nước nhớ nguồn”, đồng thời lưu giữ những giá trị lịch sử đặc biệt của dân tộc.",
-          "image": "./assets/nha_tu_con_dao.webp",
+          "image": "./assets/s2_nhatucondao_02.jpg",
           "officialSource": "Ban Quản lý Di tích Côn Đảo & Cục Di sản Văn hóa - Bộ VHTTDL",
           "verifiedOfficial": true,
           "establishedYear": "1862 – 1975",
@@ -142,7 +173,18 @@
           "aiPrompts": [
             "Cinematic, dramatic photo of the historic Con Dao prison rows of cells, concrete walls, mossy textures, dramatic sunlight rays beaming through iron bars, historical Vietnamese monument style, high detail, 8k resolution --ar 16:9"
           ],
-          "groupId": "group1"
+          "groupId": "group1",
+          "gallery": [
+            {
+              "url": "./assets/s2_nhatucondao_02.jpg"
+            },
+            {
+              "url": "./assets/s2_nhatucondao_03.jpg"
+            },
+            {
+              "url": "./assets/s2_nhatucondao_04.jpg"
+            }
+          ]
         }
       ]
     },
@@ -168,7 +210,7 @@
           "mapUrl": "https://maps.app.goo.gl/8vKhdC5qGCMqhQi87",
           "historicalValue": "Được xây dựng trong thời kỳ Pháp thuộc (1886-1891), Bưu điện Trung tâm là công trình mang đậm phong cách kiến trúc Phục Hưng kết hợp chi tiết trang trí phương Đông do kiến trúc sư Marie-Alfred Foulhoux thiết kế. Hệ thống vòm sắt chịu lực và khung thép tiền chế do hãng Eiffel danh tiếng thực hiện. Bên trong lưu giữ 2 bản đồ lịch sử khổ lớn vẽ tay năm 1892 về hệ thống bưu điện và viễn thông Nam Kỳ.",
           "significance": "Không chỉ là nơi cung cấp dịch vụ bưu chính viễn thông xuyên suốt hơn 130 năm, Bưu điện Trung tâm còn là biểu tượng của sự giao thoa giữa kiến trúc châu Âu và văn hóa Việt Nam, là điểm đến di sản văn hóa không thể tách rời của Sài Gòn - TP.HCM.",
-          "image": "./assets/buu_dien_trung_tam.webp",
+          "image": "./assets/s3_buudien_02.jpg",
           "officialSource": "Tổng Công ty Bưu điện Việt Nam (VNPost) & Sở Văn hóa và Thể thao TP.HCM",
           "verifiedOfficial": true,
           "establishedYear": "1886 – 1891",
@@ -188,7 +230,18 @@
             "So sánh Bưu điện Trung tâm và Nhà thờ Đức Bà Sài Gòn về giá trị lịch sử và kiến trúc.",
             "Đề xuất một ý tưởng giúp bảo tồn và quảng bá Bưu điện Trung tâm trong thời đại số."
           ],
-          "groupId": "group2"
+          "groupId": "group2",
+          "gallery": [
+            {
+              "url": "./assets/s3_buudien_02.jpg"
+            },
+            {
+              "url": "./assets/s3_buudien_03.jpg"
+            },
+            {
+              "url": "./assets/s3_buudien_04.jpg"
+            }
+          ]
         },
         {
           "name": "Chùa Hội Khánh (Bình Dương)",
@@ -197,7 +250,7 @@
           "mapUrl": "https://maps.app.goo.gl/Mh7Q4FRF7TrDzwof7",
           "historicalValue": "Được xây dựng từ thế kỷ XVIII, Chùa Hội Khánh từng bị tàn phá trong năm 1861 và được xây dựng lại vào 1868 tại vị trí hiện nay. Chùa là công trình kiến trúc gỗ tiêu biểu của Nam Bộ, lưu giữ nhiều cổ vật quý như bộ tượng Thập Bát La Hán, Thập Điện Minh Vương và các phù điêu chạm khắc tinh xảo. Năm 2013, chùa khánh thành tượng Phật nhập Niết bàn dài 52m trên mái chùa được Tổ chức Kỷ lục Châu Á xác lập.",
           "significance": "Không chỉ là nơi sinh hoạt tín ngưỡng của người dân, Chùa Hội Khánh còn là điểm đến giúp học sinh và du khách tìm hiểu về lịch sử, kiến trúc, mỹ thuật và văn hóa Phật giáo Việt Nam. Ngôi chùa góp phần gìn giữ bản sắc văn hóa địa phương và là biểu tượng của đời sống tinh thần trên vùng đất Bình Dương.",
-          "image": "./assets/chua_hoi_khanh.webp",
+          "image": "./assets/s3_chuahoikhanh_02.jpg",
           "officialSource": "Sở Văn hóa, Thể thao và Du lịch tỉnh Bình Dương & Ban Trị sự GHPGVN tỉnh Bình Dương",
           "verifiedOfficial": true,
           "establishedYear": "1741 (trùng tu lớn 1868)",
@@ -217,7 +270,18 @@
             "So sánh Chùa Hội Khánh và Thích Ca Phật Đài về kiến trúc, lịch sử và giá trị văn hóa.",
             "Đề xuất một số giải pháp giúp bảo tồn các di tích tôn giáo trong quá trình phát triển đô thị."
           ],
-          "groupId": "group2"
+          "groupId": "group2",
+          "gallery": [
+            {
+              "url": "./assets/s3_chuahoikhanh_02.jpg"
+            },
+            {
+              "url": "./assets/s3_chuahoikhanh_03.jpg"
+            },
+            {
+              "url": "./assets/s3_chuahoikhanh_04.jpg"
+            }
+          ]
         },
         {
           "name": "Thích Ca Phật Đài (Bà Rịa – Vũng Tàu)",
@@ -226,7 +290,7 @@
           "mapUrl": "https://maps.app.goo.gl/rLn64Pwn4k8CH1Pm8",
           "historicalValue": "Công trình được xây dựng theo ý tưởng của Hòa thượng Narada Maha Thera (Sri Lanka), kết hợp kiến trúc Phật giáo Nam tông với cảnh quan thiên nhiên. Nổi bật trong quần thể là Bảo tháp Xá lợi cao 17m, tượng Đức Phật Thích Ca tọa thiền trên đài sen cao 10.2m (tổng thể cao 19m) và vườn tượng tái hiện cuộc đời Đức Phật. Đây là một trong những trung tâm Phật giáo tiêu biểu của Đông Nam Bộ.",
           "significance": "Thích Ca Phật Đài là điểm đến tâm linh nổi tiếng, góp phần gìn giữ và lan tỏa các giá trị văn hóa Phật giáo Việt Nam. Đối với học sinh và du khách, nơi đây là địa điểm ý nghĩa để tìm hiểu về lịch sử, nghệ thuật kiến trúc, tư tưởng nhân văn của Phật giáo và vẻ đẹp văn hóa của vùng biển Vũng Tàu.",
-          "image": "./assets/thich_ca_phat_dai.webp",
+          "image": "./assets/s3_thiccaphatdai_02.jpg",
           "officialSource": "Sở Văn hóa, Thể thao và Du lịch tỉnh Bà Rịa – Vũng Tàu & Ban Quản lý Di tích",
           "verifiedOfficial": true,
           "establishedYear": "1961 – 1963",
@@ -245,7 +309,18 @@
             "So sánh Thích Ca Phật Đài với Chùa Hội Khánh về kiến trúc và giá trị văn hóa.",
             "Đề xuất một số giải pháp giúp bảo tồn và phát huy giá trị của các di tích tôn giáo trong phát triển du lịch bền vững."
           ],
-          "groupId": "group2"
+          "groupId": "group2",
+          "gallery": [
+            {
+              "url": "./assets/s3_thiccaphatdai_02.jpg"
+            },
+            {
+              "url": "./assets/s3_thiccaphatdai_03.jpg"
+            },
+            {
+              "url": "./assets/s3_thiccaphatdai_04.jpg"
+            }
+          ]
         },
         {
           "name": "Nhà thờ Đức Bà Sài Gòn",
@@ -254,7 +329,7 @@
           "mapUrl": "https://maps.app.goo.gl/46auNtA9FijCwVCW6",
           "historicalValue": "Nhà thờ Đức Bà là công trình tôn giáo có quy mô lớn do người Pháp xây dựng cuối thế kỷ XIX, sử dụng toàn bộ gạch ngói vận chuyển từ Marseille (Pháp) không bám rêu mốc. Đôi tháp chuông gắn thánh giá cao 60.5m (bổ sung tháp nhọn năm 1895) với 6 quả chuông đồng lớn đúc tại Pháp. Năm 1962, công trình được Giáo hoàng Gioan XXIII sắc phong là Vương cung Thánh đường (Basilica).",
           "significance": "Nhà thờ Đức Bà Sài Gòn là biểu tượng của sự giao thoa giữa văn hóa phương Đông và phương Tây, đồng thời là điểm đến nổi tiếng thu hút đông đảo du khách trong và ngoài nước. Đối với học sinh, đây là địa điểm tiêu biểu để tìm hiểu về lịch sử, kiến trúc, tôn giáo và sự phát triển của Thành phố Hồ Chí Minh.",
-          "image": "./assets/nha_tho_duc_ba.webp",
+          "image": "./assets/s3_nhathoducba_02.jpg",
           "officialSource": "Tòa Tổng Giám mục Tổng Giáo phận Sài Gòn & Sở Du lịch TP.HCM",
           "verifiedOfficial": true,
           "establishedYear": "1877 – 1880 (gắn chóp nhọn 1895)",
@@ -275,7 +350,18 @@
             "So sánh Nhà thờ Đức Bà Sài Gòn với một công trình kiến trúc lịch sử khác của Thành phố Hồ Chí Minh về giá trị văn hóa và lịch sử.",
             "Đề xuất một số giải pháp giúp bảo tồn và phát huy giá trị của Nhà thờ Đức Bà trong phát triển du lịch bền vững."
           ],
-          "groupId": "group2"
+          "groupId": "group2",
+          "gallery": [
+            {
+              "url": "./assets/s3_nhathoducba_02.jpg"
+            },
+            {
+              "url": "./assets/s3_nhathoducba_03.jpg"
+            },
+            {
+              "url": "./assets/s3_nhathoducba_04.jpg"
+            }
+          ]
         }
       ]
     },
@@ -301,7 +387,7 @@
           "mapUrl": "https://maps.app.goo.gl/xnQKgYundNF9r5Dt5",
           "historicalValue": "Được xây dựng theo kiến trúc Pháp với tháp đồng hồ trung tâm và hình dáng bề thế hướng ra sông Sài Gòn (công trình tháp đồng hồ hiện hữu xây năm 1935), Chợ Thủ Dầu Một là công trình mang dấu ấn kiến trúc và lịch sử đặc sắc. Từ chợ Phú Cường ban đầu, nơi đây đã trở thành chợ trung tâm của tỉnh Thủ Dầu Một, lưu giữ nhiều nét văn hóa chợ truyền thống và ẩm thực phong phú của miền Đông Nam Bộ.",
           "significance": "Không chỉ là nơi trao đổi hàng hóa, Chợ Thủ Dầu Một còn là không gian lưu giữ nét đẹp văn hóa chợ truyền thống Nam Bộ, biểu tượng thương mại và văn hóa đô thị gắn bó mật thiết với người dân Bình Dương.",
-          "image": "./assets/cho_thu_dau_mot.webp",
+          "image": "./assets/s4_chothudaumot_02.jpg",
           "officialSource": "Cổng Thông tin điện tử TP. Thủ Dầu Một & Bảo tàng tỉnh Bình Dương",
           "verifiedOfficial": true,
           "establishedYear": "1828 (tháp đồng hồ xây năm 1935)",
@@ -321,7 +407,18 @@
             "So sánh chợ truyền thống và trung tâm thương mại hiện đại về vai trò trong đời sống cộng đồng.",
             "Đề xuất một ý tưởng giúp bảo tồn và quảng bá Chợ Thủ Dầu Một trong thời đại số."
           ],
-          "groupId": "group3"
+          "groupId": "group3",
+          "gallery": [
+            {
+              "url": "./assets/s4_chothudaumot_02.jpg"
+            },
+            {
+              "url": "./assets/s4_chothudaumot_03.jpg"
+            },
+            {
+              "url": "./assets/s4_chothudaumot_04.png"
+            }
+          ]
         },
         {
           "name": "Chợ Bến Thành - TP.HCM",
@@ -330,7 +427,7 @@
           "mapUrl": "https://maps.app.goo.gl/LzKmKbxST4Dot9QSA",
           "historicalValue": "Khởi lập từ đầu thế kỷ XIX ven sông Bến Nghé (gần thành Gia Định xưa, nên gọi là Bến Thành), sau đó được người Pháp xây dựng lại tại vị trí hiện tại từ năm 1912 đến 1914 bởi hãng thầu Brossard & Mopin. Ngôi chợ nổi bật với 4 cửa Đông, Tây, Nam, Bắc và tháp chuông đồng hồ cửa Nam đã trở thành biểu tượng quốc tế nhận diện của TP.HCM.",
           "significance": "Là biểu tượng văn hóa giao thương, cầu nối ẩm thực và mỹ nghệ đặc sắc của miền Nam, nơi du khách có thể tìm thấy mọi nét đặc trưng của đời sống Sài Gòn xưa và nay.",
-          "image": "./assets/cho_ben_thanh.webp",
+          "image": "./assets/s4_chobenthanh__02.jpg",
           "officialSource": "Ban Quản lý Chợ Bến Thành & Cổng Thông tin điện tử Quận 1, TP.HCM",
           "verifiedOfficial": true,
           "establishedYear": "1912 – 1914",
@@ -346,7 +443,18 @@
             "Đóng vai hướng dẫn viên du lịch giới thiệu Chợ Bến Thành và 4 cửa chính đặc trưng cho học sinh.",
             "Kể về một buổi sớm tinh mơ tại chợ Bến Thành phản ánh bản sắc văn hóa giao thương của người Sài Gòn xưa và nay."
           ],
-          "groupId": "group3"
+          "groupId": "group3",
+          "gallery": [
+            {
+              "url": "./assets/s4_chobenthanh__02.jpg"
+            },
+            {
+              "url": "./assets/s4_chobenthanh__03.jpg"
+            },
+            {
+              "url": "./assets/s4_chobenthanh_04.jpg"
+            }
+          ]
         },
         {
           "name": "Đường sách Nguyễn Văn Bình",
@@ -355,7 +463,7 @@
           "mapUrl": "https://maps.app.goo.gl/aAkafFS95SKCc3MJ6",
           "historicalValue": "Đường Sách Nguyễn Văn Bình đánh dấu bước phát triển mới trong việc xây dựng văn hóa đọc tại Thành phố Hồ Chí Minh. Khởi xướng và thành lập ngày 09/01/2016, nơi đây đã trở thành địa điểm tổ chức hàng nghìn sự kiện như ra mắt sách, giao lưu tác giả, triển lãm, tọa đàm và các chương trình hưởng ứng Ngày Sách và Văn hóa đọc Việt Nam.",
           "significance": "Ngày nay, Đường Sách Nguyễn Văn Bình là biểu tượng của văn hóa đọc và học tập suốt đời tại Thành phố Hồ Chí Minh. Không gian này khuyến khích mọi người, đặc biệt là học sinh và thanh thiếu niên, hình thành thói quen đọc sách, mở rộng tri thức và nuôi dưỡng niềm yêu thích học tập.",
-          "image": "./assets/duong_sach_nguyen_van_binh.webp",
+          "image": "./assets/s4_duongsach_02.jpg",
           "officialSource": "Sở Thông tin và Truyền thông TP.HCM & Hội Xuất bản Việt Nam",
           "verifiedOfficial": true,
           "establishedYear": "09/01/2016",
@@ -373,7 +481,18 @@
             "Đề xuất một hoạt động nhằm khuyến khích học sinh yêu thích đọc sách có thể tổ chức tại Đường Sách Nguyễn Văn Bình.",
             "So sánh thư viện truyền thống và Đường Sách Nguyễn Văn Bình về không gian, hoạt động và trải nghiệm dành cho người đọc."
           ],
-          "groupId": "group3"
+          "groupId": "group3",
+          "gallery": [
+            {
+              "url": "./assets/s4_duongsach_02.jpg"
+            },
+            {
+              "url": "./assets/s4_duongsach_03.jpg"
+            },
+            {
+              "url": "./assets/s4_duongsach_04.jpg"
+            }
+          ]
         },
         {
           "name": "Chợ Xóm Lưới (khu vực Vũng Tàu)",
@@ -382,7 +501,7 @@
           "mapUrl": "https://maps.app.goo.gl/g6p5A1KTQiZC87ob6",
           "historicalValue": "Chợ Xóm Lưới gắn liền với hoạt động đánh bắt hải sản truyền thống của cư dân vùng biển Vũng Tàu từ những thập niên giữa thế kỷ XX. Mỗi ngày, hải sản tươi rói được ngư dân đưa trực tiếp từ các ghe thuyền câu, ghe lưới ven bờ vào chợ, tạo nên không gian giao thương sống động và lưu giữ nghề khai thác hải sản truyền thống.",
           "significance": "Chợ Xóm Lưới không chỉ đáp ứng nhu cầu ẩm thực của nhân dân và du khách mà còn là điểm đến giúp học sinh tìm hiểu đời sống ngư dân miền duyên hải, văn hóa buôn bán chân chất và nét đặc sắc của văn hóa biển Nam Bộ.",
-          "image": "./assets/cho_xom_luoi.webp",
+          "image": "./assets/s4_choxomluoi_02.jpg",
           "officialSource": "Cổng Thông tin điện tử TP. Vũng Tàu (vungtau.baria-vungtau.gov.vn)",
           "verifiedOfficial": true,
           "establishedYear": "Thập niên giữa thế kỷ XX",
@@ -402,7 +521,18 @@
             "So sánh chợ hải sản truyền thống với siêu thị hải sản hiện đại về nguồn hàng và trải nghiệm mua sắm.",
             "Đề xuất một ý tưởng giúp quảng bá Chợ Xóm Lưới gắn với phát triển du lịch bền vững."
           ],
-          "groupId": "group3"
+          "groupId": "group3",
+          "gallery": [
+            {
+              "url": "./assets/s4_choxomluoi_02.jpg"
+            },
+            {
+              "url": "./assets/s4_choxomluoi_03.jpg"
+            },
+            {
+              "url": "./assets/s4_choxomluoi_04.jpg"
+            }
+          ]
         }
       ]
     },
@@ -428,7 +558,7 @@
           "mapUrl": "https://maps.app.goo.gl/qZgNxoFD9CuYYbSP7",
           "historicalValue": "Làng nghề hình thành từ khoảng thế kỷ XVIII, khi những người thợ từ miền Trung và miền Bắc mang nghề sơn đến vùng đất Nam Bộ. Qua nhiều thế hệ, các nghệ nhân đã sáng tạo nên phong cách sơn mài riêng của Tương Bình Hiệp với kỹ thuật cẩn trứng, cẩn xà cừ, thếp vàng, sơn khắc... góp phần làm nên thương hiệu sơn mài Bình Dương nổi tiếng trong và ngoài nước.",
           "significance": "Làng sơn mài Tương Bình Hiệp là biểu tượng của sự khéo léo, sáng tạo và tinh thần gìn giữ nghề truyền thống của người dân địa phương. Không chỉ tạo ra những sản phẩm mỹ nghệ có giá trị nghệ thuật cao, làng nghề còn góp phần bảo tồn bản sắc văn hóa dân tộc, phát triển du lịch và quảng bá hình ảnh vùng đất Bình Dương đến bạn bè trong và ngoài nước.",
-          "image": "./assets/son_mai_tuong_binh_hiep.webp",
+          "image": "./assets/s5_sonmaitbh_02.jpg",
           "officialSource": "Bộ Văn hóa, Thể thao và Du lịch (Quyết định số 254/QĐ-BVHTTDL ngày 22/01/2016)",
           "verifiedOfficial": true,
           "establishedYear": "Thế kỷ XVIII (hơn 200 năm lịch sử)",
@@ -447,7 +577,18 @@
             "Phân tích những giá trị văn hóa và nghệ thuật được thể hiện qua các sản phẩm sơn mài truyền thống.",
             "Đề xuất một ý tưởng giúp bảo tồn và quảng bá nghề sơn mài Tương Bình Hiệp trong thời đại số."
           ],
-          "groupId": "group4"
+          "groupId": "group4",
+          "gallery": [
+            {
+              "url": "./assets/s5_sonmaitbh_02.jpg"
+            },
+            {
+              "url": "./assets/s5_sonmaitbh_03.jpg"
+            },
+            {
+              "url": "./assets/s5_sonmaitbh_04.jpg"
+            }
+          ]
         },
         {
           "name": "Đờn Ca Tài Tử Nam Bộ",
@@ -456,7 +597,7 @@
           "mapUrl": "",
           "historicalValue": "Hình thành vào cuối thế kỷ XIX trên cơ sở tiếp thu và phát triển từ Nhạc lễ Nam Bộ, Nhã nhạc cung đình Huế, cùng với dân ca và sinh hoạt văn hóa dân gian của cư dân Nam Bộ. Đã được UNESCO chính thức ghi danh là Di sản văn hóa phi vật thể đại diện của nhân loại vào ngày 05/12/2013.",
           "significance": "Là món ăn tinh thần không thể thiếu trong các dịp lễ tết, giỗ chạp hay những buổi họp mặt xóm làng, thể hiện sự tinh tế, tâm hồn nghệ sĩ và lòng mến khách của con người Nam Bộ. Đây là loại hình nghệ thuật phản ánh đời sống tinh thần, triết lý nhân sinh và tính cách phóng khoáng, nghĩa tình của người dân Nam Bộ.",
-          "image": "./assets/don_ca_tai_tu.webp",
+          "image": "./assets/s5_doncataitu_02.jpg",
           "officialSource": "Tổ chức UNESCO (Kỳ họp thứ 8 Ủy ban Liên chính phủ Công ước 2003)",
           "verifiedOfficial": true,
           "establishedYear": "Cuối thế kỷ XIX",
@@ -472,7 +613,18 @@
           "aiPrompts": [
             "Traditional Vietnamese musicians playing Don Ca Tai Tu on a wooden platform, wearing Ao Dai, classical string instruments like Dan Kim and Dan Tranh, warm indoor lighting, nostalgic and cultural atmosphere, 8k --ar 16:9"
           ],
-          "groupId": "group4"
+          "groupId": "group4",
+          "gallery": [
+            {
+              "url": "./assets/s5_doncataitu_02.jpg"
+            },
+            {
+              "url": "./assets/s5_doncataitu_03.jpg"
+            },
+            {
+              "url": "./assets/s5_doncataitu_04.jpg"
+            }
+          ]
         },
         {
           "name": "Nghệ Thuật Cải Lương Nam Bộ",
@@ -481,7 +633,7 @@
           "mapUrl": "",
           "historicalValue": "Hình thành vào đầu thế kỷ XX, phát triển từ nghệ thuật ca ra bộ và Đờn ca tài tử Nam Bộ; năm 1918 đánh dấu sự phát triển rực rỡ với vở kịch cải lương đầu tiên. Trải qua hơn một thế kỷ, cải lương gắn bó sâu sắc với đời sống người dân Nam Bộ qua những vở tuồng kinh điển về lịch sử, nhân nghĩa và lòng yêu nước.",
           "significance": "Phản ánh sâu sắc tâm tư, tình cảm và khát vọng của người dân Nam Bộ qua từng vở diễn lịch sử, xã hội, giữ vai trò cốt lõi trong nền nghệ thuật sân khấu truyền thống nước nhà. Cải lương góp phần lưu giữ nhiều giá trị lịch sử, đạo đức và bản sắc văn hóa Nam Bộ.",
-          "image": "./assets/cai_luong_nam_bo.webp",
+          "image": "./assets/s5_cailuong_02.jpg",
           "officialSource": "Cục Nghệ thuật Biểu diễn - Bộ VHTTDL & Bảo tàng Sân khấu TP.HCM",
           "verifiedOfficial": true,
           "establishedYear": "1918 (công diễn vở cải lương đầu tiên)",
@@ -497,7 +649,18 @@
           "aiPrompts": [
             "Vibrant Vietnamese Cai Luong opera performance on a grand stage, actors in ornate historical costumes, colorful stage lighting, dramatic facial expressions, epic theatrical background, high-end photography, 8k --ar 16:9"
           ],
-          "groupId": "group4"
+          "groupId": "group4",
+          "gallery": [
+            {
+              "url": "./assets/s5_cailuong_02.jpg"
+            },
+            {
+              "url": "./assets/s5_cailuong_03.jpg"
+            },
+            {
+              "url": "./assets/s5_cailuong_04.jpg"
+            }
+          ]
         },
         {
           "name": "Lễ Hội Nghinh Ông (Bà Rịa – Vũng Tàu)",
@@ -506,7 +669,7 @@
           "mapUrl": "https://maps.app.goo.gl/A1xAwniR3WgaWWkf9",
           "historicalValue": "Lễ hội phản ánh tín ngưỡng thờ Cá Ông của cư dân ven biển và lưu giữ nhiều nghi lễ truyền thống gắn với nghề đánh bắt hải sản từ đầu thế kỷ XIX. Năm 2023, Lễ hội Nghinh Ông Thắng Tam được Bộ Văn hóa, Thể thao và Du lịch ghi danh vào Danh mục Di sản văn hóa phi vật thể quốc gia.",
           "significance": "Lễ hội là dịp để ngư dân cầu mong biển yên, sóng lặng, ra khơi bình an và đánh bắt thuận lợi. Đồng thời, lễ hội góp phần gìn giữ bản sắc văn hóa biển, tăng cường tinh thần đoàn kết cộng đồng và giáo dục thế hệ trẻ về truyền thống của cư dân vùng biển Việt Nam.",
-          "image": "./assets/le_hoi_nghinh_ong.webp",
+          "image": "./assets/s5_nghinhong_02.jpg",
           "officialSource": "Bộ Văn hóa, Thể thao và Du lịch (Quyết định số 231/QĐ-BVHTTDL ngày 14/02/2023)",
           "verifiedOfficial": true,
           "establishedYear": "Nửa đầu thế kỷ XIX",
@@ -525,7 +688,18 @@
             "Mô tả các nghi thức chính trong Lễ hội Nghinh Ông và nêu ý nghĩa của từng nghi thức.",
             "Đề xuất một ý tưởng để quảng bá Lễ hội Nghinh Ông đến nhiều bạn trẻ và du khách hơn"
           ],
-          "groupId": "group4"
+          "groupId": "group4",
+          "gallery": [
+            {
+              "url": "./assets/s5_nghinhong_02.jpg"
+            },
+            {
+              "url": "./assets/s5_nghinhong_03.jpg"
+            },
+            {
+              "url": "./assets/s5_nghinhong_04.jpg"
+            }
+          ]
         }
       ]
     },
@@ -552,7 +726,7 @@
           "mapUrl": "https://maps.app.goo.gl/MqpzAcb17YEfyMt4A",
           "historicalValue": "Thành phố Mới Bình Dương đánh dấu bước chuyển mình của Bình Dương từ một tỉnh công nghiệp sang mô hình phát triển công nghiệp – đô thị – dịch vụ. Đồ án quy hoạch do Đại học Quốc gia Singapore (NUS) lập, khởi công năm 2010 và đưa vào vận hành Tòa tháp Trung tâm Hành chính tập trung năm 2014. Đây là hạt nhân trong chiến lược xây dựng Thành phố thông minh Bình Dương theo tiêu chuẩn ICF.",
           "significance": "Thành phố Mới là biểu tượng cho quá trình đổi mới, hội nhập và phát triển bền vững của miền Đông Nam Bộ. Đối với học sinh, đây là địa điểm tiêu biểu để tìm hiểu về quy hoạch đô thị, thành phố thông minh và định hướng phát triển hiện đại.",
-          "image": "./assets/thanh_pho_moi_binh_duong.webp",
+          "image": "./assets/s6_thanhphomoi_02.jpg",
           "officialSource": "Cổng Thông tin điện tử tỉnh Bình Dương (binhduong.gov.vn) & Becamex IDC",
           "verifiedOfficial": true,
           "establishedYear": "2010 (khởi công) – 2014 (vận hành TTHC)",
@@ -572,7 +746,15 @@
             "So sánh Thành phố Mới Bình Dương với khu trung tâm Thành phố Hồ Chí Minh về quy hoạch và chức năng đô thị.",
             "Đề xuất một ý tưởng giúp xây dựng Thành phố Mới Bình Dương theo hướng xanh – thông minh – bền vững."
           ],
-          "groupId": "group5"
+          "groupId": "group5",
+          "gallery": [
+            {
+              "url": "./assets/s6_thanhphomoi_02.jpg"
+            },
+            {
+              "url": "./assets/s6_thanhphomoi_03.jpg"
+            }
+          ]
         },
         {
           "name": "Hồ Dầu Tiếng - Bình Dương",
@@ -581,7 +763,7 @@
           "mapUrl": "https://maps.app.goo.gl/jkWt1VPGrRCeLrCq9",
           "historicalValue": "Khởi công xây dựng vào ngày 29/04/1981 và đưa vào khai thác năm 1985 với sự đóng góp công sức của hàng ngàn cán bộ, kỹ sư và thanh niên lao động thủ công thời kỳ đầu đổi mới, biểu trưng cho ý chí kiên cường cải tạo thiên nhiên phục vụ đời sống dân sinh.",
           "significance": "Đảm bảo nguồn nước tưới tiêu cho hơn 100.000 ha đất nông nghiệp Nam Bộ, điều tiết lũ hạ du sông Sài Gòn, cung cấp nước sinh hoạt - công nghiệp cho TP.HCM, Bình Dương, Tây Ninh và phát triển du lịch sinh thái dã ngoại.",
-          "image": "./assets/ho_dau_tieng.webp",
+          "image": "./assets/ho_dau_tieng.jpg",
           "officialSource": "Công ty TNHH MTV Khai thác Thủy lợi Dầu Tiếng - Phước Hòa (Bộ NN&PTNT)",
           "verifiedOfficial": true,
           "establishedYear": "1981 – 1985",
@@ -596,7 +778,12 @@
           "aiPrompts": [
             "Wide-angle aerial drone photography of Dau Tieng Lake during sunset, serene water reflecting orange sky, Mount Ba Den in the background, green lakeside campsites, cinematic landscape, 8k resolution --ar 16:9"
           ],
-          "groupId": "group5"
+          "groupId": "group5",
+          "gallery": [
+            {
+              "url": "./assets/ho_dau_tieng.jpg"
+            }
+          ]
         },
         {
           "name": "Bãi Sau (Bãi Thùy Vân) - Vũng Tàu",
@@ -605,7 +792,7 @@
           "mapUrl": "https://maps.app.goo.gl/dgxk1q9Rt3QzjKeG9",
           "historicalValue": "Điểm nghỉ dưỡng biển có lịch sử khai thác từ cuối thế kỷ XIX thời Pháp thuộc (Cap Saint-Jacques), gắn liền với quá trình hình thành đô thị du lịch biển đầu tiên của khu vực Nam Bộ.",
           "significance": "Là một trong những bãi biển tiêu biểu nhất của thành phố Vũng Tàu với chiều dài bờ cát gần 10km, giữ vai trò cột trụ trong phát triển kinh tế du lịch và là điểm đến nghỉ mát quen thuộc của người dân toàn miền Nam.",
-          "image": "./assets/bai_sau_vung_tau.webp",
+          "image": "./assets/bai_sau_vung_tau.jpg",
           "officialSource": "Sở Du lịch tỉnh Bà Rịa – Vũng Tàu (dulich.baria-vungtau.gov.vn)",
           "verifiedOfficial": true,
           "establishedYear": "Khai thác du lịch từ cuối thế kỷ XIX",
@@ -620,7 +807,12 @@
           "aiPrompts": [
             "Vibrant beach photography of Bai Sau Vung Tau, golden sand, gentle blue waves, tropical coconut trees along Thuy Van street, sunny day with tourists swimming, highly detailed, realistic, 8k --ar 16:9"
           ],
-          "groupId": "group5"
+          "groupId": "group5",
+          "gallery": [
+            {
+              "url": "./assets/bai_sau_vung_tau.jpg"
+            }
+          ]
         },
         {
           "name": "Làng Chài Phước Hải - Bà Rịa – Vũng Tàu",
@@ -629,7 +821,7 @@
           "mapUrl": "https://maps.app.goo.gl/6FBGTbA1NFXueZgV7",
           "historicalValue": "Ngôi làng đánh cá lâu đời có lịch sử hơn 150 năm, hình thành từ giữa thế kỷ XIX khi các bậc tiền nhân đến khai hoang lập ấp. Làng chài nổi tiếng với nghề làm nước mắm cá cơm truyền thống trứ danh và kỹ nghệ đi biển bằng thuyền thúng độc đáo.",
           "significance": "Bảo tồn các giá trị văn hóa biển miền Nam, phát triển mô hình du lịch cộng đồng trải nghiệm thực tế giúp nâng cao đời sống cho ngư dân địa phương.",
-          "image": "./assets/lang_chai_phuoc_hai.webp",
+          "image": "./assets/lang_chai_phuoc_hai.jpg",
           "officialSource": "UBND Huyện Đất Đỏ & Bảo tàng tỉnh Bà Rịa – Vũng Tàu",
           "verifiedOfficial": true,
           "establishedYear": "Giữa thế kỷ XIX (hơn 150 năm lịch sử)",
@@ -644,7 +836,12 @@
           "aiPrompts": [
             "Authentic Vietnamese fishing village scene, Phuoc Hải beach, wooden round basket boats on the sand, fishermen repairing green fishing nets, rustic coastal houses, sunrise warm light, highly detailed, photorealistic, 8k --ar 16:9"
           ],
-          "groupId": "group5"
+          "groupId": "group5",
+          "gallery": [
+            {
+              "url": "./assets/lang_chai_phuoc_hai.jpg"
+            }
+          ]
         },
         {
           "name": "PHỐ ĐI BỘ NGUYỄN HUỆ",
@@ -653,7 +850,7 @@
           "mapUrl": "https://maps.app.goo.gl/ZmZ8LF9UwngiacFSA",
           "historicalValue": "Đường Nguyễn Huệ có nguồn gốc từ Kinh Lớn (kênh Grand Canal / kênh Charner) – tuyến kênh thủy đạo quan trọng của Sài Gòn vào thế kỷ XIX. Năm 1887, người Pháp lấp kênh để làm đại lộ Charner. Đến năm 1955 đổi tên thành đường Nguyễn Huệ. Ngày 29/04/2015, tuyến đường chính thức được khánh thành thành quảng trường đi bộ hiện đại dài 670m, rộng 64m.",
           "significance": "Phố đi bộ Nguyễn Huệ là không gian văn hóa và sinh hoạt cộng đồng tiêu biểu hàng đầu của Thành phố Hồ Chí Minh. Nơi đây là điểm diễn ra Lễ hội Đường hoa Tết thường niên, các đại nhạc hội và sự kiện giao lưu văn hóa quốc tế lớn.",
-          "image": "./assets/pho_di_bo_nguyen_hue.webp",
+          "image": "./assets/pho_di_bo_nguyen_hue.jpg",
           "officialSource": "Sở Quy hoạch - Kiến trúc TP.HCM & UBND Quận 1",
           "verifiedOfficial": true,
           "establishedYear": "29/04/2015 (tiền thân Kinh Lớn thế kỷ XIX)",
@@ -672,7 +869,12 @@
             "Viết một đoạn văn khoảng 150 chữ chia sẻ cảm nhận của em sau khi tham quan Phố đi bộ Nguyễn Huệ.",
             "Đề xuất một hoạt động văn hóa hoặc lễ hội mới dành cho học sinh có thể tổ chức tại Phố đi bộ Nguyễn Huệ và giải thích lý do."
           ],
-          "groupId": "group5"
+          "groupId": "group5",
+          "gallery": [
+            {
+              "url": "./assets/pho_di_bo_nguyen_hue.jpg"
+            }
+          ]
         }
       ]
     },
@@ -713,12 +915,7 @@
       "primaryTitle": "Hành Trình Sáng Lập HCMC CultureHub",
       "secondaryTitle": "Câu chuyện sáng lập • Mục tiêu sứ mệnh • Kết nối cộng đồng",
       "bodyContent": "THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB AI\n- Mục tiêu: Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.\n- Nội dung: Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.\n- AI đồng hành: Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá đồ họa infographic và nhận những gợi ý phù hợp với sở thích.\n- Đối tượng hướng đến: Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.\n\nCÂU CHUYỆN CỦA CHÚNG TÔI\nChúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau.\nVì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.\nĐó cũng là hành trình mà ba người sáng lập cùng theo đuổi:\nTừ văn hóa → đến công nghệ → đến trải nghiệm → và cuối cùng là kết nối con người với cội nguồn.\n“Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”\n\nHCMC CultureHub\nKhám phá văn hóa. Kết nối giá trị. Kiến tạo trải nghiệm.\nEmail liên hệ: hcmcculturehub@gmail.com",
-      "keyHighlights": [
-        "Sáng lập: 3 thành viên đam mê văn hóa, sáng tạo và công nghệ giáo dục",
-        "Học liệu số: 21 di tích đô thị với Infographic và tư liệu khảo cứu toàn diện",
-        "Hành trình: Văn hóa → Công nghệ → Trải nghiệm → Kết nối cội nguồn",
-        "Liên hệ chính thức: hcmcculturehub@gmail.com"
-      ],
+      "keyHighlights": [],
       "aboutDetails": {
         "mission": "Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.",
         "contentScope": "Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.",

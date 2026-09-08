@@ -50,16 +50,6 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
         <p className="text-sm sm:text-base text-[#e6ca65] mt-1 font-serif-display italic font-medium">
           {slide.secondaryTitle}
         </p>
-
-        {/* Highlights */}
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-          {slide.keyHighlights.map((h, i) => (
-            <div key={i} className="p-3 rounded-xl liquid-glass border border-white/10 text-xs text-white/80 flex items-start gap-2 font-medium">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#c29b38] shrink-0 mt-0.5" />
-              <span className="line-clamp-2">{h}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Main 2-Column Editorial About Layout */}
@@ -254,9 +244,6 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
               <span>Gửi Đóng Góp Ý Kiến Của Bạn</span>
               <ExternalLink className="w-4 h-4 text-slate-900 group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <p className="text-[11px] text-white/50 mt-2 font-mono">
-              Biểu mẫu Google Form chính thức: forms.gle/baf2AwYp29T3joxd7
-            </p>
           </div>
 
         </div>

@@ -12,29 +12,24 @@ import {
   Landmark, 
   Award, 
   Compass, 
-  FileText, 
   RefreshCw,
-  Palette,
   Eye,
   Sliders,
   ChevronRight,
   Play,
   Pause,
-  Target,
   Ruler,
   Share2,
-  Printer,
   Info,
   ShieldCheck,
   CheckCircle2,
-  HelpCircle,
   Activity,
   Clock,
   Grid,
   BookOpen
 } from 'lucide-react';
 import { PlaceItem } from '../types';
-import { getPlaceInfographic, PlaceInfographicMeta, InfographicHotspot } from '../data/infographicData';
+import { getPlaceInfographic, PlaceInfographicMeta } from '../data/infographicData';
 import { getMediaUrl } from '../utils/mediaFallback';
 
 interface AIPlaceInfographicProps {
@@ -42,7 +37,7 @@ interface AIPlaceInfographicProps {
   categoryTitle?: string;
 }
 
-type InfographicMode = 'poster' | 'hotspots' | 'blueprint' | 'timeline' | 'metrics' | 'colors' | 'quiz';
+type InfographicMode = 'poster' | 'blueprint' | 'timeline' | 'metrics';
 
 export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   place,
@@ -55,24 +50,13 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [generationStep, setGenerationStep] = useState<string>('');
   const [copiedPrompt, setCopiedPrompt] = useState<boolean>(false);
-  const [copiedSummary, setCopiedSummary] = useState<boolean>(false);
-  const [copiedHex, setCopiedHex] = useState<string | null>(null);
   const [isZoomOpen, setIsZoomOpen] = useState<boolean>(false);
-  const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [customGenCount, setCustomGenCount] = useState<number>(1);
-  
-  // Interactive Hotspot State
-  const [selectedHotspot, setSelectedHotspot] = useState<InfographicHotspot | null>(
-    meta.hotspots && meta.hotspots.length > 0 ? meta.hotspots[0] : null
-  );
 
   // Animated Timeline Auto-Play State
   const [activeMilestoneIndex, setActiveMilestoneIndex] = useState<number>(0);
   const [isTimelinePlaying, setIsTimelinePlaying] = useState<boolean>(false);
   const timelineIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Student Flashcard reveal state
-  const [revealedCards, setRevealedCards] = useState<Record<number, boolean>>({});
 
   const currentPrompt = meta.aiImagePrompt || 
     `A museum-grade educational infographic poster of ${place.name}, Ho Chi Minh City cultural heritage. Showing key architectural elements, historical timeline, data badges, warm golden and deep navy palette, modern visual layout.`;
@@ -93,41 +77,10 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
     };
   }, [isTimelinePlaying, meta.milestones]);
 
-  const handleCopySummary = () => {
-    const summaryText = `=== INFOGRAPHIC TÓM TẮT DI SẢN: ${place.name.toUpperCase()} ===
-• Cấp bảo tồn: ${meta.keyClassification}
-• Năm khởi lập: ${meta.yearEstablished} (${meta.heritageAgeYears ? `${meta.heritageAgeYears} năm lịch sử` : ''})
-• Vị trí: ${place.location}
-• Tác giả / Nguồn gốc kiến trúc: ${meta.architectOrOrigin}
-• Quy mô & Cấu trúc: ${meta.dimensionsOrScale}
-
-[4 CHỈ SỐ VÀNG]
-${meta.keyDataPoints?.map(dp => `• ${dp.label}: ${dp.value}`).join('\n') || ''}
-
-[ĐIỂM NHẤN KIẾN TRÚC & THỊ GIÁC]
-${meta.visualHighlights?.map((vh, i) => `${i + 1}. ${vh}`).join('\n') || ''}
-
-[CÁC MỐC SON LỊCH SỬ TIÊU BIỂU]
-${meta.milestones?.map(m => `• Năm ${m.year}: ${m.event}`).join('\n') || ''}
-
-[GIÁ TRỊ GIÁO DỤC ĐỊA PHƯƠNG]
-${place.educationalValue || place.description.slice(0, 300)}
-`;
-    navigator.clipboard.writeText(summaryText);
-    setCopiedSummary(true);
-    setTimeout(() => setCopiedSummary(false), 2500);
-  };
-
   const handleCopyPrompt = () => {
     navigator.clipboard.writeText(currentPrompt);
     setCopiedPrompt(true);
     setTimeout(() => setCopiedPrompt(false), 2500);
-  };
-
-  const handleCopyColorHex = (hex: string) => {
-    navigator.clipboard.writeText(hex);
-    setCopiedHex(hex);
-    setTimeout(() => setCopiedHex(null), 2000);
   };
 
   const handleGenerateNew = () => {
@@ -143,13 +96,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
       setCustomGenCount(prev => prev + 1);
       setGenerationStep('');
     }, 1200);
-  };
-
-  const toggleCardReveal = (idx: number) => {
-    setRevealedCards(prev => ({
-      ...prev,
-      [idx]: !prev[idx]
-    }));
   };
 
   // Heritage score calculation (e.g. 98 for Special National Heritage, 92 for National Heritage)
@@ -172,7 +118,7 @@ ${place.educationalValue || place.description.slice(0, 300)}
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="text-base sm:text-lg font-bold text-white font-serif-display tracking-wide">
-                  Bảng Infographic Tóm Tắt Di Sản • {place.name}
+                  Bảng Phân Tích Di Sản • {place.name}
                 </h3>
                 <span className="px-2 py-0.5 rounded-full bg-[#c29b38]/20 border border-[#c29b38]/40 text-[#f5e3a9] text-[10px] font-bold">
                   {meta.keyClassification.split('•')[0].trim()}
@@ -186,26 +132,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
 
           {/* Action buttons */}
           <div className="flex items-center gap-2 flex-wrap">
-            <button
-              onClick={handleCopySummary}
-              id={`copy-summary-btn-${place.name}`}
-              className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold transition-all border border-slate-700 hover:border-[#c29b38]/50 flex items-center gap-1.5 shadow-sm"
-              title="Sao chép toàn bộ bản tóm tắt học liệu"
-            >
-              {copiedSummary ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-[#c29b38]" />}
-              <span>{copiedSummary ? 'Đã Chép Tóm Tắt' : 'Sao Chép Tóm Tắt'}</span>
-            </button>
-
-            <button
-              onClick={() => setIsExportModalOpen(true)}
-              id={`export-poster-btn-${place.name}`}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#c29b38] to-[#e6ca65] hover:opacity-90 text-slate-950 text-xs font-bold transition-all shadow-md shadow-[#c29b38]/20 flex items-center gap-1.5"
-              title="Xuất poster in ấn & lưu PDF"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span>In / Xuất Poster</span>
-            </button>
-
             <button
               onClick={() => setIsZoomOpen(true)}
               className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors border border-slate-700"
@@ -228,89 +154,53 @@ ${place.educationalValue || place.description.slice(0, 300)}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-1.5 text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
             <button
               onClick={() => setActiveMode('poster')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                 activeMode === 'poster'
                   ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
                   : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
               }`}
             >
-              <Eye className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Tóm Tắt Toàn Diện</span>
-            </button>
-
-            <button
-              onClick={() => setActiveMode('hotspots')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                activeMode === 'hotspots'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-              }`}
-            >
-              <Target className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Sơ Đồ Hotspot</span>
+              <Eye className="w-4 h-4 shrink-0" />
+              <span className="truncate">Phân Tích Di Sản</span>
             </button>
 
             <button
               onClick={() => setActiveMode('blueprint')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                 activeMode === 'blueprint'
                   ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
                   : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
               }`}
             >
-              <Grid className="w-3.5 h-3.5 shrink-0" />
+              <Grid className="w-4 h-4 shrink-0" />
               <span className="truncate">Bản Vẽ Kỹ Thuật</span>
             </button>
 
             <button
               onClick={() => setActiveMode('timeline')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                 activeMode === 'timeline'
                   ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
                   : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
               }`}
             >
-              <Calendar className="w-3.5 h-3.5 shrink-0" />
+              <Calendar className="w-4 h-4 shrink-0" />
               <span className="truncate">Biên Niên Sử</span>
             </button>
 
             <button
               onClick={() => setActiveMode('metrics')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
                 activeMode === 'metrics'
                   ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
                   : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
               }`}
             >
-              <Activity className="w-3.5 h-3.5 shrink-0" />
+              <Activity className="w-4 h-4 shrink-0" />
               <span className="truncate">Chỉ Số Di Sản</span>
-            </button>
-
-            <button
-              onClick={() => setActiveMode('colors')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                activeMode === 'colors'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-              }`}
-            >
-              <Palette className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Hệ Phối Màu</span>
-            </button>
-
-            <button
-              onClick={() => setActiveMode('quiz')}
-              className={`p-2 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                activeMode === 'quiz'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-              }`}
-            >
-              <FileText className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Ôn Tập THPT</span>
             </button>
           </div>
         </div>
@@ -350,26 +240,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
                   <MapPin className="w-3.5 h-3.5 text-[#e6ca65] shrink-0" />
                   <span>{place.location}</span>
                 </p>
-              </div>
-
-              {/* Poster Actions */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <button
-                  onClick={handleCopySummary}
-                  className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition-all border border-slate-700 hover:border-[#c29b38]/50 flex items-center gap-2 shadow-sm"
-                  title="Sao chép toàn văn tóm tắt infographic"
-                >
-                  {copiedSummary ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-[#c29b38]" />}
-                  <span>{copiedSummary ? 'Đã Chép Tóm Tắt' : 'Sao Chép Tóm Tắt'}</span>
-                </button>
-
-                <button
-                  onClick={() => setIsExportModalOpen(true)}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#c29b38] to-[#e6ca65] hover:opacity-90 text-slate-950 text-xs font-bold transition-all shadow-lg shadow-[#c29b38]/25 flex items-center gap-2"
-                >
-                  <Printer className="w-4 h-4" />
-                  <span>In / Lưu PDF Poster</span>
-                </button>
               </div>
             </div>
 
@@ -436,46 +306,11 @@ ${place.educationalValue || place.description.slice(0, 300)}
                     <Maximize2 className="w-4 h-4" />
                   </button>
 
-                  {/* Interactive Hotspot Pins on Graphic */}
-                  {meta.hotspots?.slice(0, 4).map((spot) => (
-                    <button
-                      key={spot.id}
-                      onClick={() => {
-                        setSelectedHotspot(spot);
-                        setActiveMode('hotspots');
-                      }}
-                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 group/pin z-10 transition-transform hover:scale-125"
-                      title={spot.title}
-                    >
-                      <div className="relative flex items-center justify-center">
-                        <span className="absolute w-6 h-6 rounded-full animate-ping opacity-60 bg-[#c29b38]" />
-                        <span className="w-5 h-5 rounded-full bg-[#f5e3a9] text-slate-950 text-[10px] font-bold flex items-center justify-center border border-black shadow-lg">
-                          {spot.id}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-
                   {/* Caption on image */}
                   <div className="absolute bottom-3 left-3 right-3 text-left pointer-events-none">
                     <span className="text-[10px] font-mono text-[#e6ca65] block uppercase">Góc nhìn kiến trúc tiêu biểu</span>
                     <p className="text-xs text-slate-200 font-medium line-clamp-1">{meta.visualHighlights[0] || place.name}</p>
                   </div>
-                </div>
-
-                {/* Sub-strip with quick explore button */}
-                <div className="p-3 bg-[#0d1522] border-t border-slate-800 flex items-center justify-between text-xs">
-                  <span className="text-slate-400 text-[11px]">
-                    Có <strong className="text-[#f5e3a9]">{meta.hotspots?.length || 4} điểm radar</strong> tương tác chi tiết
-                  </span>
-                  <button
-                    onClick={() => setActiveMode('hotspots')}
-                    className="text-[#e6ca65] hover:underline font-bold text-[11px] flex items-center gap-1"
-                  >
-                    <span>Mở radar chi tiết</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               </div>
 
@@ -603,41 +438,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
               </div>
             </div>
 
-            {/* Bảng Màu Di Sản & Biểu Trưng (Heritage Color DNA) */}
-            <div className="p-4 rounded-2xl bg-[#101826] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <Palette className="w-4 h-4 text-[#c29b38]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                  Hệ Phối Màu Di Sản Biểu Trưng (Color DNA):
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2 flex-wrap">
-                {(meta.colorMeanings && meta.colorMeanings.length > 0
-                  ? meta.colorMeanings
-                  : meta.colorPalette.map((hex, i) => ({ name: `Màu #${i + 1}`, hex }))
-                ).map((color, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleCopyColorHex(color.hex)}
-                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-slate-800 hover:border-[#c29b38] transition-all group"
-                    title={`Nhấp để chép mã màu ${color.hex}`}
-                  >
-                    <span 
-                      className="w-3.5 h-3.5 rounded-full border border-white/30 shrink-0" 
-                      style={{ backgroundColor: color.hex }} 
-                    />
-                    <span className="text-[11px] font-mono text-slate-300 group-hover:text-white">
-                      {color.name} ({color.hex})
-                    </span>
-                    {copiedHex === color.hex && (
-                      <Check className="w-3 h-3 text-emerald-400" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
       ) : (
@@ -703,45 +503,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
                   </div>
                 </div>
 
-                {/* INTERACTIVE RADAR HOTSPOT PINS (Rendered in all modes with focus in 'hotspots') */}
-                {meta.hotspots && meta.hotspots.map((spot) => {
-                  const isSelected = selectedHotspot?.id === spot.id;
-                  return (
-                    <button
-                      key={spot.id}
-                      onClick={() => {
-                        setSelectedHotspot(spot);
-                        if (activeMode !== 'hotspots') setActiveMode('hotspots');
-                      }}
-                      style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 group/pin z-20 transition-all duration-300 ${
-                        isSelected ? 'scale-125 z-30' : 'hover:scale-110'
-                      }`}
-                      title={spot.title}
-                    >
-                      {/* Pulsing Radar Rings */}
-                      <div className="relative flex items-center justify-center">
-                        <span className={`absolute w-8 h-8 rounded-full animate-ping opacity-60 ${
-                          isSelected ? 'bg-amber-400' : 'bg-[#c29b38]'
-                        }`} />
-                        <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold font-mono text-slate-950 shadow-lg border transition-all ${
-                          isSelected 
-                            ? 'bg-[#f5e3a9] border-white ring-2 ring-[#c29b38]' 
-                            : 'bg-[#c29b38] border-slate-950 hover:bg-[#e6ca65]'
-                        }`}>
-                          {spot.id}
-                        </span>
-                      </div>
-
-                      {/* Floating Tooltip preview on hover */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-44 p-2 rounded-lg bg-slate-900/95 border border-[#c29b38]/50 text-left shadow-2xl backdrop-blur-md opacity-0 group-hover/pin:opacity-100 pointer-events-none transition-opacity duration-200 z-30">
-                        <span className="text-[9px] font-bold text-[#e6ca65] uppercase block">{spot.category}</span>
-                        <p className="text-[11px] font-bold text-white truncate">{spot.title}</p>
-                      </div>
-                    </button>
-                  );
-                })}
-
                 {/* Bottom Canvas Caption & Identity */}
                 <div className="absolute bottom-3 left-4 right-4 text-left z-10 pointer-events-none">
                   <p className="text-[11px] text-[#e6ca65] font-bold uppercase tracking-wider mb-0.5">
@@ -769,21 +530,13 @@ ${place.educationalValue || place.description.slice(0, 300)}
             </div>
 
             {/* Quick Action Toolbar Below Canvas */}
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="w-full text-xs">
               <button
                 onClick={() => setIsZoomOpen(true)}
-                className="py-2.5 px-3 rounded-xl bg-[#141d2e] hover:bg-[#1a273e] border border-slate-800 hover:border-[#c29b38]/40 transition-colors flex items-center justify-center gap-1.5 text-slate-300 hover:text-white"
+                className="w-full py-2.5 px-3 rounded-xl bg-[#141d2e] hover:bg-[#1a273e] border border-slate-800 hover:border-[#c29b38]/40 transition-colors flex items-center justify-center gap-1.5 text-slate-300 hover:text-white"
               >
                 <Eye className="w-3.5 h-3.5 text-[#e6ca65]" />
                 <span>Xem Ảnh Gốc HD</span>
-              </button>
-
-              <button
-                onClick={handleCopySummary}
-                className="py-2.5 px-3 rounded-xl bg-[#141d2e] hover:bg-[#1a273e] border border-slate-800 hover:border-[#c29b38]/40 transition-colors flex items-center justify-center gap-1.5 text-slate-300 hover:text-white"
-              >
-                {copiedSummary ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-[#c29b38]" />}
-                <span>{copiedSummary ? 'Đã Chép Tóm Tắt' : 'Sao Chép Tóm Tắt'}</span>
               </button>
             </div>
 
@@ -793,13 +546,13 @@ ${place.educationalValue || place.description.slice(0, 300)}
               className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#141f33] to-[#101826] hover:border-[#c29b38] border border-slate-800 text-xs font-bold text-[#f5e3a9] flex items-center justify-center gap-2 transition-all shadow-sm"
             >
               <Eye className="w-3.5 h-3.5 text-[#e6ca65]" />
-              <span>Quay lại Bảng Tóm Tắt Toàn Diện</span>
+              <span>Quay lại Bảng Phân Tích Di Sản</span>
             </button>
 
             {/* Compact Heritage Profile Snippet */}
             <div className="p-3.5 rounded-xl bg-[#0e1524] border border-slate-800/80 text-[11px] text-slate-400 space-y-1.5">
               <div className="flex items-center justify-between text-[#c29b38] font-bold">
-                <span>Hồ Sơ Tóm Tắt Di Tích</span>
+                <span>Hồ Sơ Di Tích</span>
                 <span className="font-mono text-[#f5e3a9]">{meta.yearEstablished}</span>
               </div>
               <p className="text-slate-300 text-xs leading-relaxed">
@@ -829,90 +582,7 @@ ${place.educationalValue || place.description.slice(0, 300)}
             )}
 
           {/* ======================================================== */}
-          {/* VIEW 2: SƠ ĐỒ ĐIỂM NHẤN TƯƠNG TÁC (INTERACTIVE HOTSPOTS) */}
-          {/* ======================================================== */}
-          {activeMode === 'hotspots' && (
-            <div className="p-5 rounded-2xl bg-[#141d2e] border border-slate-800 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
-                    <Target className="w-4 h-4 text-[#c29b38]" />
-                    Sơ đồ Hotspot radar tương tác trực tiếp
-                  </h4>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    Nhấp vào số hiệu trên ảnh hoặc danh sách bên dưới để xem phân tích chi tiết
-                  </p>
-                </div>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-[#e6ca65] font-mono">
-                  {meta.hotspots?.length || 0} Điểm nhấn
-                </span>
-              </div>
-
-              {/* Selected Hotspot Detail Card */}
-              {selectedHotspot && (
-                <div className="p-4 rounded-xl bg-gradient-to-br from-[#1b283d] to-[#0f1726] border-2 border-[#c29b38] space-y-2 shadow-lg animate-in fade-in duration-200">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-full bg-[#c29b38] text-slate-950 font-bold flex items-center justify-center text-xs">
-                        {selectedHotspot.id}
-                      </span>
-                      <h5 className="text-sm font-bold text-white">
-                        {selectedHotspot.title}
-                      </h5>
-                    </div>
-                    <span className="px-2 py-0.5 rounded-full bg-slate-800 text-[10px] text-[#f5e3a9] font-semibold border border-slate-700">
-                      {selectedHotspot.category}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-200 leading-relaxed pl-8">
-                    {selectedHotspot.description}
-                  </p>
-                  {selectedHotspot.tag && (
-                    <div className="pl-8 pt-1">
-                      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded bg-[#c29b38]/10 text-[#e6ca65] border border-[#c29b38]/30">
-                        <CheckCircle2 className="w-3 h-3" />
-                        Đặc trưng: {selectedHotspot.tag}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Hotspot Catalog Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                {meta.hotspots?.map((spot) => {
-                  const isSelected = selectedHotspot?.id === spot.id;
-                  return (
-                    <button
-                      key={spot.id}
-                      onClick={() => setSelectedHotspot(spot)}
-                      className={`p-3 rounded-xl border text-left transition-all flex items-start gap-2.5 ${
-                        isSelected
-                          ? 'bg-[#c29b38]/20 border-[#c29b38] text-white'
-                          : 'bg-[#0f1726] border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'
-                      }`}
-                    >
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5 ${
-                        isSelected ? 'bg-[#c29b38] text-slate-950' : 'bg-slate-800 text-slate-400'
-                      }`}>
-                        {spot.id}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <span className="font-bold text-xs truncate">{spot.title}</span>
-                          <span className="text-[9px] text-slate-400 shrink-0">{spot.category}</span>
-                        </div>
-                        <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">{spot.description}</p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* ======================================================== */}
-          {/* VIEW 3: BẢN VẼ KỸ THUẬT & KIẾN TRÚC (BLUEPRINT & ANATOMY) */}
+          {/* VIEW 2: BẢN VẼ KỸ THUẬT & KIẾN TRÚC (BLUEPRINT & ANATOMY) */}
           {/* ======================================================== */}
           {activeMode === 'blueprint' && (
             <div className="p-5 rounded-2xl bg-[#0a101b] border border-cyan-800/60 space-y-4 font-sans text-slate-200">
@@ -1183,153 +853,9 @@ ${place.educationalValue || place.description.slice(0, 300)}
                   <span className="text-sm font-bold text-emerald-400 font-mono mt-1 block">Bảo Tồn Tốt</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Điểm Nhấn Hotspot</span>
-                  <span className="text-sm font-bold text-[#f5e3a9] font-mono mt-1 block">{meta.hotspots?.length || 4} Vị trí</span>
+                  <span className="text-[10px] text-slate-400 uppercase block">Giá Trị Văn Hóa</span>
+                  <span className="text-sm font-bold text-[#f5e3a9] font-mono mt-1 block">Đặc Biệt</span>
                 </div>
-              </div>
-            </div>
-          )}
-
-          {/* ======================================================== */}
-          {/* VIEW 6: HỆ THỐNG PHỐI MÀU DI SẢN (COLOR HARMONY & MEANINGS) */}
-          {/* ======================================================== */}
-          {activeMode === 'colors' && (
-            <div className="p-5 rounded-2xl bg-[#141d2e] border border-slate-800 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
-                  <Palette className="w-4 h-4 text-[#c29b38]" />
-                  Hệ thống phối màu di sản & Ý nghĩa biểu trưng
-                </h4>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
-                  {copiedHex ? `Đã chép ${copiedHex}` : 'Nhấp để sao chép mã màu HEX'}
-                </span>
-              </div>
-
-              {/* Dynamic Continuous Palette Bar */}
-              <div className="h-14 rounded-xl overflow-hidden flex shadow-lg border border-white/10">
-                {meta.colorMeanings ? (
-                  meta.colorMeanings.map((c, i) => (
-                    <button
-                      key={i}
-                      onClick={() => handleCopyColorHex(c.hex)}
-                      style={{ backgroundColor: c.hex, width: `${c.percentage}%` }}
-                      className="h-full group/swatch relative flex items-end justify-center pb-2 transition-all hover:opacity-90 cursor-pointer"
-                      title={`${c.name} (${c.hex}) - Nhấp để sao chép`}
-                    >
-                      <span className="text-[10px] font-mono font-bold bg-black/60 px-1.5 py-0.5 rounded text-white opacity-0 group-hover/swatch:opacity-100 transition-opacity">
-                        {c.hex}
-                      </span>
-                    </button>
-                  ))
-                ) : (
-                  meta.colorPalette.map((color, i) => (
-                    <div key={i} style={{ backgroundColor: color }} className="flex-1 h-full" />
-                  ))
-                )}
-              </div>
-
-              {/* Color Meaning Cards */}
-              <div className="space-y-2.5">
-                {meta.colorMeanings?.map((c, i) => (
-                  <div 
-                    key={i} 
-                    onClick={() => handleCopyColorHex(c.hex)}
-                    className="p-3 rounded-xl bg-[#0f1726] border border-slate-800 hover:border-[#c29b38]/50 transition-colors flex items-center justify-between gap-3 cursor-pointer group"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div 
-                        className="w-10 h-10 rounded-lg shadow-inner border border-white/20 shrink-0 flex items-center justify-center text-white"
-                        style={{ backgroundColor: c.hex }}
-                      >
-                        {copiedHex === c.hex && <Check className="w-4 h-4 text-white drop-shadow" />}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <h6 className="text-xs font-bold text-white group-hover:text-[#f5e3a9] transition-colors truncate">
-                            {c.name}
-                          </h6>
-                          <span className="text-[10px] font-mono text-slate-400 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">
-                            {c.hex}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-slate-300 mt-0.5 line-clamp-1">{c.meaning}</p>
-                      </div>
-                    </div>
-
-                    <div className="shrink-0 text-right">
-                      <span className="text-xs font-mono font-bold text-[#e6ca65]">{c.percentage}%</span>
-                      <span className="text-[9px] text-slate-400 block">Trọng lượng</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* ======================================================== */}
-          {/* VIEW 7: CẨM NANG ÔN TẬP THPT (STUDENT STUDY CARDS) */}
-          {/* ======================================================== */}
-          {activeMode === 'quiz' && (
-            <div className="p-5 rounded-2xl bg-[#141d2e] border border-slate-800 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-[#c29b38]" />
-                  Cẩm nang ôn tập & Trọng tâm học liệu THPT
-                </h4>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10 text-[#f5e3a9] border border-white/15 font-bold">
-                  Học liệu di sản
-                </span>
-              </div>
-
-              <p className="text-xs text-slate-300">
-                Bộ thẻ ghi nhớ cô đọng các luận điểm, mốc thời gian và bài học lịch sử phục vụ kiểm tra và nghiên cứu chuyên đề:
-              </p>
-
-              {/* Interactive Flashcards */}
-              <div className="space-y-3">
-                {meta.pedagogicalTakeaways.map((takeaway, idx) => {
-                  const isRevealed = revealedCards[idx] ?? true;
-                  return (
-                    <div key={idx} className="p-4 rounded-xl bg-[#0f1726] border border-slate-800 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="w-5 h-5 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] flex items-center justify-center font-bold text-xs">
-                            {idx + 1}
-                          </span>
-                          <span className="text-xs font-bold text-white">
-                            Luận điểm cốt lõi #{idx + 1}
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => toggleCardReveal(idx)}
-                          className="text-[11px] text-[#e6ca65] hover:underline flex items-center gap-1"
-                        >
-                          <HelpCircle className="w-3 h-3" />
-                          <span>{isRevealed ? 'Thu gọn' : 'Xem phân tích'}</span>
-                        </button>
-                      </div>
-
-                      {isRevealed && (
-                        <p className="text-xs text-slate-200 leading-relaxed pl-7 pt-1 border-t border-slate-800/80">
-                          {takeaway}
-                        </p>
-                      )}
-                    </div>
-                  );
-                })}
-
-                {/* Extended curriculum notes if present */}
-                {place.infographic && (
-                  <div className="p-4 rounded-xl bg-[#152033] border border-[#c29b38]/40 space-y-2">
-                    <span className="text-[11px] font-bold text-[#f5e3a9] uppercase flex items-center gap-1.5">
-                      <Info className="w-3.5 h-3.5 text-[#c29b38]" />
-                      Nội dung sơ đồ tư liệu học liệu di sản:
-                    </span>
-                    <p className="text-xs text-slate-200 whitespace-pre-line leading-relaxed pl-5">
-                      {place.infographic}
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
           )}
@@ -1340,7 +866,7 @@ ${place.educationalValue || place.description.slice(0, 300)}
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span>Nguồn tư liệu: Sở Du lịch, Sở Văn hóa & Giáo dục Địa phương Nam Bộ</span>
             </div>
-            <span className="text-[#c29b38] font-mono">Chuẩn hóa 2026</span>
+            <span className="text-[#c29b38] font-mono">Chuẩn hóa dữ liệu</span>
           </div>
 
         </div>
@@ -1382,96 +908,6 @@ ${place.educationalValue || place.description.slice(0, 300)}
                 {meta.categoryTitle || categoryTitle} • Phân giải chuẩn bảo tàng
               </p>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* ======================================================== */}
-      {/* PRINTABLE / EXPORT INFOGRAPHIC MODAL */}
-      {/* ======================================================== */}
-      {isExportModalOpen && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
-          onClick={() => setIsExportModalOpen(false)}
-        >
-          <div 
-            className="relative max-w-3xl w-full bg-slate-950 border-2 border-[#c29b38] rounded-2xl p-6 shadow-2xl space-y-5 my-8 text-slate-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div>
-                <span className="text-[10px] font-bold text-[#c29b38] uppercase tracking-widest block font-mono">
-                  Bản Xuất Học Tập & Báo Cáo Chuyên Đề
-                </span>
-                <h3 className="text-xl font-serif-display font-bold text-white mt-0.5">
-                  Infographic Poster: {place.name}
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => window.print()}
-                  className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#c29b38] to-[#e6ca65] hover:opacity-90 text-slate-950 text-xs font-bold transition-all flex items-center gap-1.5"
-                >
-                  <Printer className="w-3.5 h-3.5" />
-                  <span>In / Lưu PDF</span>
-                </button>
-                <button
-                  onClick={() => setIsExportModalOpen(false)}
-                  className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Poster Preview Sheet */}
-            <div className="p-6 rounded-xl bg-slate-900 border border-slate-800 space-y-4 font-sans print:bg-white print:text-black">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div>
-                  <h2 className="text-lg font-bold text-white font-serif-display">{place.name}</h2>
-                  <p className="text-xs text-[#e6ca65]">{meta.keyClassification}</p>
-                </div>
-                <div className="text-right text-xs font-mono text-slate-400">
-                  <span>Niên đại: <strong>{meta.yearEstablished}</strong></span>
-                </div>
-              </div>
-
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-slate-800">
-                <img
-                  src={meta.masterImage || getMediaUrl(place.image)}
-                  alt={place.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 text-xs">
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
-                  <strong className="text-[#c29b38] block text-[10px] uppercase mb-1">Kiến trúc & Tác giả:</strong>
-                  <p className="text-slate-300">{meta.architectOrOrigin}</p>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
-                  <strong className="text-[#c29b38] block text-[10px] uppercase mb-1">Quy mô di tích:</strong>
-                  <p className="text-slate-300">{meta.dimensionsOrScale}</p>
-                </div>
-              </div>
-
-              <div className="space-y-1.5 text-xs">
-                <strong className="text-[#e6ca65] block text-[11px] uppercase">Các mốc lịch sử cốt lõi:</strong>
-                <ul className="space-y-1 pl-1">
-                  {meta.milestones.map((m, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-slate-300 text-[11px]">
-                      <strong className="text-[#c29b38] shrink-0 font-mono">{m.year}:</strong>
-                      <span>{m.event}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <p className="text-[11px] text-white/50 text-center italic">
-              Nhấp "In / Lưu PDF" để xuất poster lưu trữ hoặc đính kèm vào bài nghiên cứu, thuyết trình di sản.
-            </p>
           </div>
         </div>
       )}
