@@ -57,7 +57,11 @@ export const SlideLearningGroup: React.FC<SlideLearningGroupProps> = ({
       </div>
 
       {/* Places Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className={`grid ${
+        (slide.places?.length || 0) === 5
+          ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4.5'
+          : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'
+      }`}>
         {slide.places?.map((place) => (
           <PlaceCard
             key={place.name}

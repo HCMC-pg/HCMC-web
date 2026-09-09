@@ -250,7 +250,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span className="text-base sm:text-lg font-bold text-[#f5e3a9] font-mono mt-1 block">
                   {meta.yearEstablished}
                 </span>
-                <span className="text-[10px] text-slate-400 block mt-0.5 truncate">{meta.architectOrOrigin}</span>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
@@ -258,7 +257,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span className="text-base sm:text-lg font-bold text-[#e6ca65] font-mono mt-1 block">
                   {meta.heritageAgeYears} Năm
                 </span>
-                <span className="text-[10px] text-slate-400 block mt-0.5">~{agePercentageOfSaigon}% lịch sử Sài Gòn</span>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
@@ -266,7 +264,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span className="text-xs sm:text-sm font-bold text-white mt-1 block line-clamp-1">
                   {meta.keyClassification.split('•')[0].trim()}
                 </span>
-                <span className="text-[10px] text-[#f5e3a9] block mt-0.5">Điểm di sản: {heritageScore}/100</span>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
@@ -274,7 +271,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span className="text-xs sm:text-sm font-bold text-white mt-1 block line-clamp-1">
                   {meta.dimensionsOrScale}
                 </span>
-                <span className="text-[10px] text-slate-400 block mt-0.5">{meta.blueprint?.orientation || 'Phong thủy Nam Bộ'}</span>
               </div>
             </div>
 

@@ -35,7 +35,7 @@
       "image": "./assets/s2_group1_banner_01.jpg",
       "places": [
         {
-          "name": "Bến Nhà Rồng",
+          "name": "BẾN NHÀ RỒNG",
           "shortIntro": "Bến Nhà Rồng là một di tích lịch sử nổi tiếng của Thành phố Hồ Chí Minh, được xây dựng từ năm 1862–1863 làm trụ sở của Hãng vận tải biển Messageries Impériales của Pháp. Hiện nay, nơi đây là Bảo tàng Hồ Chí Minh – Chi nhánh Thành phố Hồ Chí Minh, lưu giữ nhiều tư liệu và hiện vật về cuộc đời, sự nghiệp của Chủ tịch Hồ Chí Minh.",
           "location": "Số 1 đường Nguyễn Tất Thành, Phường 12, Quận 4, Thành phố Hồ Chí Minh (tọa lạc tại ngã ba sông Sài Gòn và kênh Bến Nghé, dưới chân cầu Khánh Hội; Phường 12 được giữ nguyên trạng theo Nghị quyết số 1278/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội).",
           "mapUrl": "https://maps.app.goo.gl/ZABe1oV6mshEFsDa7",
@@ -116,7 +116,7 @@
           ]
         },
         {
-          "name": "ĐỊA ĐẠO CỦ CHI-TPHCM",
+          "name": "ĐỊA ĐẠO CỦ CHI",
           "shortIntro": "Địa đạo Củ Chi là một hệ thống phòng thủ ngầm độc nhất vô nhị dài khoảng 250km được đào trong lòng đất. Hệ thống này bao gồm các đường hầm thông nhau, phòng ăn, phòng họp, bệnh xá, kho vũ khí, nhà bếp (bếp Hoàng Cầm) và các lỗ thông hơi ẩn mình dưới thảm thực vật rừng rậm.",
           "location": "Huyện Củ Chi, Thành phố Hồ Chí Minh. Gồm 2 khu di tích chính: Khu Bến Dược (Tỉnh lộ 15, Ấp Phú Hiệp, Xã Phú Mỹ Hưng) và Khu Bến Đình (Ấp Bến Đình, Xã Nhuận Đức, Huyện Củ Chi).",
           "mapUrl": "https://maps.app.goo.gl/kJsYMhrGhHW81NWD8",
@@ -130,9 +130,9 @@
           "architectOrOrigin": "Quân và dân Huyện Củ Chi tự đào thủ công",
           "classification": "Di tích Quốc gia Đặc biệt (Quyết định số 2367/QĐ-TTg ngày 23/12/2015)",
           "videos": [
-            "Tư liệu: Địa đạo Củ Chi - cơn đau đầu của Mỹ và Việt Nam Cộng hòa | Hải Stark | Thế Giới",
-            "Địa đạo Củ Chi - 250km lịch sử | VTV24",
-            "Một ngày khám phá Địa Đạo Củ Chi - Bến Dược sẽ như thế nào?"
+            "https://www.youtube.com/watch?v=CsBQ9Z7FGlQ",
+            "https://www.youtube.com/watch?v=i2bRpeUGTTE",
+            "https://www.youtube.com/watch?v=moWwIe8oJXs"
           ],
           "infographic": "cấu trúc địa đạo: Hệ thống 3 tầng ngầm sâu tới 12m, bếp Hoàng Cầm giấu khói, lỗ thông hơi tổ kiến và các công trình chức năng.",
           "aiPrompts": [
@@ -152,7 +152,7 @@
           ]
         },
         {
-          "name": "NHÀ TÙ CÔN ĐẢO-BRVT",
+          "name": "NHÀ TÙ CÔN ĐẢO",
           "shortIntro": "Nhà tù Côn Đảo là một hệ thống nhà tù do thực dân Pháp và sau đó là chính quyền Mỹ xây dựng, sử dụng để giam giữ những người yêu nước và chiến sĩ cách mạng. Hệ thống gồm nhiều trại giam, xà lim và khu biệt lập như Chuồng cọp Pháp, Chuồng cọp kiểu Mỹ, cùng các công trình phục vụ chế độ nhà tù. Sau năm 1975, hệ thống nhà tù được giải thể và trở thành Khu di tích lịch sử Côn Đảo. Năm 2012, di tích được xếp hạng Di tích quốc gia đặc biệt.",
           "location": "Đường Nguyễn Chí Thanh và hệ thống các điểm di tích giam giữ thành phần, Huyện Côn Đảo, tỉnh Bà Rịa – Vũng Tàu.",
           "mapUrl": "https://maps.app.goo.gl/cS8TkxunxnSWgLre6",
@@ -204,7 +204,7 @@
       "image": "./assets/group2_architecture.webp",
       "places": [
         {
-          "name": "Bưu điện Trung tâm Thành phố Hồ Chí Minh",
+          "name": "BƯU ĐIỆN TRUNG TÂM TPHCM",
           "shortIntro": "Bưu điện Trung tâm Thành phố Hồ Chí Minh là một trong những công trình kiến trúc tiêu biểu của thành phố, được xây dựng từ năm 1886 đến năm 1891 theo phong cách kiến trúc châu Âu cuối thế kỷ XIX. Với vẻ đẹp cổ kính cùng giá trị lịch sử lâu đời, nơi đây vừa là bưu điện hoạt động đến ngày nay, vừa là điểm tham quan nổi tiếng thu hút đông đảo du khách trong và ngoài nước. Công trình từng được nhiều tạp chí quốc tế bình chọn là một trong những bưu điện đẹp nhất thế giới.",
           "location": "Số 2 Công trường Công xã Paris, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh (đối diện Nhà thờ Đức Bà Sài Gòn).",
           "mapUrl": "https://maps.app.goo.gl/8vKhdC5qGCMqhQi87",
@@ -244,7 +244,7 @@
           ]
         },
         {
-          "name": "Chùa Hội Khánh (Bình Dương)",
+          "name": "CHÙA HỘI KHÁNH",
           "shortIntro": "Chùa Hội Khánh là một trong những ngôi chùa cổ nhất Nam Bộ, được Thiền sư Đại Ngạn Từ Tấn khai sơn vào năm 1741. Với gần ba thế kỷ hình thành và phát triển, chùa nổi bật bởi kiến trúc gỗ truyền thống, hệ thống tượng Phật cổ và bức tượng Đức Phật nhập Niết bàn trên mái chùa thuộc hàng dài nhất châu Á. Năm 1993, chùa được xếp hạng Di tích lịch sử – kiến trúc nghệ thuật cấp Quốc gia.",
           "location": "Số 35 đường Yersin, Phường Phú Cường, Thành phố Thủ Dầu Một, tỉnh Bình Dương.",
           "mapUrl": "https://maps.app.goo.gl/Mh7Q4FRF7TrDzwof7",
@@ -257,8 +257,8 @@
           "architectOrOrigin": "Thiền sư Đại Ngạn Từ Tấn (dòng Lâm Tế Chánh Tông)",
           "classification": "Di tích Lịch sử – Kiến trúc Nghệ thuật cấp Quốc gia (1993); Kỷ lục Châu Á Tượng Phật dài 52m (2013)",
           "videos": [
-            "https://www.ganjingworld.com/video/1hepf4epb251Jt4KmRcUYEwwM1a21c",
-            "https://www.ganjingworld.com/video/1gcdiehokl877s6XYukhnEtgL1rp1c",
+            "https://www.youtube.com/watch?v=Hv3J97ptHDA",
+            "https://www.youtube.com/watch?v=5fa8UCwElIA",
             "https://www.youtube.com/watch?v=PFqzwyU1e64",
             "https://www.youtube.com/watch?v=UxpdOxrIQpY"
           ],
@@ -284,7 +284,7 @@
           ]
         },
         {
-          "name": "Thích Ca Phật Đài (Bà Rịa – Vũng Tàu)",
+          "name": "THÍCH CA PHẬT ĐÀI",
           "shortIntro": "Thích Ca Phật Đài là quần thể kiến trúc Phật giáo nổi tiếng nằm trên sườn Núi Lớn, được xây dựng từ năm 1961–1963. Công trình tái hiện những sự kiện quan trọng trong cuộc đời Đức Phật Thích Ca Mâu Ni thông qua hệ thống tượng, bảo tháp và chùa, hài hòa với cảnh quan thiên nhiên. Năm 1989, Thích Ca Phật Đài được xếp hạng Di tích lịch sử – văn hóa cấp Quốc gia.",
           "location": "Số 608 đường Trần Phú, Phường Vũng Tàu, Thành phố Vũng Tàu, tỉnh Bà Rịa – Vũng Tàu (sườn phía Bắc Núi Lớn; thuộc Phường Vũng Tàu sau khi sáp nhập Phường 5 cùng các phường 1, 2, 3, 4, Thắng Nhì, Thắng Tam theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội).",
           "mapUrl": "https://maps.app.goo.gl/rLn64Pwn4k8CH1Pm8",
@@ -323,7 +323,7 @@
           ]
         },
         {
-          "name": "Nhà thờ Đức Bà Sài Gòn",
+          "name": "NHÀ THỜ ĐỨC BÀ",
           "shortIntro": "Nhà thờ Đức Bà Sài Gòn (tên chính thức: Vương cung Thánh đường Chính tòa Đức Mẹ Vô nhiễm Nguyên tội) là một trong những công trình kiến trúc tiêu biểu của Thành phố Hồ Chí Minh. Được xây dựng từ năm 1877 đến năm 1880 theo thiết kế của kiến trúc sư người Pháp J. Bourard, nhà thờ nổi bật với phong cách kiến trúc Roman kết hợp Gothic, trở thành biểu tượng văn hóa, lịch sử và tôn giáo của thành phố.",
           "location": "Số 1 Công trường Công xã Paris, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh (trung tâm Quận 1, tiếp giáp Công trường Công xã Paris, đường Đồng Khởi và đường Lê Duẩn).",
           "mapUrl": "https://maps.app.goo.gl/46auNtA9FijCwVCW6",
@@ -381,7 +381,7 @@
       "image": "./assets/group3_commerce.webp",
       "places": [
         {
-          "name": "Chợ Thủ Dầu Một",
+          "name": "CHỢ THỦ DẦU MỘT",
           "shortIntro": "Chợ Thủ Dầu Một là một trong những ngôi chợ lâu đời nhất của Bình Dương, có tiền thân là chợ Phú Cường, hình thành khoảng năm 1828. Trải qua gần 200 năm phát triển, chợ không chỉ là trung tâm mua bán sầm uất mà còn gắn liền với lịch sử hình thành đô thị Thủ Dầu Một và đời sống của nhiều thế hệ người dân địa phương.",
           "location": "Đường Trần Hưng Đạo & Phan Chu Trinh, Phường Phú Cường, Thành phố Thủ Dầu Một, tỉnh Bình Dương (ven sông Sài Gòn, liền kề công viên Bạch Đằng).",
           "mapUrl": "https://maps.app.goo.gl/xnQKgYundNF9r5Dt5",
@@ -397,7 +397,7 @@
             "https://youtu.be/R2d3HRIGrpM?si=oY2Alyz6oioIG-Rx",
             "https://youtu.be/eDlC_OSND-E?si=u-A_AvfusINhvtAR",
             "https://youtu.be/w5n_D-umQlc?si=gxXeY7nfwxm44pAs",
-            "https://youtube.com/shorts/1_Nk_qHr6BM?si=C2p35zJGYztv6btg"
+            "https://www.youtube.com/watch?v=byOaGZcU-Mg"
           ],
           "infographic": "Infographic Chợ Thủ Dầu Một: Kiến trúc tháp đồng hồ hình con tàu hướng sông Sài Gòn và hành trình từ 1828 đến nay.",
           "aiPrompts": [
@@ -421,7 +421,7 @@
           ]
         },
         {
-          "name": "Chợ Bến Thành - TP.HCM",
+          "name": "CHỢ BẾN THÀNH",
           "shortIntro": "Chợ Bến Thành là một trong những biểu tượng kiến trúc, lịch sử và văn hóa lâu đời, nổi bật nhất của Thành phố Hồ Chí Minh, là điểm giao thương sầm uất thu hút đông đảo du khách trong và ngoài nước.",
           "location": "Quảng trường Quách Thị Trang, tiếp giáp 4 tuyến đường Lê Lợi, Phan Bội Châu, Phan Chu Trinh và Lê Thánh Tôn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh.",
           "mapUrl": "https://maps.app.goo.gl/LzKmKbxST4Dot9QSA",
@@ -457,7 +457,7 @@
           ]
         },
         {
-          "name": "Đường sách Nguyễn Văn Bình",
+          "name": "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH",
           "shortIntro": "Đường Sách Nguyễn Văn Bình là không gian văn hóa đọc đầu tiên của Thành phố Hồ Chí Minh, chính thức đi vào hoạt động từ tháng 1 năm 2016. Với sự quy tụ của nhiều nhà xuất bản, nhà sách và không gian trưng bày, giao lưu tác giả, nơi đây không chỉ đáp ứng nhu cầu đọc sách mà còn trở thành điểm đến văn hóa, giáo dục và du lịch hấp dẫn của người dân và du khách.",
           "location": "Đường Nguyễn Văn Bình, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh (kết nối Công trường Công xã Paris và đường Hai Bà Trưng).",
           "mapUrl": "https://maps.app.goo.gl/aAkafFS95SKCc3MJ6",
@@ -495,7 +495,7 @@
           ]
         },
         {
-          "name": "Chợ Xóm Lưới (khu vực Vũng Tàu)",
+          "name": "CHỢ XÓM LƯỚI",
           "shortIntro": "Chợ Xóm Lưới là một trong những khu chợ hải sản nổi tiếng của khu vực Vũng Tàu, được người dân địa phương và du khách biết đến nhờ nguồn hải sản tươi sống phong phú, giá cả hợp lý. Không chỉ là nơi mua bán hải sản, chợ còn phản ánh nhịp sống lao động của ngư dân vùng biển và nét đặc trưng của văn hóa ẩm thực ven biển Nam Bộ.",
           "location": "Góc đường Nguyễn Công Trứ và Phan Bội Châu, Phường Vũng Tàu, Thành phố Vũng Tàu, tỉnh Bà Rịa – Vũng Tàu (cách Bãi Trước khoảng 500m; thuộc Phường Vũng Tàu sau khi sáp nhập Phường 2 vào Phường Vũng Tàu theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội).",
           "mapUrl": "https://maps.app.goo.gl/g6p5A1KTQiZC87ob6",
@@ -641,8 +641,8 @@
           "classification": "Nghệ thuật Sân khấu Kịch hát Truyền thống đỉnh cao Nam Bộ",
           "videos": [
             "https://www.youtube.com/watch?v=wfGvTYmAf8E",
-            "https://sachnoiviet.net/sach-noi/hoi-ky-50-nam-me-hat-nam-muoi-nam-cai-luong/",
-            "https://www.iheart.com/podcast/269-vov-tin-nhanh-24h-157123415/episode/tin-trong-nc-san-khu-291439856/",
+            "https://www.youtube.com/watch?v=GVLzwTMbq5Y",
+            "https://www.youtube.com/watch?v=WqvvPp60hNc",
             "https://www.youtube.com/watch?v=M81waeJRkjs"
           ],
           "infographic": "Bài viết Infographic: Lược sử phát triển kịch hát Cải Lương từ 1918 đến sân khấu đương đại và nghệ thuật vọng cổ.",
@@ -736,7 +736,7 @@
             "https://www.youtube.com/watch?v=0UktlwVQg4o",
             "https://www.youtube.com/watch?v=sPTbQ9JD7nk",
             "https://www.youtube.com/watch?v=CltFn18Vtp0",
-            "https://www.tiktok.com/@diiubinhduong/video/7579919881139752213"
+            "https://www.youtube.com/watch?v=ZvPTbgCYDB0"
           ],
           "infographic": "Infographic Thành phố Mới Bình Dương: Quy hoạch thông minh 1.000 ha, công viên trung tâm 75 ha và toà tháp hành chính biểu tượng.",
           "aiPrompts": [
@@ -753,6 +753,9 @@
             },
             {
               "url": "./assets/s6_thanhphomoi_03.jpg"
+            },
+            {
+              "url": "./assets/s6_thanhphomoi_04.jpg"
             }
           ]
         },
@@ -763,7 +766,7 @@
           "mapUrl": "https://maps.app.goo.gl/jkWt1VPGrRCeLrCq9",
           "historicalValue": "Khởi công xây dựng vào ngày 29/04/1981 và đưa vào khai thác năm 1985 với sự đóng góp công sức của hàng ngàn cán bộ, kỹ sư và thanh niên lao động thủ công thời kỳ đầu đổi mới, biểu trưng cho ý chí kiên cường cải tạo thiên nhiên phục vụ đời sống dân sinh.",
           "significance": "Đảm bảo nguồn nước tưới tiêu cho hơn 100.000 ha đất nông nghiệp Nam Bộ, điều tiết lũ hạ du sông Sài Gòn, cung cấp nước sinh hoạt - công nghiệp cho TP.HCM, Bình Dương, Tây Ninh và phát triển du lịch sinh thái dã ngoại.",
-          "image": "./assets/ho_dau_tieng.jpg",
+          "image": "./assets/s6_hodautieng_02.jpg",
           "officialSource": "Công ty TNHH MTV Khai thác Thủy lợi Dầu Tiếng - Phước Hòa (Bộ NN&PTNT)",
           "verifiedOfficial": true,
           "establishedYear": "1981 – 1985",
@@ -781,6 +784,15 @@
           "groupId": "group5",
           "gallery": [
             {
+              "url": "./assets/s6_hodautieng_02.jpg"
+            },
+            {
+              "url": "./assets/s6_hodautieng_03.jpg"
+            },
+            {
+              "url": "./assets/s6_hodautieng_04.jpg"
+            },
+            {
               "url": "./assets/ho_dau_tieng.jpg"
             }
           ]
@@ -792,7 +804,7 @@
           "mapUrl": "https://maps.app.goo.gl/dgxk1q9Rt3QzjKeG9",
           "historicalValue": "Điểm nghỉ dưỡng biển có lịch sử khai thác từ cuối thế kỷ XIX thời Pháp thuộc (Cap Saint-Jacques), gắn liền với quá trình hình thành đô thị du lịch biển đầu tiên của khu vực Nam Bộ.",
           "significance": "Là một trong những bãi biển tiêu biểu nhất của thành phố Vũng Tàu với chiều dài bờ cát gần 10km, giữ vai trò cột trụ trong phát triển kinh tế du lịch và là điểm đến nghỉ mát quen thuộc của người dân toàn miền Nam.",
-          "image": "./assets/bai_sau_vung_tau.jpg",
+          "image": "./assets/s6_baisauvt_02.jpg",
           "officialSource": "Sở Du lịch tỉnh Bà Rịa – Vũng Tàu (dulich.baria-vungtau.gov.vn)",
           "verifiedOfficial": true,
           "establishedYear": "Khai thác du lịch từ cuối thế kỷ XIX",
@@ -810,6 +822,15 @@
           "groupId": "group5",
           "gallery": [
             {
+              "url": "./assets/s6_baisauvt_02.jpg"
+            },
+            {
+              "url": "./assets/s6_baisauvt_03.webp"
+            },
+            {
+              "url": "./assets/s6_baisauvt_04.jpg"
+            },
+            {
               "url": "./assets/bai_sau_vung_tau.jpg"
             }
           ]
@@ -821,7 +842,7 @@
           "mapUrl": "https://maps.app.goo.gl/6FBGTbA1NFXueZgV7",
           "historicalValue": "Ngôi làng đánh cá lâu đời có lịch sử hơn 150 năm, hình thành từ giữa thế kỷ XIX khi các bậc tiền nhân đến khai hoang lập ấp. Làng chài nổi tiếng với nghề làm nước mắm cá cơm truyền thống trứ danh và kỹ nghệ đi biển bằng thuyền thúng độc đáo.",
           "significance": "Bảo tồn các giá trị văn hóa biển miền Nam, phát triển mô hình du lịch cộng đồng trải nghiệm thực tế giúp nâng cao đời sống cho ngư dân địa phương.",
-          "image": "./assets/lang_chai_phuoc_hai.jpg",
+          "image": "./assets/s6_langchaiphuochai_02.jpg",
           "officialSource": "UBND Huyện Đất Đỏ & Bảo tàng tỉnh Bà Rịa – Vũng Tàu",
           "verifiedOfficial": true,
           "establishedYear": "Giữa thế kỷ XIX (hơn 150 năm lịch sử)",
@@ -839,18 +860,27 @@
           "groupId": "group5",
           "gallery": [
             {
+              "url": "./assets/s6_langchaiphuochai_02.jpg"
+            },
+            {
+              "url": "./assets/s6_langchaiphuochai_03.jpg"
+            },
+            {
+              "url": "./assets/s6_langchaiphuochai_04.jpg"
+            },
+            {
               "url": "./assets/lang_chai_phuoc_hai.jpg"
             }
           ]
         },
         {
-          "name": "PHỐ ĐI BỘ NGUYỄN HUỆ",
+          "name": "Phố đi bộ Nguyễn Huệ",
           "shortIntro": "Phố đi bộ Nguyễn Huệ là không gian công cộng nổi bật của Thành phố Hồ Chí Minh, được khánh thành vào năm 2015 trên nền đường Nguyễn Huệ lịch sử. Đây là nơi thường xuyên diễn ra các hoạt động văn hóa, nghệ thuật, lễ hội và sự kiện cộng đồng, thu hút đông đảo người dân và du khách.",
           "location": "Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh (kéo dài 670m từ trụ sở HĐND & UBND TP.HCM đến Công viên Bến Bạch Đằng bên bờ sông Sài Gòn).",
           "mapUrl": "https://maps.app.goo.gl/ZmZ8LF9UwngiacFSA",
           "historicalValue": "Đường Nguyễn Huệ có nguồn gốc từ Kinh Lớn (kênh Grand Canal / kênh Charner) – tuyến kênh thủy đạo quan trọng của Sài Gòn vào thế kỷ XIX. Năm 1887, người Pháp lấp kênh để làm đại lộ Charner. Đến năm 1955 đổi tên thành đường Nguyễn Huệ. Ngày 29/04/2015, tuyến đường chính thức được khánh thành thành quảng trường đi bộ hiện đại dài 670m, rộng 64m.",
           "significance": "Phố đi bộ Nguyễn Huệ là không gian văn hóa và sinh hoạt cộng đồng tiêu biểu hàng đầu của Thành phố Hồ Chí Minh. Nơi đây là điểm diễn ra Lễ hội Đường hoa Tết thường niên, các đại nhạc hội và sự kiện giao lưu văn hóa quốc tế lớn.",
-          "image": "./assets/pho_di_bo_nguyen_hue.jpg",
+          "image": "./assets/s6_phodibonguyenhue_02.jpg",
           "officialSource": "Sở Quy hoạch - Kiến trúc TP.HCM & UBND Quận 1",
           "verifiedOfficial": true,
           "establishedYear": "29/04/2015 (tiền thân Kinh Lớn thế kỷ XIX)",
@@ -871,6 +901,15 @@
           ],
           "groupId": "group5",
           "gallery": [
+            {
+              "url": "./assets/s6_phodibonguyenhue_02.jpg"
+            },
+            {
+              "url": "./assets/s6_phodibonguyenhue_03.jpg"
+            },
+            {
+              "url": "./assets/s6_phodibonguyenhue_04.webp"
+            },
             {
               "url": "./assets/pho_di_bo_nguyen_hue.jpg"
             }
@@ -903,9 +942,7 @@
       "bodyContent": "Không gian trò chơi tương tác giáo dục văn hóa đô thị, đưa học sinh và người yêu di sản nhập vai khám phá phố phường, giải mã câu đố lịch sử và tích lũy tri thức văn hóa phương Nam một cách hứng khởi và trực quan.",
       "keyHighlights": [
         "Bản đồ 3D tương tác đa chiều",
-        "Nhiệm vụ giải mã mật thư di sản",
-        "Thu thập huy hiệu & vinh danh",
-        "Trải nghiệm trực quan trên web"
+        "Nhiệm vụ giải mã mật thư di sản"
       ]
     },
     {

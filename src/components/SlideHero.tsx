@@ -129,8 +129,8 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
               <div className="text-[11px] text-white/60">Nhóm không gian</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
-              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">Toàn Diện</div>
-              <div className="text-[11px] text-white/60">Điểm đến di sản</div>
+              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">Đa Dạng</div>
+              <div className="text-[11px] text-white/60">Tài liệu khảo cứu</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
               <div className="text-xl font-serif-display font-bold text-[#c29b38]">Số Hóa</div>

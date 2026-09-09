@@ -21,6 +21,31 @@ import caiLuongImg from '../assets/images/cai_luong_stage_art_1788526146413.jpg'
 import choXomLuoiImg from '../assets/images/cho_xom_luoi_art_1788526166508.jpg';
 import nhaTuConDaoImg from '../assets/images/nha_tu_con_dao_art_1788526183964.jpg';
 
+// Group 5 authentic photographic assets
+import thanhPhoMoi02 from '../assets/images/KHKT/s6_thanhphomoi_02.jpg';
+import thanhPhoMoi03 from '../assets/images/KHKT/s6_thanhphomoi_03.jpg';
+import thanhPhoMoi04 from '../assets/images/KHKT/s6_thanhphomoi_04.jpg';
+
+import hoDauTieng02 from '../assets/images/KHKT/s6_hodautieng_02.jpg';
+import hoDauTieng03 from '../assets/images/KHKT/s6_hodautieng_03.jpg';
+import hoDauTieng04 from '../assets/images/KHKT/s6_hodautieng_04.jpg';
+import hoDauTiengReal from '../assets/images/KHKT/ho_dau_tieng.jpg';
+
+import baiSau02 from '../assets/images/KHKT/s6_baisauvt_02.jpg';
+import baiSau03 from '../assets/images/KHKT/s6_baisauvt_03.webp';
+import baiSau04 from '../assets/images/KHKT/s6_baisauvt_04.jpg';
+import baiSauReal from '../assets/images/KHKT/bai_sau_vung_tau.jpg';
+
+import phuocHai02 from '../assets/images/KHKT/s6_langchaiphuochai_02.jpg';
+import phuocHai03 from '../assets/images/KHKT/s6_langchaiphuochai_03.jpg';
+import phuocHai04 from '../assets/images/KHKT/s6_langchaiphuochai_04.jpg';
+import phuocHaiReal from '../assets/images/KHKT/lang_chai_phuoc_hai.jpg';
+
+import phoDiBo02 from '../assets/images/KHKT/s6_phodibonguyenhue_02.jpg';
+import phoDiBo03 from '../assets/images/KHKT/s6_phodibonguyenhue_03.jpg';
+import phoDiBo04 from '../assets/images/KHKT/s6_phodibonguyenhue_04.webp';
+import phoDiBoReal from '../assets/images/KHKT/pho_di_bo_nguyen_hue.jpg';
+
 // Curated high-resolution culturally authentic visual mappings for HCMC, Binh Duong & Ba Ria - Vung Tau heritage
 export const PLACE_IMAGES: Record<string, string> = {
   // Slide 1 - Hero
@@ -55,19 +80,39 @@ export const PLACE_IMAGES: Record<string, string> = {
   "./assets/le_hoi_nghinh_ong.webp": nghinhOngImg, // Authentic Nghinh Ong whale festival boat procession
 
   // Group 5: Không gian Biển, Sông nước và Đô thị hiện đại
-  "./assets/group5_modern.webp": thanhPhoMoiImg,
-  "./assets/thanh_pho_moi_binh_duong.webp": thanhPhoMoiImg, // Authentic Binh Duong New City administrative twin towers & park
-  "./assets/ho_dau_tieng.webp": hoDauTiengImg, // Authentic Dau Tieng Lake reservoir & Ba Den Mountain
-  "./assets/ho_dau_tieng.jpg": hoDauTiengImg,
+  "./assets/group5_modern.webp": thanhPhoMoi02,
+  "./assets/thanh_pho_moi_binh_duong.webp": thanhPhoMoi02,
+  "./assets/s6_thanhphomoi_02.jpg": thanhPhoMoi02,
+  "./assets/s6_thanhphomoi_03.jpg": thanhPhoMoi03,
+  "./assets/s6_thanhphomoi_04.jpg": thanhPhoMoi04,
+  "./assets/thanh_pho_moi_bd_art_1788526010354.jpg": thanhPhoMoiImg,
+
+  "./assets/ho_dau_tieng.webp": hoDauTieng02,
+  "./assets/ho_dau_tieng.jpg": hoDauTiengReal,
+  "./assets/s6_hodautieng_02.jpg": hoDauTieng02,
+  "./assets/s6_hodautieng_03.jpg": hoDauTieng03,
+  "./assets/s6_hodautieng_04.jpg": hoDauTieng04,
   "./assets/ho_dau_tieng_art_1788526034716.jpg": hoDauTiengImg,
-  "./assets/bai_sau_vung_tau.webp": baiSauImg, // Authentic Bai Sau golden coast & Thuy Van avenue
-  "./assets/bai_sau_vung_tau.jpg": baiSauImg,
+
+  "./assets/bai_sau_vung_tau.webp": baiSau02,
+  "./assets/bai_sau_vung_tau.jpg": baiSauReal,
+  "./assets/s6_baisauvt_02.jpg": baiSau02,
+  "./assets/s6_baisauvt_03.webp": baiSau03,
+  "./assets/s6_baisauvt_04.jpg": baiSau04,
   "./assets/bai_sau_vt_art_1788526051592.jpg": baiSauImg,
-  "./assets/lang_chai_phuoc_hai.webp": phuocHaiImg, // Authentic Phuoc Hai round basket boats on the beach
-  "./assets/lang_chai_phuoc_hai.jpg": phuocHaiImg,
+
+  "./assets/lang_chai_phuoc_hai.webp": phuocHai02,
+  "./assets/lang_chai_phuoc_hai.jpg": phuocHaiReal,
+  "./assets/s6_langchaiphuochai_02.jpg": phuocHai02,
+  "./assets/s6_langchaiphuochai_03.jpg": phuocHai03,
+  "./assets/s6_langchaiphuochai_04.jpg": phuocHai04,
   "./assets/phuoc_hai_village_art_1788526069010.jpg": phuocHaiImg,
-  "./assets/pho_di_bo_nguyen_hue.webp": phoDiBoImg, // Authentic Nguyen Hue walking street with City Hall
-  "./assets/pho_di_bo_nguyen_hue.jpg": phoDiBoImg,
+
+  "./assets/pho_di_bo_nguyen_hue.webp": phoDiBo02,
+  "./assets/pho_di_bo_nguyen_hue.jpg": phoDiBoReal,
+  "./assets/s6_phodibonguyenhue_02.jpg": phoDiBo02,
+  "./assets/s6_phodibonguyenhue_03.jpg": phoDiBo03,
+  "./assets/s6_phodibonguyenhue_04.webp": phoDiBo04,
   "./assets/pho_di_bo_nguyen_hue_art_1788525990806.jpg": phoDiBoImg,
 
   // Slides 7, 8, 9

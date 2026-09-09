@@ -6,12 +6,8 @@ import {
   Maximize2, 
   Minimize2, 
   RotateCw, 
-  Trophy, 
   Map, 
-  Compass, 
-  BookOpen, 
-  ArrowRight,
-  ShieldCheck
+  ArrowRight
 } from 'lucide-react';
 
 interface SlideWebGameProps {
@@ -24,7 +20,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
   const [isLoading, setIsLoading] = useState(true);
   const iframeContainerRef = useRef<HTMLDivElement>(null);
 
-  const gameUrl = "https://maries2345678-spec.github.io/HCMC-CulturzlHub/";
+  const gameUrl = "https://hcmc-pg.github.io/exploreculture/";
 
   const handleReload = () => {
     setIsLoading(true);
@@ -73,10 +69,10 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
         </p>
 
         {/* Feature Pill Grid */}
-        <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-          <div className="p-2.5 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-[#c29b38]/20 flex items-center justify-center shrink-0 border border-[#c29b38]/30">
-              <Map className="w-3.5 h-3.5 text-[#f5e3a9]" />
+        <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="p-3 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-[#c29b38]/20 flex items-center justify-center shrink-0 border border-[#c29b38]/30">
+              <Map className="w-4 h-4 text-[#f5e3a9]" />
             </div>
             <div>
               <div className="font-semibold text-white">Bản đồ 3D tương tác</div>
@@ -84,33 +80,13 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
             </div>
           </div>
 
-          <div className="p-2.5 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
+          <div className="p-3 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30">
+              <Sparkles className="w-4 h-4 text-emerald-300" />
             </div>
             <div>
               <div className="font-semibold text-white">Nhiệm vụ giải mật thư</div>
               <div className="text-[11px] text-white/60">Thử thách câu đố lịch sử</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-amber-500/20 flex items-center justify-center shrink-0 border border-amber-500/30">
-              <Trophy className="w-3.5 h-3.5 text-amber-300" />
-            </div>
-            <div>
-              <div className="font-semibold text-white">Thu thập huy hiệu</div>
-              <div className="text-[11px] text-white/60">Vinh danh nhà thám hiểm</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-sky-500/20 flex items-center justify-center shrink-0 border border-sky-500/30">
-              <ShieldCheck className="w-3.5 h-3.5 text-sky-300" />
-            </div>
-            <div>
-              <div className="font-semibold text-white">Đồng bộ học liệu</div>
-              <div className="text-[11px] text-white/60">Chuẩn hóa dữ liệu 2026</div>
             </div>
           </div>
         </div>

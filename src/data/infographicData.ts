@@ -7,6 +7,7 @@ import infographicCuChi from '../assets/images/infographic_cu_chi_cutaway_178852
 import infographicDinhDocLap from '../assets/images/infographic_dinh_doc_lap_1788526450322.jpg';
 import infographicNhaThoDucBa from '../assets/images/infographic_nha_tho_duc_ba_1788526470866.jpg';
 import infographicDonCaTaiTu from '../assets/images/infographic_don_ca_tai_tu_1788526493027.jpg';
+import infographicBuuDien from '../assets/images/infographic_buu_dien_1788947680396.jpg';
 import { PLACE_IMAGES } from '../utils/mediaFallback';
 
 export interface InfographicHotspot {
@@ -190,21 +191,64 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       "Nhận thức giá trị vô giá của nền độc lập tự do mà dân tộc đang thụ hưởng ngày nay."
     ]
   },
-  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": {
-    placeName: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN",
+  "BƯU ĐIỆN TRUNG TÂM TPHCM": {
+    placeName: "BƯU ĐIỆN TRUNG TÂM TPHCM",
     category: "kien_truc",
     categoryTitle: "Không gian Kiến trúc & Tín ngưỡng",
-    masterImage: infographicKienTruc,
+    masterImage: infographicBuuDien,
+    yearEstablished: "1886 – 1891",
+    architectOrOrigin: "KTS Marie-Alfred Foulhoux (thiết kế tổng thể) • Kỹ sư Gustave Eiffel (hệ kết cấu vòm sắt)",
+    keyClassification: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia (Quyết định số 4099/QĐ-BVHTTDL năm 2014)",
+    dimensionsOrScale: "Mặt tiền màu vàng thổ hoàng tráng lệ đối diện Nhà thờ Đức Bà, đại sảnh vòm cuốn dài hơn 60m",
+    colorPalette: ["#c29b38", "#15803d", "#1e3a8a", "#f8fafc"],
+    colorMeanings: [
+      { hex: "#c29b38", name: "Vàng thổ hoàng", percentage: 45, meaning: "Sắc màu biểu tượng của kiến trúc thuộc địa Pháp thế kỷ XIX, tượng trưng cho sự thịnh vượng và trường tồn." },
+      { hex: "#15803d", name: "Xanh lá cây cổ điển", percentage: 25, meaning: "Màu sơn truyền thống của hệ thống cửa chớp gỗ, cửa vòm sắt uốn và mặt đồng hồ trung tâm." },
+      { hex: "#1e3a8a", name: "Xanh dương hải quân", percentage: 15, meaning: "Đại diện cho mạng lưới viễn thông, bưu chính đường biển và hai bức bản đồ cổ vẽ tay năm 1892 & 1936." },
+      { hex: "#f8fafc", name: "Trắng vôi thạch cao", percentage: 15, meaning: "Hệ thống phào chỉ, hoa văn phù điêu trang trí phong cách Phục Hưng kết hợp mỹ thuật Á Đông." }
+    ],
+    aiImagePrompt: "A museum-grade architectural infographic poster of Bưu điện Trung tâm TPHCM (Saigon Central Post Office). Detailed neoclassical yellow ochre facade with giant green clock, cross-section technical diagram of Gustave Eiffel vaulted iron beam structure, two large hand-painted antique maps of South Vietnam telecom lines, antique wooden telephone booths and post boxes, elegant gold labels and typography.",
+    milestones: [
+      { year: "1886", event: "Khởi công xây dựng trụ sở bưu chính quy mô hiện đại hàng đầu Đông Nam Á do KTS Foulhoux thiết kế" },
+      { year: "1891", event: "Chính thức khánh thành vào ngày 22/03/1891, đưa vào vận hành mạng lưới bưu chính - viễn thông xuyên lục địa" },
+      { year: "2014", event: "Bộ Văn hóa, Thể thao và Du lịch xếp hạng là Di tích Kiến trúc Nghệ thuật cấp Quốc gia" },
+      { year: "Hiện nay", event: "Hơn 135 năm hoạt động bền bỉ, vừa phục vụ bưu chính công cộng vừa là biểu tượng di sản trung tâm TP.HCM" }
+    ],
+    visualHighlights: [
+      "Mặt tiền màu vàng thổ hoàng với đồng hồ tròn cổ điển và các ô biển khắc tên các nhà khoa học vĩ đại ngành điện học (Ampère, Ohm, Faraday, Morse, Volta...)",
+      "Đại sảnh vòm cuốn hình bán nguyệt dài hơn 60m nâng đỡ bởi hệ cột sắt rèn uốn lượn chịu lực tinh xảo của Gustave Eiffel",
+      "Hai bức bản đồ lịch sử khổ lớn vẽ tay năm 1892 & 1936 ghi lại mạng lưới điện báo viễn thông Nam Kỳ và Sài Gòn xưa",
+      "Dãy buồng điện thoại công cộng bằng gỗ tếch cổ điển và hòm thư bưu chính nguyên bản duy trì suốt hơn 1 thế kỷ"
+    ],
+    keyDataPoints: [
+      { label: "Năm khánh thành", value: "22/03/1891" },
+      { label: "Kiến trúc sư", value: "Marie-Alfred Foulhoux" },
+      { label: "Phong cách", value: "Tân cổ điển giao thoa Á - Âu" },
+      { label: "Kỹ sư vòm sắt", value: "Gustave Eiffel" },
+      { label: "Xếp hạng di tích", value: "Quốc gia (2014)" },
+      { label: "Chiều dài đại sảnh", value: "Hơn 60 mét" },
+      { label: "Địa chỉ", value: "Số 2 Công xã Paris, Q.1" }
+    ],
+    pedagogicalTakeaways: [
+      "Khảo cứu sự giao thoa độc đáo giữa kỹ thuật kết cấu kim loại công nghiệp phương Tây thế kỷ 19 với nghệ thuật trang trí phù điêu và hoa văn phương Đông.",
+      "Thấu hiểu ý nghĩa của một di sản sống (living heritage) vẫn giữ nguyên vẹn công năng bưu chính dân sinh phục vụ đồng bào và du khách sau hơn một thế kỷ."
+    ]
+  },
+  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": {
+    placeName: "BƯU ĐIỆN TRUNG TÂM TPHCM",
+    category: "kien_truc",
+    categoryTitle: "Không gian Kiến trúc & Tín ngưỡng",
+    masterImage: infographicBuuDien,
     yearEstablished: "1886 – 1891",
     architectOrOrigin: "KTS Marie-Alfred Foulhoux (thiết kế) • Gustave Eiffel (hệ khung sắt)",
     keyClassification: "Di tích Kiến trúc Nghệ thuật cấp Quốc gia",
     dimensionsOrScale: "Mặt tiền màu vàng thổ hoàng đặc trưng, tiền sảnh dài hơn 60m",
-    colorPalette: ["#c29b38", "#eab308", "#1e3a8a", "#f8fafc"],
+    colorPalette: ["#c29b38", "#15803d", "#1e3a8a", "#f8fafc"],
     aiImagePrompt: "An architectural blueprint infographic illustration of Saigon Central Post Office. Showing the iconic neoclassical facade with central giant clock, the sweeping arched iron vault ceiling engineered by Gustave Eiffel, antique wooden telephone booths, hand-painted historical maps on lobby walls, clean gold and terracotta palette.",
     milestones: [
       { year: "1886", event: "Khởi công xây dựng công trình bưu chính quy mô lớn nhất Đông Dương thời bấy giờ" },
       { year: "1891", event: "Chính thức khánh thành và đưa vào vận hành bưu chính - viễn thông" },
-      { year: "Hơn 130 năm", event: "Duy trì liên tục chức năng phục vụ bưu chính công cộng và đón khách quốc tế" }
+      { year: "Hơn 135 năm", event: "Duy trì liên tục chức năng phục vụ bưu chính công cộng và đón khách quốc tế" }
     ],
     visualHighlights: [
       "Mái vòm bán nguyệt lợp ngói được nâng đỡ bởi bốn trụ sắt đồ sộ uốn lượn phong cách Eiffel",
@@ -212,7 +256,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       "Hàng bốt điện thoại công cộng bằng gỗ cổ điển tồn tại qua hơn một thế kỷ"
     ],
     keyDataPoints: [
-      { label: "Năm khánh thành", value: "1891" },
+      { label: "Năm khánh thành", value: "22/03/1891" },
       { label: "Phong cách", value: "Phục Hưng & Gothic" },
       { label: "Kỹ sư kết cấu vòm", value: "Gustave Eiffel" },
       { label: "Màu sơn đặc trưng", value: "Vàng thổ hoàng" }
@@ -579,7 +623,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     placeName: "THÀNH PHỐ MỚI BÌNH DƯƠNG",
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
-    masterImage: infographicBienDoThi,
+    masterImage: PLACE_IMAGES["./assets/s6_thanhphomoi_02.jpg"] || infographicBienDoThi,
     yearEstablished: "2010",
     architectOrOrigin: "Quy hoạch bởi Viện Nghiên cứu Thiết kế Đại học Quốc gia Singapore (NUS)",
     keyClassification: "Đô thị Thông minh Tiên phong Vùng Kinh tế Trọng điểm Phía Nam",
@@ -611,7 +655,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     placeName: "HỒ DẦU TIẾNG-BÌNH DƯƠNG",
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
-    masterImage: infographicBienDoThi,
+    masterImage: PLACE_IMAGES["./assets/s6_hodautieng_02.jpg"] || infographicBienDoThi,
     yearEstablished: "1981 – 1985",
     architectOrOrigin: "Công trình thủy nông trọng điểm quốc gia sau ngày thống nhất",
     keyClassification: "Hồ nước nhân tạo lớn nhất Đông Nam Á",
@@ -643,7 +687,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     placeName: "BÃI SAU VŨNG TÀU",
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
-    masterImage: infographicBienDoThi,
+    masterImage: PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || infographicBienDoThi,
     yearEstablished: "Khai thác du lịch từ thế kỷ 19",
     architectOrOrigin: "Tạo tác bờ biển tự nhiên của Mũi Nghinh Phong và Biển Đông",
     keyClassification: "Bãi tắm Du lịch Ven biển Tiêu biểu Miền Nam (Bãi Thùy Vân)",
@@ -675,7 +719,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     placeName: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU",
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
-    masterImage: infographicBienDoThi,
+    masterImage: PLACE_IMAGES["./assets/s6_langchaiphuochai_02.jpg"] || infographicBienDoThi,
     yearEstablished: "Cuối thế kỷ 18",
     architectOrOrigin: "Cộng đồng ngư dân định cư lâu đời dưới chân núi Minh Đạm",
     keyClassification: "Làng nghề Khai thác Hải sản & Nước mắm truyền thống Nam Bộ",
@@ -707,7 +751,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     placeName: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM",
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
-    masterImage: infographicBienDoThi,
+    masterImage: PLACE_IMAGES["./assets/s6_phodibonguyenhue_02.jpg"] || infographicBienDoThi,
     yearEstablished: "2015 (Nguyên gốc là Kênh Charner thế kỷ 19)",
     architectOrOrigin: "UBND TP.HCM quy hoạch cải tạo thành quảng trường đi bộ hiện đại",
     keyClassification: "Quảng trường Đô thị & Không gian Sinh hoạt Công cộng Trung tâm",
@@ -740,31 +784,60 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
 // Comprehensive mapping linking each place to its highest-resolution authentic asset or infographic cutaway
 export const PLACE_MASTER_IMAGES: Record<string, string> = {
   "Bến Nhà Rồng": PLACE_IMAGES["./assets/ben_nha_rong.webp"] || infographicLichSu,
+  "BẾN NHÀ RỒNG": PLACE_IMAGES["./assets/ben_nha_rong.webp"] || infographicLichSu,
   "DINH ĐỘC LẬP": infographicDinhDocLap,
+  "ĐỊA ĐẠO CỦ CHI": infographicCuChi,
   "ĐỊA ĐẠO CỦ CHI-TPHCM": infographicCuChi,
   "NHÀ TÙ CÔN ĐẢO": PLACE_IMAGES["./assets/nha_tu_con_dao.webp"] || infographicLichSu,
-  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": PLACE_IMAGES["./assets/buu_dien_trung_tam_sai_gon.webp"] || infographicKienTruc,
+  "NHÀ TÙ CÔN ĐẢO-BRVT": PLACE_IMAGES["./assets/nha_tu_con_dao.webp"] || infographicLichSu,
+  "BƯU ĐIỆN TRUNG TÂM TPHCM": infographicBuuDien,
+  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": infographicBuuDien,
+  "Bưu điện Trung tâm Thành phố Hồ Chí Minh": infographicBuuDien,
+  "CHÙA HỘI KHÁNH": PLACE_IMAGES["./assets/chua_hoi_khanh.webp"] || infographicKienTruc,
   "CHÙA HỘI KHÁNH-BÌNH DƯƠNG": PLACE_IMAGES["./assets/chua_hoi_khanh.webp"] || infographicKienTruc,
+  "THÍCH CA PHẬT ĐÀI": PLACE_IMAGES["./assets/thich_ca_phat_dai.webp"] || infographicKienTruc,
   "THÍCH CA PHẬT ĐÀI-VŨNG TÀU": PLACE_IMAGES["./assets/thich_ca_phat_dai.webp"] || infographicKienTruc,
+  "NHÀ THỜ ĐỨC BÀ": infographicNhaThoDucBa,
   "NHÀ THỜ ĐỨC BÀ-TPHCM": infographicNhaThoDucBa,
+  "NHÀ THỜ ĐỨC BÀ SÀI GÒN": infographicNhaThoDucBa,
+  "CHỢ THỦ DẦU MỘT": PLACE_IMAGES["./assets/cho_thu_dau_mot.webp"] || infographicThuongMai,
   "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG": PLACE_IMAGES["./assets/cho_thu_dau_mot.webp"] || infographicThuongMai,
+  "CHỢ BẾN THÀNH": PLACE_IMAGES["./assets/cho_ben_thanh.webp"] || infographicThuongMai,
   "CHỢ BẾN THÀNH-TPHCM": PLACE_IMAGES["./assets/cho_ben_thanh.webp"] || infographicThuongMai,
+  "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH": PLACE_IMAGES["./assets/duong_sach_nguyen_van_binh.webp"] || infographicThuongMai,
   "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM": PLACE_IMAGES["./assets/duong_sach_nguyen_van_binh.webp"] || infographicThuongMai,
+  "CHỢ XÓM LƯỚI": PLACE_IMAGES["./assets/cho_xom_luoi.webp"] || infographicThuongMai,
   "CHỢ XÓM LƯỚI-VŨNG TÀU": PLACE_IMAGES["./assets/cho_xom_luoi.webp"] || infographicThuongMai,
   "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG": PLACE_IMAGES["./assets/son_mai_tuong_binh_hiep.webp"] || infographicSangTao,
   "ĐỜN CA TÀI TỬ-TPHCM": infographicDonCaTaiTu,
   "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ": PLACE_IMAGES["./assets/cai_luong_nam_bo.webp"] || infographicSangTao,
   "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU": PLACE_IMAGES["./assets/le_hoi_nghinh_ong.webp"] || infographicSangTao,
-  "THÀNH PHỐ MỚI BÌNH DƯƠNG": PLACE_IMAGES["./assets/thanh_pho_moi_binh_duong.webp"] || infographicBienDoThi,
-  "HỒ DẦU TIẾNG-BÌNH DƯƠNG": PLACE_IMAGES["./assets/ho_dau_tieng.webp"] || infographicBienDoThi,
-  "BÃI SAU-VŨNG TÀU": PLACE_IMAGES["./assets/bai_sau_vung_tau.webp"] || infographicBienDoThi,
-  "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU": PLACE_IMAGES["./assets/lang_chai_phuoc_hai.webp"] || infographicBienDoThi,
-  "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM": PLACE_IMAGES["./assets/pho_di_bo_nguyen_hue.webp"] || infographicBienDoThi,
+  "THÀNH PHỐ MỚI BÌNH DƯƠNG": PLACE_IMAGES["./assets/s6_thanhphomoi_02.jpg"] || PLACE_IMAGES["./assets/thanh_pho_moi_binh_duong.webp"] || infographicBienDoThi,
+  "Thành phố Mới Bình Dương": PLACE_IMAGES["./assets/s6_thanhphomoi_02.jpg"] || PLACE_IMAGES["./assets/thanh_pho_moi_binh_duong.webp"] || infographicBienDoThi,
+  "HỒ DẦU TIẾNG-BÌNH DƯƠNG": PLACE_IMAGES["./assets/s6_hodautieng_02.jpg"] || PLACE_IMAGES["./assets/ho_dau_tieng.jpg"] || infographicBienDoThi,
+  "Hồ Dầu Tiếng - Bình Dương": PLACE_IMAGES["./assets/s6_hodautieng_02.jpg"] || PLACE_IMAGES["./assets/ho_dau_tieng.jpg"] || infographicBienDoThi,
+  "Hồ Dầu Tiếng": PLACE_IMAGES["./assets/s6_hodautieng_02.jpg"] || PLACE_IMAGES["./assets/ho_dau_tieng.jpg"] || infographicBienDoThi,
+  "BÃI SAU-VŨNG TÀU": PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || PLACE_IMAGES["./assets/bai_sau_vung_tau.jpg"] || infographicBienDoThi,
+  "BÃI SAU VŨNG TÀU": PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || PLACE_IMAGES["./assets/bai_sau_vung_tau.jpg"] || infographicBienDoThi,
+  "Bãi Sau (Bãi Thùy Vân) - Vũng Tàu": PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || PLACE_IMAGES["./assets/bai_sau_vung_tau.jpg"] || infographicBienDoThi,
+  "Bãi Sau": PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || PLACE_IMAGES["./assets/bai_sau_vung_tau.jpg"] || infographicBienDoThi,
+  "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU": PLACE_IMAGES["./assets/s6_langchaiphuochai_02.jpg"] || PLACE_IMAGES["./assets/lang_chai_phuoc_hai.jpg"] || infographicBienDoThi,
+  "Làng Chài Phước Hải - Bà Rịa – Vũng Tàu": PLACE_IMAGES["./assets/s6_langchaiphuochai_02.jpg"] || PLACE_IMAGES["./assets/lang_chai_phuoc_hai.jpg"] || infographicBienDoThi,
+  "Làng Chài Phước Hải": PLACE_IMAGES["./assets/s6_langchaiphuochai_02.jpg"] || PLACE_IMAGES["./assets/lang_chai_phuoc_hai.jpg"] || infographicBienDoThi,
+  "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM": PLACE_IMAGES["./assets/s6_phodibonguyenhue_02.jpg"] || PLACE_IMAGES["./assets/pho_di_bo_nguyen_hue.jpg"] || infographicBienDoThi,
+  "PHỐ ĐI BỘ NGUYỄN HUỆ": PLACE_IMAGES["./assets/s6_phodibonguyenhue_02.jpg"] || PLACE_IMAGES["./assets/pho_di_bo_nguyen_hue.jpg"] || infographicBienDoThi,
+  "Phố đi bộ Nguyễn Huệ": PLACE_IMAGES["./assets/s6_phodibonguyenhue_02.jpg"] || PLACE_IMAGES["./assets/pho_di_bo_nguyen_hue.jpg"] || infographicBienDoThi,
 };
 
 // Curated interactive hotspots catalog for landmarks
 export const LANDMARK_HOTSPOTS: Record<string, InfographicHotspot[]> = {
   "Bến Nhà Rồng": [
+    { id: 1, x: 50, y: 18, title: "Đôi Rồng Đất Nung Men Xanh", category: "Kiến trúc", description: "Cặp rồng đất nung tráng men ngọc lưỡng long chầu nguyệt tạo nên tên gọi dân gian Bến Nhà Rồng.", tag: "Biểu tượng" },
+    { id: 2, x: 50, y: 48, title: "Vòm Cửa Roman Nhiệt Đới", category: "Kiến trúc", description: "Hệ thống vòm cuốn bán nguyệt bằng gạch trần đón gió sông Sài Gòn, giao thoa Pháp - Nam Bộ.", tag: "Kết cấu" },
+    { id: 3, x: 25, y: 80, title: "Cầu Tàu Lịch Sử 1911", category: "Lịch sử", description: "Nơi người thanh niên Nguyễn Tất Thành bước lên con tàu ra đi tìm đường cứu nước.", tag: "Mốc son" },
+    { id: 4, x: 75, y: 62, title: "Không Gian Trưng Bày Bác Hồ", category: "Văn hóa", description: "Lưu giữ hơn 20.000 tư liệu hiện vật quý báu về cuộc đời và sự nghiệp Chủ tịch Hồ Chí Minh.", tag: "Bảo tàng" }
+  ],
+  "BẾN NHÀ RỒNG": [
     { id: 1, x: 50, y: 18, title: "Đôi Rồng Đất Nung Men Xanh", category: "Kiến trúc", description: "Cặp rồng đất nung tráng men ngọc lưỡng long chầu nguyệt tạo nên tên gọi dân gian Bến Nhà Rồng.", tag: "Biểu tượng" },
     { id: 2, x: 50, y: 48, title: "Vòm Cửa Roman Nhiệt Đới", category: "Kiến trúc", description: "Hệ thống vòm cuốn bán nguyệt bằng gạch trần đón gió sông Sài Gòn, giao thoa Pháp - Nam Bộ.", tag: "Kết cấu" },
     { id: 3, x: 25, y: 80, title: "Cầu Tàu Lịch Sử 1911", category: "Lịch sử", description: "Nơi người thanh niên Nguyễn Tất Thành bước lên con tàu ra đi tìm đường cứu nước.", tag: "Mốc son" },
@@ -787,6 +860,12 @@ export const LANDMARK_HOTSPOTS: Record<string, InfographicHotspot[]> = {
     { id: 2, x: 25, y: 65, title: "Xà Lim Đá Biệt Giam", category: "Lịch sử", description: "Những phòng giam đá lạnh buốt cùm chân người tù kiên trung trong bóng tối triền miên.", tag: "Ý chí kiên cường" },
     { id: 3, x: 75, y: 70, title: "Khu Biệt Lập Hầm Phân Bò", category: "Lịch sử", description: "Nơi đày ải cực kỳ dã man đối với những người tù chính trị không chịu khuất phục.", tag: "Di tích" },
     { id: 4, x: 50, y: 15, title: "Cây Bàng Cổ Thụ & Hàng Dương", category: "Văn hóa", description: "Chứng nhân lịch sử che chở cho hàng ngàn liệt sĩ và nữ anh hùng Võ Thị Sáu.", tag: "Tâm linh" }
+  ],
+  "BƯU ĐIỆN TRUNG TÂM TPHCM": [
+    { id: 1, x: 50, y: 22, title: "Mặt Tiền Đồng Hồ Cổ Kính", category: "Kiến trúc", description: "Chiếc đồng hồ tròn lớn trên đỉnh cổng chính với hoa văn chạm khắc tinh xảo và các bảng tên nhà khoa học điện học thế giới.", tag: "Mặt đứng" },
+    { id: 2, x: 50, y: 52, title: "Mái Vòm Khung Sắt Eiffel", category: "Kỹ thuật", description: "Hệ vòm sắt rèn uốn cong thanh thoát hơn 60m do kỹ sư bậc thầy Gustave Eiffel tính toán kết cấu.", tag: "Kiệt tác" },
+    { id: 3, x: 28, y: 62, title: "Bản Đồ Cổ Nam Kỳ Vẽ Tay", category: "Văn hóa", description: "Hai bức họa lịch sử nguyên bản trên vòm tường mô tả mạng lưới điện báo Sài Gòn xưa (1892 & 1936).", tag: "Di sản tư liệu" },
+    { id: 4, x: 74, y: 76, title: "Hàng Bốt Điện Thoại Gỗ Cổ", category: "Văn hóa", description: "Các cabin điện thoại bằng gỗ tếch màu trầm và hòm thư lưu dấu nhịp sống viễn thông hơn một thế kỷ.", tag: "Ký ức đô thị" }
   ],
   "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": [
     { id: 1, x: 50, y: 22, title: "Mặt Tiền Đồng Hồ Cổ Kính", category: "Kiến trúc", description: "Chiếc đồng hồ tròn lớn trên đỉnh cổng chính với hoa văn chạm khắc tinh xảo phong cách Phục Hưng.", tag: "Mặt đứng" },
@@ -911,25 +990,36 @@ export function getBlueprintData(placeName: string, meta: PlaceInfographicMeta):
 // Master mapping dictionary resolving place names from contentData.json to infographic datasets
 export const PLACE_KEY_MAPPINGS: Record<string, { info: string; img: string; hot: string; blue: string }> = {
   "Bến Nhà Rồng": { info: "Bến Nhà Rồng", img: "Bến Nhà Rồng", hot: "Bến Nhà Rồng", blue: "Bến Nhà Rồng" },
+  "BẾN NHÀ RỒNG": { info: "Bến Nhà Rồng", img: "BẾN NHÀ RỒNG", hot: "BẾN NHÀ RỒNG", blue: "Bến Nhà Rồng" },
   "DINH ĐỘC LẬP": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP", blue: "DINH ĐỘC LẬP" },
   "Dinh Độc Lập": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP", blue: "DINH ĐỘC LẬP" },
+  "ĐỊA ĐẠO CỦ CHI": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
   "ĐỊA ĐẠO CỦ CHI-TPHCM": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
   "Địa đạo Củ Chi": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
-  "NHÀ TÙ CÔN ĐẢO-BRVT": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
   "NHÀ TÙ CÔN ĐẢO": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
+  "NHÀ TÙ CÔN ĐẢO-BRVT": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
   "Nhà tù Côn Đảo": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
-  "Bưu điện Trung tâm Thành phố Hồ Chí Minh": { info: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", img: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", hot: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", blue: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN" },
-  "Bưu điện Trung tâm Sài Gòn": { info: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", img: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", hot: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN", blue: "BƯU ĐIỆN TRUNG TÂM SÀI GÒN" },
+  "BƯU ĐIỆN TRUNG TÂM TPHCM": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "Bưu điện Trung tâm Thành phố Hồ Chí Minh": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "Bưu điện Trung tâm Sài Gòn": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "CHÙA HỘI KHÁNH": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
   "Chùa Hội Khánh (Bình Dương)": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
   "Chùa Hội Khánh": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
+  "THÍCH CA PHẬT ĐÀI": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
   "Thích Ca Phật Đài (Bà Rịa – Vũng Tàu)": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
   "Thích Ca Phật Đài": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
+  "NHÀ THỜ ĐỨC BÀ": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
   "Nhà thờ Đức Bà Sài Gòn": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
   "Nhà thờ Đức Bà": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
+  "CHỢ THỦ DẦU MỘT": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", blue: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
   "Chợ Thủ Dầu Một": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", blue: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
+  "CHỢ BẾN THÀNH": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
   "Chợ Bến Thành - TP.HCM": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
   "Chợ Bến Thành": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
+  "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", blue: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH" },
   "Đường sách Nguyễn Văn Bình": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", blue: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH" },
+  "CHỢ XÓM LƯỚI": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
   "Chợ Xóm Lưới (khu vực Vũng Tàu)": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
   "Chợ Xóm Lưới": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
   "Làng sơn mài Tương Bình Hiệp": { info: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", img: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", hot: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", blue: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG" },
