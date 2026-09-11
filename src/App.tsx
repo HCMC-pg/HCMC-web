@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -13,6 +13,7 @@ import { SlideAbout } from './components/SlideAbout';
 import { SlideNavigator } from './components/SlideNavigator';
 import { PlaceDetailModal } from './components/PlaceDetailModal';
 import { SearchModal } from './components/SearchModal';
+import { AmbientSilkLight } from './components/AmbientSilkLight';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -24,6 +25,7 @@ export default function App() {
   const [selectedPlace, setSelectedPlace] = useState<PlaceItem | null>(null);
   const [selectedPlaceCategory, setSelectedPlaceCategory] = useState<string>('');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
   // Flatten places with their group identity for global search and map
   const allPlaces = useMemo(() => {
@@ -41,6 +43,21 @@ export default function App() {
       }
     });
     return list;
+  }, []);
+
+  // Track native window scroll progress (smooth wheel & touch gestures)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight > 0) {
+        const progress = (window.scrollY / scrollHeight) * 100;
+        setScrollProgress(Math.min(100, Math.max(0, Math.round(progress))));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // GSAP ScrollTrigger setup for magazine slide transitions
@@ -100,9 +117,15 @@ export default function App() {
     if (targetSlide) {
       const element = document.getElementById(`slide-${targetSlide.id}`);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const yOffset = -75;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenPlace = (place: PlaceItem, categoryTitle: string) => {
@@ -111,8 +134,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-[#f1f5f9] selection:bg-[#c29b38] selection:text-slate-950 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#0b0f17] text-[#f1f5f9] selection:bg-[#c29b38] selection:text-slate-950 relative overflow-x-hidden silk-smooth">
       
+      {/* Ambient Silk Mouse Lighting Glow */}
+      <AmbientSilkLight />
+
       {/* Sticky Top Header Navigation */}
       <Header
         currentSlide={currentSlide}
@@ -128,16 +154,16 @@ export default function App() {
         onNavigateSlide={handleNavigateSlide}
       />
 
-      {/* Top Global Scroll Progress Bar */}
-      <div className="fixed top-18 left-0 right-0 h-[2px] bg-slate-800 z-30">
+      {/* Top Global Silk Shimmer Progress Bar */}
+      <div className="fixed top-18 left-0 right-0 h-[3px] bg-slate-900/80 z-30 overflow-hidden backdrop-blur-sm">
         <div 
-          className="h-full bg-gradient-to-r from-[#c29b38] via-[#e6ca65] to-[#c29b38] transition-all duration-300 shadow-sm shadow-[#c29b38]"
-          style={{ width: `${((currentSlide + 1) / contentData.slides.length) * 100}%` }}
+          className="h-full silk-shimmer-bar transition-all duration-200 shadow-md shadow-[#c29b38]/40"
+          style={{ width: `${Math.max(scrollProgress, ((currentSlide + 1) / contentData.slides.length) * 100)}%` }}
         />
       </div>
 
       {/* 9 Slides Container */}
-      <main className="pt-20 pb-28 space-y-16 lg:space-y-24">
+      <main className="pt-20 pb-28 space-y-16 lg:space-y-24 relative z-20">
         
         {/* SLIDE 1 (S1): Trang chủ - Hero */}
         <div className="slide-section">
@@ -236,7 +262,7 @@ export default function App() {
       </main>
 
       {/* Magazine Footer */}
-      <footer className="border-t border-white/10 bg-black/80 backdrop-blur-xl py-10 px-4 sm:px-6 lg:px-8">
+      <footer className="border-t border-white/10 bg-black/80 backdrop-blur-xl py-10 px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-7xl mx-auto space-y-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
             <div className="space-y-1 text-center md:text-left">
@@ -288,3 +314,4 @@ export default function App() {
     </div>
   );
 }
+

@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Direct Web Game Link */}
           <a
-            href="https://maries2345678-spec.github.io/HCMC-CulturzlHub/"
+            href="https://hcmc-pg.github.io/exploreculture/"
             target="_blank"
             rel="noopener noreferrer"
             id="header-webgame-btn"
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Direct Web Game Link banner on mobile */}
           <a
-            href="https://maries2345678-spec.github.io/HCMC-CulturzlHub/"
+            href="https://hcmc-pg.github.io/exploreculture/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center justify-between shadow-sm hover:bg-emerald-500 hover:text-slate-950 transition-all"

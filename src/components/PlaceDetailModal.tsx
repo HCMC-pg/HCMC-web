@@ -7,7 +7,7 @@ import {
   Sparkles, 
   Clock, 
   Landmark,
-  ShieldCheck,
+  BookOpen,
   Camera,
   ChevronLeft,
   ChevronRight,
@@ -179,7 +179,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                 <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-slate-800 shadow-sm">
                   <div className="flex items-center gap-2.5 mb-3">
                     <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#c29b38]/15 text-[#f5e3a9] border border-[#c29b38]/30 shrink-0">
-                      <ShieldCheck className="w-4 h-4" />
+                      <BookOpen className="w-4 h-4" />
                     </span>
                     <div className="flex-1">
                       <span className="text-[10px] font-bold text-[#c29b38] uppercase tracking-wider block">
@@ -327,7 +327,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
               {place.significance && (
                 <div className="bg-[#161f30] p-4 sm:p-5 rounded-xl border border-slate-800">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] mb-2 flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#c29b38]" />
+                    <Landmark className="w-4 h-4 text-[#c29b38]" />
                     Ý nghĩa văn hóa & giáo dục
                   </h4>
                   <p className="text-slate-200 leading-relaxed whitespace-pre-line">

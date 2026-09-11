@@ -17,7 +17,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
   return (
     <div 
       onClick={() => onSelect(place)}
-      className="group relative bg-[#131b2a] hover:bg-[#182337] rounded-xl border border-slate-800 hover:border-[#c29b38]/60 transition-all duration-300 flex flex-col overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#c29b38]/10 cursor-pointer transform hover:-translate-y-1"
+      className="group relative bg-[#131b2a]/90 hover:bg-[#18243a] rounded-2xl border border-slate-800/90 hover:border-[#c29b38]/70 transition-all duration-300 ease-out flex flex-col overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#c29b38]/15 cursor-pointer transform hover:-translate-y-1.5 gpu-accelerated"
       id={`card-${place.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
     >
       {/* Top Image Box */}
@@ -25,14 +25,14 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
         <img 
           src={getMediaUrl(place.image)} 
           alt={place.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90 contrast-105"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-90 contrast-105"
           loading="lazy"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#131b2a] via-[#131b2a]/30 to-transparent" />
 
         {/* Top-left image badges: photo count & year */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+        <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
           {place.gallery && place.gallery.length > 0 && (
             <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-700/80 backdrop-blur-md shadow">
               <Camera className="w-3 h-3 text-[#c29b38]" />
@@ -40,7 +40,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
             </span>
           )}
           {place.establishedYear && (
-            <span className="inline-flex items-center text-[9px] font-medium text-[#f5e3a9] bg-slate-950/70 px-1.5 py-0.5 rounded backdrop-blur-sm border border-[#c29b38]/30 max-w-[120px] truncate">
+            <span className="inline-flex items-center text-[9px] font-medium text-[#f5e3a9] bg-slate-950/75 px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#c29b38]/30 max-w-[140px] truncate shadow-sm">
               {place.establishedYear}
             </span>
           )}
@@ -54,7 +54,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
             rel="noreferrer"
             onClick={(e) => e.stopPropagation()}
             title="Mở Google Maps"
-            className="absolute top-3 right-3 p-1.5 rounded-md bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-colors backdrop-blur-sm shadow z-10"
+            className="absolute top-3 right-3 p-1.5 rounded-lg bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-colors duration-200 backdrop-blur-sm shadow z-10"
           >
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
@@ -65,7 +65,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
       <div className="p-5 flex-1 flex flex-col justify-between">
         <div>
           {/* Place Title */}
-          <h3 className="text-lg font-serif-display font-bold text-white group-hover:text-[#f5e3a9] transition-colors line-clamp-1 mb-1.5">
+          <h3 className="text-lg font-serif-display font-bold text-white group-hover:text-[#f5e3a9] transition-colors duration-200 line-clamp-1 mb-1.5">
             {place.name}
           </h3>
 
@@ -92,13 +92,13 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
               </span>
             )}
             {place.videos && place.videos.length > 0 && (
-              <span className="flex items-center gap-1 hover:text-red-400 transition-colors" title={`${place.videos.length} video`}>
+              <span className="flex items-center gap-1 hover:text-red-400 transition-colors" title={`${place.videos.length} video tư liệu`}>
                 <Video className="w-3.5 h-3.5 text-red-400" />
                 {place.videos.length}
               </span>
             )}
             {place.aiPrompts && place.aiPrompts.length > 0 && (
-              <span className="flex items-center gap-1 hover:text-[#e6ca65] transition-colors" title={`${place.aiPrompts.length} prompt AI`}>
+              <span className="flex items-center gap-1 hover:text-[#e6ca65] transition-colors" title={`${place.aiPrompts.length} câu hỏi AI gợi ý`}>
                 <Sparkles className="w-3.5 h-3.5 text-[#e6ca65]" />
                 {place.aiPrompts.length}
               </span>

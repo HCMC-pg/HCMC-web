@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { X, Search, MapPin, Sparkles, Video, ArrowRight } from 'lucide-react';
 import { PlaceItem } from '../types';
 
@@ -17,6 +17,15 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   const searchResults = useMemo(() => {
     if (!searchTerm.trim()) return allPlaces.slice(0, 8);
     const lower = searchTerm.toLowerCase();
@@ -29,8 +38,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   }, [allPlaces, searchTerm]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/85 backdrop-blur-md">
-      <div className="relative w-full max-w-2xl bg-[#111724] border border-[#c29b38]/40 rounded-2xl shadow-2xl overflow-hidden text-slate-200 animate-in fade-in zoom-in-95 duration-200">
+    <div 
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/85 backdrop-blur-md"
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-2xl bg-[#111724] border border-[#c29b38]/40 rounded-2xl shadow-2xl overflow-hidden text-slate-200 animate-in fade-in zoom-in-95 duration-200"
+      >
         
         {/* Search Input Bar */}
         <div className="p-4 border-b border-slate-800 flex items-center gap-3 bg-[#0c121e]">
@@ -43,12 +58,38 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             autoFocus
             className="w-full bg-transparent border-none text-white text-sm focus:outline-none placeholder-slate-500"
           />
+          {searchTerm && (
+            <button
+              onClick={() => setSearchTerm('')}
+              className="text-xs text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800"
+            >
+              Xóa
+            </button>
+          )}
           <button 
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Quick Filter Chips */}
+        <div className="px-4 py-2.5 bg-slate-950/60 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
+          <span className="text-slate-500 text-[10px] uppercase font-semibold shrink-0 mr-1">Gợi ý:</span>
+          {['Tất cả', 'Lịch sử', 'Kiến trúc', 'Chợ', 'Bình Dương', 'Vũng Tàu', 'Côn Đảo'].map((tag) => (
+            <button
+              key={tag}
+              onClick={() => setSearchTerm(tag === 'Tất cả' ? '' : tag)}
+              className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-all duration-200 border ${
+                (tag === 'Tất cả' && !searchTerm) || searchTerm.toLowerCase() === tag.toLowerCase()
+                  ? 'bg-[#c29b38] text-slate-950 font-bold border-[#f5e3a9]'
+                  : 'bg-slate-900/80 text-slate-300 hover:text-white border-slate-700 hover:border-slate-500'
+              }`}
+            >
+              {tag}
+            </button>
+          ))}
         </div>
 
         {/* Results List */}

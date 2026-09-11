@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     color: rgba(255, 255, 255, 0.90);
@@ -106,4 +110,30 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Silk luster & Hardware acceleration for ultra-smooth 60-120fps motion */
+.silk-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Silk shimmer gradient bar */
+@keyframes silk-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.silk-shimmer-bar {
+  background: linear-gradient(90deg, #c29b38 0%, #fff2b2 50%, #c29b38 100%);
+  background-size: 200% 100%;
+  animation: silk-shimmer 3s ease-in-out infinite;
+}
+
 

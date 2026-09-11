@@ -453,7 +453,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Năm ra mắt", value: "Tháng 01/2016" },
       { label: "Chiều dài phố đi bộ", value: "100 mét" },
       { label: "Số gian hàng sách", value: "Hơn 20 NXB lớn" },
-      { label: "Vị trí", value: "Phường Bến Nghé, Quận 1" }
+      { label: "Vị trí", value: "Phường Sài Gòn, Thành phố Hồ Chí Minh" }
     ],
     pedagogicalTakeaways: [
       "Khuyến khích và phát triển thói quen đọc sách, nghiên cứu tài liệu văn hóa trong học sinh.",

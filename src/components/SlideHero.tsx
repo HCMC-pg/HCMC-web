@@ -126,15 +126,15 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
           <div className="mt-4 grid grid-cols-3 gap-2">
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
               <div className="text-xl font-serif-display font-bold text-[#c29b38]">05</div>
-              <div className="text-[11px] text-white/60">Nhóm không gian</div>
+              <div className="text-[11px] text-white/70 font-medium">Nhóm không gian</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
-              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">Đa Dạng</div>
-              <div className="text-[11px] text-white/60">Tài liệu khảo cứu</div>
+              <div className="text-xl font-serif-display font-bold text-[#c29b38]">21 Điểm</div>
+              <div className="text-[11px] text-white/70 font-medium">Di tích & Địa danh</div>
             </div>
             <div className="p-3 rounded-xl liquid-glass border border-white/10 text-center">
-              <div className="text-xl font-serif-display font-bold text-[#c29b38]">Số Hóa</div>
-              <div className="text-[11px] text-white/60">Dữ liệu chuẩn xác</div>
+              <div className="text-xl font-serif-display font-bold text-[#e6ca65]">Đa dạng</div>
+              <div className="text-[11px] text-white/70 font-medium">Tài liệu khảo cứu</div>
             </div>
           </div>
         </div>
