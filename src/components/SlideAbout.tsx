@@ -125,9 +125,6 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
               <p>
                 Vì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, quan sát, tương tác với tri thức di sản và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.
               </p>
-              <div className="p-3.5 rounded-xl bg-black/40 border border-white/10 text-center font-semibold text-[#f5e3a9]">
-                Từ văn hóa → đến công nghệ → đến trải nghiệm → và cuối cùng là kết nối con người với cội nguồn.
-              </div>
               <p className="italic text-center text-[#e6ca65] font-serif-display text-base pt-1">
                 “Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”
               </p>

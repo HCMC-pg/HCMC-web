@@ -101,6 +101,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   // Heritage score calculation (e.g. 98 for Special National Heritage, 92 for National Heritage)
   const isSpecialNational = meta.keyClassification.toLowerCase().includes('đặc biệt') || meta.keyClassification.toLowerCase().includes('unesco');
   const heritageScore = isSpecialNational ? 98 : 92;
+  const isXomLuoi = place.name.toUpperCase().includes('XÓM LƯỚI');
+  const hasHeritageAge = !isXomLuoi && Boolean(meta.heritageAgeYears && meta.heritageAgeYears > 0);
   const ageYears = meta.heritageAgeYears || 100;
   const saigonHistoryYears = 326; // 1698 - 2024
   const agePercentageOfSaigon = Math.min(100, Math.round((ageYears / saigonHistoryYears) * 100));
@@ -120,9 +122,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <h3 className="text-base sm:text-lg font-bold text-white font-serif-display tracking-wide">
                   Bảng Phân Tích Di Sản • {place.name}
                 </h3>
-                <span className="px-2 py-0.5 rounded-full bg-[#c29b38]/20 border border-[#c29b38]/40 text-[#f5e3a9] text-[10px] font-bold">
-                  {meta.keyClassification.split('•')[0].trim()}
-                </span>
               </div>
               <p className="text-xs text-white/70 mt-0.5">
                 Tổng hợp trực quan các thông số cốt lõi, mốc son lịch sử & giá trị văn hóa di sản
@@ -149,9 +148,11 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               <Layers className="w-3.5 h-3.5" />
               Chế độ trực quan hóa đồ họa:
             </span>
-            <div className="text-[11px] text-slate-400 font-mono hidden sm:block">
-              Niên đại di sản: <span className="text-[#e6ca65] font-bold">{meta.heritageAgeYears} năm tuổi</span>
-            </div>
+            {hasHeritageAge ? (
+              <div className="text-[11px] text-slate-400 font-mono hidden sm:block">
+                Niên đại di sản: <span className="text-[#e6ca65] font-bold">{meta.heritageAgeYears} năm tuổi</span>
+              </div>
+            ) : null}
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
@@ -230,7 +231,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                     {meta.keyClassification}
                   </span>
                   <span className="px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono">
-                    Khởi lập: {meta.yearEstablished} ({meta.heritageAgeYears} năm tuổi)
+                    Khởi lập: {meta.yearEstablished} {hasHeritageAge ? `(${meta.heritageAgeYears} năm tuổi)` : ''}
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white tracking-wide">
@@ -243,8 +244,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               </div>
             </div>
 
-            {/* 4 Chỉ Số Vàng (Quick KPI Badges) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {/* Chỉ Số Vàng (Quick KPI Badges) */}
+            <div className={`grid grid-cols-1 ${hasHeritageAge ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} gap-3`}>
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
                 <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Khởi Lập / Khánh Thành</span>
                 <span className="text-base sm:text-lg font-bold text-[#f5e3a9] font-mono mt-1 block">
@@ -252,22 +253,17 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Tuổi Đời Di Sản</span>
-                <span className="text-base sm:text-lg font-bold text-[#e6ca65] font-mono mt-1 block">
-                  {meta.heritageAgeYears} Năm
-                </span>
-              </div>
+              {hasHeritageAge && (
+                <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Tuổi Đời Di Sản</span>
+                  <span className="text-base sm:text-lg font-bold text-[#e6ca65] font-mono mt-1 block">
+                    {meta.heritageAgeYears} Năm
+                  </span>
+                </div>
+              )}
 
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Cấp Xếp Hạng</span>
-                <span className="text-xs sm:text-sm font-bold text-white mt-1 block line-clamp-1">
-                  {meta.keyClassification.split('•')[0].trim()}
-                </span>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Quy Mô & Cấu Trúc</span>
+                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Quy Mô & Kiến Trúc</span>
                 <span className="text-xs sm:text-sm font-bold text-white mt-1 block line-clamp-1">
                   {meta.dimensionsOrScale}
                 </span>
@@ -335,18 +331,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                         </p>
                       </div>
                     ))}
-                  </div>
-                </div>
-
-                {/* Micro Identity Notes */}
-                <div className="pt-3 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 rounded-lg bg-[#0b121e] border border-slate-800">
-                    <span className="text-[10px] font-bold text-[#c29b38] block uppercase">Tác giả / Nguồn gốc:</span>
-                    <span className="text-slate-300 text-[11px] line-clamp-1">{meta.architectOrOrigin || place.architectOrOrigin || 'Đang cập nhật'}</span>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-[#0b121e] border border-slate-800">
-                    <span className="text-[10px] font-bold text-[#c29b38] block uppercase">Xếp hạng di sản:</span>
-                    <span className="text-slate-300 text-[11px] line-clamp-1">{place.classification || meta.keyClassification || 'Di tích lịch sử - văn hóa'}</span>
                   </div>
                 </div>
               </div>
@@ -464,7 +448,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                     <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] font-bold text-[#f5e3a9] border border-[#c29b38]/40 uppercase tracking-wider">
                       {activeMode === 'hotspots' ? 'Radar Hotspot' : activeMode === 'blueprint' ? 'Sơ đồ Kỹ thuật' : 'Infographic HD'}
                     </span>
-                    {meta.heritageAgeYears && (
+                    {hasHeritageAge && (
                       <span className="px-2 py-1 rounded-md bg-[#101826]/85 backdrop-blur-md text-[10px] font-mono font-bold text-slate-300 border border-slate-700">
                         {meta.heritageAgeYears} năm tuổi
                       </span>
@@ -496,8 +480,12 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </h4>
                   <div className="flex items-center gap-3 text-[11px] text-slate-300 mt-1 font-mono">
                     <span>Khởi lập: <strong className="text-[#f5e3a9]">{meta.yearEstablished}</strong></span>
-                    <span>•</span>
-                    <span className="truncate">{meta.architectOrOrigin.slice(0, 32)}</span>
+                    {hasHeritageAge && (
+                      <>
+                        <span>•</span>
+                        <span>Tuổi đời: <strong className="text-[#e6ca65]">{meta.heritageAgeYears} năm</strong></span>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -538,9 +526,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span>Hồ Sơ Di Tích</span>
                 <span className="font-mono text-[#f5e3a9]">{meta.yearEstablished}</span>
               </div>
-              <p className="text-slate-300 text-xs leading-relaxed">
-                <strong className="text-slate-400">Kiến trúc:</strong> {meta.architectOrOrigin}
-              </p>
               <p className="text-slate-300 text-xs leading-relaxed">
                 <strong className="text-slate-400">Quy mô:</strong> {meta.dimensionsOrScale}
               </p>
@@ -828,8 +813,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   <span className="text-sm font-bold text-[#e6ca65] font-mono mt-1 block">{meta.yearEstablished}</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Cấp Xếp Hạng</span>
-                  <span className="text-sm font-bold text-white font-mono mt-1 block truncate">Quốc Gia</span>
+                  <span className="text-[10px] text-slate-400 uppercase block">Không Gian</span>
+                  <span className="text-sm font-bold text-white font-mono mt-1 block truncate">Đặc Trưng</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
                   <span className="text-[10px] text-slate-400 uppercase block">Hiện Trạng</span>

@@ -33,6 +33,12 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   const [activeTab, setActiveTab] = useState<'info' | 'gallery' | 'infographic' | 'videos'>('info');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // Reset tab when switching to another place
+  useEffect(() => {
+    setActiveTab('info');
+    setLightboxIndex(null);
+  }, [place?.name]);
+
   // Normalize gallery items - ensure authentic gallery items, falling back to place.image
   const galleryItems: { url: string }[] = React.useMemo(() => {
     if (!place) return [];
@@ -94,21 +100,34 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
           <button
             onClick={onClose}
             id="close-place-detail-modal-btn"
-            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all z-20 backdrop-blur-sm border border-white/20"
+            aria-label="Đóng"
+            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all z-20 backdrop-blur-sm border border-white/20 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Title on Banner */}
-          <div className="absolute bottom-4 left-6 right-6 z-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white tracking-wide">
-              {place.name}
-            </h2>
-            {place.location && (
-              <p className="text-xs sm:text-sm text-slate-300 mt-1 flex items-center gap-1.5 opacity-90 line-clamp-1">
-                <MapPin className="w-4 h-4 text-[#e6ca65] shrink-0" />
-                {place.location}
-              </p>
+          <div className="absolute bottom-4 left-6 right-6 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white tracking-wide">
+                {place.name}
+              </h2>
+              {place.location && (
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 flex items-center gap-1.5 opacity-90 line-clamp-1">
+                  <MapPin className="w-4 h-4 text-[#e6ca65] shrink-0" />
+                  {place.location}
+                </p>
+              )}
+            </div>
+            {galleryItems.length > 0 && (
+              <button
+                onClick={() => setActiveTab('gallery')}
+                className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 text-xs font-medium border border-white/20 backdrop-blur-md transition-all shrink-0 shadow"
+                title="Xem bộ sưu tập Hình ảnh di sản"
+              >
+                <Camera className="w-3.5 h-3.5 text-[#f5e3a9]" />
+                Hình ảnh di sản ({galleryItems.length})
+              </button>
             )}
           </div>
         </div>
@@ -138,7 +157,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             }`}
           >
             <Camera className="w-4 h-4 text-[#e6ca65]" />
-            Hình ảnh di sản
+            Hình ảnh di sản ({galleryItems.length})
           </button>
 
           <button
@@ -224,50 +243,6 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                   <p className="text-slate-200 leading-relaxed whitespace-pre-line">
                     {place.shortIntro}
                   </p>
-                </div>
-              )}
-
-              {/* MỤC HÌNH ẢNH DI SẢN (PHOTO SHOWCASE IN INFO TAB) */}
-              {galleryItems.length > 0 && (
-                <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-[#c29b38]/30 shadow-md">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#f5e3a9] flex items-center gap-2">
-                        <Camera className="w-4 h-4 text-[#c29b38]" />
-                        Mục Hình Ảnh
-                      </h4>
-                    </div>
-                    <button
-                      onClick={() => setActiveTab('gallery')}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 text-xs font-semibold border border-[#c29b38]/40 transition-colors shrink-0 w-fit"
-                    >
-                      Xem toàn bộ ảnh
-                      <Maximize2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  {/* Grid of photos */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                    {galleryItems.map((item, idx) => (
-                      <div
-                        key={idx}
-                        onClick={() => setLightboxIndex(idx)}
-                        className="group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-[#c29b38]/60 cursor-pointer shadow-md transition-all duration-300 hover:-translate-y-0.5"
-                      >
-                        <div className="relative aspect-[4/3] w-full overflow-hidden">
-                          <img 
-                            src={getMediaUrl(item.url)} 
-                            alt=""
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                          <span className="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-black/60 text-white group-hover:bg-[#c29b38] group-hover:text-slate-950 transition-colors backdrop-blur-sm opacity-0 group-hover:opacity-100">
-                            <Maximize2 className="w-3 h-3" />
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               )}
 

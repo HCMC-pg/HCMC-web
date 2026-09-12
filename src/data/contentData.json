@@ -44,9 +44,9 @@
           "image": "./assets/s2_bennharong_01.jpg",
           "officialSource": "Bảo tàng Hồ Chí Minh – Chi nhánh TP.HCM (baotanghochiminh.vn) & Cục Di sản Văn hóa",
           "verifiedOfficial": true,
-          "establishedYear": "1862 – 1863",
+          "establishedYear": "1862 – 1863 (164 năm tính từ năm 1862)",
           "architectOrOrigin": "Hãng vận tải Messageries Impériales (Pháp)",
-          "classification": "Di tích Lịch sử cấp Quốc gia",
+          "classification": "Di tích kiến trúc Nghệ thuật cấp Thành phố theo Quyết định số 2671-QĐ/UBND ngày 31 tháng 5 năm 2011.",
           "videos": [
             "https://youtu.be/LKDcdl-us24?si=MDs_Hu5IuHIKDQ4R",
             "https://youtu.be/Jg1Qgyan1Aw?si=SSjAgxOEJQtgLaUu",
@@ -87,7 +87,7 @@
           "officialSource": "Ban Quản lý Di tích Lịch sử Dinh Độc Lập (dinhdoclap.gov.vn) & Cục Di sản Văn hóa",
           "verifiedOfficial": true,
           "establishedYear": "1962 – 1966",
-          "architectOrOrigin": "KTS Ngô Viết Thụ (Khôi nguyên La Mã)",
+          "architectOrOrigin": "KTS Ngô Viết Thụ",
           "classification": "Di tích Quốc gia Đặc biệt (Quyết định số 1272/QĐ-TTg ngày 12/8/2009)",
           "videos": [
             "https://youtu.be/V21-By7aQHc?si=A9HrR_ozm4A1S-S7",
@@ -161,8 +161,8 @@
           "image": "./assets/s2_nhatucondao_02.jpg",
           "officialSource": "Ban Quản lý Di tích Côn Đảo & Cục Di sản Văn hóa - Bộ VHTTDL",
           "verifiedOfficial": true,
-          "establishedYear": "1862 – 1975",
-          "architectOrOrigin": "Chính quyền thực dân Pháp và chính quyền Sài Gòn",
+          "establishedYear": "1862–1975",
+          "architectOrOrigin": "Do chính quyền thực dân Pháp xây dựng, sau đó được chính quyền Sài Gòn tiếp quản, sửa chữa và mở rộng.",
           "classification": "Di tích Quốc gia Đặc biệt (Quyết định số 548/QĐ-TTg ngày 10/5/2012)",
           "videos": [
             "https://youtu.be/q-PjQisQSPg?si=y4X_UHlL7O5zSBnG",
@@ -214,8 +214,8 @@
           "officialSource": "Tổng Công ty Bưu điện Việt Nam (VNPost) & Sở Văn hóa và Thể thao TP.HCM",
           "verifiedOfficial": true,
           "establishedYear": "1886 – 1891",
-          "architectOrOrigin": "KTS Marie-Alfred Foulhoux (kết cấu vòm sắt Gustave Eiffel)",
-          "classification": "Công trình Di sản Kiến trúc Nghệ thuật Đô thị Tiêu biểu",
+          "architectOrOrigin": "KTS Villedieu và phụ tá Foulhoux; công trình do chính quyền thuộc địa Pháp xây dựng.",
+          "classification": "Công trình kiến trúc nghệ thuật",
           "videos": [
             "https://www.youtube.com/watch?v=L-3NG6_SyBk",
             "https://www.youtube.com/watch?v=OvIkS1CH14U",
@@ -255,7 +255,7 @@
           "verifiedOfficial": true,
           "establishedYear": "1741 (trùng tu lớn 1868)",
           "architectOrOrigin": "Thiền sư Đại Ngạn Từ Tấn (dòng Lâm Tế Chánh Tông)",
-          "classification": "Di tích Lịch sử – Kiến trúc Nghệ thuật cấp Quốc gia (1993); Kỷ lục Châu Á Tượng Phật dài 52m (2013)",
+          "classification": "Tháng 5/2013, Tổ chức Kỷ lục Châu Á xác lập tượng Phật nhập Niết bàn tại chùa là “Tượng Phật nhập Niết bàn trên mái chùa dài nhất Châu Á”.",
           "videos": [
             "https://www.youtube.com/watch?v=Hv3J97ptHDA",
             "https://www.youtube.com/watch?v=5fa8UCwElIA",
@@ -332,9 +332,9 @@
           "image": "./assets/s3_nhathoducba_02.jpg",
           "officialSource": "Tòa Tổng Giám mục Tổng Giáo phận Sài Gòn & Sở Du lịch TP.HCM",
           "verifiedOfficial": true,
-          "establishedYear": "1877 – 1880 (gắn chóp nhọn 1895)",
-          "architectOrOrigin": "KTS Jules Bourard (Pháp)",
-          "classification": "Vương cung Thánh đường Chính tòa (Sắc phong Vatican năm 1962)",
+          "establishedYear": "1877–1880 (1895 hoàn thiện chóp hai tháp)",
+          "architectOrOrigin": "KTS J. Bourard (Pháp); phần chóp hai tháp được bổ sung theo đồ án của KTS Gardès.",
+          "classification": "Nhà thờ Chính tòa – Vương cung Thánh đường, được Tòa Thánh nâng lên hàng Vương cung Thánh đường năm 1959.",
           "videos": [
             "https://www.youtube.com/watch?v=X-zJXlwFoJ4",
             "https://www.youtube.com/watch?v=_5Lx0wj36kU",
@@ -390,9 +390,9 @@
           "image": "./assets/s4_chothudaumot_02.jpg",
           "officialSource": "Cổng Thông tin điện tử TP. Thủ Dầu Một & Bảo tàng tỉnh Bình Dương",
           "verifiedOfficial": true,
-          "establishedYear": "1828 (tháp đồng hồ xây năm 1935)",
-          "architectOrOrigin": "Cư dân Nam Bộ & chính quyền Thủ Dầu Một thời Pháp thuộc",
-          "classification": "Công trình Di sản Kiến trúc Đô thị Thương mại Tiêu biểu",
+          "establishedYear": "1828 / 1935–1938",
+          "architectOrOrigin": "Kiến trúc sư người Pháp Bonnemain (đối với công trình nhà dãy chợ/tháp đồng hồ)",
+          "classification": "Công trình kiến trúc – thương mại tiêu biểu, mang dấu ấn giao thoa kiến trúc Việt – Pháp.",
           "videos": [
             "https://youtu.be/R2d3HRIGrpM?si=oY2Alyz6oioIG-Rx",
             "https://youtu.be/eDlC_OSND-E?si=u-A_AvfusINhvtAR",
@@ -432,7 +432,7 @@
           "verifiedOfficial": true,
           "establishedYear": "1912 – 1914",
           "architectOrOrigin": "Hãng thầu Brossard et Mopin (Pháp)",
-          "classification": "Biểu tượng Di sản Kiến trúc & Thương mại hơn 110 năm của Sài Gòn - TP.HCM",
+          "classification": "Di tích cấp thành phố năm 2024.",
           "videos": [
             "https://youtu.be/9zoEVAv_Mv0?si=i5gD28CIOVzST9Tv",
             "https://youtu.be/ir3iI9apC7M?si=-4uYbIQR12MYJgQ-",
@@ -466,9 +466,9 @@
           "image": "./assets/s4_duongsach_02.jpg",
           "officialSource": "Sở Thông tin và Truyền thông TP.HCM & Hội Xuất bản Việt Nam",
           "verifiedOfficial": true,
-          "establishedYear": "09/01/2016",
-          "architectOrOrigin": "UBND TP.HCM và Hội Xuất bản Việt Nam phối hợp thiết kế",
-          "classification": "Không gian Văn hóa Đọc kiểu mẫu đầu tiên của Việt Nam",
+          "establishedYear": "12/01/2016",
+          "architectOrOrigin": "Sở Thông tin và Truyền thông TP.HCM phối hợp với Hội Xuất bản Việt Nam (Văn phòng phía Nam) thực hiện.",
+          "classification": "Không gian văn hóa đọc và sinh hoạt văn hóa cộng đồng tiêu biểu của TP.HCM.",
           "videos": [
             "https://youtu.be/xT4CH4yFK6o?si=SK5Dzb1p4N1UqAJk",
             "https://youtu.be/IOI2FNLV-fs?si=NNK0XfXS50dleIcn"
@@ -504,9 +504,9 @@
           "image": "./assets/s4_choxomluoi_02.jpg",
           "officialSource": "Cổng Thông tin điện tử TP. Vũng Tàu (vungtau.baria-vungtau.gov.vn)",
           "verifiedOfficial": true,
-          "establishedYear": "Thập niên giữa thế kỷ XX",
-          "architectOrOrigin": "Cộng đồng ngư dân đánh bắt ven bờ Vũng Tàu",
-          "classification": "Chợ Hải sản Dân gian truyền thống đặc trưng Nam Bộ",
+          "establishedYear": "Chưa xác định từ nguồn chính thức",
+          "architectOrOrigin": "Hình thành từ hoạt động mua bán hải sản của cư dân/ngư dân địa phương, sau đó phát triển thành khu chợ hải sản nổi tiếng của Vũng Tàu.",
+          "classification": "Khu chợ hải sản dân gian gắn với đời sống thương mại và văn hóa của cư dân vùng biển Vũng Tàu.",
           "videos": [
             "https://www.youtube.com/watch?v=6TxgnlPgKqA",
             "https://www.youtube.com/watch?v=CxRtcZLIpX0",
@@ -541,18 +541,18 @@
       "slideNumber": 5,
       "category": "KHO HỌC LIỆU • Nhóm 4",
       "primaryTitle": "Không gian sáng tạo và làng nghề",
-      "secondaryTitle": "Làng sơn mài Tương Bình Hiệp • Đờn Ca Tài Tử • Nghệ Thuật Cải Lương • Lễ Hội Nghinh Ông",
+      "secondaryTitle": "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP • ĐỜN CA TÀI TỬ NAM BỘ • NGHỆ THUẬT CẢI LƯƠNG NAM BỘ • LỄ HỘI NGHINH ÔNG (BÀ RỊA – VŨNG TÀU)",
       "bodyContent": "Không gian sáng tạo và làng nghề tôn vinh những di sản văn hóa phi vật thể quý báu của nhân loại và quốc gia, kết tinh từ đôi bàn tay tài hoa, tâm hồn phóng khoáng và tín ngưỡng thiêng liêng của cư dân Nam Bộ.",
       "keyHighlights": [
-        "Làng sơn mài Tương Bình Hiệp: Hơn 200 năm chế tác tinh xảo, Di sản văn hóa phi vật thể quốc gia",
-        "Đờn Ca Tài Tử Nam Bộ: Di sản văn hóa phi vật thể đại diện của nhân loại được UNESCO vinh danh năm 2013",
-        "Nghệ Thuật Cải Lương: Kịch hát truyền thống đỉnh cao định hình tâm hồn nghệ thuật Nam Bộ",
-        "Lễ Hội Nghinh Ông: Tín ngưỡng thờ Cá Ông bảo vệ ngư dân vươn khơi bám biển tại Thắng Tam Vũng Tàu"
+        "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP: Hơn 200 năm chế tác tinh xảo, Di sản văn hóa phi vật thể quốc gia",
+        "ĐỜN CA TÀI TỬ NAM BỘ: Di sản văn hóa phi vật thể đại diện của nhân loại được UNESCO vinh danh năm 2013",
+        "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ: Kịch hát truyền thống đỉnh cao định hình tâm hồn nghệ thuật Nam Bộ",
+        "LỄ HỘI NGHINH ÔNG (BÀ RỊA – VŨNG TÀU): Tín ngưỡng thờ Cá Ông bảo vệ ngư dân vươn khơi bám biển tại Thắng Tam Vũng Tàu"
       ],
       "image": "./assets/group4_crafts.webp",
       "places": [
         {
-          "name": "Làng sơn mài Tương Bình Hiệp",
+          "name": "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP",
           "shortIntro": "Làng sơn mài Tương Bình Hiệp là làng nghề thủ công truyền thống nổi tiếng của Bình Dương, được xem là cái nôi của nghệ thuật sơn mài Nam Bộ với lịch sử hơn 200 năm. Các sản phẩm sơn mài được chế tác qua 25 công đoạn công phu, kết hợp kỹ thuật truyền thống và nghệ thuật tạo hình tinh xảo. Năm 2016, nghề sơn mài Tương Bình Hiệp được Bộ Văn hóa, Thể thao và Du lịch ghi danh vào Danh mục Di sản văn hóa phi vật thể quốc gia.",
           "location": "17 đường Hồ Văn Cống, phường Chánh Hiệp, Thành phố Hồ Chí Minh (trước đây thuộc phường Tương Bình Hiệp, TP. Thủ Dầu Một, tỉnh Bình Dương), cách trung tâm Thủ Dầu Một khoảng 7 km về phía Bắc.",
           "mapUrl": "https://maps.app.goo.gl/qZgNxoFD9CuYYbSP7",
@@ -591,7 +591,7 @@
           ]
         },
         {
-          "name": "Đờn Ca Tài Tử Nam Bộ",
+          "name": "ĐỜN CA TÀI TỬ NAM BỘ",
           "shortIntro": "Đờn ca tài tử Nam Bộ là loại hình nghệ thuật dân gian đặc sắc kết hợp hài hòa giữa tiếng đờn và tiếng ca, mang tính ngẫu hứng và phóng khoáng như tính cách của người dân phương Nam.",
           "location": "Không gian Di sản văn hóa phi vật thể đại diện của nhân loại, lan tỏa tại Thành phố Hồ Chí Minh và 21 tỉnh, thành phố khu vực Nam Bộ.",
           "mapUrl": "",
@@ -627,7 +627,7 @@
           ]
         },
         {
-          "name": "Nghệ Thuật Cải Lương Nam Bộ",
+          "name": "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ",
           "shortIntro": "Cải lương là một loại hình kịch hát đặc sắc của Việt Nam, được hình thành trên cơ sở ca ra bộ và đờn ca tài tử, kết hợp với các yếu tố sân khấu phương Tây để tạo nên một bộ môn nghệ thuật biểu diễn đầy cảm xúc và lôi cuốn.",
           "location": "Không gian nghệ thuật sân khấu truyền thống phát triển rực rỡ tại Thành phố Hồ Chí Minh và các tỉnh, thành phố Nam Bộ.",
           "mapUrl": "",
@@ -663,7 +663,7 @@
           ]
         },
         {
-          "name": "Lễ Hội Nghinh Ông (Bà Rịa – Vũng Tàu)",
+          "name": "LỄ HỘI NGHINH ÔNG (BÀ RỊA – VŨNG TÀU)",
           "shortIntro": "Lễ hội Nghinh Ông (khu vực Vũng Tàu) là lễ hội truyền thống tiêu biểu của cộng đồng ngư dân vùng biển. Lễ hội được tổ chức hằng năm từ ngày 16 đến 18 tháng 8 âm lịch tại Đình thần Thắng Tam nhằm tôn vinh Cá Ông (cá voi) – vị thần được ngư dân tin là che chở, cứu giúp người đi biển. Lễ hội gồm nhiều nghi thức truyền thống như lễ nghinh Ông trên biển, lễ rước và các hoạt động văn hóa dân gian.",
           "location": "Đình thần Thắng Tam, số 77A đường Hoàng Hoa Thám, Phường Vũng Tàu, Thành phố Vũng Tàu, tỉnh Bà Rịa – Vũng Tàu và vùng biển Bãi Trước (thuộc Phường Vũng Tàu sau khi sáp nhập Phường Thắng Tam vào Phường Vũng Tàu theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội).",
           "mapUrl": "https://maps.app.goo.gl/A1xAwniR3WgaWWkf9",
@@ -708,19 +708,19 @@
       "slideNumber": 6,
       "category": "KHO HỌC LIỆU • Nhóm 5",
       "primaryTitle": "Không gian biển, sông nước và đô thị hiện đại",
-      "secondaryTitle": "Thành phố Mới Bình Dương • Hồ Dầu Tiếng • Bãi Sau Vũng Tàu • Làng Chài Phước Hải • Phố đi bộ Nguyễn Huệ",
+      "secondaryTitle": "THÀNH PHỐ MỚI BÌNH DƯƠNG • HỒ DẦU TIẾNG - BÌNH DƯƠNG • BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU • LÀNG CHÀI PHƯỚC HẢI • PHỐ ĐI BỘ NGUYỄN HUỆ",
       "bodyContent": "Không gian biển, sông nước và đô thị hiện đại mở ra bức tranh phát triển năng động, kết nối giữa thiên nhiên kỳ vĩ, công trình nhân tạo tầm cỡ và những trục cảnh quan thông minh đón đầu tương lai.",
       "keyHighlights": [
-        "Thành phố Mới Bình Dương: Mô hình đô thị thông minh hiện đại quy mô 1.000 ha",
-        "Hồ Dầu Tiếng: Công trình thủy lợi nhân tạo lớn nhất Đông Nam Á, kỳ tích bàn tay con người",
-        "Bãi Sau (Bãi Thùy Vân): Bãi biển nhộn nhịp dài đẹp nhất thành phố biển Vũng Tàu",
-        "Làng Chài Phước Hải: Nét cổ xưa mộc mạc và nghề làm nước mắm truyền thống hàng trăm năm",
-        "Phố đi bộ Nguyễn Huệ: Trục cảnh quan công cộng nổi bật từ Kinh Lớn xưa đến trái tim đô thị nay"
+        "THÀNH PHỐ MỚI BÌNH DƯƠNG: Mô hình đô thị thông minh hiện đại quy mô 1.000 ha",
+        "HỒ DẦU TIẾNG - BÌNH DƯƠNG: Công trình thủy lợi nhân tạo lớn nhất Đông Nam Á, kỳ tích bàn tay con người",
+        "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU: Bãi biển nhộn nhịp dài đẹp nhất thành phố biển Vũng Tàu",
+        "LÀNG CHÀI PHƯỚC HẢI: Nét cổ xưa mộc mạc và nghề làm nước mắm truyền thống hàng trăm năm",
+        "PHỐ ĐI BỘ NGUYỄN HUỆ: Trục cảnh quan công cộng nổi bật từ Kinh Lớn xưa đến trái tim đô thị nay"
       ],
       "image": "./assets/group5_modern.webp",
       "places": [
         {
-          "name": "Thành phố Mới Bình Dương",
+          "name": "THÀNH PHỐ MỚI BÌNH DƯƠNG",
           "shortIntro": "Thành phố Mới Bình Dương là khu đô thị hiện đại được khởi công xây dựng từ năm 2010, với quy mô khoảng 1.000 ha. Đây là trung tâm hành chính, kinh tế, thương mại và dịch vụ của tỉnh Bình Dương, được quy hoạch theo định hướng thành phố thông minh, kết hợp không gian xanh với hạ tầng hiện đại.",
           "location": "Thành phố Mới Bình Dương nằm tại phường Bình Dương, Thành phố Hồ Chí Minh (trước đây thuộc các phường Hòa Phú, Phú Tân và một phần Phú Chánh, TP. Thủ Dầu Một và TP. Tân Uyên, tỉnh Bình Dương). Khu vực này là nơi đặt Trung tâm Hành chính Bình Dương (cũ) và kết nối thuận lợi với các tuyến giao thông quan trọng của vùng Đông Nam Bộ.",
           "mapUrl": "https://maps.app.goo.gl/MqpzAcb17YEfyMt4A",
@@ -760,7 +760,7 @@
           ]
         },
         {
-          "name": "Hồ Dầu Tiếng - Bình Dương",
+          "name": "HỒ DẦU TIẾNG - BÌNH DƯƠNG",
           "shortIntro": "Hồ Dầu Tiếng là công trình thủy lợi nhân tạo có quy mô lớn nhất Việt Nam và Đông Nam Á, mang vẻ đẹp thơ mộng yên bình với lòng hồ rộng lớn và các đảo nhỏ nhấp nhô.",
           "location": "Nằm chủ yếu trên địa bàn xã Dương Minh Châu, tỉnh Tây Ninh; một phần diện tích giáp Thành phố Hồ Chí Minh (khu vực Bình Dương cũ).",
           "mapUrl": "https://maps.app.goo.gl/jkWt1VPGrRCeLrCq9",
@@ -798,7 +798,7 @@
           ]
         },
         {
-          "name": "Bãi Sau (Bãi Thùy Vân) - Vũng Tàu",
+          "name": "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU",
           "shortIntro": "Bãi Sau (hay còn gọi là bãi Thùy Vân) là bãi biển dài, đẹp và nhộn nhịp nhất của thành phố biển Vũng Tàu với những dải cát trắng mịn, sóng êm và làn nước ấm quanh năm.",
           "location": "Dọc tuyến đường Thùy Vân, thuộc địa bàn Phường Vũng Tàu và Phường Tam Thắng, Thành phố Vũng Tàu, tỉnh Bà Rịa – Vũng Tàu (trước đây thuộc Phường Thắng Tam và Phường 8 cũ, nay tương ứng Phường Vũng Tàu và Phường Tam Thắng theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội; trải dài từ chân Núi Nhỏ đến khu vực Paradise).",
           "mapUrl": "https://maps.app.goo.gl/dgxk1q9Rt3QzjKeG9",
@@ -836,7 +836,7 @@
           ]
         },
         {
-          "name": "Làng Chài Phước Hải - Bà Rịa – Vũng Tàu",
+          "name": "LÀNG CHÀI PHƯỚC HẢI",
           "shortIntro": "Phước Hải là một trong những làng chài cổ xưa và mộc mạc nhất của tỉnh Bà Rịa – Vũng Tàu, nơi giữ nguyên vẹn nếp sống đánh bắt truyền thống cùng vẻ hoang sơ, yên bình của vùng duyên hải Nam Bộ.",
           "location": "Thị trấn Phước Hải, Huyện Long Đất, tỉnh Bà Rịa – Vũng Tàu (thuộc Huyện Long Đất sau khi sáp nhập toàn bộ diện tích và dân số của huyện Long Điền và huyện Đất Đỏ theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội).",
           "mapUrl": "https://maps.app.goo.gl/6FBGTbA1NFXueZgV7",
@@ -874,7 +874,7 @@
           ]
         },
         {
-          "name": "Phố đi bộ Nguyễn Huệ",
+          "name": "PHỐ ĐI BỘ NGUYỄN HUỆ",
           "shortIntro": "Phố đi bộ Nguyễn Huệ là không gian công cộng nổi bật của Thành phố Hồ Chí Minh, được khánh thành vào năm 2015 trên nền đường Nguyễn Huệ lịch sử. Đây là nơi thường xuyên diễn ra các hoạt động văn hóa, nghệ thuật, lễ hội và sự kiện cộng đồng, thu hút đông đảo người dân và du khách.",
           "location": "Phố đi bộ Nguyễn Huệ nằm trên đường Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh, kéo dài từ trụ sở Ủy ban nhân dân Thành phố Hồ Chí Minh đến Bến Bạch Đằng bên sông Sài Gòn. Nhờ vị trí trung tâm, nơi đây kết nối nhiều công trình văn hóa và du lịch nổi tiếng của thành phố.",
           "mapUrl": "https://maps.app.goo.gl/ZmZ8LF9UwngiacFSA",
@@ -951,14 +951,14 @@
       "category": "VỀ CHÚNG TÔI",
       "primaryTitle": "Hành Trình Sáng Lập HCMC CultureHub",
       "secondaryTitle": "Câu chuyện sáng lập • Mục tiêu sứ mệnh • Kết nối cộng đồng",
-      "bodyContent": "THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB AI\n- Mục tiêu: Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.\n- Nội dung: Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.\n- AI đồng hành: Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá đồ họa infographic và nhận những gợi ý phù hợp với sở thích.\n- Đối tượng hướng đến: Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.\n\nCÂU CHUYỆN CỦA CHÚNG TÔI\nChúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau.\nVì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.\nĐó cũng là hành trình mà ba người sáng lập cùng theo đuổi:\nTừ văn hóa → đến công nghệ → đến trải nghiệm → và cuối cùng là kết nối con người với cội nguồn.\n“Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”\n\nHCMC CultureHub\nKhám phá văn hóa. Kết nối giá trị. Kiến tạo trải nghiệm.\nEmail liên hệ: hcmcculturehub@gmail.com",
+      "bodyContent": "THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB AI\n- Mục tiêu: Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.\n- Nội dung: Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.\n- AI đồng hành: Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá đồ họa infographic và nhận những gợi ý phù hợp với sở thích.\n- Đối tượng hướng đến: Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.\n\nCÂU CHUYỆN CỦA CHÚNG TÔI\nChúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau.\nVì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.\n“Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”\n\nHCMC CultureHub\nKhám phá văn hóa. Kết nối giá trị. Kiến tạo trải nghiệm.\nEmail liên hệ: hcmcculturehub@gmail.com",
       "keyHighlights": [],
       "aboutDetails": {
         "mission": "Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.",
         "contentScope": "Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.",
         "aiCompanion": "Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá nội dung và nhận những gợi ý phù hợp với sở thích.",
         "targetAudience": "Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.",
-        "foundersStory": "Chúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau. Vì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình. Đó cũng là hành trình mà ba người sáng lập cùng theo đuổi: Từ văn hóa → đến công nghệ → đến trải nghiệm → và cuối cùng là kết nối con người với cội nguồn.",
+        "foundersStory": "Chúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau. Vì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.",
         "foundersCount": 3
       },
       "image": "./assets/about_culturehub.webp",

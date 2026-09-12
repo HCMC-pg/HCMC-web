@@ -124,10 +124,6 @@ export default function App() {
     }
   };
 
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleOpenPlace = (place: PlaceItem, categoryTitle: string) => {
     setSelectedPlace(place);
     setSelectedPlaceCategory(categoryTitle);
