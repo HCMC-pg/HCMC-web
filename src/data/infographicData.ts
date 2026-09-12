@@ -360,7 +360,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Danh hiệu", value: "Vương cung Thánh đường 1959" }
     ],
     pedagogicalTakeaways: [
-      "Hiểu về vật liệu xây dựng bền vững xuyên thế kỷ và kỹ thuật liên kết kết cấu gạch vôi cổ điển.",
+      "Hiểu về kỹ thuật xây dựng bền vững xuyên thế kỷ và giải pháp liên kết kết cấu gạch vôi cổ điển.",
       "Tôn trọng và có ý thức giữ gìn di sản kiến trúc đa tôn giáo trong dòng chảy văn hóa đô thị TP.HCM."
     ]
   },
@@ -772,7 +772,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Năm khánh thành", value: "Tháng 04/2015" },
       { label: "Chiều dài quảng trường", value: "670 mét" },
       { label: "Chiều rộng mặt bằng", value: "64 mét" },
-      { label: "Vật liệu mặt đường", value: "Đá granite bền vững" }
+      { label: "Kết cấu mặt đường", value: "Đá granite bền vững" }
     ],
     pedagogicalTakeaways: [
       "Tìm hiểu tiến trình lịch sử quy hoạch đô thị từ thời kênh rạch đến đô thị đi bộ văn minh.",
@@ -887,7 +887,7 @@ export const LANDMARK_HOTSPOTS: Record<string, InfographicHotspot[]> = {
   ],
   "NHÀ THỜ ĐỨC BÀ-TPHCM": [
     { id: 1, x: 50, y: 16, title: "Tháp Chuông Đôi 60.5m", category: "Kiến trúc", description: "Hai tháp chuông vươn cao với 6 quả chuông đồng đúc tại Pháp nặng gần 30 tấn.", tag: "Biểu tượng Sài Gòn" },
-    { id: 2, x: 35, y: 55, title: "Tường Gạch Marseille Không Trát", category: "Kỹ thuật", description: "Gạch đất nung nhập trực tiếp từ Marseille (Pháp) giữ màu đỏ tươi hơn 140 năm.", tag: "Vật liệu đặc biệt" },
+    { id: 2, x: 35, y: 55, title: "Tường Gạch Marseille Không Trát", category: "Kỹ thuật", description: "Gạch đất nung nhập trực tiếp từ Marseille (Pháp) giữ màu đỏ tươi hơn 140 năm.", tag: "Kỹ thuật đặc biệt" },
     { id: 3, x: 50, y: 45, title: "Cửa Sổ Hoa Hồng Kính Màu", category: "Kiến trúc", description: "Các ô kính màu nghệ thuật lung linh tái hiện tích thánh và lấy ánh sáng huyền ảo.", tag: "Nghệ thuật Gothic" },
     { id: 4, x: 50, y: 88, title: "Tượng Đức Mẹ Hòa Bình", category: "Văn hóa", description: "Tượng đá cẩm thạch trắng Carrara (Ý) đặt tại quảng trường trung tâm Công xã Paris.", tag: "Quảng trường" }
   ],

@@ -125,7 +125,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 </span>
               </div>
               <p className="text-xs text-white/70 mt-0.5">
-                Tổng hợp trực quan các thông số kiến trúc cốt lõi, mốc son lịch sử & giá trị văn hóa di sản
+                Tổng hợp trực quan các thông số cốt lõi, mốc son lịch sử & giá trị văn hóa di sản
               </p>
             </div>
           </div>
@@ -316,7 +316,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-[#e6ca65]" />
-                      Đặc Trưng Tạo Hình & Cấu Trúc Điểm Nhấn
+                      Đặc Điểm Nổi Bật & Cấu Trúc Điểm Nhấn
                     </h4>
                     <span className="text-[10px] text-slate-400 font-mono">Tóm tắt thị giác</span>
                   </div>
@@ -338,15 +338,15 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </div>
                 </div>
 
-                {/* Micro Blueprint Notes */}
-                <div className="pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 rounded-lg bg-[#0b121e] border border-slate-800">
-                    <span className="text-[10px] font-bold text-[#c29b38] block uppercase">Vật liệu chính:</span>
-                    <span className="text-slate-300 text-[11px] line-clamp-1">{meta.blueprint?.materials.slice(0, 2).join(', ') || 'Đá hoa cương, gạch ngói'}</span>
-                  </div>
+                {/* Micro Identity Notes */}
+                <div className="pt-3 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   <div className="p-2.5 rounded-lg bg-[#0b121e] border border-slate-800">
                     <span className="text-[10px] font-bold text-[#c29b38] block uppercase">Tác giả / Nguồn gốc:</span>
-                    <span className="text-slate-300 text-[11px] line-clamp-1">{meta.architectOrOrigin.slice(0, 24)}</span>
+                    <span className="text-slate-300 text-[11px] line-clamp-1">{meta.architectOrOrigin || place.architectOrOrigin || 'Đang cập nhật'}</span>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-[#0b121e] border border-slate-800">
+                    <span className="text-[10px] font-bold text-[#c29b38] block uppercase">Xếp hạng di sản:</span>
+                    <span className="text-slate-300 text-[11px] line-clamp-1">{place.classification || meta.keyClassification || 'Di tích lịch sử - văn hóa'}</span>
                   </div>
                 </div>
               </div>
@@ -392,27 +392,14 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               </div>
             </div>
 
-            {/* 3 Trụ Cột Tri Thức Tóm Tắt (3 Knowledge Pillars) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Cột 1: Kiến trúc & Nghệ thuật */}
-              <div className="p-4.5 rounded-2xl bg-[#101826] border border-slate-800 space-y-2">
-                <div className="flex items-center gap-2 text-[#c29b38]">
-                  <Landmark className="w-4 h-4" />
-                  <h4 className="text-xs font-bold uppercase tracking-wider">
-                    1. Kiến Trúc & Tạo Hình
-                  </h4>
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {place.architecturalStyle || meta.blueprint?.crossSectionNote || `Công trình mang ngôn ngữ kiến trúc tiêu biểu, kết hợp hài hòa giữa yếu tố cổ điển và sự thích nghi khí hậu nhiệt đới Nam Bộ.`}
-                </p>
-              </div>
-
-              {/* Cột 2: Lịch sử & Giá trị Văn hóa */}
+            {/* 2 Trụ Cột Tri Thức Tóm Tắt (Knowledge Pillars) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Cột 1: Lịch sử & Giá trị Xã hội */}
               <div className="p-4.5 rounded-2xl bg-[#101826] border border-slate-800 space-y-2">
                 <div className="flex items-center gap-2 text-[#c29b38]">
                   <Award className="w-4 h-4" />
                   <h4 className="text-xs font-bold uppercase tracking-wider">
-                    2. Lịch Sử & Xã Hội
+                    1. Lịch Sử & Xã Hội
                   </h4>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -420,15 +407,15 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 </p>
               </div>
 
-              {/* Cột 3: Trọng tâm Giá Trị Văn Hóa & Tinh Thần Di Sản */}
-              <div className="p-4.5 rounded-2xl bg-black/40 border border-white/10 space-y-2">
+              {/* Cột 2: Trọng tâm Giá Trị Văn Hóa & Tinh Thần Di Sản */}
+              <div className="p-4.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 space-y-2">
                 <div className="flex items-center gap-2 text-[#e6ca65]">
                   <BookOpen className="w-4 h-4" />
                   <h4 className="text-xs font-bold uppercase tracking-wider">
-                    3. Giá Trị Văn Hóa & Di Sản
+                    2. Giá Trị Văn Hóa & Di Sản
                   </h4>
                 </div>
-                <p className="text-xs text-white/80 leading-relaxed font-medium">
+                <p className="text-xs text-slate-200 leading-relaxed font-medium">
                   {place.educationalValue || `Học sinh và công chúng cần nắm vững niên đại khởi lập, giá trị bảo tồn cấp quốc gia và ý thức gìn giữ di sản trong không gian đô thị hiện đại.`}
                 </p>
               </div>
@@ -615,7 +602,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               <div className="p-4 rounded-xl bg-[#0d1624] border border-cyan-900/60 space-y-2">
                 <span className="text-[11px] font-bold text-cyan-300 uppercase block font-mono flex items-center gap-1.5">
                   <Ruler className="w-3.5 h-3.5 text-cyan-400" />
-                  Vật liệu kiến trúc & Cấu kiện xây dựng cốt lõi:
+                  Cấu kiện kiến trúc & Giải pháp kết cấu cốt lõi:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {meta.blueprint?.materials.map((mat, i) => (
