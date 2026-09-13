@@ -90,7 +90,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Phân loại", value: "Bảo tàng Quốc gia" }
     ],
     pedagogicalTakeaways: [
-      "Hiểu rõ vai trò vị trí cửa ngõ sông nước của Sài Gòn trong việc giao thương quốc tế đầu thế kỷ 20.",
+      "Hiểu rõ vai trò vị trí cửa ngõ sông nước của Sài Gòn trong việc giao thương quốc tế đầu thế kỷ XX.",
       "Ghi nhớ dấu mốc ngày 5/6/1911 là bước ngoặt quyết định của phong trào giải phóng dân tộc Việt Nam."
     ]
   },
@@ -229,7 +229,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Địa chỉ", value: "Số 2 Công xã Paris, Q.1" }
     ],
     pedagogicalTakeaways: [
-      "Khảo cứu sự giao thoa độc đáo giữa kỹ thuật kết cấu kim loại công nghiệp phương Tây thế kỷ 19 với nghệ thuật trang trí phù điêu và hoa văn phương Đông.",
+      "Khảo cứu sự giao thoa độc đáo giữa kỹ thuật kết cấu kim loại công nghiệp phương Tây thế kỷ XIX với nghệ thuật trang trí phù điêu và hoa văn phương Đông.",
       "Thấu hiểu ý nghĩa của một di sản sống (living heritage) vẫn giữ nguyên vẹn công năng bưu chính dân sinh phục vụ đồng bào và du khách sau hơn một thế kỷ."
     ]
   },
@@ -262,7 +262,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Màu sơn đặc trưng", value: "Vàng đất nhạt" }
     ],
     pedagogicalTakeaways: [
-      "Nhận diện nét giao thoa văn hóa giữa kỹ thuật công nghiệp châu Âu thế kỷ 19 và mỹ thuật trang trí phương Đông.",
+      "Nhận diện nét giao thoa văn hóa giữa kỹ thuật công nghiệp châu Âu thế kỷ XIX và mỹ thuật trang trí phương Đông.",
       "Ý thức bảo tồn những công trình kiến trúc cổ vẫn đang giữ vững công năng sử dụng đương đại."
     ]
   },
@@ -378,7 +378,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     milestones: [
       { year: "1935", event: "Thực dân Pháp xây dựng nhà dãy chợ bằng bê tông cốt thép, theo thiết kế của KTS người Pháp Bonnemain." },
       { year: "1938", event: "Công trình chợ với diện mạo mới được khánh thành." },
-      { year: "Thế kỷ 20", event: "Chợ Thủ Dầu Một trở thành một trung tâm thương mại tiêu biểu của Bình Dương, gắn với quá trình phát triển kinh tế – xã hội của vùng đất." }
+      { year: "Thế kỷ XX", event: "Chợ Thủ Dầu Một trở thành một trung tâm thương mại tiêu biểu của Bình Dương, gắn với quá trình phát triển kinh tế – xã hội của vùng đất." }
     ],
     visualHighlights: [
       "Tháp đồng hồ: Tháp đồng hồ hình lục giác cao 23,72 m, mang dấu ấn kiến trúc châu Âu và trở thành biểu tượng quen thuộc của đất Thủ.",
@@ -425,7 +425,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Số cửa đón khách", value: "4 cửa chính, 12 cửa phụ" }
     ],
     pedagogicalTakeaways: [
-      "Khám phá sự dịch chuyển kinh tế và quy hoạch đô thị Sài Gòn đầu thế kỷ 20.",
+      "Khám phá sự dịch chuyển kinh tế và quy hoạch đô thị Sài Gòn đầu thế kỷ XX.",
       "Hiểu giá trị biểu tượng của ngôi chợ vừa là di sản kiến trúc, vừa là bảo tàng sống về đời sống thị dân."
     ]
   },
@@ -496,21 +496,22 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "sang_tao",
     categoryTitle: "Không gian Nghệ thuật & Sáng tạo Truyền thống",
     masterImage: infographicSangTao,
-    yearEstablished: "Thế kỷ 18 (Hơn 300 năm)",
+    yearEstablished: "Thế kỷ XIII ( hơn 300 năm)",
     architectOrOrigin: "Các nghệ nhân vùng đất Thủ truyền đời từ cha ông",
     keyClassification: "Di sản Văn hóa Phi vật thể Quốc gia (2016)",
-    dimensionsOrScale: "Quy trình chế tác thủ công cầu kỳ trải qua 25 công đoạn nghiêm ngặt",
+    dimensionsOrScale: "Hơn 300 năm lịch sử • Quy trình chế tác 25 công đoạn thủ công",
     colorPalette: ["#c29b38", "#b91c1c", "#171717", "#fbbf24"],
     aiImagePrompt: "An artistic heritage infographic poster of Tuong Binh Hiep Lacquerware Village Binh Duong. Step-by-step diagram showing the 25 meticulous traditional lacquer steps: wood carcass seasoning, natural resin coating, gold and silver leaf inlay, mother-of-pearl engraving, water polishing layers, rich glossy black and gold leaf aesthetics.",
     milestones: [
-      { year: "Thế kỷ 18", event: "Các lưu dân từ miền Trung và Bắc mang theo nghề sơn truyền thống lập nghiệp bên rạch Bà Lụa" },
-      { year: "Thế kỷ 20", event: "Tranh và sản phẩm sơn mài Bình Dương xuất khẩu sang nhiều nước châu Âu" },
+      { year: "Thế kỷ XIII", event: "Các lưu dân từ miền Trung và Bắc mang theo nghề sơn truyền thống lập nghiệp bên rạch Bà Lụa (hơn 300 năm lịch sử)" },
+      { year: "Thế kỷ XX", event: "Tranh và sản phẩm sơn mài Bình Dương xuất khẩu sang nhiều nước châu Âu" },
       { year: "2016", event: "Được công nhận Di sản Văn hóa Phi vật thể Quốc gia" }
     ],
     visualHighlights: [
-      "Nghệ thuật cẩn vỏ trứng, dát vàng lá, bạc quỳ và xà cừ tạo chiều sâu quang học bí ẩn",
-      "Sử dụng mủ cây sơn tự nhiên vùng Phú Thọ và nhựa cây Nam Bộ cho lớp bóng sâu thẳm",
-      "Công đoạn mài tranh dưới nước kiên nhẫn làm hiện dần lớp màu ẩn sâu bên dưới"
+      "Kỹ thuật sơn mài công phu tạo nên chiều sâu thẩm mỹ\nNghệ thuật cẩn vỏ trứng, dát vàng, dát bạc, khảm xà cừ và mài nhiều lớp tạo nên sự tương phản giữa màu sắc, ánh sáng và độ sâu của bề mặt, làm nên vẻ đẹp đặc trưng của tranh sơn mài Tương Bình Hiệp.",
+      "Chất liệu tự nhiên góp phần tạo nên bản sắc riêng\nViệc sử dụng sơn ta và các vật liệu tự nhiên cùng kỹ thuật xử lý nhiều lớp giúp sản phẩm có độ bóng, màu sắc sâu và độ bền cao. Chất liệu không chỉ phục vụ kỹ thuật mà còn góp phần tạo nên nét riêng của nghề sơn mài truyền thống.",
+      "Nghệ thuật “mài” tạo nên vẻ đẹp ẩn hiện đặc trưng\nQua quá trình bồi, phủ, mài và đánh bóng, các lớp màu và họa tiết dần hiện ra, tạo hiệu ứng chiều sâu và vẻ đẹp biến đổi theo ánh sáng. Đây là nét đặc sắc thể hiện sự kết hợp giữa tay nghề, sự kiên nhẫn và tư duy thẩm mỹ của người thợ.",
+      "Giá trị không chỉ nằm ở sản phẩm mà còn ở sự tiếp nối nghề truyền thống\nLàng sơn mài Tương Bình Hiệp không chỉ lưu giữ một kỹ thuật thủ công lâu đời mà còn phản ánh quá trình trao truyền tri thức, kỹ năng và kinh nghiệm nghề qua nhiều thế hệ, góp phần duy trì bản sắc văn hóa của vùng đất Bình Dương."
     ],
     keyDataPoints: [
       { label: "Niên đại hình thành", value: "Hơn 300 năm" },
@@ -528,14 +529,14 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "sang_tao",
     categoryTitle: "Không gian Nghệ thuật & Sáng tạo Truyền thống",
     masterImage: infographicSangTao,
-    yearEstablished: "Cuối thế kỷ 19",
+    yearEstablished: "Cuối thế kỷ XIX",
     architectOrOrigin: "Cộng đồng nhạc sư, nhạc tài phương Nam",
     keyClassification: "Di sản Văn hóa Phi vật thể Đại diện của Nhân loại (UNESCO 2013)",
     dimensionsOrScale: "Dàn nhạc ngũ tuyệt: Đàn Kìm, Tranh, Cò, Bầu, Guitare phím lõm",
     colorPalette: ["#c29b38", "#d97706", "#451a03", "#fef3c7"],
     aiImagePrompt: "An elegant musical heritage educational infographic of UNESCO Don Ca Tai Tu Nam Bo. Illustrated diagrams of the quintet instruments: Dan Kim (moon lute), Dan Tranh (zither), Dan Co (two-string fiddle), Dan Bau (monochord), scalloped guitar. Visual explanation of the 20 master repertoires (Bac, Nam, Xuan, Ai), golden warm tone.",
     milestones: [
-      { year: "Cuối thế kỷ 19", event: "Hình thành từ sự kết hợp của nhã nhạc cung đình Huế và dân ca sông nước Nam Bộ" },
+      { year: "Cuối thế kỷ XIX", event: "Hình thành từ sự kết hợp của nhã nhạc cung đình Huế và dân ca sông nước Nam Bộ" },
       { year: "1919", event: "Nhạc sĩ Cao Văn Lầu sáng tác bản 'Dạ Cổ Hoài Lang' bất hủ tại Bạc Liêu" },
       { year: "2013", event: "UNESCO vinh danh là Di sản Văn hóa Phi vật thể Đại diện của Nhân loại" }
     ],
@@ -592,14 +593,14 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "sang_tao",
     categoryTitle: "Không gian Nghệ thuật & Sáng tạo Truyền thống",
     masterImage: infographicSangTao,
-    yearEstablished: "Thời vua Minh Mạng (Đầu thế kỷ 19)",
+    yearEstablished: "Thời vua Minh Mạng (Đầu thế kỷ XIX)",
     architectOrOrigin: "Cộng đồng ngư dân 3 làng Thắng Nhất, Thắng Nhì, Thắng Tam",
     keyClassification: "Di sản Văn hóa Phi vật thể Quốc gia (2018)",
     dimensionsOrScale: "Diễn ra vào ngày 16, 17, 18 tháng 8 âm lịch hàng năm tại Đình Thắng Tam",
     colorPalette: ["#0284c7", "#c29b38", "#ea580c", "#0f172a"],
     aiImagePrompt: "A vibrant marine cultural festival infographic poster of Nghinh Ong Festival Thang Tam Vung Tau. Sea procession diagram with decorated dragon boats honoring the Whale God (Ca Voi), lion dance on beach, giant whale bone relic hall (Lang Ong Nam Hai), festive flags, ocean waves and gold banner design.",
     milestones: [
-      { year: "Đầu thế kỷ 19", event: "Ngư dân rước ngọc cốt Ông Nam Hải trôi dạt vào bờ về phụng thờ tại Đình Thắng Tam" },
+      { year: "Đầu thế kỷ XIX", event: "Ngư dân rước ngọc cốt Ông Nam Hải trôi dạt vào bờ về phụng thờ tại Đình Thắng Tam" },
       { year: "1840", event: "Vua Thiệu Trị ban sắc phong cho đền thờ Nam Hải Tướng Quân" },
       { year: "2018", event: "Bộ Văn hóa, Thể thao và Du lịch ghi danh vào Di sản Văn hóa Phi vật thể Quốc gia" }
     ],
@@ -647,7 +648,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { label: "Vinh danh quốc tế", value: "Top 1 Smart 21 (ICF)" }
     ],
     pedagogicalTakeaways: [
-      "Nhận diện mô hình phát triển đô thị xanh, thông minh, tích hợp quản trị số hóa thế kỷ 21.",
+      "Nhận diện mô hình phát triển đô thị xanh, thông minh, tích hợp quản trị số hóa thế kỷ XXI.",
       "Khơi dậy tinh thần nghiên cứu khoa học và định hướng nghề nghiệp công nghệ cao cho học sinh."
     ]
   },
@@ -688,7 +689,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
     masterImage: PLACE_IMAGES["./assets/s6_baisauvt_02.jpg"] || infographicBienDoThi,
-    yearEstablished: "Khai thác du lịch từ thế kỷ 19",
+    yearEstablished: "Khai thác du lịch từ thế kỷ XIX",
     architectOrOrigin: "Tạo tác bờ biển tự nhiên của Mũi Nghinh Phong và Biển Đông",
     keyClassification: "Bãi tắm Du lịch Ven biển Tiêu biểu Miền Nam (Bãi Thùy Vân)",
     dimensionsOrScale: "Chiều dài bờ biển hơn 8km từ chân Núi Nhỏ đến Cửa Lấp",
@@ -696,7 +697,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     aiImagePrompt: "A scenic coastal geography infographic poster of Back Beach Vung Tau (Bai Sau Thuy Van). Coastal map elevation showing the 8km shoreline, gentle surf dynamics, Cape Nghinh Phong headland, Hon Ba island with tidal footbridge path, sunshine gold and ocean turquoise tones.",
     milestones: [
       { year: "Thời Pháp thuộc", event: "Được người Pháp quy hoạch làm bãi nghỉ dưỡng Cap Saint-Jacques" },
-      { year: "Thế kỷ 20 – Nay", event: "Trở thành bãi biển đông đảo và sôi động nhất thành phố biển Vũng Tàu" },
+      { year: "Thế kỷ XX – Nay", event: "Trở thành bãi biển đông đảo và sôi động nhất thành phố biển Vũng Tàu" },
       { year: "2024 – Nay", event: "Quy hoạch đại công viên bãi biển Thùy Vân hiện đại chuẩn quốc tế" }
     ],
     visualHighlights: [
@@ -720,14 +721,14 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
     masterImage: PLACE_IMAGES["./assets/s6_langchaiphuochai_02.jpg"] || infographicBienDoThi,
-    yearEstablished: "Cuối thế kỷ 18",
+    yearEstablished: "Cuối thế kỷ XVIII",
     architectOrOrigin: "Cộng đồng ngư dân định cư lâu đời dưới chân núi Minh Đạm",
     keyClassification: "Làng nghề Khai thác Hải sản & Nước mắm truyền thống Nam Bộ",
     dimensionsOrScale: "Bờ kè bích họa dài hơn 1km, đội thuyền thúng hơn 300 chiếc",
     colorPalette: ["#0284c7", "#c29b38", "#ea580c", "#0f172a"],
     aiImagePrompt: "An authentic coastal fishing village infographic poster of Phuoc Hai Dat Do. Cutaway of traditional bamboo coracle round boats (thuyen thung), fish sauce fermentation terracotta jars, fishermen pulling nets at dawn under Minh Dam mountain, ocean spray and golden dawn colors.",
     milestones: [
-      { year: "Cuối thế kỷ 18", event: "Ngư dân miền Trung xuôi thuyền vào nam lập nên làng đánh cá lâu đời nhất vùng Đất Đỏ" },
+      { year: "Cuối thế kỷ XVIII", event: "Ngư dân miền Trung xuôi thuyền vào nam lập nên làng đánh cá lâu đời nhất vùng Đất Đỏ" },
       { year: "Kháng chiến", event: "Cung cấp lương thực, che chở cho cán bộ chiến sĩ tại căn cứ Núi Minh Đạm" },
       { year: "Hiện nay", event: "Phát triển du lịch cộng đồng kết hợp nghề làm khô, nước mắm truyền thống" }
     ],
@@ -752,7 +753,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     category: "bien_do_thi",
     categoryTitle: "Không gian Sông nước, Biển đảo & Đô thị Thông minh",
     masterImage: PLACE_IMAGES["./assets/s6_phodibonguyenhue_02.jpg"] || infographicBienDoThi,
-    yearEstablished: "2015 (Nguyên gốc là Kênh Charner thế kỷ 19)",
+    yearEstablished: "2015 (Nguyên gốc là Kênh Charner thế kỷ XIX)",
     architectOrOrigin: "UBND TP.HCM quy hoạch cải tạo thành quảng trường đi bộ hiện đại",
     keyClassification: "Quảng trường Đô thị & Không gian Sinh hoạt Công cộng Trung tâm",
     dimensionsOrScale: "Chiều dài 670m, rộng 64m lát đá granite nguyên khối, kết nối sông Sài Gòn",
@@ -884,7 +885,7 @@ export const LANDMARK_HOTSPOTS: Record<string, InfographicHotspot[]> = {
   "CHÙA HỘI KHÁNH-BÌNH DƯƠNG": [
     { id: 1, x: 50, y: 22, title: "Đại Tượng Phật Nằm Dài 52m", category: "Văn hóa", description: "Tượng Phật nhập niết bàn trên mái chùa dài nhất châu Á, xác lập kỷ lục tâm linh ấn tượng.", tag: "Kỷ lục châu Á" },
     { id: 2, x: 50, y: 60, title: "Chánh Điện Gỗ Chạm Lọng", category: "Kiến trúc", description: "Kết cấu cột gỗ quý nguyên khối với kỹ nghệ chạm khắc lọng tinh xảo của đất Thủ.", tag: "Điêu khắc cổ" },
-    { id: 3, x: 22, y: 45, title: "Khu Tháp Tổ Cổ Tự 1741", category: "Lịch sử", description: "Nơi yên nghỉ của các bậc cao tăng khai sơn phá thạch vùng đất Bình Dương từ thế kỷ 18.", tag: "Cổ tự" },
+    { id: 3, x: 22, y: 45, title: "Khu Tháp Tổ Cổ Tự 1741", category: "Lịch sử", description: "Nơi yên nghỉ của các bậc cao tăng khai sơn phá thạch vùng đất Bình Dương từ thế kỷ XVIII.", tag: "Cổ tự" },
     { id: 4, x: 78, y: 70, title: "Bộ Bao Lam Tứ Linh - Tứ Quý", category: "Kiến trúc", description: "Kiệt tác trang trí gỗ của làng nghề mộc Thủ Dầu Một được bảo tồn nguyên vẹn.", tag: "Di sản gỗ" }
   ],
   "THÍCH CA PHẬT ĐÀI-VŨNG TÀU": [
@@ -1122,7 +1123,7 @@ export function getPlaceInfographic(placeName: string, categoryTitle?: string): 
     category: "lich_su",
     categoryTitle: categoryTitle || "Di tích & Danh thắng Nam Bộ",
     masterImage: masterImg,
-    yearEstablished: "Thế kỷ 19 – 20",
+    yearEstablished: "Thế kỷ XIX – XX",
     heritageAgeYears: 120,
     significanceLevel: "Di tích Lịch sử - Văn hóa",
     architectOrOrigin: "Cộng đồng cư dân Nam Bộ sáng lập",

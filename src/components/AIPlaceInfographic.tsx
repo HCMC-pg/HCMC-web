@@ -23,7 +23,6 @@ import {
   Info,
   ShieldCheck,
   CheckCircle2,
-  Activity,
   Clock,
   Grid,
   BookOpen
@@ -37,7 +36,7 @@ interface AIPlaceInfographicProps {
   categoryTitle?: string;
 }
 
-type InfographicMode = 'poster' | 'blueprint' | 'timeline' | 'metrics';
+type InfographicMode = 'poster' | 'blueprint' | 'timeline';
 
 export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   place,
@@ -98,14 +97,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
     }, 1200);
   };
 
-  // Heritage score calculation (e.g. 98 for Special National Heritage, 92 for National Heritage)
-  const isSpecialNational = meta.keyClassification.toLowerCase().includes('đặc biệt') || meta.keyClassification.toLowerCase().includes('unesco');
-  const heritageScore = isSpecialNational ? 98 : 92;
   const isXomLuoi = place.name.toUpperCase().includes('XÓM LƯỚI');
   const hasHeritageAge = !isXomLuoi && Boolean(meta.heritageAgeYears && meta.heritageAgeYears > 0);
-  const ageYears = meta.heritageAgeYears || 100;
-  const saigonHistoryYears = 326; // 1698 - 2024
-  const agePercentageOfSaigon = Math.min(100, Math.round((ageYears / saigonHistoryYears) * 100));
 
   return (
     <div className="space-y-6 text-slate-200">
@@ -155,7 +148,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             ) : null}
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
             <button
               onClick={() => setActiveMode('poster')}
               className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
@@ -190,18 +183,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             >
               <Calendar className="w-4 h-4 shrink-0" />
               <span className="truncate">Biên Niên Sử</span>
-            </button>
-
-            <button
-              onClick={() => setActiveMode('metrics')}
-              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                activeMode === 'metrics'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-              }`}
-            >
-              <Activity className="w-4 h-4 shrink-0" />
-              <span className="truncate">Chỉ Số Di Sản</span>
             </button>
           </div>
         </div>
@@ -318,19 +299,32 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </div>
 
                   <div className="space-y-2.5">
-                    {meta.visualHighlights.map((highlight, idx) => (
-                      <div 
-                        key={idx} 
-                        className="p-3 rounded-xl bg-[#0b121e] border border-slate-800/80 hover:border-[#c29b38]/40 transition-colors flex items-start gap-3 text-xs"
-                      >
-                        <span className="w-5 h-5 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-                          {idx + 1}
-                        </span>
-                        <p className="text-slate-200 leading-relaxed font-medium">
-                          {highlight}
-                        </p>
-                      </div>
-                    ))}
+                    {meta.visualHighlights.map((highlight, idx) => {
+                      const hasNewline = highlight.includes('\n');
+                      const title = hasNewline ? highlight.split('\n')[0] : null;
+                      const content = hasNewline ? highlight.split('\n').slice(1).join('\n') : highlight;
+
+                      return (
+                        <div 
+                          key={idx} 
+                          className="p-3.5 rounded-xl bg-[#0b121e] border border-slate-800/80 hover:border-[#c29b38]/40 transition-colors flex items-start gap-3 text-xs"
+                        >
+                          <span className="w-5 h-5 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                            {idx + 1}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            {title && (
+                              <h5 className="font-bold text-[#f5e3a9] text-xs mb-1">
+                                {title}
+                              </h5>
+                            )}
+                            <p className="text-slate-200 leading-relaxed font-normal">
+                              {content}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -718,112 +712,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                     </div>
                   );
                 })}
-              </div>
-            </div>
-          )}
-
-          {/* ======================================================== */}
-          {/* VIEW 5: CHỈ SỐ & ĐO LƯỜNG DI SẢN (METRICS & VISUAL GAUGES) */}
-          {/* ======================================================== */}
-          {activeMode === 'metrics' && (
-            <div className="p-5 rounded-2xl bg-[#141d2e] border border-slate-800 space-y-5">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
-                  <Activity className="w-4 h-4 text-[#c29b38]" />
-                  Chỉ số di sản & Tầm vóc lịch sử
-                </h4>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
-                  Phân tích định lượng
-                </span>
-              </div>
-
-              {/* Circular Gauge & Age Comparison */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-                
-                {/* SVG Gauge */}
-                <div className="p-4 rounded-xl bg-[#0f1726] border border-slate-800 flex items-center gap-4">
-                  <div className="relative w-24 h-24 shrink-0 flex items-center justify-center">
-                    <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                      <path
-                        className="text-slate-800"
-                        strokeWidth="3.5"
-                        stroke="currentColor"
-                        fill="none"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                      <path
-                        className="text-[#c29b38]"
-                        strokeDasharray={`${heritageScore}, 100`}
-                        strokeWidth="3.5"
-                        strokeLinecap="round"
-                        stroke="currentColor"
-                        fill="none"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      />
-                    </svg>
-                    <div className="absolute text-center">
-                      <span className="text-lg font-extrabold text-[#f5e3a9] font-mono">{heritageScore}</span>
-                      <span className="text-[9px] text-slate-400 block -mt-1">/100</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <span className="text-[10px] font-bold text-[#c29b38] uppercase block">Chỉ số tầm vóc di sản:</span>
-                    <h5 className="text-sm font-bold text-white mt-0.5">
-                      {isSpecialNational ? 'Di Tích Quốc Gia Đặc Biệt' : 'Di Tích Lịch Sử Quốc Gia'}
-                    </h5>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      Xếp hạng theo tiêu chí bảo tồn, niên đại và giá trị văn hóa của Bộ Văn hóa, Thể thao và Du lịch.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Age vs Saigon 326 Years Scale */}
-                <div className="p-4 rounded-xl bg-[#0f1726] border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-300 font-medium">Niên đại công trình:</span>
-                    <strong className="text-[#f5e3a9] font-mono">{ageYears} năm</strong>
-                  </div>
-
-                  {/* Visual Bar */}
-                  <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                    <div 
-                      className="bg-gradient-to-r from-[#c29b38] to-[#e6ca65] h-full rounded-full transition-all duration-1000"
-                      style={{ width: `${agePercentageOfSaigon}%` }}
-                    />
-                  </div>
-
-                  <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono">
-                    <span>1698 (Nguyễn Hữu Cảnh)</span>
-                    <span className="text-[#e6ca65] font-bold">{agePercentageOfSaigon}% chiều dài lịch sử Sài Gòn</span>
-                    <span>Nay</span>
-                  </div>
-
-                  <p className="text-[11px] text-slate-400 pt-1 leading-relaxed">
-                    Công trình đã đồng hành qua <strong className="text-slate-200">{ageYears} năm</strong> thăng trầm cùng lịch sử đất phương Nam.
-                  </p>
-                </div>
-
-              </div>
-
-              {/* Data Badges Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Niên Đại</span>
-                  <span className="text-sm font-bold text-[#e6ca65] font-mono mt-1 block">{meta.yearEstablished}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Không Gian</span>
-                  <span className="text-sm font-bold text-white font-mono mt-1 block truncate">Đặc Trưng</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Hiện Trạng</span>
-                  <span className="text-sm font-bold text-emerald-400 font-mono mt-1 block">Bảo Tồn Tốt</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#0f1726] border border-slate-800">
-                  <span className="text-[10px] text-slate-400 uppercase block">Giá Trị Văn Hóa</span>
-                  <span className="text-sm font-bold text-[#f5e3a9] font-mono mt-1 block">Đặc Biệt</span>
-                </div>
               </div>
             </div>
           )}
