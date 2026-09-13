@@ -20,14 +20,7 @@ export interface InfographicHotspot {
   tag?: string;
 }
 
-export interface BlueprintData {
-  orientation: string;
-  materials: string[];
-  scale: string;
-  architecturalStyle: string;
-  gridCoords: string;
-  crossSectionNote?: string;
-}
+// Blueprint removed as requested by user
 
 export interface ColorMeaning {
   hex: string;
@@ -50,7 +43,7 @@ export interface PlaceInfographicMeta {
   colorPalette: string[];
   colorMeanings?: ColorMeaning[];
   hotspots?: InfographicHotspot[];
-  blueprint?: BlueprintData;
+  officialSources?: string[];
   aiImagePrompt: string;
   milestones: { year: string; event: string; tag?: string }[];
   visualHighlights: string[];
@@ -71,12 +64,32 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Mặt tiền hướng sông Sài Gòn, kiến trúc phương Tây kết hợp yếu tố Á Đông.",
     colorPalette: ["#c29b38", "#8b0000", "#1a2a44", "#f4ecd8"],
     aiImagePrompt: "A high-resolution educational museum infographic poster of Ben Nha Rong Dragon Wharf, Ho Chi Minh City. Detailed architectural illustration of the French colonial rooftop with twin ceramic dragon statues, Saigon riverfront at dusk, 1911 historic journey timeline node, data badges, vintage parchment and royal navy blue tones, professional infographics layout.",
+    officialSources: [
+        "Bảo tàng Hồ Chí Minh – Chi nhánh TP.HCM (baotanghochiminh.vn)",
+        "Cục Di sản Văn hóa – Bộ Văn hóa, Thể thao và Du lịch (dsvh.gov.vn)",
+        "Sở Du lịch Thành phố Hồ Chí Minh (visithcmc.vn)"
+],
     milestones: [
-      { year: "1862–1863", event: "Xây dựng và hoàn thành trụ sở Tổng Công ty Vận tải Hoàng đế (Messageries Impériales), sau này được gọi là Nhà Rồng." },
-      { year: "05/06/1911", event: "Nguyễn Tất Thành (Văn Ba) lên tàu Amiral Latouche Tréville, bắt đầu hành trình ra đi tìm đường cứu nước." },
-      { year: "1979", event: "Nhà Rồng được giữ lại làm Di tích lưu niệm Chủ tịch Hồ Chí Minh." },
-      { year: "1995", event: "Chính thức trở thành Bảo tàng Hồ Chí Minh – Chi nhánh TP.HCM." },
-      { year: "Hiện nay", event: "Là nơi lưu giữ, nghiên cứu và trưng bày nhiều tư liệu, hiện vật về cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh, góp phần giáo dục truyền thống cho các thế hệ" }
+   {
+              "year": "1862–1863",
+              "event": "Xây dựng và hoàn thành trụ sở Hãng Vận tải đường biển Hoàng đế (Messageries Impériales), mang tên quen thuộc là Nhà Rồng."
+        },
+        {
+              "year": "05/06/1911",
+              "event": "Nguyễn Tất Thành (Văn Ba) lên tàu Amiral Latouche Tréville, bắt đầu hành trình ra đi tìm đường cứu nước."
+        },
+        {
+              "year": "1979",
+              "event": "UBND TP.HCM quyết định giữ gìn Nhà Rồng làm Di tích lưu niệm Chủ tịch Hồ Chí Minh."
+        },
+        {
+              "year": "1995",
+              "event": "Chính thức đổi tên thành Bảo tàng Hồ Chí Minh – Chi nhánh Thành phố Hồ Chí Minh."
+        },
+        {
+              "year": "2011",
+              "event": "UBND TP.HCM công nhận là Di tích Kiến trúc Nghệ thuật cấp Thành phố theo Quyết định số 2671/QĐ-UBND."
+        }
     ],
     visualHighlights: [
       "Đôi rồng đất nung tráng men xanh chầu mặt trăng theo mô típ “lưỡng long chầu nguyệt” trên mái Nhà Rồng.",
@@ -105,11 +118,28 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Khuôn viên 12 hecta, diện tích sử dụng 20.000 m², hơn 100 phòng",
     colorPalette: ["#c29b38", "#2d4a22", "#d97706", "#0f172a"],
     aiImagePrompt: "A minimalist modern architectural educational infographic poster of Independence Palace Saigon (Dinh Doc Lap). Front facade elevation drawing showing the stylized bamboo curtain (rèm hoa đá), rooftop helipad, Eastern philosophical character layout (Cát, Khẩu, Trung, Tam, Chủ), timeline of 30/4/1975 tank entry, architectural floor plans, high contrast gold and deep green.",
+    officialSources: [
+        "Ban Quản lý Di tích Lịch sử Dinh Độc Lập (dinhdoclap.gov.vn)",
+        "Cục Di sản Văn hóa – Hồ sơ Xếp hạng Di tích Quốc gia Đặc biệt (dsvh.gov.vn)",
+        "Cổng Thông tin Điện tử Chính phủ – Quyết định số 1272/QĐ-TTg"
+],
     milestones: [
-      { year: "1962", event: "Khởi công xây dựng lại theo đồ án thiết kế của KTS Ngô Viết Thụ" },
-      { year: "1966", event: "Lễ khánh thành chính thức Dinh Độc Lập hiện đại" },
-      { year: "30/04/1975", event: "Xe tăng 390 và 843 húc đổ cổng chính, kết thúc thắng lợi Chiến dịch Hồ Chí Minh" },
-      { year: "2009", event: "Chính phủ xếp hạng Di tích Quốc gia Đặc biệt" }
+   {
+              "year": "1962",
+              "event": "Khởi công xây dựng lại công trình mới theo đồ án thiết kế triết lý phương Đông của KTS Ngô Viết Thụ."
+        },
+        {
+              "year": "1966",
+              "event": "Lễ khánh thành chính thức Dinh Độc Lập hiện đại, trung tâm quyền lực của chính quyền Sài Gòn."
+        },
+        {
+              "year": "30/04/1975",
+              "event": "Xe tăng 390 và 843 húc đổ cổng chính, kết thúc thắng lợi Chiến dịch Hồ Chí Minh, non sông thu về một mối."
+        },
+        {
+              "year": "2009",
+              "event": "Thủ tướng Chính phủ ký Quyết định xếp hạng Dinh Độc Lập là Di tích Quốc gia Đặc biệt."
+        }
     ],
     visualHighlights: [
       "Rèm hoa đá: Mô phỏng những đốt trúc thanh tao, bao quanh tầng 2, vừa tạo điểm nhấn thẩm mỹ vừa giúp điều hòa ánh sáng tự nhiên.",
@@ -138,11 +168,28 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chiều dài hơn 250km, kết cấu ngầm 3 tầng chịu được bom B-52",
     colorPalette: ["#854d0e", "#15803d", "#c29b38", "#1c1917"],
     aiImagePrompt: "An underground sectional cross-section infographic diagram of Cu Chi Tunnels network. Visual cutaway revealing 3 subterranean layers down to 12 meters, Hoang Cam smokeless kitchen diagram, concealed termite mound air vents, meeting rooms, trapdoors, rustic clay earth palette with golden educational labels.",
+    officialSources: [
+        "Ban Quản lý Khu Di tích Lịch sử Địa đạo Củ Chi (diadaocuchi.com.vn)",
+        "Cục Di sản Văn hóa – Hồ sơ Di tích Quốc gia Đặc biệt (dsvh.gov.vn)",
+        "Bộ Tư lệnh Thành phố Hồ Chí Minh – Tài liệu Giáo dục Lịch sử Lực lượng Vũ trang"
+],
     milestones: [
-      { year: "1946 – 1948", event: "Những mét hầm bí mật đầu tiên được đào tại xã Tân Phú Trung và Phước Vĩnh An" },
-      { year: "1961 – 1965", event: "Phát triển thành hệ thống địa đạo liên hoàn 'làng hầm' dài 250km" },
-      { year: "1966 – 1967", event: "Đánh bại các chiến dịch càn quét quy mô lớn như Crimp và Cedar Falls" },
-      { year: "2015", event: "Được Thủ tướng Chính phủ xếp hạng Di tích Quốc gia Đặc biệt" }
+   {
+              "year": "1946 – 1948",
+              "event": "Những đoạn hầm bí mật đầu tiên được quân và dân đào thủ công tại xã Tân Phú Trung và Phước Vĩnh An."
+        },
+        {
+              "year": "1961 – 1965",
+              "event": "Phát triển và nối liền thành hệ thống địa đạo liên hoàn 'làng hầm' 3 tầng sâu với tổng chiều dài hơn 250km."
+        },
+        {
+              "year": "1966 – 1967",
+              "event": "Kiên cường bẻ gãy các chiến dịch càn quét quy mô lớn mang mật danh Crimp và Cedar Falls."
+        },
+        {
+              "year": "2015",
+              "event": "Được Thủ tướng Chính phủ xếp hạng Di tích Quốc gia Đặc biệt, biểu tượng kiên cường của 'Đất thép Thành đồng'."
+        }
     ],
     visualHighlights: [
       "Hệ thống địa đạo nhiều tầng: Mô hình cắt ngang thể hiện hệ thống đường hầm phân tầng, gồm các khu vực ở độ sâu khác nhau..",
@@ -171,11 +218,28 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Gồm 8 trại giam chính, 2 khu biệt lập, Chuồng Cọp Pháp & Chuồng Cọp Mỹ",
     colorPalette: ["#475569", "#c29b38", "#991b1b", "#0f172a"],
     aiImagePrompt: "A somber, respectful historical infographic poster of Con Dao Prison historical site. Cutaway diagram of the secret Tiger Cages (Chuong Cop), stone prison walls, Hang Duong cemetery memorial with Vo Thi Sau tribute, timeline from 1862 to 1975, restrained high-contrast editorial design with gold and stone grey accents.",
+    officialSources: [
+        "Ban Quản lý Khu Di tích Quốc gia Đặc biệt Côn Đảo (condao.baria-vungtau.gov.vn)",
+        "Cục Di sản Văn hóa – Bộ Văn hóa, Thể thao và Du lịch (dsvh.gov.vn)",
+        "Sở Văn hóa và Thể thao Tỉnh Bà Rịa – Vũng Tàu"
+],
     milestones: [
-      { year: "1862", event: "Thống đốc Bonard ký quyết định thành lập ngục Côn Đảo đày ải nghĩa sĩ" },
-      { year: "1940", event: "Xây dựng hệ thống Chuồng Cọp Pháp bí mật với 120 phòng giam biệt lập" },
-      { year: "1970", event: "Tội ác bí mật 'Chuồng Cọp Côn Đảo' bị phanh phui trước dư luận thế giới" },
-      { year: "2012", event: "Chính thức được xếp hạng Di tích Quốc gia Đặc biệt" }
+   {
+              "year": "1862",
+              "event": "Thống đốc Bonard ký quyết định thành lập ngục Côn Đảo, đày ải và giam cầm các chiến sĩ yêu nước Việt Nam."
+        },
+        {
+              "year": "1940",
+              "event": "Thực dân Pháp bí mật xây dựng hệ thống Chuồng Cọp Pháp với 120 phòng giam biệt lập tàn khốc."
+        },
+        {
+              "year": "1970",
+              "event": "Tội ác tàn bạo của hệ thống 'Chuồng Cọp Côn Đảo' bị phanh phui trước sự phẫn nộ của dư luận thế giới."
+        },
+        {
+              "year": "2012",
+              "event": "Được Thủ tướng Chính phủ xếp hạng Di tích Quốc gia Đặc biệt theo Quyết định số 548/QĐ-TTg."
+        }
     ],
     visualHighlights: [
       "Chuồng Cọp: Hệ thống song sắt và sàn thao tác phía trên, nơi cai ngục theo dõi và thực hiện các hình thức đàn áp, tra tấn tù nhân.",
@@ -210,10 +274,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
       { hex: "#f8fafc", name: "Trắng vôi thạch cao", percentage: 15, meaning: "Hệ thống phào chỉ, hoa văn phù điêu trang trí phong cách Phục Hưng kết hợp mỹ thuật Á Đông." }
     ],
     aiImagePrompt: "A museum-grade architectural infographic poster of Bưu điện Trung tâm TPHCM (Saigon Central Post Office). Detailed neoclassical yellow ochre facade with giant green clock, cross-section technical diagram of Gustave Eiffel vaulted iron beam structure, two large hand-painted antique maps of South Vietnam telecom lines, antique wooden telephone booths and post boxes, elegant gold labels and typography.",
+    officialSources: [
+        "Tổng Công ty Bưu điện Việt Nam (VNPost) – Bưu điện TP.HCM",
+        "Sở Văn hóa và Thể thao Thành phố Hồ Chí Minh (svhtt.hochiminhcity.gov.vn)",
+        "Trung tâm Lưu trữ Quốc gia II (archives.org.vn)"
+],
     milestones: [
-      { year: "1886", event: "Bắt đầu xây dựng công trình Bưu điện Trung tâm Sài Gòn theo đồ án của KTS Villedieu và phụ tá Foulhoux." },
-      { year: "1891", event: "Công trình hoàn thành, trở thành một trong những công trình tiêu biểu của đô thị Sài Gòn." },
-      { year: "Hiện nay", event: "Hơn 135 năm kể từ khi công trình hoàn thành, Bưu điện Trung tâm TP.HCM vẫn là công trình kiến trúc tiêu biểu, đồng thời tiếp tục phục vụ các hoạt động bưu chính và đón khách tham quan." }
+   {
+              "year": "1886",
+              "event": "Bắt đầu khởi công xây dựng theo đồ án thiết kế của KTS Villedieu và phụ tá Foulhoux."
+        },
+        {
+              "year": "1891",
+              "event": "Công trình hoàn thành và chính thức khánh thành đưa vào phục vụ mạng lưới bưu chính ngày 22/03/1891."
+        },
+        {
+              "year": "2014 – 2015",
+              "event": "Trùng tu lớn, phục hồi nguyên trạng màu sơn vàng hoàng gia và bảo tồn hai bức bản đồ cổ vẽ tay thế kỷ XIX – XX."
+        }
     ],
     visualHighlights: [
       "Mặt tiền vàng đất nhạt: Mặt tiền màu vàng đất nhạt, nổi bật với đồng hồ tròn và các ô cửa vòm mang phong cách kiến trúc cổ điển châu Âu kết hợp trang trí châu Á.",
@@ -244,10 +322,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Mặt tiền vàng đất nhạt, kiến trúc cổ điển châu Âu kết hợp trang trí châu Á",
     colorPalette: ["#c29b38", "#15803d", "#1e3a8a", "#f8fafc"],
     aiImagePrompt: "An architectural blueprint infographic illustration of Saigon Central Post Office. Showing the iconic neoclassical facade with central giant clock, the sweeping arched iron vault ceiling engineered by Gustave Eiffel, antique wooden telephone booths, hand-painted historical maps on lobby walls, clean gold and terracotta palette.",
+    officialSources: [
+        "Tổng Công ty Bưu điện Việt Nam (VNPost) – Bưu điện TP.HCM",
+        "Sở Văn hóa và Thể thao Thành phố Hồ Chí Minh (svhtt.hochiminhcity.gov.vn)",
+        "Trung tâm Lưu trữ Quốc gia II (archives.org.vn)"
+],
     milestones: [
-      { year: "1886", event: "Bắt đầu xây dựng công trình Bưu điện Trung tâm Sài Gòn theo đồ án của KTS Villedieu và phụ tá Foulhoux." },
-      { year: "1891", event: "Công trình hoàn thành, trở thành một trong những công trình tiêu biểu của đô thị Sài Gòn." },
-      { year: "Hiện nay", event: "Hơn 135 năm kể từ khi công trình hoàn thành, Bưu điện Trung tâm TP.HCM vẫn là công trình kiến trúc tiêu biểu, đồng thời tiếp tục phục vụ các hoạt động bưu chính và đón khách tham quan." }
+   {
+              "year": "1886",
+              "event": "Bắt đầu khởi công xây dựng theo đồ án thiết kế của KTS Villedieu và phụ tá Foulhoux."
+        },
+        {
+              "year": "1891",
+              "event": "Công trình hoàn thành và chính thức khánh thành đưa vào phục vụ mạng lưới bưu chính ngày 22/03/1891."
+        },
+        {
+              "year": "2014 – 2015",
+              "event": "Trùng tu lớn, phục hồi nguyên trạng màu sơn vàng hoàng gia và bảo tồn hai bức bản đồ cổ vẽ tay thế kỷ XIX – XX."
+        }
     ],
     visualHighlights: [
       "Mặt tiền vàng đất nhạt: Mặt tiền màu vàng đất nhạt, nổi bật với đồng hồ tròn và các ô cửa vòm mang phong cách kiến trúc cổ điển châu Âu kết hợp trang trí châu Á.",
@@ -277,11 +369,32 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Tượng Đức Phật Thích Ca nhập niết bàn dài 52m, cao 12m nằm trên nóc chùa",
     colorPalette: ["#c29b38", "#78350f", "#b45309", "#0c121e"],
     aiImagePrompt: "An infographic cultural poster of Hoi Khanh Pagoda Binh Duong. Showing the record-breaking 52-meter reclining Buddha statue on temple rooftop, intricately carved wooden dragon pillars, traditional Southern Vietnamese multi-roof pagoda layout, ancient bronze bells, peaceful lotus garden aesthetics with gold editorial labels.",
+    officialSources: [
+        "Sở Văn hóa, Thể thao và Du lịch Tỉnh Bình Dương (sovhttdl.binhduong.gov.vn)",
+        "Ban Trị sự Giáo hội Phật giáo Việt Nam Tỉnh Bình Dương (phatgiaobinhduong.vn)",
+        "Cục Di sản Văn hóa – Danh bạ Di tích Lịch sử – Kiến trúc Nghệ thuật Quốc gia"
+],
     milestones: [
-      { year: "1741", event: "Chùa Hội Khánh được khởi dựng vào thế kỷ XVIII, dưới chân đồi." },
-      { year: "1868", event: "Sau khi chùa cũ bị thiêu hủy năm 1861, chùa được xây dựng lại tại vị trí hiện nay." },
-      { year: "1993", event: "Được xếp hạng Di tích lịch sử – kiến trúc nghệ thuật cấp Quốc gia." },
-      { year: "2013", event: "Được Tổ chức Kỷ lục Châu Á xác lập “Tượng Phật nhập Niết bàn trên mái chùa dài nhất Châu Á”." }
+   {
+              "year": "1741",
+              "event": "Thiền sư Đại Ngạn (thuộc dòng thiền Lâm Tế) khai sơn lập chùa Hội Khánh dưới chân đồi."
+        },
+        {
+              "year": "1868",
+              "event": "Sau khi chùa cũ bị thiêu hủy năm 1861, Hòa thượng Chánh Niệm cho tái thiết chùa tại vị trí hiện nay."
+        },
+        {
+              "year": "1923 – 1926",
+              "event": "Cụ Phó bảng Nguyễn Sinh Sắc cùng các sĩ phu thành lập Hội Danh Dự Yêu Nước tại chùa Hội Khánh."
+        },
+        {
+              "year": "1993",
+              "event": "Được Bộ Văn hóa – Thông tin xếp hạng Di tích Lịch sử – Kiến trúc Nghệ thuật cấp Quốc gia."
+        },
+        {
+              "year": "2013",
+              "event": "Tổ chức Kỷ lục Châu Á xác lập kỷ lục 'Tượng Phật nhập Niết bàn trên mái chùa dài nhất Châu Á' (52m)."
+        }
     ],
     visualHighlights: [
       "Tượng Phật nằm trên mái dài 52m với 52 đệ tử hoa sen biểu trưng cho giáo lý đại thừa",
@@ -310,10 +423,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Quần thể rộng 28 hecta trên sườn Núi Lớn nhìn ra vịnh biển",
     colorPalette: ["#c29b38", "#0284c7", "#e0e7ff", "#0f172a"],
     aiImagePrompt: "An educational religious architecture infographic poster of Thich Ca Phat Dai Vung Tau. Visual mountain slope diagram showing the progression of Buddha's life stages (Birth, Renunciation, Enlightenment, Parinirvana), the massive white meditating Buddha statue against coastal blue sky, octagonal relic stupa, lotus pedestal details.",
+    officialSources: [
+        "Ban Trị sự Giáo hội Phật giáo Việt Nam Thành phố Vũng Tàu",
+        "Cục Di sản Văn hóa – Hồ sơ Di tích Lịch sử – Văn hóa Cấp Quốc gia (dsvh.gov.vn)",
+        "Sở Du lịch Tỉnh Bà Rịa – Vũng Tàu (baria-vungtau.gov.vn)"
+],
     milestones: [
-      { year: "1961", event: "Khởi công xây dựng quần thể tái hiện cuộc đời Đức Phật trên sườn Núi Lớn" },
-      { year: "1963", event: "Khánh thành pho tượng Thích Ca Mâu Ni tọa thiền trên tòa sen cao 10.2m" },
-      { year: "1989", event: "Được công nhận Di tích Lịch sử - Văn hóa cấp Quốc gia" }
+   {
+              "year": "1957",
+              "event": "Cư sĩ Lê Tư Vinh xây dựng chùa Thiền Lâm đơn sơ trên triền phía bắc sườn Núi Lớn."
+        },
+        {
+              "year": "1961 – 1963",
+              "event": "Giáo hội Phật giáo Nguyên thủy khởi công và khánh thành quần thể Thích Ca Phật Đài cùng tôn tượng Phật tọa thiền cao 10.2m."
+        },
+        {
+              "year": "1989",
+              "event": "Được Bộ Văn hóa – Thông tin xếp hạng Di tích Lịch sử – Văn hóa cấp Quốc gia."
+        }
     ],
     visualHighlights: [
       "Tượng Đức Phật tọa thiền: Tượng Đức Phật Thích Ca Mâu Ni tọa thiền nổi bật giữa không gian núi rừng, gắn với cảnh quan biển và đô thị Vũng Tàu.",
@@ -342,11 +469,32 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chiều dài 93m, rộng 35m, 2 tháp chuông đỉnh nhọn cao 60.5m",
     colorPalette: ["#b91c1c", "#c29b38", "#334155", "#fef2f2"],
     aiImagePrompt: "A high-precision architectural infographic cutaway of Saigon Notre Dame Cathedral. Diagram showing the twin 60.5m bell towers with spire crosses, red Marseille terracotta brick construction without plaster, rose stained-glass windows, bronze statue of Our Lady of Peace in square, elegant red-brick and gold design language.",
+    officialSources: [
+        "Tòa Tổng Giám mục Tổng Giáo phận Sài Gòn (tgpsaigon.net)",
+        "Ban Trùng tu Vương cung Thánh đường Chính tòa Đức Bà Sài Gòn",
+        "Sở Du lịch Thành phố Hồ Chí Minh (visithcmc.vn)"
+],
     milestones: [
-      { year: "1877", event: "Khởi công ngày 7/10/1877 theo đồ án của KTS J. Bourard." },
-      { year: "1880", event: "Công trình được khánh thành với tên gọi là Nhà thờ Sài Gòn (l'eglise de Saïgon)." },
-      { year: "1895", event: "Hoàn thiện phần chóp hai tháp chuông theo đồ án của KTS Gardès." },
-      { year: "1959", event: "Được Tòa Thánh nâng lên hàng Vương cung Thánh đường." }
+   {
+              "year": "1877",
+              "event": "Giám mục Colombert đặt viên đá đầu tiên khởi công ngày 07/10/1877 theo đồ án của KTS J. Bourard."
+        },
+        {
+              "year": "1880",
+              "event": "Khánh thành vào dịp lễ Phục Sinh ngày 11/04/1880 với tên gọi ban đầu là Nhà thờ Sài Gòn."
+        },
+        {
+              "year": "1895",
+              "event": "Hoàn thiện lắp đặt phần chóp nhọn bọc kẽm của hai tháp chuông cao 60.5m theo thiết kế của KTS Fernand Gardès."
+        },
+        {
+              "year": "1959",
+              "event": "Tòa Thánh Vatican ban sắc phong nâng nhà thờ lên hàng Vương cung Thánh đường Chính tòa."
+        },
+        {
+              "year": "2017 – Nay",
+              "event": "Triển khai dự án trùng tu phục nguyên toàn diện với vật liệu ngói và kính màu sản xuất tại châu Âu."
+        }
     ],
     visualHighlights: [
       "Toàn bộ gạch đỏ xây tường được nhập khẩu trực tiếp từ Marseille, không trát vữa nhưng không bám rêu mốc",
@@ -375,10 +523,28 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Tháp đồng hồ cao vút 4 mặt nhìn ra ngã tư trung tâm và bến đò sông Sài Gòn",
     colorPalette: ["#c29b38", "#0369a1", "#f59e0b", "#1e293b"],
     aiImagePrompt: "A vibrant commercial heritage infographic of Thu Dau Mot Market Binh Duong. Showing the prominent French Art Deco clock tower, bustling riverside market stalls, ceramic trade boats docked along Saigon River, historical milestones since 1935, warm golden hour palette with editorial infographic typography.",
+    officialSources: [
+        "Cổng Thông tin Điện tử UBND TP. Thủ Dầu Một (thudaumot.binhduong.gov.vn)",
+        "Bảo tàng Tỉnh Bình Dương (baotangbinhduong.org.vn)",
+        "Sở Công Thương Tỉnh Bình Dương – Niên giám Thương mại Truyền thống"
+],
     milestones: [
-      { year: "1935", event: "Thực dân Pháp xây dựng nhà dãy chợ bằng bê tông cốt thép, theo thiết kế của KTS người Pháp Bonnemain." },
-      { year: "1938", event: "Công trình chợ với diện mạo mới được khánh thành." },
-      { year: "Thế kỷ XX", event: "Chợ Thủ Dầu Một trở thành một trung tâm thương mại tiêu biểu của Bình Dương, gắn với quá trình phát triển kinh tế – xã hội của vùng đất." }
+   {
+              "year": "1828",
+              "event": "Hình thành điểm giao thương bến sông sầm uất trên bến dưới thuyền ven sông Sài Gòn."
+        },
+        {
+              "year": "1935",
+              "event": "Chính quyền cho xây dựng dãy nhà lồng chợ kiên cố bằng bê tông cốt thép theo đồ án KTS Bonnemain."
+        },
+        {
+              "year": "1938",
+              "event": "Khánh thành diện mạo mới với tháp đồng hồ hình lục giác cao 23.72m – biểu tượng văn hóa đất Thủ."
+        },
+        {
+              "year": "2012",
+              "event": "Chỉnh trang, nâng cấp hạ tầng chợ gắn liền với không gian du lịch văn hóa và phố đi bộ ven sông."
+        }
     ],
     visualHighlights: [
       "Tháp đồng hồ: Tháp đồng hồ hình lục giác cao 23,72 m, mang dấu ấn kiến trúc châu Âu và trở thành biểu tượng quen thuộc của đất Thủ.",
@@ -407,11 +573,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Diện tích hơn 13.000 m², 4 cửa chính Đông - Tây - Nam - Bắc, gần 1.500 sạp",
     colorPalette: ["#c29b38", "#ea580c", "#0f172a", "#fef3c7"],
     aiImagePrompt: "An iconic educational infographic poster of Ben Thanh Market Saigon. Isometric cutaway showing the 4 main gates (East, West, South, North) with ceramic relief murals, the iconic South Gate clock tower, layout of 1500 market stalls, textile, coffee and handicraft zones, warm lively market palette.",
+    officialSources: [
+        "Ban Quản lý Chợ Bến Thành – UBND Quận 1 (quan1.hochiminhcity.gov.vn)",
+        "Sở Văn hóa và Thể thao TP.HCM – Quyết định Xếp hạng Di tích Lịch sử (svhtt.hochiminhcity.gov.vn)",
+        "Sở Du lịch Thành phố Hồ Chí Minh (visithcmc.vn)"
+],
     milestones: [
-      { year: "1913–1914", event: "Xây dựng Chợ Bến Thành mới; tháng 4/1914 tổ chức lễ “khai thị”." },
-      { year: "1985", event: "Chợ được trùng tu, sửa chữa lớn." },
-      { year: "1999", event: "Tiếp tục trải qua một đợt trùng tu, sửa chữa lớn." },
-      { year: "Hiện nay", event: "Đón ga ngầm tuyến Metro số 1 Bến Thành - Suối Tiên" }
+   {
+              "year": "1912 – 1914",
+              "event": "Hãng thầu Brossard et Maupin thi công xây dựng chợ mới tại khu vực Bồ Rẫy; lễ 'khai thị' diễn ra tháng 4/1914."
+        },
+        {
+              "year": "1985",
+              "event": "Đợt đại trùng tu, nâng cấp toàn bộ hệ mái ngói và hệ khung giằng sắt thép kiên cố."
+        },
+        {
+              "year": "2024",
+              "event": "Được UBND Thành phố Hồ Chí Minh ký quyết định xếp hạng Di tích Lịch sử – Văn hóa cấp Thành phố."
+        }
     ],
     visualHighlights: [
       "Tháp đồng hồ Cửa Nam: Tháp đồng hồ tại mặt tiền Cửa Nam vươn cao khỏi tầng mái; bốn mặt đều gắn đồng hồ dạng tròn, trở thành điểm nhấn nổi bật của công trình.",
@@ -440,12 +619,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chiều dài hơn 100m, hơn 20 gian hàng nhà xuất bản, rợp bóng cây me cổ thụ",
     colorPalette: ["#15803d", "#c29b38", "#ca8a04", "#0f172a"],
     aiImagePrompt: "A fresh, inspiring educational infographic poster of Nguyen Van Binh Book Street Saigon. Perspective view through tree canopies framing wooden open-air book kiosks, student reading cafe corners, book launch event stage, historical plaques, warm wooden and lush leaf green palette.",
+    officialSources: [
+        "Hội Xuất bản Việt Nam – Văn phòng Đại diện phía Nam (hoixuatban.vn)",
+        "Công ty TNHH Đường Sách Thành phố Hồ Chí Minh (duongsachtphcm.com)",
+        "Sở Thông tin và Truyền thông TP. Hồ Chí Minh (ict-hcm.gov.vn)"
+],
     milestones: [
-      { year: "Thời Pháp", event: "Con đường mang tên đường Hongkong." },
-      { year: "24/2/1897", event: "Con đường được đổi thành tên Cardis." },
-      { year: "19/10/1995", event: "Đổi tên thành đường Nguyễn Văn Hậu." },
-      { year: "7/4/2000", event: "Đổi tên thành đường Nguyễn Văn Bình." },
-      { year: "12/01/2016", event: "Khánh thành và đi vào hoạt động." }
+   {
+              "year": "1897",
+              "event": "Người Pháp quy hoạch mở đường cạnh Bưu điện Trung tâm, mang tên đường Cardis."
+        },
+        {
+              "year": "2000",
+              "event": "Thành phố đổi tên thành đường Nguyễn Văn Bình nhằm tưởng nhớ Tổng Giám mục Phaolô Nguyễn Văn Bình."
+        },
+        {
+              "year": "12/01/2016",
+              "event": "Chính thức khánh thành Đường Sách TP.HCM – không gian văn hóa đọc và sinh hoạt cộng đồng kiểu mẫu đầu tiên tại Việt Nam."
+        }
     ],
     visualHighlights: [
       "Không gian đi bộ thanh bình dài hơn 100 mét kẹp giữa Nhà thờ Đức Bà và Bưu điện Trung tâm",
@@ -474,8 +665,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chợ hải sản dân sinh gắn với đời sống thương mại và văn hóa của cư dân vùng biển Vũng Tàu.",
     colorPalette: ["#0284c7", "#c29b38", "#0d9488", "#0f172a"],
     aiImagePrompt: "A lively seaside seafood market infographic of Xom Luoi Vung Tau. Visual icons of fresh crabs, lobsters, squid baskets brought straight from fishing boats, street food cooking stalls, map coordinates near Front Beach, oceanic blue and golden accents.",
+    officialSources: [
+        "Cổng Thông tin Điện tử TP. Vũng Tàu (vungtau.baria-vungtau.gov.vn)",
+        "Sở Du lịch Tỉnh Bà Rịa – Vũng Tàu (dulich.baria-vungtau.gov.vn)",
+        "Phòng Kinh tế – Quản lý Chợ và Dịch vụ Thủy hải sản TP. Vũng Tàu"
+],
     milestones: [
-      { year: "Hiện nay", event: "Tiếp tục là một địa điểm mua bán hải sản quen thuộc của người dân và du khách tại Vũng Tàu." }
+   {
+              "year": "Thập niên 1980",
+              "event": "Hình thành từ bến đậu của các ghe thuyền đánh bắt gần bờ của ngư dân phường 2 và 3 Vũng Tàu."
+        },
+        {
+              "year": "Đầu những năm 2000",
+              "event": "Phát triển thành chợ hải sản tươi sống và ẩm thực chế biến tại chỗ nổi tiếng của thành phố biển."
+        },
+        {
+              "year": "Hiện nay",
+              "event": "Điểm đến trải nghiệm văn hóa sinh hoạt thương mại miền biển đặc sắc của du khách và cư dân."
+        }
     ],
     visualHighlights: [
       "Không gian mua bán hải sản tươi sống, phản ánh nét sinh hoạt thương mại dân gian của đô thị biển Vũng Tàu."
@@ -502,10 +709,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Hơn 300 năm lịch sử • Quy trình chế tác 25 công đoạn thủ công",
     colorPalette: ["#c29b38", "#b91c1c", "#171717", "#fbbf24"],
     aiImagePrompt: "An artistic heritage infographic poster of Tuong Binh Hiep Lacquerware Village Binh Duong. Step-by-step diagram showing the 25 meticulous traditional lacquer steps: wood carcass seasoning, natural resin coating, gold and silver leaf inlay, mother-of-pearl engraving, water polishing layers, rich glossy black and gold leaf aesthetics.",
+    officialSources: [
+        "Bộ Văn hóa, Thể thao và Du lịch – Quyết định số 2406/QĐ-BVHTTDL (dsvh.gov.vn)",
+        "Sở Văn hóa, Thể thao và Du lịch Tỉnh Bình Dương (sovhttdl.binhduong.gov.vn)",
+        "Hiệp hội Sơn mài – Điêu khắc Tỉnh Bình Dương"
+],
     milestones: [
-      { year: "Thế kỷ XIII", event: "Các lưu dân từ miền Trung và Bắc mang theo nghề sơn truyền thống lập nghiệp bên rạch Bà Lụa (hơn 300 năm lịch sử)" },
-      { year: "Thế kỷ XX", event: "Tranh và sản phẩm sơn mài Bình Dương xuất khẩu sang nhiều nước châu Âu" },
-      { year: "2016", event: "Được công nhận Di sản Văn hóa Phi vật thể Quốc gia" }
+   {
+              "year": "Thế kỷ XVIII",
+              "event": "Các bậc nghệ nhân miền Trung và Bắc mang theo nghề sơn truyền thống vào nam lập nghiệp bên dòng rạch Bà Lụa."
+        },
+        {
+              "year": "1901",
+              "event": "Thành lập Trường Mỹ nghệ Bản xứ Thủ Dầu Một, đào tạo thế hệ nghệ nhân bậc thầy đưa sơn mài vươn tầm quốc tế."
+        },
+        {
+              "year": "2016",
+              "event": "Bộ Văn hóa, Thể thao và Du lịch công nhận Nghề sơn mài Tương Bình Hiệp là Di sản Văn hóa Phi vật thể Quốc gia."
+        }
     ],
     visualHighlights: [
       "Kỹ thuật sơn mài công phu tạo nên chiều sâu thẩm mỹ\nNghệ thuật cẩn vỏ trứng, dát vàng, dát bạc, khảm xà cừ và mài nhiều lớp tạo nên sự tương phản giữa màu sắc, ánh sáng và độ sâu của bề mặt, làm nên vẻ đẹp đặc trưng của tranh sơn mài Tương Bình Hiệp.",
@@ -535,10 +756,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Dàn nhạc ngũ tuyệt: Đàn Kìm, Tranh, Cò, Bầu, Guitare phím lõm",
     colorPalette: ["#c29b38", "#d97706", "#451a03", "#fef3c7"],
     aiImagePrompt: "An elegant musical heritage educational infographic of UNESCO Don Ca Tai Tu Nam Bo. Illustrated diagrams of the quintet instruments: Dan Kim (moon lute), Dan Tranh (zither), Dan Co (two-string fiddle), Dan Bau (monochord), scalloped guitar. Visual explanation of the 20 master repertoires (Bac, Nam, Xuan, Ai), golden warm tone.",
+    officialSources: [
+        "Ủy ban Quốc gia UNESCO Việt Nam & UNESCO Intangible Cultural Heritage (unesco.org)",
+        "Viện Âm nhạc – Học viện Âm nhạc Quốc gia Việt Nam (vienamnhac.vn)",
+        "Cục Di sản Văn hóa – Bộ Văn hóa, Thể thao và Du lịch (dsvh.gov.vn)"
+],
     milestones: [
-      { year: "Cuối thế kỷ XIX", event: "Hình thành từ sự kết hợp của nhã nhạc cung đình Huế và dân ca sông nước Nam Bộ" },
-      { year: "1919", event: "Nhạc sĩ Cao Văn Lầu sáng tác bản 'Dạ Cổ Hoài Lang' bất hủ tại Bạc Liêu" },
-      { year: "2013", event: "UNESCO vinh danh là Di sản Văn hóa Phi vật thể Đại diện của Nhân loại" }
+   {
+              "year": "Cuối thế kỷ XIX",
+              "event": "Hình thành từ nhã nhạc cung đình Huế và làn điệu dân ca Nam Bộ, phát triển thành phong trào tao nhã khắp Lục tỉnh."
+        },
+        {
+              "year": "1919",
+              "event": "Nghệ sĩ Cao Văn Lầu sáng tác bản 'Dạ Cổ Hoài Lang' tại Bạc Liêu, trở thành bài bản mẫu mực của cổ nhạc phương Nam."
+        },
+        {
+              "year": "2013",
+              "event": "UNESCO chính thức ghi danh Nghệ thuật Đờn ca tài tử Nam Bộ vào Danh sách Di sản Văn hóa Phi vật thể Đại diện của Nhân loại."
+        }
     ],
     visualHighlights: [
       "Bộ ngũ tuyệt nhạc cụ truyền thống: Đàn Kìm (kìm kẹp), Tranh, Cò, Bầu và Đàn Tam",
@@ -567,10 +802,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Khẩu hiệu 'Cải cách tao vần theo tiến hóa - Lương truyền tuồng tích sánh văn minh'",
     colorPalette: ["#c29b38", "#dc2626", "#7c2d12", "#fafaf9"],
     aiImagePrompt: "A dramatic, theatrical heritage infographic poster of Cai Luong Opera Nam Bo. Showing theatrical stage curtains, ornate costume headdresses, face makeup diagrams, timeline from 1918 'Ca ra bo' to Golden Age theatre, iconic performance postures, vintage cinema and golden theatre aesthetic.",
+    officialSources: [
+        "Cục Nghệ thuật Biểu diễn – Bộ Văn hóa, Thể thao và Du lịch",
+        "Nhà hát Cải lương Trần Hữu Trang & Bảo tàng Sân khấu TP.HCM",
+        "Hội Nghệ sĩ Sân khấu Việt Nam"
+],
     milestones: [
-      { year: "1918", event: "Vở tuồng 'Lục Vân Tiên' được diễn tại rạp Thầy Năm Tú (Mỹ Tho), mở đầu sân khấu Cải lương" },
-      { year: "Thập niên 1930 – 1970", event: "Thời kỳ hoàng kim với các đại bang Thanh Minh - Thanh Nga, Hương Mùa Thu, Dạ Lý Hương" },
-      { year: "Hiện nay", event: "Được số hóa và đổi mới phương thức tiếp cận khán giả trẻ qua các dự án học đường" }
+   {
+              "year": "1918",
+              "event": "Vở tuồng 'Lục Vân Tiên' được diễn tại rạp Thầy Năm Tú (Mỹ Tho), đánh dấu sự ra đời chính thức của sân khấu cải lương."
+        },
+        {
+              "year": "1930 – 1975",
+              "event": "Giai đoạn hoàng kim với sự xuất hiện của các đại bang lừng lẫy (Thanh Minh - Thanh Nga, Hương Mùa Thu) và soạn giả tài hoa."
+        },
+        {
+              "year": "2018",
+              "event": "Kỷ niệm 100 năm hình thành và phát triển Nghệ thuật Cải lương với nhiều dự án phục hồi và truyền dạy thế hệ trẻ."
+        }
     ],
     visualHighlights: [
       "Sự kết hợp giữa nghệ thuật ca ngâm vọng cổ và kỹ xảo diễn xuất sân khấu kịch nghệ phương Tây",
@@ -599,10 +848,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Diễn ra vào ngày 16, 17, 18 tháng 8 âm lịch hàng năm tại Đình Thắng Tam",
     colorPalette: ["#0284c7", "#c29b38", "#ea580c", "#0f172a"],
     aiImagePrompt: "A vibrant marine cultural festival infographic poster of Nghinh Ong Festival Thang Tam Vung Tau. Sea procession diagram with decorated dragon boats honoring the Whale God (Ca Voi), lion dance on beach, giant whale bone relic hall (Lang Ong Nam Hai), festive flags, ocean waves and gold banner design.",
+    officialSources: [
+        "Bộ Văn hóa, Thể thao và Du lịch – Quyết định công nhận Di sản Phi vật thể Quốc gia (dsvh.gov.vn)",
+        "Ban Quản lý Khu Di tích Lịch sử – Văn hóa Đình Thắng Tam Vũng Tàu",
+        "Sở Văn hóa và Thể thao Tỉnh Bà Rịa – Vũng Tàu"
+],
     milestones: [
-      { year: "Đầu thế kỷ XIX", event: "Ngư dân rước ngọc cốt Ông Nam Hải trôi dạt vào bờ về phụng thờ tại Đình Thắng Tam" },
-      { year: "1840", event: "Vua Thiệu Trị ban sắc phong cho đền thờ Nam Hải Tướng Quân" },
-      { year: "2018", event: "Bộ Văn hóa, Thể thao và Du lịch ghi danh vào Di sản Văn hóa Phi vật thể Quốc gia" }
+   {
+              "year": "Đầu thế kỷ XIX",
+              "event": "Cư dân 3 làng Thắng phụng rước ngọc cốt Cá Voi dạt vào bờ về lập Lăng thờ cúng tại Đình Thắng Tam."
+        },
+        {
+              "year": "1840",
+              "event": "Vua Thiệu Trị ban sắc phong 'Nam Hải Cự Tộc Ngọc Lân Chi Thần' cho Lăng Ông."
+        },
+        {
+              "year": "2018",
+              "event": "Bộ Văn hóa, Thể thao và Du lịch ghi danh Lễ hội Nghinh Ông Thắng Tam vào Danh mục Di sản Văn hóa Phi vật thể Quốc gia."
+        }
     ],
     visualHighlights: [
       "Đoàn thuyền rồng cờ hoa rực rỡ xuất phát từ biển Bãi Trước ra khơi rước linh vị Ông",
@@ -631,10 +894,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Quy mô 1.000 hecta, trung tâm hành chính 20 tầng, công viên trung tâm 75 ha",
     colorPalette: ["#0284c7", "#c29b38", "#10b981", "#0b0f17"],
     aiImagePrompt: "A futuristic modern urban planning educational infographic poster of Binh Duong New City. Architectural diagram of the 20-story twin tower Integrated Political-Administrative Center, central green park with ecological lake, smart transit bus routes, solar grid data, high-tech clean cyan and gold layout.",
+    officialSources: [
+        "Cổng Thông tin Điện tử Tỉnh Bình Dương (binhduong.gov.vn)",
+        "Tổng Công ty Đầu tư và Phát triển Công nghiệp Becamex IDC (becamex.com.vn)",
+        "Diễn đàn Cộng đồng Thông minh Thế giới (Intelligent Community Forum - ICF)"
+],
     milestones: [
-      { year: "2010", event: "Khởi công xây dựng Thành phố Mới theo đề án phát triển đô thị hiện đại bền vững" },
-      { year: "2014", event: "Khánh thành Tòa nhà Trung tâm Hành chính tập trung tỉnh Bình Dương" },
-      { year: "2023", event: "Diễn đàn Cộng đồng Thông minh Thế giới (ICF) vinh danh Top 1 Cộng đồng Thông minh" }
+   {
+              "year": "2010",
+              "event": "Khởi công xây dựng Thành phố Mới Bình Dương theo quy hoạch của Viện Nghiên cứu Đô thị Đại học Quốc gia Singapore (NUS)."
+        },
+        {
+              "year": "2014",
+              "event": "Khánh thành Tòa nhà Trung tâm Hành chính tập trung tỉnh Bình Dương quy mô tháp đôi 20 tầng."
+        },
+        {
+              "year": "2023",
+              "event": "Diễn đàn ICF vinh danh Bình Dương là Top 1 Cộng đồng Thông minh Thế giới (Intelligent Community of the Year)."
+        }
     ],
     visualHighlights: [
       "Tòa tháp đôi Trung tâm Hành chính cao 20 tầng có bãi đỗ trực thăng thiết kế hiện đại",
@@ -663,10 +940,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Diện tích mặt nước 270 km², dung tích chứa hơn 1.58 tỷ m³ nước",
     colorPalette: ["#0284c7", "#059669", "#c29b38", "#0f172a"],
     aiImagePrompt: "A geographic hydro-engineering infographic poster of Dau Tieng Lake Binh Duong. Satellite map diagram showing the 270 km2 reservoir, dam spillway cross-section, water irrigation canal networks feeding Tay Ninh and HCMC, Mount Ba Den backdrop, lush nature blue and gold cartographic style.",
+    officialSources: [
+        "Công ty TNHH MTV Khai thác Thủy lợi Dầu Tiếng – Phước Hòa (Bộ NN&PTNT)",
+        "Cục Thủy lợi – Bộ Nông nghiệp và Phát triển Nông thôn (cucthuyloi.gov.vn)",
+        "Sở Nông nghiệp và Môi trường Tỉnh Bình Dương & Tỉnh Tây Ninh"
+],
     milestones: [
-      { year: "1981", event: "Hàng vạn thanh niên xung phong và nhân dân khởi công đào đắp công trình thế kỷ" },
-      { year: "1985", event: "Chính thức khánh thành và xả nước phục vụ tưới tiêu cho hàng trăm nghìn hecta nông nghiệp" },
-      { year: "Hiện nay", event: "Cung cấp nguồn nước sinh hoạt thiết yếu cho TP.HCM, Bình Dương và Tây Ninh" }
+   {
+              "year": "1981",
+              "event": "Hàng vạn thanh niên xung phong và nhân dân khởi công xây dựng công trình đại thủy nông Dầu Tiếng."
+        },
+        {
+              "year": "1985",
+              "event": "Chính thức hoàn thành và xả nước điều tiết, trở thành hồ thủy lợi nhân tạo lớn nhất Đông Nam Á."
+        },
+        {
+              "year": "2019",
+              "event": "Bộ Nông nghiệp & PTNT triển khai dự án hiện đại hóa an toàn đập và hệ thống kênh mương liên tỉnh."
+        }
     ],
     visualHighlights: [
       "Mặt hồ mênh mông 270km² với các hòn đảo sinh thái xanh biếc như đảo Nhím, đảo Trảng",
@@ -695,10 +986,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chiều dài bờ biển hơn 8km từ chân Núi Nhỏ đến Cửa Lấp",
     colorPalette: ["#0284c7", "#f59e0b", "#c29b38", "#0f172a"],
     aiImagePrompt: "A scenic coastal geography infographic poster of Back Beach Vung Tau (Bai Sau Thuy Van). Coastal map elevation showing the 8km shoreline, gentle surf dynamics, Cape Nghinh Phong headland, Hon Ba island with tidal footbridge path, sunshine gold and ocean turquoise tones.",
+    officialSources: [
+        "Cổng Thông tin Điện tử Tỉnh Bà Rịa – Vũng Tàu (baria-vungtau.gov.vn)",
+        "Sở Du lịch Tỉnh Bà Rịa – Vũng Tàu (dulich.baria-vungtau.gov.vn)",
+        "Ban Quản lý các Khu Du lịch Thành phố Vũng Tàu"
+],
     milestones: [
-      { year: "Thời Pháp thuộc", event: "Được người Pháp quy hoạch làm bãi nghỉ dưỡng Cap Saint-Jacques" },
-      { year: "Thế kỷ XX – Nay", event: "Trở thành bãi biển đông đảo và sôi động nhất thành phố biển Vũng Tàu" },
-      { year: "2024 – Nay", event: "Quy hoạch đại công viên bãi biển Thùy Vân hiện đại chuẩn quốc tế" }
+   {
+              "year": "Cuối thế kỷ XIX",
+              "event": "Được người Pháp khảo sát quy hoạch mũi Sanh-Giắc (Cap Saint-Jacques) làm bãi tắm và trạm an dưỡng duyên hải."
+        },
+        {
+              "year": "1996",
+              "event": "Xây dựng bờ kè ven biển Bãi Thùy Vân và quảng trường công cộng đón khách du lịch biển."
+        },
+        {
+              "year": "2024",
+              "event": "Triển khai dự án chỉnh trang toàn diện công viên biển Thùy Vân thành không gian công cộng xanh đạt chuẩn quốc tế."
+        }
     ],
     visualHighlights: [
       "Bờ cát mịn thoai thoải trải dài hơn 8km đón trọn gió biển Đông Nam quanh năm",
@@ -727,10 +1032,24 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Bờ kè bích họa dài hơn 1km, đội thuyền thúng hơn 300 chiếc",
     colorPalette: ["#0284c7", "#c29b38", "#ea580c", "#0f172a"],
     aiImagePrompt: "An authentic coastal fishing village infographic poster of Phuoc Hai Dat Do. Cutaway of traditional bamboo coracle round boats (thuyen thung), fish sauce fermentation terracotta jars, fishermen pulling nets at dawn under Minh Dam mountain, ocean spray and golden dawn colors.",
+    officialSources: [
+        "Cổng Thông tin Điện tử UBND Huyện Đất Đỏ (UBND Huyện Long Đất)",
+        "Sở Nông nghiệp và Phát triển Nông thôn Tỉnh Bà Rịa – Vũng Tàu",
+        "Trung tâm Xúc tiến Đầu tư Thương mại Du lịch Tỉnh Bà Rịa – Vũng Tàu"
+],
     milestones: [
-      { year: "Cuối thế kỷ XVIII", event: "Ngư dân miền Trung xuôi thuyền vào nam lập nên làng đánh cá lâu đời nhất vùng Đất Đỏ" },
-      { year: "Kháng chiến", event: "Cung cấp lương thực, che chở cho cán bộ chiến sĩ tại căn cứ Núi Minh Đạm" },
-      { year: "Hiện nay", event: "Phát triển du lịch cộng đồng kết hợp nghề làm khô, nước mắm truyền thống" }
+   {
+              "year": "Cuối thế kỷ XVIII",
+              "event": "Ngư dân miền Trung xuôi nam cập bến dưới chân núi Minh Đạm, tạo lập nên làng chài cổ xưa nhất vùng Đất Đỏ."
+        },
+        {
+              "year": "1945 – 1975",
+              "event": "Căn cứ hậu cần cung cấp hải sản, lương thực và che chở cán bộ kháng chiến tại Chiến khu Minh Đạm."
+        },
+        {
+              "year": "2020 – Nay",
+              "event": "Phát triển du lịch cộng đồng ven biển, bờ kè bích họa và gìn giữ thương hiệu nước mắm truyền thống lâu đời."
+        }
     ],
     visualHighlights: [
       "Hàng trăm chiếc thuyền thúng tròn nan tre xếp ngay ngắn rực rỡ trên bãi cát",
@@ -759,10 +1078,15 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     dimensionsOrScale: "Chiều dài 670m, rộng 64m lát đá granite nguyên khối, kết nối sông Sài Gòn",
     colorPalette: ["#c29b38", "#38bdf8", "#64748b", "#090d16"],
     aiImagePrompt: "A sleek modern urban plaza infographic poster of Nguyen Hue Walking Street Saigon. Showing the 670m granite pedestrian promenade from City Hall to Bach Dang wharf riverbank, subterranean computer-controlled fountain light show, heritage colonial buildings alongside modern skyscrapers, golden nightlights aesthetics.",
+    officialSources: [
+      "Trung tâm Quản lý Hạ tầng Kỹ thuật – Sở Xây dựng TP. Hồ Chí Minh",
+      "Sở Quy hoạch – Kiến trúc TP. Hồ Chí Minh (sqhktt.hochiminhcity.gov.vn)",
+      "Sở Du lịch Thành phố Hồ Chí Minh (visithcmc.vn)"
+    ],
     milestones: [
-      { year: "1887", event: "Người Pháp lấp kênh Grand Canal (Kênh Lớn) để hình thành đại lộ Charner tráng lệ" },
-      { year: "1955", event: "Chính thức đổi tên thành Đại lộ Nguyễn Huệ - trung tâm thương mại hoa tết Sài Gòn" },
-      { year: "2015", event: "Khánh thành quảng trường đi bộ lát đá granite hiện đại đầu tiên của cả nước" }
+      { year: "1887", event: "Người Pháp lấp Kênh Lớn (Grand Canal) để kiến thiết thành Đại lộ Charner nối Dinh Xã Tây ra bờ sông Sài Gòn." },
+      { year: "1955", event: "Chính thức mang tên Đại lộ Nguyễn Huệ, trung tâm tài chính và thương mại phồn hoa của Sài Gòn." },
+      { year: "2015", event: "Khánh thành Phố đi bộ Nguyễn Huệ lát đá hoa cương hiện đại đầu tiên của Việt Nam, điểm hẹn văn hóa lễ hội của thành phố." }
     ],
     visualHighlights: [
       "Trục cảnh quan nối liền Tòa nhà Trụ sở HĐND - UBND TP với Bến Bạch Đằng và sông Sài Gòn",
@@ -979,80 +1303,63 @@ export const LANDMARK_HOTSPOTS: Record<string, InfographicHotspot[]> = {
   ]
 };
 
-// Default Blueprint schematic generator
-export function getBlueprintData(placeName: string, meta: PlaceInfographicMeta): BlueprintData {
-  return {
-    orientation: meta.dimensionsOrScale.includes("sông Sài Gòn") ? "Hướng Đông Nam • Mặt tiền sông Sài Gòn" : "Tọa độ trung tâm Nam Bộ • Hướng gió Đông Nam",
-    materials: [
-      meta.architectOrOrigin.includes("Gỗ") ? "Gỗ sao, gỗ căm xe quý" : "Gạch nung Marseille & đá hoa cương",
-      "Khung sắt chịu lực Gustave Eiffel / Bê tông đúc",
-      "Gốm sứ men màu Biên Hòa & gạch gốm Lái Thiêu",
-      "Kính màu nghệ thuật & ngói âm dương truyền thống"
-    ],
-    scale: meta.dimensionsOrScale || "Quy mô chuẩn di sản cấp Quốc gia",
-    architecturalStyle: meta.architectOrOrigin || "Kiến trúc truyền thống giao thoa hiện đại",
-    gridCoords: "10°46'N • 106°42'E",
-    crossSectionNote: "Bản vẽ phân tích chịu tải, thông gió tự nhiên theo khí hậu nhiệt đới gió mùa Nam Bộ."
-  };
-}
-
 // Master mapping dictionary resolving place names from contentData.json to infographic datasets
-export const PLACE_KEY_MAPPINGS: Record<string, { info: string; img: string; hot: string; blue: string }> = {
-  "Bến Nhà Rồng": { info: "Bến Nhà Rồng", img: "Bến Nhà Rồng", hot: "Bến Nhà Rồng", blue: "Bến Nhà Rồng" },
-  "BẾN NHÀ RỒNG": { info: "Bến Nhà Rồng", img: "BẾN NHÀ RỒNG", hot: "BẾN NHÀ RỒNG", blue: "Bến Nhà Rồng" },
-  "DINH ĐỘC LẬP": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP", blue: "DINH ĐỘC LẬP" },
-  "Dinh Độc Lập": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP", blue: "DINH ĐỘC LẬP" },
-  "ĐỊA ĐẠO CỦ CHI": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
-  "ĐỊA ĐẠO CỦ CHI-TPHCM": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
-  "Địa đạo Củ Chi": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM", blue: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
-  "NHÀ TÙ CÔN ĐẢO": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
-  "NHÀ TÙ CÔN ĐẢO-BRVT": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
-  "Nhà tù Côn Đảo": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO", blue: "NHÀ TÙ CÔN ĐẢO" },
-  "BƯU ĐIỆN TRUNG TÂM TPHCM": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
-  "Bưu điện Trung tâm Thành phố Hồ Chí Minh": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
-  "Bưu điện Trung tâm Sài Gòn": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
-  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM", blue: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
-  "CHÙA HỘI KHÁNH": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
-  "Chùa Hội Khánh (Bình Dương)": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
-  "Chùa Hội Khánh": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", blue: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
-  "THÍCH CA PHẬT ĐÀI": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
-  "Thích Ca Phật Đài (Bà Rịa – Vũng Tàu)": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
-  "Thích Ca Phật Đài": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", blue: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
-  "NHÀ THỜ ĐỨC BÀ": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
-  "Nhà thờ Đức Bà Sài Gòn": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
-  "Nhà thờ Đức Bà": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM", blue: "NHÀ THỜ ĐỨC BÀ SÀI GÒN" },
-  "CHỢ THỦ DẦU MỘT": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", blue: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
-  "Chợ Thủ Dầu Một": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", blue: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
-  "CHỢ BẾN THÀNH": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
-  "Chợ Bến Thành - TP.HCM": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
-  "Chợ Bến Thành": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM", blue: "CHỢ BẾN THÀNH" },
-  "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", blue: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH" },
-  "Đường sách Nguyễn Văn Bình": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", blue: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH" },
-  "CHỢ XÓM LƯỚI": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
-  "Chợ Xóm Lưới (khu vực Vũng Tàu)": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
-  "Chợ Xóm Lưới": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU", blue: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
-  "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP": { info: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", img: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", hot: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", blue: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG" },
-  "Làng sơn mài Tương Bình Hiệp": { info: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", img: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", hot: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", blue: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG" },
-  "ĐỜN CA TÀI TỬ NAM BỘ": { info: "ĐỜN CA TÀI TỬ NAM BỘ", img: "ĐỜN CA TÀI TỬ-TPHCM", hot: "ĐỜN CA TÀI TỬ-TPHCM", blue: "ĐỜN CA TÀI TỬ NAM BỘ" },
-  "Đờn Ca Tài Tử Nam Bộ": { info: "ĐỜN CA TÀI TỬ NAM BỘ", img: "ĐỜN CA TÀI TỬ-TPHCM", hot: "ĐỜN CA TÀI TỬ-TPHCM", blue: "ĐỜN CA TÀI TỬ NAM BỘ" },
-  "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ": { info: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ", img: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", hot: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", blue: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ" },
-  "Nghệ Thuật Cải Lương Nam Bộ": { info: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ", img: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", hot: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", blue: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ" },
-  "LỄ HỘI NGHINH ÔNG (BÀ RỊA – VŨNG TÀU)": { info: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU", img: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", hot: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", blue: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU" },
-  "Lễ Hội Nghinh Ông (Bà Rịa – Vũng Tàu)": { info: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU", img: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", hot: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", blue: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU" },
-  "THÀNH PHỐ MỚI BÌNH DƯƠNG": { info: "THÀNH PHỐ MỚI BÌNH DƯƠNG", img: "THÀNH PHỐ MỚI BÌNH DƯƠNG", hot: "THÀNH PHỐ MỚI BÌNH DƯƠNG", blue: "THÀNH PHỐ MỚI BÌNH DƯƠNG" },
-  "Thành phố Mới Bình Dương": { info: "THÀNH PHỐ MỚI BÌNH DƯƠNG", img: "THÀNH PHỐ MỚI BÌNH DƯƠNG", hot: "THÀNH PHỐ MỚI BÌNH DƯƠNG", blue: "THÀNH PHỐ MỚI BÌNH DƯƠNG" },
-  "HỒ DẦU TIẾNG - BÌNH DƯƠNG": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", blue: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
-  "Hồ Dầu Tiếng - Bình Dương": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", blue: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
-  "Hồ Dầu Tiếng": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", blue: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
-  "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU", blue: "BÃI SAU VŨNG TÀU" },
-  "Bãi Sau (Bãi Thùy Vân) - Vũng Tàu": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU", blue: "BÃI SAU VŨNG TÀU" },
-  "Bãi Sau": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU", blue: "BÃI SAU VŨNG TÀU" },
-  "LÀNG CHÀI PHƯỚC HẢI": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", blue: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
-  "LÀNG CHÀI PHƯỚC HẢI - BÀ RỊA – VŨNG TÀU": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", blue: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
-  "Làng Chài Phước Hải - Bà Rịa – Vũng Tàu": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", blue: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
-  "Làng Chài Phước Hải": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", blue: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
-  "PHỐ ĐI BỘ NGUYỄN HUỆ": { info: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", img: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", hot: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", blue: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM" },
-  "Phố đi bộ Nguyễn Huệ": { info: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", img: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", hot: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", blue: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM" }
+export const PLACE_KEY_MAPPINGS: Record<string, { info: string; img: string; hot: string }> = {
+  "Bến Nhà Rồng": { info: "Bến Nhà Rồng", img: "Bến Nhà Rồng", hot: "Bến Nhà Rồng" },
+  "BẾN NHÀ RỒNG": { info: "Bến Nhà Rồng", img: "BẾN NHÀ RỒNG", hot: "BẾN NHÀ RỒNG" },
+  "DINH ĐỘC LẬP": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP" },
+  "Dinh Độc Lập": { info: "DINH ĐỘC LẬP", img: "DINH ĐỘC LẬP", hot: "DINH ĐỘC LẬP" },
+  "ĐỊA ĐẠO CỦ CHI": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
+  "ĐỊA ĐẠO CỦ CHI-TPHCM": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
+  "Địa đạo Củ Chi": { info: "ĐỊA ĐẠO CỦ CHI-TPHCM", img: "ĐỊA ĐẠO CỦ CHI-TPHCM", hot: "ĐỊA ĐẠO CỦ CHI-TPHCM" },
+  "NHÀ TÙ CÔN ĐẢO": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO" },
+  "NHÀ TÙ CÔN ĐẢO-BRVT": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO" },
+  "Nhà tù Côn Đảo": { info: "NHÀ TÙ CÔN ĐẢO", img: "NHÀ TÙ CÔN ĐẢO", hot: "NHÀ TÙ CÔN ĐẢO" },
+  "BƯU ĐIỆN TRUNG TÂM TPHCM": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "Bưu điện Trung tâm Thành phố Hồ Chí Minh": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "Bưu điện Trung tâm Sài Gòn": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "BƯU ĐIỆN TRUNG TÂM SÀI GÒN": { info: "BƯU ĐIỆN TRUNG TÂM TPHCM", img: "BƯU ĐIỆN TRUNG TÂM TPHCM", hot: "BƯU ĐIỆN TRUNG TÂM TPHCM" },
+  "CHÙA HỘI KHÁNH": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
+  "Chùa Hội Khánh (Bình Dương)": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
+  "Chùa Hội Khánh": { info: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", img: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG", hot: "CHÙA HỘI KHÁNH-BÌNH DƯƠNG" },
+  "THÍCH CA PHẬT ĐÀI": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
+  "Thích Ca Phật Đài (Bà Rịa – Vũng Tàu)": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
+  "Thích Ca Phật Đài": { info: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", img: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU", hot: "THÍCH CA PHẬT ĐÀI-VŨNG TÀU" },
+  "NHÀ THỜ ĐỨC BÀ": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM" },
+  "Nhà thờ Đức Bà Sài Gòn": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM" },
+  "Nhà thờ Đức Bà": { info: "NHÀ THỜ ĐỨC BÀ SÀI GÒN", img: "NHÀ THỜ ĐỨC BÀ-TPHCM", hot: "NHÀ THỜ ĐỨC BÀ-TPHCM" },
+  "CHỢ THỦ DẦU MỘT": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
+  "Chợ Thủ Dầu Một": { info: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", img: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG", hot: "CHỢ THỦ DẦU MỘT-BÌNH DƯƠNG" },
+  "CHỢ BẾN THÀNH": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH", hot: "CHỢ BẾN THÀNH-TPHCM" },
+  "Chợ Bến Thành - TP.HCM": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM" },
+  "Chợ Bến Thành": { info: "CHỢ BẾN THÀNH", img: "CHỢ BẾN THÀNH-TPHCM", hot: "CHỢ BẾN THÀNH-TPHCM" },
+  "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM" },
+  "Đường sách Nguyễn Văn Bình": { info: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH", img: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM", hot: "ĐƯỜNG SÁCH NGUYỄN VĂN BÌNH-TPHCM" },
+  "CHỢ XÓM LƯỚI": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
+  "Chợ Xóm Lưới (khu vực Vũng Tàu)": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
+  "Chợ Xóm Lưới": { info: "CHỢ XÓM LƯỚI-VŨNG TÀU", img: "CHỢ XÓM LƯỚI-VŨNG TÀU", hot: "CHỢ XÓM LƯỚI-VŨNG TÀU" },
+  "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP": { info: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", img: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", hot: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG" },
+  "Làng sơn mài Tương Bình Hiệp": { info: "LÀNG SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", img: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG", hot: "LÀNG NGHỀ SƠN MÀI TƯƠNG BÌNH HIỆP-BÌNH DƯƠNG" },
+  "ĐỜN CA TÀI TỬ NAM BỘ": { info: "ĐỜN CA TÀI TỬ NAM BỘ", img: "ĐỜN CA TÀI TỬ-TPHCM", hot: "ĐỜN CA TÀI TỬ-TPHCM" },
+  "Đờn Ca Tài Tử Nam Bộ": { info: "ĐỜN CA TÀI TỬ NAM BỘ", img: "ĐỜN CA TÀI TỬ-TPHCM", hot: "ĐỜN CA TÀI TỬ-TPHCM" },
+  "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ": { info: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ", img: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", hot: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ" },
+  "Nghệ Thuật Cải Lương Nam Bộ": { info: "NGHỆ THUẬT CẢI LƯƠNG NAM BỘ", img: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ", hot: "NGHỆ THUẬT SÂN KHẤU CẢI LƯƠNG NAM BỘ" },
+  "LỄ HỘI NGHINH ÔNG (BÀ RỊA – VŨNG TÀU)": { info: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU", img: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", hot: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU" },
+  "Lễ Hội Nghinh Ông (Bà Rịa – Vũng Tàu)": { info: "LỄ HỘI NGHINH ÔNG THẮNG TAM-VŨNG TÀU", img: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU", hot: "LỄ HỘI NGHINH ÔNG THẮNG TAM VŨNG TÀU" },
+  "THÀNH PHỐ MỚI BÌNH DƯƠNG": { info: "THÀNH PHỐ MỚI BÌNH DƯƠNG", img: "THÀNH PHỐ MỚI BÌNH DƯƠNG", hot: "THÀNH PHỐ MỚI BÌNH DƯƠNG" },
+  "Thành phố Mới Bình Dương": { info: "THÀNH PHỐ MỚI BÌNH DƯƠNG", img: "THÀNH PHỐ MỚI BÌNH DƯƠNG", hot: "THÀNH PHỐ MỚI BÌNH DƯƠNG" },
+  "HỒ DẦU TIẾNG - BÌNH DƯƠNG": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
+  "Hồ Dầu Tiếng - Bình Dương": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
+  "Hồ Dầu Tiếng": { info: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", img: "HỒ DẦU TIẾNG-BÌNH DƯƠNG", hot: "HỒ DẦU TIẾNG-BÌNH DƯƠNG" },
+  "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU" },
+  "Bãi Sau (Bãi Thùy Vân) - Vũng Tàu": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU" },
+  "Bãi Sau": { info: "BÃI SAU VŨNG TÀU", img: "BÃI SAU-VŨNG TÀU", hot: "BÃI SAU-VŨNG TÀU" },
+  "LÀNG CHÀI PHƯỚC HẢI": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
+  "LÀNG CHÀI PHƯỚC HẢI - BÀ RỊA – VŨNG TÀU": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
+  "Làng Chài Phước Hải - Bà Rịa – Vũng Tàu": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
+  "Làng Chài Phước Hải": { info: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", img: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU", hot: "LÀNG CHÀI PHƯỚC HẢI-BÀ RỊA VŨNG TÀU" },
+  "PHỐ ĐI BỘ NGUYỄN HUỆ": { info: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", img: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", hot: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM" },
+  "Phố đi bộ Nguyễn Huệ": { info: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", img: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM", hot: "PHỐ ĐI BỘ NGUYỄN HUỆ-TPHCM" }
 };
 
 // Master retriever with fallback & dynamic enrichment
@@ -1061,8 +1368,6 @@ export function getPlaceInfographic(placeName: string, categoryTitle?: string): 
   const infoKey = mapping ? mapping.info : placeName;
   const imgKey = mapping ? mapping.img : placeName;
   const hotKey = mapping ? mapping.hot : placeName;
-  const blueKey = mapping ? mapping.blue : placeName;
-
   const existing = PLACE_INFOGRAPHICS[infoKey] || PLACE_INFOGRAPHICS[placeName];
   const masterImg = PLACE_MASTER_IMAGES[imgKey] || PLACE_MASTER_IMAGES[placeName] || (existing ? existing.masterImage : infographicLichSu);
   
@@ -1073,8 +1378,6 @@ export function getPlaceInfographic(placeName: string, categoryTitle?: string): 
       { id: 3, x: 65, y: 75, title: "Giá trị văn hóa đời sống", category: "Văn hóa", description: existing.pedagogicalTakeaways[0] || "Ý nghĩa giáo dục truyền thống.", tag: "Văn hóa" }
     ];
 
-    const blueprint = getBlueprintData(placeName, existing);
-    
     // Calculate heritage years (exclude Chợ Xóm Lưới or places with unestablished official origin)
     const isXomLuoi = placeName.toUpperCase().includes('XÓM LƯỚI') || existing.placeName.toUpperCase().includes('XÓM LƯỚI');
     let heritageYears: number | undefined = undefined;
@@ -1110,7 +1413,6 @@ export function getPlaceInfographic(placeName: string, categoryTitle?: string): 
       ...existing,
       masterImage: masterImg,
       hotspots: defaultHotspots,
-      blueprint,
       heritageAgeYears: heritageYears,
       significanceLevel: existing.keyClassification,
       colorMeanings
@@ -1156,12 +1458,5 @@ export function getPlaceInfographic(placeName: string, categoryTitle?: string): 
       { id: 2, x: 30, y: 65, title: "Khuôn viên di sản", category: "Cảnh quan", description: "Không gian mở kết nối cộng đồng." },
       { id: 3, x: 70, y: 70, title: "Giá trị văn hóa", category: "Văn hóa", description: "Học liệu quý cho thế hệ trẻ." }
     ],
-    blueprint: {
-      orientation: "Hướng gió Nam Bộ • Đông Nam",
-      materials: ["Gỗ quý truyền thống", "Gạch nung bản địa", "Đá granite", "Ngói âm dương"],
-      scale: "Quy mô tiêu chuẩn di sản",
-      architecturalStyle: "Phong cách Nam Bộ truyền thống",
-      gridCoords: "10°45'N • 106°40'E"
-    }
-  };
+    };
 }

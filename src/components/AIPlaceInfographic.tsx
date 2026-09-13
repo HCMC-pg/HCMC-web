@@ -11,20 +11,17 @@ import {
   MapPin, 
   Landmark, 
   Award, 
-  Compass, 
   RefreshCw,
   Eye,
   Sliders,
   ChevronRight,
   Play,
   Pause,
-  Ruler,
   Share2,
   Info,
   ShieldCheck,
   CheckCircle2,
   Clock,
-  Grid,
   BookOpen
 } from 'lucide-react';
 import { PlaceItem } from '../types';
@@ -36,7 +33,7 @@ interface AIPlaceInfographicProps {
   categoryTitle?: string;
 }
 
-type InfographicMode = 'poster' | 'blueprint' | 'timeline';
+type InfographicMode = 'poster' | 'timeline';
 
 export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   place,
@@ -148,7 +145,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             ) : null}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <button
               onClick={() => setActiveMode('poster')}
               className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
@@ -159,18 +156,6 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             >
               <Eye className="w-4 h-4 shrink-0" />
               <span className="truncate">Phân Tích Di Sản</span>
-            </button>
-
-            <button
-              onClick={() => setActiveMode('blueprint')}
-              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
-                activeMode === 'blueprint'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-              }`}
-            >
-              <Grid className="w-4 h-4 shrink-0" />
-              <span className="truncate">Bản Vẽ Kỹ Thuật</span>
             </button>
 
             <button
@@ -267,7 +252,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   {/* Top image labels */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5">
                     <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] font-bold text-[#f5e3a9] border border-[#c29b38]/40">
-                      Sơ Đồ Cắt Lớp Kiến Trúc
+                      Đồ Họa Di Sản Tiêu Biểu
                     </span>
                   </div>
 
@@ -281,7 +266,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
 
                   {/* Caption on image */}
                   <div className="absolute bottom-3 left-3 right-3 text-left pointer-events-none">
-                    <span className="text-[10px] font-mono text-[#e6ca65] block uppercase">Góc nhìn kiến trúc tiêu biểu</span>
+                    <span className="text-[10px] font-mono text-[#e6ca65] block uppercase">Góc nhìn di sản tiêu biểu</span>
                     <p className="text-xs text-slate-200 font-medium line-clamp-1">{meta.visualHighlights[0] || place.name}</p>
                   </div>
                 </div>
@@ -331,43 +316,28 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
 
             </div>
 
-            {/* Sơ Đồ Biên Niên Sử Tóm Tắt (Chronological Milestone Infographic Roadmap) */}
-            <div className="p-5 rounded-2xl bg-[#101826] border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-[#c29b38]" />
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38]">
-                    Biên Niên Sử Lịch Sử Tóm Tắt
-                  </h4>
+            {/* Chuyển hướng Biên Niên Sử (Dòng thời gian lịch sử) */}
+            <div className="p-4 rounded-2xl bg-[#101826] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#c29b38]/15 border border-[#c29b38]/30 flex items-center justify-center text-[#e6ca65] shrink-0">
+                  <Calendar className="w-4 h-4" />
                 </div>
-                <button
-                  onClick={() => setActiveMode('timeline')}
-                  className="text-[11px] text-[#e6ca65] hover:underline font-bold flex items-center gap-1"
-                >
-                  <span>Xem chi tiết timeline</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38]">
+                    Biên Niên Sử & Mốc Son Lịch Sử
+                  </h4>
+                  <p className="text-[11px] text-slate-400">
+                    Xem toàn bộ chuỗi tiến trình niên đại lịch sử và các sự kiện then chốt của {place.name}
+                  </p>
+                </div>
               </div>
-
-              {/* Horizontal Milestone Nodes */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
-                {meta.milestones.slice(0, 4).map((m, idx) => (
-                  <div 
-                    key={idx}
-                    className="p-3 rounded-xl bg-[#0b121e] border border-slate-800 hover:border-[#c29b38]/50 transition-all flex flex-col justify-between space-y-1.5"
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold font-mono text-[#f5e3a9] bg-[#c29b38]/15 px-2 py-0.5 rounded border border-[#c29b38]/30">
-                        {m.year}
-                      </span>
-                      <span className="text-[10px] text-slate-500 font-mono">Mốc #{idx + 1}</span>
-                    </div>
-                    <p className="text-xs text-slate-300 leading-snug line-clamp-2">
-                      {m.event}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <button
+                onClick={() => setActiveMode('timeline')}
+                className="w-full sm:w-auto px-4 py-2 rounded-xl bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 font-bold text-xs border border-[#c29b38]/40 transition-all flex items-center justify-center gap-1.5 shrink-0"
+              >
+                <span>Xem Biên Niên Sử</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
             </div>
 
             {/* 2 Trụ Cột Tri Thức Tóm Tắt (Knowledge Pillars) */}
@@ -381,7 +351,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </h4>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  {place.historicalSignificance || `Chứng nhân lịch sử quan trọng trong tiến trình hình thành và phát triển của Sài Gòn - Thành phố Hồ Chí Minh qua hơn ba thế kỷ.`}
+                  Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới.
                 </p>
               </div>
 
@@ -394,10 +364,39 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </h4>
                 </div>
                 <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                  {place.educationalValue || `Học sinh và công chúng cần nắm vững niên đại khởi lập, giá trị bảo tồn cấp quốc gia và ý thức gìn giữ di sản trong không gian đô thị hiện đại.`}
+                  Khám phá những giá trị văn hóa, di sản và đặc trưng của các địa phương, qua đó góp phần nâng cao hiểu biết và ý thức gìn giữ, phát huy giá trị văn hóa trong đời sống hiện đại.
                 </p>
               </div>
             </div>
+
+            {/* Hồ sơ học liệu & Nguồn tư liệu uy tín chính thống */}
+            {(meta.officialSources || place.officialSources || place.officialSource) && (
+              <div className="p-4 rounded-2xl bg-[#0d1522] border border-slate-800 space-y-2.5">
+                <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 shrink-0">
+                      <BookOpen className="w-3.5 h-3.5" />
+                    </span>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38]">
+                      Hồ Sơ Học Liệu • 2–3 Nguồn Uy Tín Chính Thống
+                    </h4>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-full border border-emerald-800/50">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Đã kiểm chứng
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1">
+                  {(meta.officialSources || place.officialSources || [place.officialSource || '']).filter(Boolean).map((sourceItem, sIdx) => (
+                    <div key={sIdx} className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/90 text-xs text-slate-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#c29b38] shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{sourceItem}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
           </div>
         </div>
@@ -417,21 +416,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <img
                   src={meta.masterImage || getMediaUrl(place.image)}
                   alt={`Infographic ${place.name}`}
-                  className={`w-full h-full object-cover transition-all duration-500 ${
-                    activeMode === 'blueprint' ? 'brightness-75 contrast-125 saturate-50 hue-rotate-180' : 'brightness-95 contrast-105'
-                  }`}
+                  className="w-full h-full object-cover transition-all duration-500 brightness-95 contrast-105"
                 />
-
-                {/* Blueprint Grid Overlay in Blueprint Mode */}
-                {activeMode === 'blueprint' && (
-                  <div 
-                    className="absolute inset-0 pointer-events-none opacity-30 mix-blend-screen"
-                    style={{
-                      backgroundImage: 'linear-gradient(to right, #38bdf8 1px, transparent 1px), linear-gradient(to bottom, #38bdf8 1px, transparent 1px)',
-                      backgroundSize: '24px 24px'
-                    }}
-                  />
-                )}
 
                 {/* Gradient Vignette for Legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none" />
@@ -440,7 +426,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
                   <div className="flex items-center gap-1.5">
                     <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] font-bold text-[#f5e3a9] border border-[#c29b38]/40 uppercase tracking-wider">
-                      {activeMode === 'hotspots' ? 'Radar Hotspot' : activeMode === 'blueprint' ? 'Sơ đồ Kỹ thuật' : 'Infographic HD'}
+                      Infographic HD
                     </span>
                     {hasHeritageAge && (
                       <span className="px-2 py-1 rounded-md bg-[#101826]/85 backdrop-blur-md text-[10px] font-mono font-bold text-slate-300 border border-slate-700">
@@ -544,69 +530,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             )}
 
           {/* ======================================================== */}
-          {/* VIEW 2: BẢN VẼ KỸ THUẬT & KIẾN TRÚC (BLUEPRINT & ANATOMY) */}
-          {/* ======================================================== */}
-          {activeMode === 'blueprint' && (
-            <div className="p-5 rounded-2xl bg-[#0a101b] border border-cyan-800/60 space-y-4 font-sans text-slate-200">
-              <div className="flex items-center justify-between border-b border-cyan-900/60 pb-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-cyan-400" />
-                  Sơ đồ kết cấu & Bản vẽ mặt bằng kiến trúc
-                </h4>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 font-mono">
-                  Scale 1:500
-                </span>
-              </div>
-
-              {/* Blueprint Metric Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                <div className="p-3.5 rounded-xl bg-[#0d1624] border border-cyan-900/60 space-y-1">
-                  <span className="text-[10px] font-bold text-cyan-400 uppercase block font-mono">
-                    Hướng Tọa Độ & Địa Thế:
-                  </span>
-                  <p className="text-white font-medium">{meta.blueprint?.orientation}</p>
-                  <p className="text-cyan-300/80 font-mono text-[11px]">GPS: {meta.blueprint?.gridCoords}</p>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-[#0d1624] border border-cyan-900/60 space-y-1">
-                  <span className="text-[10px] font-bold text-cyan-400 uppercase block font-mono">
-                    Quy Mô Không Gian:
-                  </span>
-                  <p className="text-white font-medium">{meta.blueprint?.scale}</p>
-                  <p className="text-cyan-300/80 font-mono text-[11px]">Khí hậu: Nhiệt đới gió mùa Nam Bộ</p>
-                </div>
-              </div>
-
-              {/* Material Composition List */}
-              <div className="p-4 rounded-xl bg-[#0d1624] border border-cyan-900/60 space-y-2">
-                <span className="text-[11px] font-bold text-cyan-300 uppercase block font-mono flex items-center gap-1.5">
-                  <Ruler className="w-3.5 h-3.5 text-cyan-400" />
-                  Cấu kiện kiến trúc & Giải pháp kết cấu cốt lõi:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {meta.blueprint?.materials.map((mat, i) => (
-                    <div key={i} className="p-2.5 rounded-lg bg-[#070c14] border border-cyan-950 text-xs text-slate-300 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0" />
-                      <span>{mat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Technical Cross-Section Note */}
-              <div className="p-3.5 rounded-xl bg-[#09121f] border border-cyan-900/40 text-xs text-slate-300 space-y-1 font-mono">
-                <span className="text-cyan-400 font-bold block text-[10px] uppercase">
-                  Ghi chú kỹ thuật bảo tồn di tích:
-                </span>
-                <p className="text-slate-400 leading-relaxed text-[11px]">
-                  {meta.blueprint?.crossSectionNote || "Công trình được thiết kế với giải pháp chống nóng, đón gió đối lưu tự nhiên và hệ thoát nước thích ứng đặc thù sông nước miền Nam."}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* ======================================================== */}
-          {/* VIEW 4: BIÊN NIÊN SỬ TRỰC QUAN (INTERACTIVE TIMELINE & AUTO-PLAY) */}
+          {/* VIEW: BIÊN NIÊN SỬ TRỰC QUAN (INTERACTIVE TIMELINE & AUTO-PLAY) */}
           {/* ======================================================== */}
           {activeMode === 'timeline' && (
             <div className="p-5 rounded-2xl bg-[#141d2e] border border-slate-800 space-y-4">
@@ -716,13 +640,23 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             </div>
           )}
 
-          {/* Bottom Trust & Verification Footer */}
-          <div className="p-3 rounded-xl bg-[#0b101a] border border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Nguồn tư liệu: Sở Du lịch, Sở Văn hóa & Giáo dục Địa phương Nam Bộ</span>
+          {/* Bottom Trust & Verification Footer with Official Sources */}
+          <div className="p-3.5 rounded-xl bg-[#0b101a] border border-slate-800 space-y-2 text-[11px] text-slate-400">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 text-slate-300 font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Hồ Sơ Học Liệu • Nguồn Tư Liệu Chính Thống</span>
+              </div>
+              <span className="text-[#c29b38] font-mono text-[10px]">Đã xác thực</span>
             </div>
-            <span className="text-[#c29b38] font-mono">Chuẩn hóa dữ liệu</span>
+            <div className="space-y-1 pt-1">
+              {(meta.officialSources || place.officialSources || [place.officialSource || '']).filter(Boolean).map((sourceItem, sIdx) => (
+                <div key={sIdx} className="flex items-start gap-1.5 text-slate-300">
+                  <CheckCircle2 className="w-3 h-3 text-[#c29b38] shrink-0 mt-0.5" />
+                  <span className="leading-snug">{sourceItem}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>

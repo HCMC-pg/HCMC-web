@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ExternalLink, Video, Sparkles, BookOpen, ArrowUpRight, FileText, Camera } from 'lucide-react';
+import { MapPin, ExternalLink, Video, Sparkles, BookOpen, ArrowUpRight, FileText, Camera, FileImage } from 'lucide-react';
 import { PlaceItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
 
@@ -89,6 +89,12 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
             {place.gallery && place.gallery.length > 0 && (
               <span className="flex items-center gap-1 text-[#f5e3a9] bg-[#c29b38]/20 px-1.5 py-0.5 rounded border border-[#c29b38]/30 font-medium" title="Hình ảnh di sản">
                 <Camera className="w-3 h-3 text-[#f5e3a9]" />
+              </span>
+            )}
+            {(place.heritageInfographicImage || place.infographicImage) && (
+              <span className="flex items-center gap-1 text-[#e6ca65] bg-[#c29b38]/20 px-1.5 py-0.5 rounded border border-[#c29b38]/40 font-medium text-[11px]" title="Có Infographic di sản chuẩn hóa">
+                <FileImage className="w-3 h-3 text-[#e6ca65]" />
+                <span className="hidden sm:inline">Infographic</span>
               </span>
             )}
             {place.videos && place.videos.length > 0 && (

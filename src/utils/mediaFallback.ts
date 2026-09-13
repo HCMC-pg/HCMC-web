@@ -141,6 +141,11 @@ for (const [filePath, mod] of Object.entries(dynamicKHKTModules)) {
   DYNAMIC_IMAGE_MAP[`/assets/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/KHKT/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/KHKT/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`./assets/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`/assets/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`./assets/images/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`/assets/images/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`Infographic/${fileName}`] = url;
 }
 
 export function getMediaUrl(assetPath: string): string {

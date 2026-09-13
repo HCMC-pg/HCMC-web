@@ -17,10 +17,15 @@ export interface PlaceItem {
   gallery?: (PlaceGalleryItem | string)[];
   videos: string[];
   infographic: string;
+  heritageInfographicImage?: string;
+  infographicImage?: string;
+  heritageInfographicTitle?: string;
+  heritageInfographicDesc?: string;
   aiPrompts: string[];
   coordinates?: { lat: number; lng: number };
   region?: string;
   officialSource?: string;
+  officialSources?: string[];
   verifiedOfficial?: boolean;
   establishedYear?: string;
   architectOrOrigin?: string;

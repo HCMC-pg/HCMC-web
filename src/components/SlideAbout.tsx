@@ -78,14 +78,19 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
               </div>
 
               {/* Nội dung */}
-              <div className="p-4 rounded-xl liquid-glass border border-white/10">
-                <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1.5 flex items-center gap-1.5">
+              <div className="p-4 rounded-xl liquid-glass border border-white/10 space-y-2">
+                <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1 flex items-center gap-1.5">
                   <BookOpen className="w-3.5 h-3.5" />
                   Nội dung
                 </h4>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.
-                </p>
+                <div className="space-y-2 text-xs text-white/90 leading-relaxed">
+                  <p>
+                    <span className="text-[#f5e3a9] font-bold">1. Lịch sử & Xã hội:</span> Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới.
+                  </p>
+                  <p>
+                    <span className="text-[#f5e3a9] font-bold">2. Giá trị Văn hóa & Di sản:</span> Khám phá những giá trị văn hóa, di sản và đặc trưng của các địa phương, qua đó góp phần nâng cao hiểu biết và ý thức gìn giữ, phát huy giá trị văn hóa trong đời sống hiện đại.
+                  </p>
+                </div>
               </div>
 
               {/* Trải nghiệm học liệu số */}

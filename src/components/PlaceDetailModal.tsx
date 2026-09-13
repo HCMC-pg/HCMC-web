@@ -13,7 +13,14 @@ import {
   ChevronRight,
   Maximize2,
   Tag,
-  Info
+  Info,
+  ShieldCheck,
+  CheckCircle2,
+  FileImage,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  Download
 } from 'lucide-react';
 import { PlaceItem, PlaceGalleryItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
@@ -30,13 +37,17 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
   categoryTitle,
   onClose
 }) => {
-  const [activeTab, setActiveTab] = useState<'info' | 'gallery' | 'infographic' | 'videos'>('info');
+  const [activeTab, setActiveTab] = useState<'info' | 'heritage-infographic' | 'gallery' | 'infographic' | 'videos'>('info');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [infographicZoom, setInfographicZoom] = useState<number>(1);
+  const [isInfographicFullscreen, setIsInfographicFullscreen] = useState<boolean>(false);
 
   // Reset tab when switching to another place
   useEffect(() => {
     setActiveTab('info');
     setLightboxIndex(null);
+    setInfographicZoom(1);
+    setIsInfographicFullscreen(false);
   }, [place?.name]);
 
   // Normalize gallery items - ensure authentic gallery items, falling back to place.image
@@ -146,6 +157,25 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             Nội dung chi tiết di sản
           </button>
 
+          {/* DEDICATED TAB: INFOGRAPHIC DI SẢN */}
+          {(place.heritageInfographicImage || place.infographicImage) && (
+            <button
+              id="modal-tab-heritage-infographic"
+              onClick={() => {
+                setActiveTab('heritage-infographic');
+                setInfographicZoom(1);
+              }}
+              className={`py-3.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 whitespace-nowrap ${
+                activeTab === 'heritage-infographic'
+                  ? 'border-[#c29b38] text-[#f5e3a9]'
+                  : 'border-transparent text-white/50 hover:text-white'
+              }`}
+            >
+              <FileImage className="w-4 h-4 text-[#e6ca65]" />
+              Infographic di sản
+            </button>
+          )}
+
           {/* DEDICATED TAB: HÌNH ẢNH DI SẢN */}
           <button
             id="modal-tab-gallery"
@@ -193,21 +223,39 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
           {activeTab === 'info' && (
             <div className="space-y-6">
               
-              {/* Thẻ Căn cứ tư liệu */}
-              {place.officialSource && (
-                <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-slate-800 shadow-sm">
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#c29b38]/15 text-[#f5e3a9] border border-[#c29b38]/30 shrink-0">
-                      <BookOpen className="w-4 h-4" />
-                    </span>
-                    <div className="flex-1">
-                      <span className="text-[10px] font-bold text-[#c29b38] uppercase tracking-wider block">
-                        Hồ sơ tư liệu:
+              {/* Thẻ Căn cứ tư liệu / Hồ sơ học liệu */}
+              {(place.officialSources || place.officialSource) && (
+                <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-slate-800 shadow-sm space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 shrink-0">
+                        <BookOpen className="w-3.5 h-3.5" />
                       </span>
-                      <p className="text-xs text-slate-300">
-                        {place.officialSource}
-                      </p>
+                      <span className="text-xs font-bold text-[#c29b38] uppercase tracking-wider">
+                        Hồ Sơ Học Liệu & Căn Cứ Tư Liệu Chính Thống
+                      </span>
                     </div>
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded-full border border-emerald-800/50">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      Nguồn uy tín
+                    </span>
+                  </div>
+
+                  {/* Danh sách 2-3 nguồn uy tín chính thống */}
+                  <div className="space-y-1.5">
+                    {place.officialSources && place.officialSources.length > 0 ? (
+                      place.officialSources.map((srcItem, sIndex) => (
+                        <div key={sIndex} className="flex items-start gap-2 text-xs text-slate-300 bg-slate-900/50 p-2 rounded-lg border border-slate-800/80">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#c29b38] shrink-0 mt-0.5" />
+                          <span className="leading-snug">{srcItem}</span>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="flex items-start gap-2 text-xs text-slate-300 bg-slate-900/50 p-2 rounded-lg border border-slate-800/80">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#c29b38] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{place.officialSource}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-slate-800 text-xs">
@@ -229,6 +277,60 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                         <span className="text-slate-200 font-medium">{place.architectOrOrigin}</span>
                       </div>
                     )}
+                  </div>
+                </div>
+              )}
+
+              {/* Thẻ xem nhanh Infographic Di Sản (Nếu có) */}
+              {(place.heritageInfographicImage || place.infographicImage) && (
+                <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-[#c29b38]/40 shadow-lg space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 shrink-0">
+                        <FileImage className="w-3.5 h-3.5 text-[#e6ca65]" />
+                      </span>
+                      <span className="text-xs font-bold text-[#c29b38] uppercase tracking-wider">
+                        Infographic Di Sản
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setActiveTab('heritage-infographic');
+                        setInfographicZoom(1);
+                      }}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#f5e3a9] bg-[#c29b38]/20 hover:bg-[#c29b38] hover:text-slate-950 px-2.5 py-1 rounded-lg border border-[#c29b38]/40 transition-colors"
+                    >
+                      <Maximize2 className="w-3.5 h-3.5" />
+                      Xem Infographic khổ lớn
+                    </button>
+                  </div>
+                  
+                  <div 
+                    onClick={() => {
+                      setActiveTab('heritage-infographic');
+                      setInfographicZoom(1);
+                    }}
+                    className="group relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-lg overflow-hidden border border-slate-800 hover:border-[#c29b38]/60 cursor-pointer bg-slate-950 flex items-center justify-center transition-all"
+                  >
+                    <img
+                      src={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')}
+                      alt={place.heritageInfographicTitle || `Infographic ${place.name}`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-3 sm:p-4">
+                      <div>
+                        <p className="text-xs sm:text-sm font-bold text-white group-hover:text-[#f5e3a9] transition-colors">
+                          {place.heritageInfographicTitle || `Infographic Di Sản: ${place.name}`}
+                        </p>
+                        <p className="text-[11px] text-slate-300 line-clamp-1 mt-0.5">
+                          {place.heritageInfographicDesc || 'Đồ họa thông tin chuẩn hóa trực quan hóa dữ liệu di sản'}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="absolute top-2 right-2 px-2 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10px] font-bold text-[#f5e3a9] border border-[#c29b38]/40 flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-[#e6ca65]" />
+                      Bản vẽ Infographic
+                    </div>
                   </div>
                 </div>
               )}
@@ -310,6 +412,105 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                   </p>
                 </div>
               )}
+            </div>
+          )}
+
+          {/* TAB: INFOGRAPHIC DI SẢN CHUẨN HÓA */}
+          {activeTab === 'heritage-infographic' && (
+            <div className="space-y-4">
+              {/* Infographic Header Bar */}
+              <div className="bg-[#101926] p-4 sm:p-5 rounded-2xl border border-[#c29b38]/40 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#c29b38]/20 border border-[#c29b38]/50 text-[#f5e3a9] text-[10px] font-bold uppercase tracking-wider">
+                      Infographic Di Sản
+                    </span>
+                    <span className="text-[11px] text-emerald-400 flex items-center gap-1 font-semibold">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      Tư liệu học liệu chính thống
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-xl font-bold text-white font-serif-display mt-1.5">
+                    {place.heritageInfographicTitle || `Infographic: ${place.name}`}
+                  </h3>
+                  <p className="text-xs text-slate-300 line-clamp-2 mt-1">
+                    {place.heritageInfographicDesc || "Ảnh đồ họa thông tin trực quan hóa kiến trúc, lịch sử và giá trị văn hóa của di sản."}
+                  </p>
+                </div>
+
+                {/* Control toolbar */}
+                <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                  <button
+                    onClick={() => setInfographicZoom(prev => Math.min(Number((prev + 0.25).toFixed(2)), 2.5))}
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all border border-slate-700 shadow-sm"
+                    title="Phóng to (+)"
+                  >
+                    <ZoomIn className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setInfographicZoom(prev => Math.max(Number((prev - 0.25).toFixed(2)), 0.6))}
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all border border-slate-700 shadow-sm"
+                    title="Thu nhỏ (-)"
+                  >
+                    <ZoomOut className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setInfographicZoom(1)}
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-all border border-slate-700 text-xs font-mono shadow-sm"
+                    title="Đặt lại 100%"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsInfographicFullscreen(true)}
+                    className="px-3 py-2 rounded-xl bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 transition-all border border-[#c29b38]/40 text-xs font-semibold flex items-center gap-1.5 shadow-sm"
+                    title="Toàn màn hình"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                    <span className="hidden sm:inline">Toàn màn hình</span>
+                  </button>
+                  <a
+                    href={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')}
+                    download={`Infographic_${place.name.replace(/\s+/g, '_')}.png`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-emerald-600 text-white transition-all border border-slate-700 shadow-sm"
+                    title="Tải ảnh Infographic gốc"
+                  >
+                    <Download className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Display Canvas Frame */}
+              <div className="relative w-full rounded-2xl overflow-auto border border-[#c29b38]/30 bg-slate-950 p-2 sm:p-6 flex items-center justify-center min-h-[460px] max-h-[75vh] shadow-2xl">
+                <div 
+                  className="transition-transform duration-200 ease-out origin-top flex items-center justify-center cursor-zoom-in"
+                  style={{ transform: `scale(${infographicZoom})` }}
+                  onClick={() => setIsInfographicFullscreen(true)}
+                  title="Nhấn để xem toàn màn hình"
+                >
+                  <img
+                    src={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')}
+                    alt={place.heritageInfographicTitle || `Infographic ${place.name}`}
+                    className="max-w-full h-auto max-h-[70vh] object-contain rounded-xl shadow-2xl select-none"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+
+              {/* Info & attribution footer */}
+              <div className="p-3.5 rounded-xl bg-[#0b121e] border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400">
+                <div className="flex items-center gap-2">
+                  <Info className="w-4 h-4 text-[#c29b38] shrink-0" />
+                  <span>
+                    Ảnh đồ họa Infographic di sản nguyên bản, chuẩn hóa từ hồ sơ tư liệu không gian văn hóa đô thị TP. Hồ Chí Minh.
+                  </span>
+                </div>
+                <div className="text-[11px] font-mono text-[#f5e3a9] shrink-0">
+                  Tỉ lệ: {Math.round(infographicZoom * 100)}%
+                </div>
+              </div>
             </div>
           )}
 
@@ -495,6 +696,69 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                 <ChevronRight className="w-6 h-6" />
               </button>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* FULLSCREEN INFOGRAPHIC LIGHTBOX MODAL */}
+      {isInfographicFullscreen && (place.heritageInfographicImage || place.infographicImage) && (
+        <div 
+          className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setIsInfographicFullscreen(false)}
+        >
+          {/* Lightbox Top Header */}
+          <div 
+            className="w-full max-w-6xl flex items-center justify-between text-white z-10 pb-2 border-b border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div>
+              <span className="text-[10px] font-mono uppercase text-[#e6ca65] block tracking-wider">
+                Infographic Di Sản Chuẩn Hóa
+              </span>
+              <h4 className="text-sm sm:text-base font-serif-display font-bold text-white">
+                {place.heritageInfographicTitle || `Infographic: ${place.name}`}
+              </h4>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')}
+                download={`Infographic_${place.name.replace(/\s+/g, '_')}.png`}
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#c29b38] hover:text-slate-950 text-white text-xs font-medium transition-all flex items-center gap-1.5 border border-white/20"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Tải ảnh gốc</span>
+              </a>
+              <button
+                onClick={() => setIsInfographicFullscreen(false)}
+                className="p-2.5 rounded-full bg-white/10 hover:bg-red-600 text-white transition-all border border-white/20"
+                title="Đóng (Esc)"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Center: Fullscreen Image Display */}
+          <div 
+            className="relative w-full max-w-6xl flex-1 flex items-center justify-center p-2 sm:p-4 my-2 overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')} 
+              alt={place.heritageInfographicTitle || `Infographic ${place.name}`}
+              className="max-h-[85vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl border border-white/10"
+            />
+          </div>
+
+          {/* Footer note */}
+          <div 
+            className="w-full max-w-6xl text-center text-xs text-slate-400 pt-2 border-t border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Ảnh đồ họa trực quan nguyên bản, không sửa đổi hay thay đổi ảnh • Di sản văn hóa TP. Hồ Chí Minh
           </div>
         </div>
       )}
