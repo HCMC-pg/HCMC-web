@@ -30,6 +30,7 @@ export interface PlaceItem {
   establishedYear?: string;
   architectOrOrigin?: string;
   classification?: string;
+  historyAndSociety?: string;
 }
 
 export interface AboutDetails {

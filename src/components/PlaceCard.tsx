@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ExternalLink, Video, Sparkles, BookOpen, ArrowUpRight, FileText, Camera, FileImage } from 'lucide-react';
+import { MapPin, Video, Sparkles, BookOpen, FileText, Camera, FileImage } from 'lucide-react';
 import { PlaceItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
 
@@ -45,20 +45,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
             </span>
           )}
         </div>
-
-        {/* Quick External Map Link */}
-        {place.mapUrl && (
-          <a
-            href={place.mapUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            title="Mở Google Maps"
-            className="absolute top-3 right-3 p-1.5 rounded-lg bg-black/60 hover:bg-[#c29b38] text-white hover:text-slate-950 transition-colors duration-200 backdrop-blur-sm shadow z-10"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        )}
       </div>
 
       {/* Card Body */}
@@ -115,9 +101,8 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
             </span>
           </div>
 
-          <div className="flex items-center gap-1 text-xs font-semibold text-[#c29b38] group-hover:text-[#f5e3a9] transition-colors">
+          <div className="text-xs font-semibold text-[#c29b38] group-hover:text-[#f5e3a9] transition-colors">
             <span>Chi tiết</span>
-            <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
         </div>
       </div>

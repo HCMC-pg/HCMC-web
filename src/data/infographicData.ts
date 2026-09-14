@@ -40,6 +40,9 @@ export interface PlaceInfographicMeta {
   architectOrOrigin: string;
   keyClassification: string;
   dimensionsOrScale: string;
+  dimensionsLabel?: string;
+  historyAndSociety?: string;
+  visualHighlightsTitle?: string;
   colorPalette: string[];
   colorMeanings?: ColorMeaning[];
   hotspots?: InfographicHotspot[];
@@ -754,6 +757,7 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     architectOrOrigin: "Cộng đồng nhạc sư, nhạc tài phương Nam",
     keyClassification: "Di sản Văn hóa Phi vật thể Đại diện của Nhân loại (UNESCO 2013)",
     dimensionsOrScale: "Dàn nhạc ngũ tuyệt: Đàn Kìm, Tranh, Cò, Bầu, Guitare phím lõm",
+    historyAndSociety: "Góp phần phản ánh đời sống văn hoá, tinh thần của cư dân Nam bộ từ cuối thế kỉ XIX đến nay.",
     colorPalette: ["#c29b38", "#d97706", "#451a03", "#fef3c7"],
     aiImagePrompt: "An elegant musical heritage educational infographic of UNESCO Don Ca Tai Tu Nam Bo. Illustrated diagrams of the quintet instruments: Dan Kim (moon lute), Dan Tranh (zither), Dan Co (two-string fiddle), Dan Bau (monochord), scalloped guitar. Visual explanation of the 20 master repertoires (Bac, Nam, Xuan, Ai), golden warm tone.",
     officialSources: [
@@ -799,7 +803,8 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
     yearEstablished: "1918",
     architectOrOrigin: "Cải cách từ đờn ca tài tử và ca ra bộ của các tiền bối Nam Bộ",
     keyClassification: "Nghệ thuật Sân khấu Kịch hát Truyền thống Tiêu biểu",
-    dimensionsOrScale: "Khẩu hiệu 'Cải cách tao vần theo tiến hóa - Lương truyền tuồng tích sánh văn minh'",
+    dimensionsLabel: "Đặc trưng & tinh thần nghệ thuật",
+    dimensionsOrScale: "Khẩu hiệu: “Cải cách hát ca theo tiến bộ\n             Lương truyền tuồng tích sánh văn minh.”",
     colorPalette: ["#c29b38", "#dc2626", "#7c2d12", "#fafaf9"],
     aiImagePrompt: "A dramatic, theatrical heritage infographic poster of Cai Luong Opera Nam Bo. Showing theatrical stage curtains, ornate costume headdresses, face makeup diagrams, timeline from 1918 'Ca ra bo' to Golden Age theatre, iconic performance postures, vintage cinema and golden theatre aesthetic.",
     officialSources: [
@@ -822,9 +827,9 @@ export const PLACE_INFOGRAPHICS: Record<string, PlaceInfographicMeta> = {
         }
     ],
     visualHighlights: [
-      "Sự kết hợp giữa nghệ thuật ca ngâm vọng cổ và kỹ xảo diễn xuất sân khấu kịch nghệ phương Tây",
-      "Phục trang tuồng cổ lộng lẫy kết hợp các trường phái tuồng tích lịch sử chống ngoại xâm",
-      "Dàn nhạc sân khấu hòa quyện giữa nhạc cụ dân tộc và ban nhạc phương Tây hiện đại"
+      "Sự kết hợp giữa ca, ngâm, nói lối và diễn xuất, tạo nên hình thức sân khấu giàu tính biểu cảm và linh hoạt.",
+      "Nghệ thuật vọng cổ giữ vai trò nổi bật, kết hợp với các làn điệu và bài bản tài tử, tạo nên màu sắc âm nhạc đặc trưng của sân khấu Cải lương.",
+      "Sự giao thoa giữa truyền thống và cách tân sân khấu, thể hiện qua cách xây dựng kịch bản, diễn xuất, âm nhạc, phục trang và hình thức dàn dựng."
     ],
     keyDataPoints: [
       { label: "Năm khởi xướng", value: "Năm 1918" },

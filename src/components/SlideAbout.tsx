@@ -1,16 +1,12 @@
 import React from 'react';
 import { 
   Target, 
-  BookOpen, 
   Sparkles, 
   Mail, 
   Heart, 
   CheckCircle2, 
   Send,
-  Compass,
   GraduationCap,
-  Layers,
-  Award,
   ExternalLink,
   ClipboardCheck,
   MessageSquareHeart,
@@ -65,54 +61,44 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
               THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {/* Mục tiêu */}
-              <div className="p-4 rounded-xl liquid-glass border border-white/10">
-                <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1.5 flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5" />
-                  Mục tiêu
-                </h4>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Hỗ trợ học sinh và công chúng khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và sinh động, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.
-                </p>
-              </div>
-
-              {/* Nội dung */}
-              <div className="p-4 rounded-xl liquid-glass border border-white/10 space-y-2">
-                <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1 flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5" />
-                  Nội dung
-                </h4>
-                <div className="space-y-2 text-xs text-white/90 leading-relaxed">
-                  <p>
-                    <span className="text-[#f5e3a9] font-bold">1. Lịch sử & Xã hội:</span> Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới.
-                  </p>
-                  <p>
-                    <span className="text-[#f5e3a9] font-bold">2. Giá trị Văn hóa & Di sản:</span> Khám phá những giá trị văn hóa, di sản và đặc trưng của các địa phương, qua đó góp phần nâng cao hiểu biết và ý thức gìn giữ, phát huy giá trị văn hóa trong đời sống hiện đại.
+              <div className="p-4 rounded-xl liquid-glass border border-white/10 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1.5 flex items-center gap-1.5">
+                    <Target className="w-3.5 h-3.5" />
+                    Mục tiêu
+                  </h4>
+                  <p className="text-xs text-white/80 leading-relaxed">
+                    Hỗ trợ học sinh và công chúng khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và sinh động, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.
                   </p>
                 </div>
               </div>
 
               {/* Trải nghiệm học liệu số */}
-              <div className="p-4 rounded-xl liquid-glass border border-white/10">
-                <h4 className="text-xs font-bold text-[#e6ca65] uppercase mb-1.5 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Học liệu trực quan
-                </h4>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Infographic tạp chí, bản đồ số, tư liệu hình ảnh và video thực tế giúp người học tiếp cận kiến thức di sản một cách đa chiều, cuốn hút.
-                </p>
+              <div className="p-4 rounded-xl liquid-glass border border-white/10 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-[#e6ca65] uppercase mb-1.5 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Học liệu trực quan
+                  </h4>
+                  <p className="text-xs text-white/80 leading-relaxed">
+                    Infographic tạp chí, bản đồ số, tư liệu hình ảnh và video thực tế giúp người học tiếp cận kiến thức di sản một cách đa chiều, cuốn hút.
+                  </p>
+                </div>
               </div>
 
               {/* Đối tượng hướng đến */}
-              <div className="p-4 rounded-xl liquid-glass border border-white/10">
-                <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1.5 flex items-center gap-1.5">
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  Đối tượng hướng đến
-                </h4>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  Học sinh THPT, sinh viên, giáo viên, phụ huynh và tất cả những ai yêu quý, muốn tìm hiểu sâu sắc về không gian văn hóa đô thị Thành phố Hồ Chí Minh.
-                </p>
+              <div className="p-4 rounded-xl liquid-glass border border-white/10 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xs font-bold text-[#c29b38] uppercase mb-1.5 flex items-center gap-1.5">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                    Đối tượng hướng đến
+                  </h4>
+                  <p className="text-xs text-white/80 leading-relaxed">
+                    Học sinh THPT, sinh viên, giáo viên, phụ huynh và tất cả những ai yêu quý, muốn tìm hiểu sâu sắc về không gian văn hóa đô thị Thành phố Hồ Chí Minh.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -173,8 +173,8 @@
             "Cục Di sản Văn hóa – Hồ sơ Di tích Quốc gia Đặc biệt (dsvh.gov.vn)",
             "Bộ Tư lệnh Thành phố Hồ Chí Minh – Tài liệu Giáo dục Lịch sử Lực lượng Vũ trang"
           ],
-          "heritageInfographicImage": "./assets/infographic_cu_chi_cutaway_1788526428323.jpg",
-          "infographicImage": "./assets/infographic_cu_chi_cutaway_1788526428323.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image4.png",
+          "infographicImage": "./assets/Infographic/image4.png",
           "heritageInfographicTitle": "Infographic Địa Đạo Củ Chi",
           "heritageInfographicDesc": "Sơ đồ kiến trúc không gian ngầm 3 tầng, hệ thống thông hơi bí mật và căn cứ địa kháng chiến kiên cường"
         },
@@ -217,8 +217,8 @@
             "Cục Di sản Văn hóa – Bộ Văn hóa, Thể thao và Du lịch (dsvh.gov.vn)",
             "Sở Văn hóa và Thể thao Tỉnh Bà Rịa – Vũng Tàu"
           ],
-          "heritageInfographicImage": "./assets/s2_nhatucondao_04.jpg",
-          "infographicImage": "./assets/s2_nhatucondao_04.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image3.png",
+          "infographicImage": "./assets/Infographic/image3.png",
           "heritageInfographicTitle": "Infographic Di Tích Nhà Tù Côn Đảo",
           "heritageInfographicDesc": "Bản đồ hệ thống trại giam, chuồng cọp và biểu tượng ý chí bất khuất của các chiến sĩ cách mạng"
         }
@@ -496,8 +496,8 @@
             "Bảo tàng Tỉnh Bình Dương (baotangbinhduong.org.vn)",
             "Sở Công Thương Tỉnh Bình Dương – Niên giám Thương mại Truyền thống"
           ],
-          "heritageInfographicImage": "./assets/KHKT/s4_chothudaumot_04.png",
-          "infographicImage": "./assets/KHKT/s4_chothudaumot_04.png",
+          "heritageInfographicImage": "./assets/Infographic/image5.png",
+          "infographicImage": "./assets/Infographic/image5.png",
           "heritageInfographicTitle": "Infographic Chợ Thủ Dầu Một",
           "heritageInfographicDesc": "Tháp đồng hồ cổ kính và nhịp sống giao thương văn hóa đặc trưng vùng đất Thủ - Bình Dương"
         },
@@ -541,8 +541,8 @@
             "Sở Văn hóa và Thể thao TP.HCM – Quyết định Xếp hạng Di tích Lịch sử (svhtt.hochiminhcity.gov.vn)",
             "Sở Du lịch Thành phố Hồ Chí Minh (visithcmc.vn)"
           ],
-          "heritageInfographicImage": "./assets/s4_chobenthanh_04.jpg",
-          "infographicImage": "./assets/s4_chobenthanh_04.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image2.png",
+          "infographicImage": "./assets/Infographic/image2.png",
           "heritageInfographicTitle": "Infographic Chợ Bến Thành",
           "heritageInfographicDesc": "Tháp đồng hồ 4 mặt biểu tượng và trung tâm thương mại lịch sử giao lưu quốc tế của Sài Gòn"
         },
@@ -702,15 +702,16 @@
             "Sở Văn hóa, Thể thao và Du lịch Tỉnh Bình Dương (sovhttdl.binhduong.gov.vn)",
             "Hiệp hội Sơn mài – Điêu khắc Tỉnh Bình Dương"
           ],
-          "heritageInfographicImage": "./assets/s5_sonmaitbh_04.jpg",
-          "infographicImage": "./assets/s5_sonmaitbh_04.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image1.png",
+          "infographicImage": "./assets/Infographic/image1.png",
           "heritageInfographicTitle": "Infographic Nghề Sơn Mài Cổ Truyền Tương Bình Hiệp",
           "heritageInfographicDesc": "Quy trình chế tác thủ công truyền thống nhiều tầng lớp và di sản văn hóa phi vật thể quốc gia"
         },
         {
           "name": "ĐỜN CA TÀI TỬ NAM BỘ",
           "shortIntro": "Đờn ca tài tử Nam Bộ là loại hình nghệ thuật dân gian đặc sắc kết hợp hài hòa giữa tiếng đờn và tiếng ca, mang tính ngẫu hứng và phóng khoáng như tính cách của người dân phương Nam.",
-          "location": "Không gian Di sản văn hóa phi vật thể đại diện của nhân loại, lan tỏa tại Thành phố Hồ Chí Minh và 21 tỉnh, thành phố khu vực Nam Bộ.",
+          "location": "Đờn ca tài tử Nam Bộ được thực hành và lưu truyền rộng rãi tại Thành phố Hồ Chí Minh và các tỉnh, thành phố khu vực Nam Bộ.",
+          "historyAndSociety": "Góp phần phản ánh đời sống văn hoá, tinh thần của cư dân Nam bộ từ cuối thế kỉ XIX đến nay.",
           "mapUrl": "",
           "historicalValue": "Hình thành vào cuối thế kỷ XIX trên cơ sở tiếp thu và phát triển từ Nhạc lễ Nam Bộ, Nhã nhạc cung đình Huế, cùng với dân ca và sinh hoạt văn hóa dân gian của cư dân Nam Bộ. Đã được UNESCO chính thức ghi danh là Di sản văn hóa phi vật thể đại diện của nhân loại vào ngày 05/12/2013.",
           "significance": "Là món ăn tinh thần không thể thiếu trong các dịp lễ tết, giỗ chạp hay những buổi họp mặt xóm làng, thể hiện sự tinh tế, tâm hồn nghệ sĩ và lòng mến khách của con người Nam Bộ. Đây là loại hình nghệ thuật phản ánh đời sống tinh thần, triết lý nhân sinh và tính cách phóng khoáng, nghĩa tình của người dân Nam Bộ.",
@@ -792,8 +793,8 @@
             "Nhà hát Cải lương Trần Hữu Trang & Bảo tàng Sân khấu TP.HCM",
             "Hội Nghệ sĩ Sân khấu Việt Nam"
           ],
-          "heritageInfographicImage": "./assets/s5_cailuong_04.jpg",
-          "infographicImage": "./assets/s5_cailuong_04.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image10.png",
+          "infographicImage": "./assets/Infographic/image10.png",
           "heritageInfographicTitle": "Infographic Nghệ Thuật Sân Khấu Cải Lương Nam Bộ",
           "heritageInfographicDesc": "Dòng chảy nghệ thuật sân khấu truyền thống Nam Bộ, kết hợp ca kịch, tuồng tích và bản sắc dân tộc"
         },
@@ -907,8 +908,8 @@
             "Tổng Công ty Đầu tư và Phát triển Công nghiệp Becamex IDC (becamex.com.vn)",
             "Diễn đàn Cộng đồng Thông minh Thế giới (Intelligent Community Forum - ICF)"
           ],
-          "heritageInfographicImage": "./assets/s6_thanhphomoi_04.jpg",
-          "infographicImage": "./assets/s6_thanhphomoi_04.jpg",
+          "heritageInfographicImage": "./assets/Infographic/image11.png",
+          "infographicImage": "./assets/Infographic/image11.png",
           "heritageInfographicTitle": "Infographic Thành Phố Mới Bình Dương",
           "heritageInfographicDesc": "Mô hình đô thị thông minh hiện đại, trung tâm hành chính tập trung và không gian đổi mới sáng tạo"
         },
@@ -1140,11 +1141,10 @@
       "category": "VỀ CHÚNG TÔI",
       "primaryTitle": "Hành Trình Sáng Lập HCMC CultureHub",
       "secondaryTitle": "Câu chuyện sáng lập • Mục tiêu sứ mệnh • Kết nối cộng đồng",
-      "bodyContent": "THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB AI\n- Mục tiêu: Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.\n- Nội dung: Hệ thống tập trung vào nhiều phương diện của văn hóa như lịch sử, kiến trúc, ẩm thực, nghệ thuật, lễ hội, con người, đời sống cộng đồng và không gian đô thị.\n- AI đồng hành: Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá đồ họa infographic và nhận những gợi ý phù hợp với sở thích.\n- Đối tượng hướng đến: Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.\n\nCÂU CHUYỆN CỦA CHÚNG TÔI\nChúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau.\nVì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.\n“Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”\n\nHCMC CultureHub\nKhám phá văn hóa. Kết nối giá trị. Kiến tạo trải nghiệm.\nEmail liên hệ: hcmcculturehub@gmail.com",
+      "bodyContent": "THÔNG TIN CƠ BẢN VỀ HCMC CULTUREHUB\n- Mục tiêu: Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.\n- Học liệu trực quan: Infographic tạp chí, bản đồ số, tư liệu hình ảnh và video thực tế giúp người học tiếp cận kiến thức di sản một cách đa chiều, cuốn hút.\n- Đối tượng hướng đến: Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.\n\nCÂU CHUYỆN CỦA CHÚNG TÔI\nChúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau.\nVì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.\n“Hiểu văn hóa là hiểu con người – yêu văn hóa là cách đẹp nhất để kết nối với cội nguồn và cộng đồng.”\n\nHCMC CultureHub\nKhám phá văn hóa. Kết nối giá trị. Kiến tạo trải nghiệm.\nEmail liên hệ: hcmcculturehub@gmail.com",
       "keyHighlights": [],
       "aboutDetails": {
         "mission": "Hỗ trợ học sinh khám phá văn hóa Thành phố Hồ Chí Minh theo hướng trực quan, tương tác và cá nhân hóa, qua đó khơi dậy sự hứng thú, tình yêu và ý thức gìn giữ những giá trị văn hóa của thành phố.",
-        "contentScope": "1. Lịch sử & Xã hội: Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới.\n2. Giá trị Văn hóa & Di sản: Khám phá những giá trị văn hóa, di sản và đặc trưng của các địa phương, qua đó góp phần nâng cao hiểu biết và ý thức gìn giữ, phát huy giá trị văn hóa trong đời sống hiện đại.",
         "aiCompanion": "Trí tuệ nhân tạo được tích hợp để hỗ trợ người học đặt câu hỏi, tìm kiếm thông tin, khám phá nội dung và nhận những gợi ý phù hợp với sở thích.",
         "targetAudience": "Học sinh THPT là đối tượng chính, bên cạnh đó nền tảng có thể hỗ trợ giáo viên, phụ huynh và những người quan tâm đến văn hóa Thành phố Hồ Chí Minh.",
         "foundersStory": "Chúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau. Vì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.",

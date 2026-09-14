@@ -135,31 +135,45 @@ for (const [filePath, mod] of Object.entries(dynamicKHKTModules)) {
   
   // filePath is like "../assets/images/KHKT/s2_bennharong_01.jpg"
   const fileName = filePath.split('/').pop() || '';
+  const baseName = fileName.replace(/\.[^.]+$/, '');
+  
   DYNAMIC_IMAGE_MAP[filePath] = url;
   DYNAMIC_IMAGE_MAP[fileName] = url;
+  DYNAMIC_IMAGE_MAP[baseName] = url;
+  DYNAMIC_IMAGE_MAP[baseName.replace(/\s+/g, '')] = url;
   DYNAMIC_IMAGE_MAP[`./assets/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/KHKT/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/KHKT/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`./assets/Infographic/${baseName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/images/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/images/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`Infographic/${fileName}`] = url;
 }
 
+import { getCustomAsset } from './customAssetStore';
+
 export function getMediaUrl(assetPath: string): string {
   if (!assetPath) {
     return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";
   }
 
-  // Check direct dynamic map
+  // Check filename
+  const cleanFileName = assetPath.split('/').pop() || '';
+
+  // 1. Top Priority: Check custom asset store (IndexedDB & in-memory cache)
+  const custom = getCustomAsset(cleanFileName) || getCustomAsset(assetPath);
+  if (custom) {
+    return custom;
+  }
+
+  // 2. Check direct dynamic map
   if (DYNAMIC_IMAGE_MAP[assetPath]) {
     return DYNAMIC_IMAGE_MAP[assetPath];
   }
 
-  // Check filename only in dynamic map
-  const cleanFileName = assetPath.split('/').pop() || '';
   if (DYNAMIC_IMAGE_MAP[cleanFileName]) {
     return DYNAMIC_IMAGE_MAP[cleanFileName];
   }
@@ -168,10 +182,18 @@ export function getMediaUrl(assetPath: string): string {
   if (PLACE_IMAGES[assetPath]) {
     return PLACE_IMAGES[assetPath];
   }
+  if (PLACE_IMAGES[cleanFileName]) {
+    return PLACE_IMAGES[cleanFileName];
+  }
 
   // If already an absolute web URL, return as is
   if (assetPath.startsWith('http://') || assetPath.startsWith('https://') || assetPath.startsWith('data:')) {
     return assetPath;
+  }
+
+  // For infographic assets, do NOT fallback to a generic Saigon photo if missing
+  if (assetPath.includes('Infographic') || cleanFileName.startsWith('image')) {
+    return '';
   }
 
   return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";

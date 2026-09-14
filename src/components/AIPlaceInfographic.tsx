@@ -229,8 +229,10 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               )}
 
               <div className="p-3.5 rounded-2xl bg-[#101826] border border-[#c29b38]/30 shadow-md">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Quy Mô & Kiến Trúc</span>
-                <span className="text-xs sm:text-sm font-bold text-white mt-1 block line-clamp-1">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">
+                  {meta.dimensionsLabel || "Quy Mô & Kiến Trúc"}
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-white mt-1 block whitespace-pre-line leading-snug">
                   {meta.dimensionsOrScale}
                 </span>
               </div>
@@ -278,7 +280,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#c29b38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-[#e6ca65]" />
-                      Đặc Điểm Nổi Bật & Cấu Trúc Điểm Nhấn
+                      {meta.visualHighlightsTitle || "Đặc Điểm Nổi Bật"}
                     </h4>
                     <span className="text-[10px] text-slate-400 font-mono">Tóm tắt thị giác</span>
                   </div>
@@ -351,7 +353,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                   </h4>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới.
+                  {meta.historyAndSociety || place.historyAndSociety || "Những dấu ấn tiêu biểu phản ánh quá trình hình thành, phát triển và những giá trị lịch sử – xã hội của không gian văn hóa đô thị Thành phố Hồ Chí Minh mới."}
                 </p>
               </div>
 
@@ -506,8 +508,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
                 <span>Hồ Sơ Di Tích</span>
                 <span className="font-mono text-[#f5e3a9]">{meta.yearEstablished}</span>
               </div>
-              <p className="text-slate-300 text-xs leading-relaxed">
-                <strong className="text-slate-400">Quy mô:</strong> {meta.dimensionsOrScale}
+              <p className="text-slate-300 text-xs leading-relaxed whitespace-pre-line">
+                <strong className="text-slate-400">{meta.dimensionsLabel || "Quy mô"}:</strong> {meta.dimensionsOrScale}
               </p>
             </div>
           </div>
