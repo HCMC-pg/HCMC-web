@@ -69,7 +69,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
           </p>
         </div>
 
-        {/* Card Footer badges & CTA */}
+        {/* Card Footer badges */}
         <div className="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between">
           <div className="flex items-center gap-2 text-[11px] text-slate-400">
             {place.gallery && place.gallery.length > 0 && (
@@ -99,10 +99,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
               <FileText className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Phân tích</span>
             </span>
-          </div>
-
-          <div className="text-xs font-semibold text-[#c29b38] group-hover:text-[#f5e3a9] transition-colors">
-            <span>Chi tiết</span>
           </div>
         </div>
       </div>

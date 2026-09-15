@@ -301,7 +301,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
               {/* Thẻ xem nhanh Infographic Di Sản (Nếu có) */}
               {(place.heritageInfographicImage || place.infographicImage) && (
                 <div className="bg-[#101926] p-4 sm:p-5 rounded-xl border border-[#c29b38]/40 shadow-lg space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+                  <div className="flex flex-wrap items-center justify-between border-b border-slate-800/80 pb-2.5 gap-2">
                     <div className="flex items-center gap-2">
                       <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/40 shrink-0">
                         <FileImage className="w-3.5 h-3.5 text-[#e6ca65]" />
@@ -328,7 +328,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
                     className="group relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-lg overflow-hidden border border-slate-800 hover:border-[#c29b38]/60 cursor-pointer bg-slate-950 flex items-center justify-center transition-all"
                   >
                     <img
-                      src={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')}
+                      src={currentImageUrl || getMediaUrl(place.image || '')}
                       alt={place.heritageInfographicTitle || `Infographic ${place.name}`}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
@@ -703,7 +703,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setIsInfographicFullscreen(false)}
-                className="p-2.5 rounded-full bg-white/10 hover:bg-red-600 text-white transition-all border border-white/20"
+                className="p-2 rounded-full bg-white/10 hover:bg-red-600 text-white transition-all border border-white/20"
                 title="Đóng (Esc)"
               >
                 <X className="w-5 h-5" />
@@ -717,7 +717,7 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src={getMediaUrl(place.heritageInfographicImage || place.infographicImage || '')} 
+              src={currentImageUrl || getMediaUrl(place.image || '')} 
               alt={place.heritageInfographicTitle || `Infographic ${place.name}`}
               className="max-h-[85vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl border border-white/10"
             />

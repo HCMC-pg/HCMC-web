@@ -853,12 +853,12 @@
       "slideNumber": 6,
       "category": "KHO HỌC LIỆU • Nhóm 5",
       "primaryTitle": "Không gian biển, sông nước và đô thị hiện đại",
-      "secondaryTitle": "THÀNH PHỐ MỚI BÌNH DƯƠNG • HỒ DẦU TIẾNG - BÌNH DƯƠNG • BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU • LÀNG CHÀI PHƯỚC HẢI • PHỐ ĐI BỘ NGUYỄN HUỆ",
+      "secondaryTitle": "THÀNH PHỐ MỚI BÌNH DƯƠNG • HỒ DẦU TIẾNG • BÃI SAU (BÃI THÙY VÂN) • LÀNG CHÀI PHƯỚC HẢI • PHỐ ĐI BỘ NGUYỄN HUỆ",
       "bodyContent": "Không gian biển, sông nước và đô thị hiện đại mở ra bức tranh phát triển năng động, kết nối giữa thiên nhiên kỳ vĩ, công trình nhân tạo tầm cỡ và những trục cảnh quan thông minh đón đầu tương lai.",
       "keyHighlights": [
         "THÀNH PHỐ MỚI BÌNH DƯƠNG: Mô hình đô thị thông minh hiện đại quy mô 1.000 ha",
-        "HỒ DẦU TIẾNG - BÌNH DƯƠNG: Công trình thủy lợi nhân tạo lớn nhất Đông Nam Á, kỳ tích bàn tay con người",
-        "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU: Bãi biển nhộn nhịp dài đẹp nhất thành phố biển Vũng Tàu",
+        "HỒ DẦU TIẾNG: Công trình thủy lợi nhân tạo lớn nhất Đông Nam Á, kỳ tích bàn tay con người",
+        "BÃI SAU (BÃI THÙY VÂN): Bãi biển nhộn nhịp dài đẹp nhất thành phố biển Vũng Tàu",
         "LÀNG CHÀI PHƯỚC HẢI: Nét cổ xưa mộc mạc và nghề làm nước mắm truyền thống hàng trăm năm",
         "PHỐ ĐI BỘ NGUYỄN HUỆ: Trục cảnh quan công cộng nổi bật từ Kinh Lớn xưa đến trái tim đô thị nay"
       ],
@@ -914,7 +914,7 @@
           "heritageInfographicDesc": "Mô hình đô thị thông minh hiện đại, trung tâm hành chính tập trung và không gian đổi mới sáng tạo"
         },
         {
-          "name": "HỒ DẦU TIẾNG - BÌNH DƯƠNG",
+          "name": "HỒ DẦU TIẾNG",
           "shortIntro": "Hồ Dầu Tiếng là công trình thủy lợi nhân tạo có quy mô lớn nhất Việt Nam và Đông Nam Á, mang vẻ đẹp thơ mộng yên bình với lòng hồ rộng lớn và các đảo nhỏ nhấp nhô.",
           "location": "Nằm chủ yếu trên địa bàn xã Dương Minh Châu, tỉnh Tây Ninh; một phần diện tích giáp Thành phố Hồ Chí Minh (khu vực Bình Dương cũ).",
           "mapUrl": "https://maps.app.goo.gl/jkWt1VPGrRCeLrCq9",
@@ -961,7 +961,7 @@
           "heritageInfographicDesc": "Công trình thủy lợi đa mục tiêu lớn nhất Đông Nam Á, điều tiết nguồn nước sông Sài Gòn và du lịch sinh thái"
         },
         {
-          "name": "BÃI SAU (BÃI THÙY VÂN) - VŨNG TÀU",
+          "name": "BÃI SAU (BÃI THÙY VÂN)",
           "shortIntro": "Bãi Sau (hay còn gọi là bãi Thùy Vân) là bãi biển dài, đẹp và nhộn nhịp nhất của thành phố biển Vũng Tàu với những dải cát trắng mịn, sóng êm và làn nước ấm quanh năm.",
           "location": "Dọc tuyến đường Thùy Vân, thuộc địa bàn Phường Vũng Tàu và Phường Tam Thắng, Thành phố Vũng Tàu, tỉnh Bà Rịa – Vũng Tàu (trước đây thuộc Phường Thắng Tam và Phường 8 cũ, nay tương ứng Phường Vũng Tàu và Phường Tam Thắng theo Nghị quyết số 1256/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội; trải dài từ chân Núi Nhỏ đến khu vực Paradise).",
           "mapUrl": "https://maps.app.goo.gl/dgxk1q9Rt3QzjKeG9",
@@ -1150,7 +1150,7 @@
         "foundersStory": "Chúng tôi tin rằng văn hóa không phải là những điều xa xôi chỉ tồn tại trong sách giáo khoa. Văn hóa hiện diện trong từng con phố, mái nhà, món ăn, câu hát, lễ hội và trong chính cách con người sống cùng nhau. Vì thế, HCMC CultureHub ra đời với mong muốn tạo nên một cách tiếp cận khác: để người trẻ tự mình khám phá văn hóa, đặt câu hỏi, tương tác với kiến thức và kể lại những câu chuyện ấy bằng góc nhìn của chính mình.",
         "foundersCount": 3
       },
-      "image": "./assets/about_culturehub.webp",
+      "image": "./assets/team3.jpg",
       "badge": "Sứ Mệnh • Câu Chuyện Sáng Lập"
     }
   ]

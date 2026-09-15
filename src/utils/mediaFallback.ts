@@ -20,6 +20,7 @@ import donCaTaiTuImg from '../assets/images/don_ca_tai_tu_art_1788526125074.jpg'
 import caiLuongImg from '../assets/images/cai_luong_stage_art_1788526146413.jpg';
 import choXomLuoiImg from '../assets/images/cho_xom_luoi_art_1788526166508.jpg';
 import nhaTuConDaoImg from '../assets/images/nha_tu_con_dao_art_1788526183964.jpg';
+import team3Img from '../assets/images/team3.jpg';
 
 // Group 5 authentic photographic assets
 import thanhPhoMoi02 from '../assets/images/KHKT/s6_thanhphomoi_02.jpg';
@@ -118,7 +119,9 @@ export const PLACE_IMAGES: Record<string, string> = {
   // Slides 7, 8, 9
   "./assets/cultural_map.webp": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80", // Cartography map
   "./assets/ai_assistant_hub.webp": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80", // Futuristic AI studio
-  "./assets/about_culturehub.webp": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" // Education youth team
+  "./assets/about_culturehub.webp": team3Img,
+  "./assets/team3.jpg": team3Img,
+  "team3.jpg": team3Img
 };
 
 // Dynamically import all images from KHKT and root images directories using Vite's import.meta.glob

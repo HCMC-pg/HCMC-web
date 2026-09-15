@@ -128,13 +128,16 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
         <div className="lg:col-span-5 space-y-6 animate-fade-rise-delay">
           
           {/* Founders & Team Card */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black/50 liquid-glass">
-            <img 
-              src={getMediaUrl("./assets/about_culturehub.webp")}
-              alt="HCMC CultureHub Founders Team"
-              className="w-full h-52 object-cover brightness-75 contrast-110"
-            />
-            <div className="p-6 space-y-4">
+          <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black/50 liquid-glass max-w-lg mx-auto lg:max-w-none">
+            <div className="relative w-full py-3 px-4 bg-slate-950/70 flex items-center justify-center overflow-hidden border-b border-white/10">
+              <img 
+                src={getMediaUrl(slide.image || "./assets/team3.jpg")}
+                alt="HCMC CultureHub Founders Team"
+                className="max-h-[230px] sm:max-h-[250px] w-auto max-w-full h-auto object-contain rounded-lg shadow-md select-none mx-auto brightness-95 contrast-105"
+                loading="eager"
+              />
+            </div>
+            <div className="p-5 space-y-3.5">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#c29b38]/20 text-[#f5e3a9] border border-[#c29b38]/30 uppercase">
                   Nhóm Sáng Lập
@@ -142,7 +145,7 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
                 <span className="text-xs font-mono text-white/60">3 Thành Viên Đồng Sáng Lập</span>
               </div>
 
-              <h4 className="text-xl font-serif-display font-bold text-white">
+              <h4 className="text-lg sm:text-xl font-serif-display font-bold text-white">
                 HCMC CultureHub
               </h4>
 
@@ -151,7 +154,7 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
               </p>
 
               {/* Contact Block */}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-3 border-t border-white/10">
                 <span className="text-xs font-bold uppercase tracking-wider text-white/60 block mb-2">
                   Kênh liên hệ chính thức:
                 </span>
