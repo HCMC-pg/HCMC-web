@@ -40,6 +40,8 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   categoryTitle
 }) => {
   const meta: PlaceInfographicMeta = getPlaceInfographic(place.name, categoryTitle);
+  const directInfographicUrl = getMediaUrl(place.heritageInfographicImage || place.infographicImage || '');
+  const masterInfographicUrl = directInfographicUrl || meta.masterImage || getMediaUrl(place.image);
   
   const [activeMode, setActiveMode] = useState<InfographicMode>('poster');
   const [aspectRatio, setAspectRatio] = useState<'3:4' | '16:9' | '1:1'>('3:4');
@@ -245,7 +247,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-[#c29b38]/40 shadow-xl bg-slate-950 flex flex-col justify-between">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 group">
                   <img
-                    src={meta.masterImage || getMediaUrl(place.image)}
+                    src={masterInfographicUrl}
                     alt={place.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -416,7 +418,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
               } transition-all duration-300`}>
                 
                 <img
-                  src={meta.masterImage || getMediaUrl(place.image)}
+                  src={masterInfographicUrl}
                   alt={`Infographic ${place.name}`}
                   className="w-full h-full object-cover transition-all duration-500 brightness-95 contrast-105"
                 />
@@ -687,7 +689,7 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
             </button>
 
             <img
-              src={meta.masterImage || getMediaUrl(place.image)}
+              src={masterInfographicUrl}
               alt={`Infographic High-Res ${place.name}`}
               className="max-h-[82vh] w-auto object-contain rounded-xl border border-[#c29b38]/50 shadow-2xl"
             />

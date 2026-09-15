@@ -47,8 +47,39 @@ import phoDiBo03 from '../assets/images/KHKT/s6_phodibonguyenhue_03.jpg';
 import phoDiBo04 from '../assets/images/KHKT/s6_phodibonguyenhue_04.webp';
 import phoDiBoReal from '../assets/images/KHKT/pho_di_bo_nguyen_hue.jpg';
 
+// Direct imports for newly generated museum-quality infographic posters
+import infographicImage1 from '../assets/images/Infographic/image1.png';
+import infographicImage2 from '../assets/images/Infographic/image2.png';
+import infographicImage3 from '../assets/images/Infographic/image3.png';
+import infographicImage4 from '../assets/images/Infographic/image4.png';
+import infographicImage5 from '../assets/images/Infographic/image5.png';
+import infographicImage10 from '../assets/images/Infographic/image10.png';
+import infographicImage11 from '../assets/images/Infographic/image11.png';
+
 // Curated high-resolution culturally authentic visual mappings for HCMC, Binh Duong & Ba Ria - Vung Tau heritage
 export const PLACE_IMAGES: Record<string, string> = {
+  // Direct infographic image bindings
+  "./assets/Infographic/image1.png": infographicImage1,
+  "./assets/Infographic/image2.png": infographicImage2,
+  "./assets/Infographic/image3.png": infographicImage3,
+  "./assets/Infographic/image4.png": infographicImage4,
+  "./assets/Infographic/image5.png": infographicImage5,
+  "./assets/Infographic/image10.png": infographicImage10,
+  "./assets/Infographic/image11.png": infographicImage11,
+  "image1.png": infographicImage1,
+  "image2.png": infographicImage2,
+  "image3.png": infographicImage3,
+  "image4.png": infographicImage4,
+  "image5.png": infographicImage5,
+  "image10.png": infographicImage10,
+  "image11.png": infographicImage11,
+  "image1": infographicImage1,
+  "image2": infographicImage2,
+  "image3": infographicImage3,
+  "image4": infographicImage4,
+  "image5": infographicImage5,
+  "image10": infographicImage10,
+  "image11": infographicImage11,
   // Slide 1 - Hero
   "./assets/hero_hcmc_hub.webp": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80", // Saigon skyline & river
   
@@ -151,9 +182,15 @@ for (const [filePath, mod] of Object.entries(dynamicKHKTModules)) {
   DYNAMIC_IMAGE_MAP[`./assets/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/Infographic/${baseName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`assets/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`assets/Infographic/${baseName}`] = url;
   DYNAMIC_IMAGE_MAP[`./assets/images/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`/assets/images/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`assets/images/Infographic/${fileName}`] = url;
   DYNAMIC_IMAGE_MAP[`Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`Infographic/${baseName}`] = url;
+  DYNAMIC_IMAGE_MAP[`/Infographic/${fileName}`] = url;
+  DYNAMIC_IMAGE_MAP[`./${fileName}`] = url;
 }
 
 import { getCustomAsset } from './customAssetStore';
