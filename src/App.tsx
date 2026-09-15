@@ -11,9 +11,11 @@ import { SlideInteractiveMap } from './components/SlideInteractiveMap';
 import { SlideWebGame } from './components/SlideWebGame';
 import { SlideAbout } from './components/SlideAbout';
 import { SlideNavigator } from './components/SlideNavigator';
-import { PlaceDetailModal } from './components/PlaceDetailModal';
-import { SearchModal } from './components/SearchModal';
 import { AmbientSilkLight } from './components/AmbientSilkLight';
+
+// Lazy load modals to optimize initial bundle size and speed up page load
+const PlaceDetailModal = React.lazy(() => import('./components/PlaceDetailModal').then(m => ({ default: m.PlaceDetailModal })));
+const SearchModal = React.lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -291,20 +293,24 @@ export default function App() {
 
       {/* Modals */}
       {selectedPlace && (
-        <PlaceDetailModal
-          place={selectedPlace}
-          categoryTitle={selectedPlaceCategory}
-          onClose={() => setSelectedPlace(null)}
-        />
+        <React.Suspense fallback={null}>
+          <PlaceDetailModal
+            place={selectedPlace}
+            categoryTitle={selectedPlaceCategory}
+            onClose={() => setSelectedPlace(null)}
+          />
+        </React.Suspense>
       )}
 
       {isSearchOpen && (
-        <SearchModal
-          allPlaces={allPlaces}
-          onSelectPlace={handleOpenPlace}
-          onNavigateSlide={handleNavigateSlide}
-          onClose={() => setIsSearchOpen(false)}
-        />
+        <React.Suspense fallback={null}>
+          <SearchModal
+            allPlaces={allPlaces}
+            onSelectPlace={handleOpenPlace}
+            onNavigateSlide={handleNavigateSlide}
+            onClose={() => setIsSearchOpen(false)}
+          />
+        </React.Suspense>
       )}
 
     </div>

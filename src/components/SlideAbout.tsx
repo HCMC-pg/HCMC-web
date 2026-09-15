@@ -134,7 +134,8 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
                 src={getMediaUrl(slide.image || "./assets/team3.jpg")}
                 alt="HCMC CultureHub Founders Team"
                 className="max-h-[230px] sm:max-h-[250px] w-auto max-w-full h-auto object-contain rounded-lg shadow-md select-none mx-auto brightness-95 contrast-105"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-5 space-y-3.5">

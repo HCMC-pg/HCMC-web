@@ -108,6 +108,9 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
               src={getMediaUrl(slide.image || "./assets/hero_hcmc_hub.webp")} 
               alt="HCMC CultureHub Panorama"
               className="w-full h-[400px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-black/30" />
 
