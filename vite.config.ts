@@ -8,7 +8,7 @@ export default defineConfig(() => {
     (process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/HCMC-web/');
 
   return {
-    base: basePath,
+    base: '/HCMC-web/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
