@@ -4,8 +4,11 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
+  const basePath = process.env.VITE_BASE_PATH || 
+    (process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/HCMC-web/');
+
   return {
-    base: '/HCMC-web/',
+    base: basePath,
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

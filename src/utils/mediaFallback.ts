@@ -53,33 +53,53 @@ import infographicImage2 from '../assets/images/Infographic/image2.png';
 import infographicImage3 from '../assets/images/Infographic/image3.png';
 import infographicImage4 from '../assets/images/Infographic/image4.png';
 import infographicImage5 from '../assets/images/Infographic/image5.png';
+import infographicImage6 from '../assets/images/Infographic/image6.png';
+import infographicImage7 from '../assets/images/Infographic/image7.png';
+import infographicImage8 from '../assets/images/Infographic/image8.png';
+import infographicImage9 from '../assets/images/Infographic/image9.png';
 import infographicImage10 from '../assets/images/Infographic/image10.png';
 import infographicImage11 from '../assets/images/Infographic/image11.png';
+import infographicImage12 from '../assets/images/Infographic/image12.png';
+import infographicImage13 from '../assets/images/Infographic/image13.png';
+import infographicImage14 from '../assets/images/Infographic/image14.png';
+import infographicImage15 from '../assets/images/Infographic/image15.png';
+import infographicImage16 from '../assets/images/Infographic/image16.png';
+import infographicImage17 from '../assets/images/Infographic/image17.png';
+import infographicImage18 from '../assets/images/Infographic/image18.png';
+import infographicImage19 from '../assets/images/Infographic/image19.png';
+import infographicImage20 from '../assets/images/Infographic/image20.png';
+import benNhaRong04 from '../assets/images/KHKT/s2_bennharong_04.png';
+
+const ALL_INFOGRAPHIC_MODULES: Record<number, string> = {
+  1: infographicImage1,
+  2: infographicImage2,
+  3: infographicImage3,
+  4: infographicImage4,
+  5: infographicImage5,
+  6: infographicImage6,
+  7: infographicImage7,
+  8: infographicImage8,
+  9: infographicImage9,
+  10: infographicImage10,
+  11: infographicImage11,
+  12: infographicImage12,
+  13: infographicImage13,
+  14: infographicImage14,
+  15: infographicImage15,
+  16: infographicImage16,
+  17: infographicImage17,
+  18: infographicImage18,
+  19: infographicImage19,
+  20: infographicImage20,
+};
 
 // Curated high-resolution culturally authentic visual mappings for HCMC, Binh Duong & Ba Ria - Vung Tau heritage
 export const PLACE_IMAGES: Record<string, string> = {
-  // Direct infographic image bindings
-  "./assets/Infographic/image1.png": infographicImage1,
-  "./assets/Infographic/image2.png": infographicImage2,
-  "./assets/Infographic/image3.png": infographicImage3,
-  "./assets/Infographic/image4.png": infographicImage4,
-  "./assets/Infographic/image5.png": infographicImage5,
-  "./assets/Infographic/image10.png": infographicImage10,
-  "./assets/Infographic/image11.png": infographicImage11,
-  "image1.png": infographicImage1,
-  "image2.png": infographicImage2,
-  "image3.png": infographicImage3,
-  "image4.png": infographicImage4,
-  "image5.png": infographicImage5,
-  "image10.png": infographicImage10,
-  "image11.png": infographicImage11,
-  "image1": infographicImage1,
-  "image2": infographicImage2,
-  "image3": infographicImage3,
-  "image4": infographicImage4,
-  "image5": infographicImage5,
-  "image10": infographicImage10,
-  "image11": infographicImage11,
+  // Ben Nha Rong infographic
+  "./assets/s2_bennharong_04.png": benNhaRong04,
+  "/assets/s2_bennharong_04.png": benNhaRong04,
+  "s2_bennharong_04.png": benNhaRong04,
+  "s2_bennharong_04": benNhaRong04,
   // Slide 1 - Hero
   "./assets/hero_hcmc_hub.webp": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80", // Saigon skyline & river
   
@@ -155,6 +175,24 @@ export const PLACE_IMAGES: Record<string, string> = {
   "team3.jpg": team3Img
 };
 
+// Register all 20 museum-quality authentic infographics into PLACE_IMAGES
+for (let i = 1; i <= 20; i++) {
+  const mod = ALL_INFOGRAPHIC_MODULES[i];
+  if (mod) {
+    PLACE_IMAGES[`./assets/Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`/assets/Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`assets/Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`./Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`/Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`Infographic/image${i}.png`] = mod;
+    PLACE_IMAGES[`./assets/image${i}.png`] = mod;
+    PLACE_IMAGES[`/assets/image${i}.png`] = mod;
+    PLACE_IMAGES[`assets/image${i}.png`] = mod;
+    PLACE_IMAGES[`image${i}.png`] = mod;
+    PLACE_IMAGES[`image${i}`] = mod;
+  }
+}
+
 // Dynamically import all images from KHKT and root images directories using Vite's import.meta.glob
 const dynamicKHKTModules = import.meta.glob<string | { default: string }>(
   '../assets/images/**/*.{jpg,jpeg,png,webp,PNG,JPG,WEBP}',
@@ -200,8 +238,20 @@ export function getMediaUrl(assetPath: string): string {
     return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";
   }
 
-  // Check filename
+  // If already an absolute web URL, blob, or data URL, return as is
+  if (
+    assetPath.startsWith('http://') ||
+    assetPath.startsWith('https://') ||
+    assetPath.startsWith('data:') ||
+    assetPath.startsWith('blob:')
+  ) {
+    return assetPath;
+  }
+
+  // Extract clean parts
   const cleanFileName = assetPath.split('/').pop() || '';
+  const cleanPath = assetPath.replace(/^\.?\//, ''); // e.g. "assets/s2_bennharong_01.jpg"
+  const baseName = cleanFileName.replace(/\.[^.]+$/, '');
 
   // 1. Top Priority: Check custom asset store (IndexedDB & in-memory cache)
   const custom = getCustomAsset(cleanFileName) || getCustomAsset(assetPath);
@@ -209,32 +259,32 @@ export function getMediaUrl(assetPath: string): string {
     return custom;
   }
 
-  // 2. Check direct dynamic map
-  if (DYNAMIC_IMAGE_MAP[assetPath]) {
-    return DYNAMIC_IMAGE_MAP[assetPath];
+  // 2. Check direct dynamic map (bundled via Vite)
+  if (DYNAMIC_IMAGE_MAP[assetPath]) return DYNAMIC_IMAGE_MAP[assetPath];
+  if (DYNAMIC_IMAGE_MAP[cleanPath]) return DYNAMIC_IMAGE_MAP[cleanPath];
+  if (DYNAMIC_IMAGE_MAP[cleanFileName]) return DYNAMIC_IMAGE_MAP[cleanFileName];
+  if (DYNAMIC_IMAGE_MAP[baseName]) return DYNAMIC_IMAGE_MAP[baseName];
+  if (DYNAMIC_IMAGE_MAP[`./${cleanPath}`]) return DYNAMIC_IMAGE_MAP[`./${cleanPath}`];
+  if (DYNAMIC_IMAGE_MAP[`/${cleanPath}`]) return DYNAMIC_IMAGE_MAP[`/${cleanPath}`];
+
+  // 3. Check explicit curated mappings
+  if (PLACE_IMAGES[assetPath]) return PLACE_IMAGES[assetPath];
+  if (PLACE_IMAGES[cleanPath]) return PLACE_IMAGES[cleanPath];
+  if (PLACE_IMAGES[cleanFileName]) return PLACE_IMAGES[cleanFileName];
+  if (PLACE_IMAGES[baseName]) return PLACE_IMAGES[baseName];
+  if (PLACE_IMAGES[`./${cleanPath}`]) return PLACE_IMAGES[`./${cleanPath}`];
+
+  // 4. Resolve against public base path (for GitHub Pages / exported static files)
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+
+  if (cleanPath.startsWith('assets/') || cleanPath.startsWith('Infographic/')) {
+    return `${cleanBase}${cleanPath}`;
   }
 
-  if (DYNAMIC_IMAGE_MAP[cleanFileName]) {
-    return DYNAMIC_IMAGE_MAP[cleanFileName];
-  }
-
-  // Check explicit curated mappings
-  if (PLACE_IMAGES[assetPath]) {
-    return PLACE_IMAGES[assetPath];
-  }
-  if (PLACE_IMAGES[cleanFileName]) {
-    return PLACE_IMAGES[cleanFileName];
-  }
-
-  // If already an absolute web URL, return as is
-  if (assetPath.startsWith('http://') || assetPath.startsWith('https://') || assetPath.startsWith('data:')) {
-    return assetPath;
-  }
-
-  // For infographic assets, do NOT fallback to a generic Saigon photo if missing
   if (assetPath.includes('Infographic') || cleanFileName.startsWith('image')) {
-    return '';
+    return `${cleanBase}assets/Infographic/${cleanFileName}`;
   }
 
-  return "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80";
+  return `${cleanBase}assets/${cleanFileName}`;
 }
