@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 import { MapPin, Video, Sparkles, BookOpen, FileText, Camera, FileImage } from 'lucide-react';
 import { PlaceItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
@@ -9,11 +9,14 @@ interface PlaceCardProps {
   onSelect: (place: PlaceItem) => void;
 }
 
-export const PlaceCard: React.FC<PlaceCardProps> = ({
+export const PlaceCard: React.FC<PlaceCardProps> = memo(({
   place,
   categoryName,
   onSelect
 }) => {
+  const [imgError, setImgError] = useState(false);
+  const primaryUrl = getMediaUrl(place.image);
+
   return (
     <div 
       onClick={() => onSelect(place)}
@@ -23,12 +26,13 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
       {/* Top Image Box */}
       <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900">
         <img 
-          src={getMediaUrl(place.image)} 
+          src={imgError ? getMediaUrl('./assets/hero_hcmc_hub.webp') : primaryUrl} 
           alt={place.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-90 contrast-105"
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
+          onError={() => setImgError(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#131b2a] via-[#131b2a]/30 to-transparent" />
 
@@ -105,4 +109,5 @@ export const PlaceCard: React.FC<PlaceCardProps> = ({
       </div>
     </div>
   );
-};
+});
+

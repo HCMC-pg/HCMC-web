@@ -9,7 +9,8 @@ import {
   Scroll, 
   Building2, 
   Landmark, 
-  Ship
+  Ship,
+  Gamepad2
 } from 'lucide-react';
 import { SlideData, ProjectInfo } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
@@ -20,7 +21,7 @@ interface SlideHeroProps {
   onNavigateSlide: (slideIndex: number) => void;
 }
 
-export const SlideHero: React.FC<SlideHeroProps> = ({
+export const SlideHero: React.FC<SlideHeroProps> = React.memo(({
   slide,
   projectInfo,
   onNavigateSlide
@@ -91,8 +92,17 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
             </button>
 
             <button
-              id="hero-about-btn"
+              id="hero-game-btn"
               onClick={() => onNavigateSlide(7)}
+              className="px-5 py-3.5 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 hover:text-emerald-200 text-sm font-semibold border border-emerald-500/40 backdrop-blur-md transition-all flex items-center gap-2"
+            >
+              <Gamepad2 className="w-4 h-4 text-emerald-400" />
+              <span>Trải nghiệm Web Game</span>
+            </button>
+
+            <button
+              id="hero-about-btn"
+              onClick={() => onNavigateSlide(8)}
               className="px-5 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white text-sm font-semibold border border-white/10 hover:border-white/20 backdrop-blur-md transition-all flex items-center gap-2"
             >
               <BookOpen className="w-4 h-4 text-[#e6ca65]" />
@@ -145,4 +155,5 @@ export const SlideHero: React.FC<SlideHeroProps> = ({
       </div>
     </section>
   );
-};
+});
+

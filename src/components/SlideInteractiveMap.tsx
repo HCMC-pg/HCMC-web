@@ -22,7 +22,7 @@ interface SlideInteractiveMapProps {
   onSelectPlace: (place: PlaceItem, categoryTitle: string) => void;
 }
 
-export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = ({
+export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.memo(({
   slide,
   allPlaces,
   onSelectPlace
@@ -367,5 +367,6 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = ({
       </div>
     </section>
   );
-};
+});
+
 

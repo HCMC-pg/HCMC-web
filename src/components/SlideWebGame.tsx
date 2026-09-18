@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import { 
   Gamepad2, 
   Sparkles, 
@@ -14,13 +14,22 @@ interface SlideWebGameProps {
   onNextSlide?: () => void;
 }
 
-export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
+export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [iframeKey, setIframeKey] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const iframeContainerRef = useRef<HTMLDivElement>(null);
 
   const gameUrl = "https://hcmc-pg.github.io/exploreculture/";
+
+  // Ensure loading spinner never gets stuck on slow network or delayed iframe load event
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [iframeKey]);
 
   const handleReload = () => {
     setIsLoading(true);
@@ -33,7 +42,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
 
   return (
     <section 
-      id="slide-web-game"
+      id="slide-game"
       className="relative min-h-[90vh] py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
       {/* Header Eyebrow & Titles */}
@@ -148,12 +157,12 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
           </div>
         </div>
 
-        {/* Live Iframe Element */}
+        {/* Live Iframe Element - Always Ready & Directly Active */}
         <div className={`relative w-full ${isFullscreen ? 'flex-1' : 'h-[520px] sm:h-[620px] lg:h-[680px]'}`}>
           {isLoading && (
-            <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center gap-3 z-10">
+            <div className="absolute inset-0 bg-black/60 pointer-events-none flex flex-col items-center justify-center gap-3 z-10 transition-opacity duration-300">
               <div className="w-10 h-10 border-2 border-[#c29b38]/30 border-t-[#e6ca65] rounded-full animate-spin" />
-              <p className="text-xs text-[#f5e3a9] font-medium">Đang tải Web Game Sài Gòn Kỳ Bí...</p>
+              <p className="text-xs text-[#f5e3a9] font-medium">Đang khởi chạy Web Game Sài Gòn Kỳ Bí...</p>
             </div>
           )}
 
@@ -162,7 +171,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
             src={gameUrl}
             title="Sài Gòn Kỳ Bí - Game Khám Phá Di Sản & Văn Hóa TP.HCM"
             className="w-full h-full border-0 bg-black"
-            allow="fullscreen; geolocation; microphone; camera; encrypted-media"
+            allow="fullscreen; autoplay; geolocation; microphone; camera; encrypted-media; xr-spatial-tracking; payment; midi; accelerometer; gyroscope"
             onLoad={() => setIsLoading(false)}
           />
         </div>
@@ -187,4 +196,5 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = ({ onNextSlide }) => {
       </div>
     </section>
   );
-};
+});
+

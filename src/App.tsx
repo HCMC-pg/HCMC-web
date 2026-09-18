@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,6 +12,7 @@ import { SlideWebGame } from './components/SlideWebGame';
 import { SlideAbout } from './components/SlideAbout';
 import { SlideNavigator } from './components/SlideNavigator';
 import { AmbientSilkLight } from './components/AmbientSilkLight';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
 
 // Lazy load modals to optimize initial bundle size and speed up page load
 const PlaceDetailModal = React.lazy(() => import('./components/PlaceDetailModal').then(m => ({ default: m.PlaceDetailModal })));
@@ -27,7 +28,6 @@ export default function App() {
   const [selectedPlace, setSelectedPlace] = useState<PlaceItem | null>(null);
   const [selectedPlaceCategory, setSelectedPlaceCategory] = useState<string>('');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
 
   // Flatten places with their group identity for global search and map
   const allPlaces = useMemo(() => {
@@ -47,19 +47,27 @@ export default function App() {
     return list;
   }, []);
 
-  // Track native window scroll progress (smooth wheel & touch gestures)
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollHeight > 0) {
-        const progress = (window.scrollY / scrollHeight) * 100;
-        setScrollProgress(Math.min(100, Math.max(0, Math.round(progress))));
+  // Smooth scroll handler
+  const handleNavigateSlide = useCallback((slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+    const targetSlide = contentData.slides[slideIndex];
+    if (targetSlide) {
+      const element = 
+        document.getElementById(`slide-${targetSlide.id}`) ||
+        (targetSlide.id === 'game' ? document.getElementById('slide-web-game') : null) ||
+        document.querySelectorAll<HTMLElement>('.slide-section')[slideIndex] ||
+        null;
+      if (element) {
+        const yOffset = -75;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
-    };
+    }
+  }, []);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleOpenPlace = useCallback((place: PlaceItem, categoryTitle: string) => {
+    setSelectedPlace(place);
+    setSelectedPlaceCategory(categoryTitle);
   }, []);
 
   // GSAP ScrollTrigger setup for magazine slide transitions
@@ -112,25 +120,6 @@ export default function App() {
     };
   }, []);
 
-  // Smooth scroll handler
-  const handleNavigateSlide = (slideIndex: number) => {
-    setCurrentSlide(slideIndex);
-    const targetSlide = contentData.slides[slideIndex];
-    if (targetSlide) {
-      const element = document.getElementById(`slide-${targetSlide.id}`);
-      if (element) {
-        const yOffset = -75;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    }
-  };
-
-  const handleOpenPlace = (place: PlaceItem, categoryTitle: string) => {
-    setSelectedPlace(place);
-    setSelectedPlaceCategory(categoryTitle);
-  };
-
   return (
     <div className="min-h-screen bg-[#0b0f17] text-[#f1f5f9] selection:bg-[#c29b38] selection:text-slate-950 relative overflow-x-hidden silk-smooth">
       
@@ -152,19 +141,17 @@ export default function App() {
         onNavigateSlide={handleNavigateSlide}
       />
 
-      {/* Top Global Silk Shimmer Progress Bar */}
-      <div className="fixed top-18 left-0 right-0 h-[3px] bg-slate-900/80 z-30 overflow-hidden backdrop-blur-sm">
-        <div 
-          className="h-full silk-shimmer-bar transition-all duration-200 shadow-md shadow-[#c29b38]/40"
-          style={{ width: `${Math.max(scrollProgress, ((currentSlide + 1) / contentData.slides.length) * 100)}%` }}
-        />
-      </div>
+      {/* Top Global Silk Shimmer Progress Bar (Hardware Accelerated & Zero React Re-render) */}
+      <ScrollProgressBar 
+        totalSlides={contentData.slides.length} 
+        currentSlide={currentSlide} 
+      />
 
       {/* 9 Slides Container */}
       <main className="pt-20 pb-28 space-y-16 lg:space-y-24 relative z-20">
         
         {/* SLIDE 1 (S1): Trang chủ - Hero */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-hero">
           <div className="slide-inner-anim">
             <SlideHero
               slide={contentData.slides[0]}
@@ -175,7 +162,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 2 (S2): Nhóm 1 - Không gian lịch sử và ký ức đô thị */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-group1">
           <div className="slide-inner-anim">
             <SlideLearningGroup
               slide={contentData.slides[1]}
@@ -186,7 +173,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 3 (S3): Nhóm 2 - Không gian kiến trúc và tín ngưỡng */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-group2">
           <div className="slide-inner-anim">
             <SlideLearningGroup
               slide={contentData.slides[2]}
@@ -197,7 +184,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 4 (S4): Nhóm 3 - Không gian thương mại và đời sống cộng đồng */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-group3">
           <div className="slide-inner-anim">
             <SlideLearningGroup
               slide={contentData.slides[3]}
@@ -208,7 +195,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 5 (S5): Nhóm 4 - Không gian sáng tạo và làng nghề */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-group4">
           <div className="slide-inner-anim">
             <SlideLearningGroup
               slide={contentData.slides[4]}
@@ -219,7 +206,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 6 (S6): Nhóm 5 - Không gian biển, sông nước và đô thị hiện đại */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-group5">
           <div className="slide-inner-anim">
             <SlideLearningGroup
               slide={contentData.slides[5]}
@@ -230,7 +217,7 @@ export default function App() {
         </div>
 
         {/* SLIDE 7 (S7): Bản đồ số & Không gian Văn hóa Đô thị Mới */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-map">
           <div className="slide-inner-anim">
             <SlideInteractiveMap
               slide={contentData.slides[6]}
@@ -241,14 +228,14 @@ export default function App() {
         </div>
 
         {/* SLIDE 8: Web Game Trải Nghiệm Sài Gòn Kỳ Bí */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-game">
           <div className="slide-inner-anim">
             <SlideWebGame onNextSlide={() => handleNavigateSlide(8)} />
           </div>
         </div>
 
         {/* SLIDE 9: Giới thiệu về HCMC CultureHub */}
-        <div className="slide-section">
+        <div className="slide-section" id="slide-about">
           <div className="slide-inner-anim">
             <SlideAbout
               slide={contentData.slides[8] || contentData.slides[7]}

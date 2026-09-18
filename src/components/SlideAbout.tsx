@@ -20,7 +20,7 @@ interface SlideAboutProps {
   projectInfo: ProjectInfo;
 }
 
-export const SlideAbout: React.FC<SlideAboutProps> = ({
+export const SlideAbout: React.FC<SlideAboutProps> = React.memo(({
   slide,
   projectInfo
 }) => {
@@ -242,4 +242,5 @@ export const SlideAbout: React.FC<SlideAboutProps> = ({
       </div>
     </section>
   );
-};
+});
+

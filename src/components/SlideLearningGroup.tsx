@@ -9,7 +9,7 @@ interface SlideLearningGroupProps {
   onNextSlide?: () => void;
 }
 
-export const SlideLearningGroup: React.FC<SlideLearningGroupProps> = ({
+export const SlideLearningGroup: React.FC<SlideLearningGroupProps> = React.memo(({
   slide,
   onSelectPlace,
   onNextSlide
@@ -87,4 +87,5 @@ export const SlideLearningGroup: React.FC<SlideLearningGroupProps> = ({
       </div>
     </section>
   );
-};
+});
+
