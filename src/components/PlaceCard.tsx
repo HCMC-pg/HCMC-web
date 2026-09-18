@@ -35,21 +35,6 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
           onError={() => setImgError(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#131b2a] via-[#131b2a]/30 to-transparent" />
-
-        {/* Top-left image badges: photo count & year */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
-          {place.gallery && place.gallery.length > 0 && (
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-white bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-700/80 backdrop-blur-md shadow">
-              <Camera className="w-3 h-3 text-[#c29b38]" />
-              {place.gallery.length} ảnh
-            </span>
-          )}
-          {place.establishedYear && (
-            <span className="inline-flex items-center text-[9px] font-medium text-[#f5e3a9] bg-slate-950/75 px-2 py-0.5 rounded-md backdrop-blur-sm border border-[#c29b38]/30 max-w-[140px] truncate shadow-sm">
-              {place.establishedYear}
-            </span>
-          )}
-        </div>
       </div>
 
       {/* Card Body */}
