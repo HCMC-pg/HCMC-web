@@ -21,6 +21,12 @@ const SearchModal = React.lazy(() => import('./components/SearchModal').then(m =
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+// Configure ScrollTrigger for maximum concurrency performance & minimum callback overhead
+ScrollTrigger.config({
+  limitCallbacks: true,
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+});
+
 const contentData = contentDataRaw as unknown as ContentData;
 
 export default function App() {
@@ -49,11 +55,15 @@ export default function App() {
 
   // Smooth scroll handler
   const handleNavigateSlide = useCallback((slideIndex: number) => {
-    setCurrentSlide(slideIndex);
+    setCurrentSlide(prev => (prev === slideIndex ? prev : slideIndex));
+    if (slideIndex === 7) {
+      window.dispatchEvent(new CustomEvent('activate-web-game'));
+    }
     const targetSlide = contentData.slides[slideIndex];
     if (targetSlide) {
       const element = 
         document.getElementById(`slide-${targetSlide.id}`) ||
+        (targetSlide.id === 'game' ? document.getElementById('slide-game') : null) ||
         (targetSlide.id === 'game' ? document.getElementById('slide-web-game') : null) ||
         document.querySelectorAll<HTMLElement>('.slide-section')[slideIndex] ||
         null;
@@ -78,13 +88,13 @@ export default function App() {
       const triggers: ScrollTrigger[] = [];
 
       slideSections.forEach((section, index) => {
-        // Active Slide tracking on scroll
+        // Active Slide tracking on scroll with state de-duplication
         const trigger = ScrollTrigger.create({
           trigger: section,
           start: 'top 45%',
           end: 'bottom 45%',
-          onEnter: () => setCurrentSlide(index),
-          onEnterBack: () => setCurrentSlide(index),
+          onEnter: () => setCurrentSlide(prev => (prev === index ? prev : index)),
+          onEnterBack: () => setCurrentSlide(prev => (prev === index ? prev : index)),
         });
         triggers.push(trigger);
 

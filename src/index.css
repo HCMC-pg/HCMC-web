@@ -136,4 +136,15 @@
   animation: silk-shimmer 3s ease-in-out infinite;
 }
 
+/* High-concurrency performance optimization: skip layout/paint for off-screen slides */
+.slide-section:not(#slide-hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 850px;
+}
+
+/* Optimize image rendering performance across multiple concurrent sessions */
+img {
+  content-visibility: auto;
+}
+
 
