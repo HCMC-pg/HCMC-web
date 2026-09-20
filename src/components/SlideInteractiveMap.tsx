@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   MapPin, 
   ExternalLink, 
@@ -11,10 +11,12 @@ import {
   Search,
   Camera,
   Calendar,
-  Award
+  Award,
+  X
 } from 'lucide-react';
 import { SlideData, PlaceItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
+import { removeVietnameseTones } from '../utils/searchHelper';
 
 interface SlideInteractiveMapProps {
   slide: SlideData;
@@ -45,16 +47,36 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
   };
 
   const filteredPlaces = useMemo(() => {
+    const cleanQuery = searchQuery.trim();
+    const normQuery = removeVietnameseTones(cleanQuery);
+    const tokens = normQuery.split(/\s+/).filter(Boolean);
+
     return allPlaces.filter(({ place, groupId }) => {
       const matchGroup = selectedGroupFilter === 'all' || groupId === selectedGroupFilter;
       const placeRegion = getPlaceRegion(place);
       const matchRegion = selectedRegionFilter === 'all' || placeRegion === selectedRegionFilter;
-      const matchSearch = searchQuery.trim() === '' || 
-        place.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (place.location || '').toLowerCase().includes(searchQuery.toLowerCase());
+      
+      let matchSearch = true;
+      if (tokens.length > 0) {
+        const placeSearchable = removeVietnameseTones(
+          `${place.name} ${place.location || ''} ${place.shortIntro || ''} ${place.establishedYear || ''}`
+        );
+        matchSearch = tokens.every(token => placeSearchable.includes(token));
+      }
+
       return matchGroup && matchRegion && matchSearch;
     });
   }, [allPlaces, selectedGroupFilter, selectedRegionFilter, searchQuery]);
+
+  // Keep active pin in sync if search filters out previous pin
+  useEffect(() => {
+    if (filteredPlaces.length > 0) {
+      const isCurrentActiveVisible = filteredPlaces.some(p => p.place.name === activePin?.name);
+      if (!isCurrentActiveVisible) {
+        setActivePin(filteredPlaces[0].place);
+      }
+    }
+  }, [filteredPlaces, activePin]);
 
   // Group filter tabs
   const groups = [
@@ -133,15 +155,24 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
         </div>
 
         {/* Search Box */}
-        <div className="relative min-w-[240px]">
-          <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+        <div className="relative min-w-[240px] flex items-center">
+          <Search className="w-3.5 h-3.5 text-[#c29b38] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
-            placeholder="Tìm kiếm 21 địa danh..."
+            placeholder="Tìm địa danh, quận huyện, di tích..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 bg-slate-900/90 border border-slate-800 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#c29b38] transition-colors"
+            className="w-full pl-9 pr-14 py-1.5 bg-slate-900/90 border border-slate-800 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#c29b38] transition-colors"
           />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-800 transition-colors"
+              title="Xóa tìm kiếm"
+            >
+              <X className="w-3 h-3" />
+            </button>
+          )}
         </div>
       </div>
 

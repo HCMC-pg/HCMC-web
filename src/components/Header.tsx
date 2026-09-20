@@ -97,10 +97,13 @@ export const Header: React.FC<HeaderProps> = ({
             id="header-search-btn"
             onClick={onOpenSearch}
             className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/10 hover:bg-white/15 text-white hover:text-[#f5e3a9] border border-white/15 hover:border-[#c29b38]/50 transition-all flex items-center gap-2 text-xs font-semibold shadow-sm group"
-            title="Tra cứu di tích, địa danh, học liệu"
+            title="Tra cứu di tích, địa danh, học liệu (Ctrl+K)"
           >
             <Search className="w-4 h-4 text-[#e6ca65] group-hover:scale-110 transition-transform" />
             <span>Tra cứu</span>
+            <kbd className="hidden lg:inline-flex items-center text-[10px] font-mono px-1.5 py-0.2 bg-black/40 text-slate-300 rounded border border-white/10 group-hover:border-[#c29b38]/40">
+              ⌘K
+            </kbd>
           </button>
 
           {/* Direct Web Game Link */}

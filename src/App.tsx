@@ -80,6 +80,25 @@ export default function App() {
     setSelectedPlaceCategory(categoryTitle);
   }, []);
 
+  // Global keyboard shortcut to open Search Modal (Ctrl+K / Cmd+K or /)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const activeElement = document.activeElement;
+      const isInput = activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement;
+      
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+      } else if (e.key === '/' && !isInput) {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   // GSAP ScrollTrigger setup for magazine slide transitions
   useEffect(() => {
     // Give DOM time to mount
