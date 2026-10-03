@@ -7,8 +7,8 @@
   
   body {
     font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: rgba(255, 255, 255, 0.90);
-    background-color: #000000;
+    color: #2b2016;
+    background-color: #1f150f;
     letter-spacing: -0.01em;
   }
   
@@ -27,35 +27,337 @@
   }
 }
 
-/* Global Liquid Glass */
-.liquid-glass {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 30px rgba(0, 0, 0, 0.25);
+/* ========================================================
+   PHYSICAL ART BOOK ENVIRONMENT & MATERIALS
+   ======================================================== */
+
+/* Atelier Wooden Surface with Warm Natural Light Falloff */
+.artbook-desk {
+  background-color: #24180f;
+  background-image: 
+    radial-gradient(ellipse at 50% 15%, rgba(240, 215, 175, 0.16) 0%, rgba(36, 24, 15, 0.7) 65%, rgba(18, 11, 7, 0.98) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='woodGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23woodGrain)' opacity='0.04'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
-.liquid-glass-card {
-  background: rgba(18, 24, 38, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 36px rgba(0, 0, 0, 0.4);
+/* 3D Perspective Stage for Book */
+.artbook-perspective {
+  perspective: 2600px;
+  perspective-origin: 50% 45%;
 }
 
-.liquid-glass-subtle {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Physical Open Book Shell with Layered Drop Shadows */
+.artbook-open-book {
+  position: relative;
+  background: #fbf7ef;
+  border-radius: 12px;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 24px 60px rgba(18, 11, 7, 0.6),
+    0 50px 100px -20px rgba(0, 0, 0, 0.75);
+}
+
+/* Book Spine with Curved Paper Gutter Shading */
+.artbook-spine-gutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 50px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg, 
+    rgba(36, 24, 15, 0.18) 0%, 
+    rgba(36, 24, 15, 0.35) 45%, 
+    rgba(18, 11, 7, 0.5) 50%, 
+    rgba(36, 24, 15, 0.35) 55%, 
+    rgba(36, 24, 15, 0.18) 100%
+  );
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* Subtle Bookbinder Center Thread Stitch */
+.artbook-spine-stitch {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(163, 56, 39, 0.8) 0px,
+    rgba(163, 56, 39, 0.8) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  pointer-events: none;
+  z-index: 26;
+}
+
+/* Physical Page Depth & Stacked Paper Edge on Outer Sides */
+.artbook-page-stack-left {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: -14px;
+  width: 14px;
+  background: repeating-linear-gradient(
+    to right,
+    #cfc0a8 0px,
+    #ebdcc5 1px,
+    #dfceb6 2px
+  );
+  border-radius: 8px 0 0 8px;
+  box-shadow: inset 2px 0 4px rgba(36, 24, 15, 0.4), -4px 6px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.artbook-page-stack-right {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  right: -14px;
+  width: 14px;
+  background: repeating-linear-gradient(
+    to left,
+    #cfc0a8 0px,
+    #ebdcc5 1px,
+    #dfceb6 2px
+  );
+  border-radius: 0 8px 8px 0;
+  box-shadow: inset -2px 0 4px rgba(36, 24, 15, 0.4), 4px 6px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* Left & Right Page Subtle Surface Curvature Shading */
+.artbook-page-left-shade {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 80%, rgba(36, 24, 15, 0.08) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+.artbook-page-right-shade {
+  background-image: 
+    linear-gradient(to left, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 80%, rgba(36, 24, 15, 0.08) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Hanging Silk Bookmark Ribbon */
+.silk-bookmark-ribbon {
+  background: linear-gradient(135deg, #a33827 0%, #bd4b37 50%, #852618 100%);
+  box-shadow: 0 4px 12px rgba(133, 38, 24, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.silk-bookmark-gold-ribbon {
+  background: linear-gradient(135deg, #b8863b 0%, #d4a34b 50%, #8f6527 100%);
+  box-shadow: 0 4px 12px rgba(143, 101, 39, 0.35);
+}
+
+/* Page Turning 3D Flip Leaves */
+@keyframes flip-next-page {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: inset -50px 0 50px rgba(36, 24, 15, 0.3);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes flip-prev-page {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0);
+  }
+  50% {
+    box-shadow: inset 50px 0 50px rgba(36, 24, 15, 0.3);
+  }
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
+.animate-page-flip-next {
+  transform-origin: left center;
+  animation: flip-next-page 0.7s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  backface-visibility: hidden;
+}
+
+.animate-page-flip-prev {
+  transform-origin: right center;
+  animation: flip-prev-page 0.7s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  backface-visibility: hidden;
+}
+
+/* Dog-ear Corner Curl Button */
+.page-dogear-corner {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 30;
+}
+
+.page-dogear-corner-br {
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(135deg, transparent 50%, #ded0b8 50%, #ebdcc5 100%);
+  border-radius: 0 0 12px 0;
+}
+
+.page-dogear-corner-br:hover {
+  width: 58px;
+  height: 58px;
+  filter: drop-shadow(-3px -3px 5px rgba(36, 24, 15, 0.2));
+}
+
+.page-dogear-corner-bl {
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(225deg, transparent 50%, #ded0b8 50%, #ebdcc5 100%);
+  border-radius: 0 0 0 12px;
+}
+
+.page-dogear-corner-bl:hover {
+  width: 58px;
+  height: 58px;
+  filter: drop-shadow(3px -3px 5px rgba(36, 24, 15, 0.2));
+}
+
+/* Vietnamese Editorial & Dó Paper Surface Tokens */
+.paper-card {
+  background: #ffffff;
+  border: 1px solid #e8decb;
+  box-shadow: 
+    0 1px 3px rgba(67, 52, 35, 0.04),
+    0 6px 18px -4px rgba(67, 52, 35, 0.06);
+}
+
+.paper-card-elevated {
+  background: #fffdfa;
+  border: 1px solid #dfd3be;
+  box-shadow: 
+    0 2px 4px rgba(67, 52, 35, 0.03),
+    0 12px 28px -6px rgba(67, 52, 35, 0.09);
+}
+
+.paper-card-subtle {
+  background: #fbf7ef;
+  border: 1px solid #ebe2d3;
+}
+
+.paper-frosted {
+  background: rgba(251, 247, 239, 0.88);
+  border: 1px solid rgba(223, 211, 190, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
-/* Animations from motion spec */
+.paper-frosted-card {
+  background: rgba(255, 253, 248, 0.94);
+  border: 1px solid rgba(223, 211, 190, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px -5px rgba(67, 52, 35, 0.08);
+}
+
+/* Postcard & Archival Framing */
+.postcard-frame {
+  background: #fffdf9;
+  border: 1px solid #e5dac6;
+  padding: 10px;
+  box-shadow: 
+    0 2px 6px rgba(67, 52, 35, 0.04),
+    0 10px 24px -6px rgba(67, 52, 35, 0.08);
+}
+
+.postcard-inner-matting {
+  border: 1px solid rgba(194, 155, 56, 0.25);
+}
+
+/* Red Lacquer / Cinnabar Cultural Seal */
+.cultural-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #a33827;
+  color: #a33827;
+  background: rgba(163, 56, 39, 0.06);
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Gold Leaf Accents */
+.gold-leaf-border {
+  border: 1px solid rgba(194, 155, 56, 0.4);
+}
+
+.gold-leaf-gradient {
+  background: linear-gradient(135deg, #b8863b 0%, #d4a34b 50%, #9a6d2c 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #945d1f 0%, #b8863b 50%, #734510 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.terracotta-gradient-text {
+  background: linear-gradient(135deg, #a33827 0%, #bd4b37 60%, #832719 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating Animations */
+@keyframes drift-clouds {
+  0% { transform: translate3d(-3%, 0, 0); }
+  50% { transform: translate3d(3%, -4px, 0); }
+  100% { transform: translate3d(-3%, 0, 0); }
+}
+
+@keyframes drift-clouds-reverse {
+  0% { transform: translate3d(3%, 0, 0); }
+  50% { transform: translate3d(-3%, 5px, 0); }
+  100% { transform: translate3d(3%, 0, 0); }
+}
+
+@keyframes glide-birds {
+  0% { transform: translate3d(-10vw, 0, 0) scale(0.9); }
+  50% { transform: translate3d(50vw, -12px, 0) scale(1.05); }
+  100% { transform: translate3d(110vw, -4px, 0) scale(0.95); }
+}
+
+.animate-clouds-slow {
+  animation: drift-clouds 45s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-clouds-reverse {
+  animation: drift-clouds-reverse 60s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-birds-flight {
+  animation: glide-birds 70s linear infinite;
+  will-change: transform;
+}
+
+/* Entrance Animations */
 @keyframes fade-rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -64,15 +366,32 @@
 }
 
 .animate-fade-rise {
-  animation: fade-rise 0.8s ease-out both;
+  animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-fade-rise-delay {
-  animation: fade-rise 0.8s ease-out 0.25s both;
+  animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .animate-fade-rise-delay-2 {
-  animation: fade-rise 0.8s ease-out 0.5s both;
+  animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+/* Custom Scrollbar for book desk */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #24180f;
+}
+::-webkit-scrollbar-thumb {
+  background: #5a4231;
+  border-radius: 9999px;
+  border: 1px solid #24180f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a5b44;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -82,36 +401,7 @@
   scrollbar-width: none;
 }
 
-/* Custom scrollbar for high-end magazine feel */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* Gold glow and subtle styling */
-.gold-border {
-  border: 1px solid rgba(212, 175, 55, 0.35);
-}
-.gold-glow {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
-}
-.gold-gradient-text {
-  background: linear-gradient(135deg, #f5e3a9 0%, #d4af37 60%, #b8860b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Silk luster & Hardware acceleration for ultra-smooth 60-120fps motion */
+/* Silk luster & Hardware acceleration */
 .silk-smooth {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -123,28 +413,3 @@
   backface-visibility: hidden;
   perspective: 1000px;
 }
-
-/* Silk shimmer gradient bar */
-@keyframes silk-shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.silk-shimmer-bar {
-  background: linear-gradient(90deg, #c29b38 0%, #fff2b2 50%, #c29b38 100%);
-  background-size: 200% 100%;
-  animation: silk-shimmer 3s ease-in-out infinite;
-}
-
-/* High-concurrency performance optimization: skip layout/paint for off-screen slides */
-.slide-section:not(#slide-hero) {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 850px;
-}
-
-/* Optimize image rendering performance across multiple concurrent sessions */
-img {
-  content-visibility: auto;
-}
-
-

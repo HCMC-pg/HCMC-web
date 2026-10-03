@@ -1,41 +1,38 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import contentDataRaw from './data/contentData.json';
-import { ContentData, PlaceItem, SlideData } from './types';
-import { Header } from './components/Header';
+import { ContentData, PlaceItem } from './types';
+import { ArtBookCover } from './components/ArtBookCover';
+import { ArtBookNavigation } from './components/ArtBookNavigation';
+import { ArtBookSpreadContainer } from './components/ArtBookSpreadContainer';
+import { AmbientSilkLight } from './components/AmbientSilkLight';
+
+// Slide Content Components
 import { SlideHero } from './components/SlideHero';
 import { SlideLearningGroup } from './components/SlideLearningGroup';
 import { SlideInteractiveMap } from './components/SlideInteractiveMap';
 import { SlideWebGame } from './components/SlideWebGame';
 import { SlideAbout } from './components/SlideAbout';
-import { SlideNavigator } from './components/SlideNavigator';
-import { AmbientSilkLight } from './components/AmbientSilkLight';
-import { ScrollProgressBar } from './components/ScrollProgressBar';
 
-// Lazy load modals to optimize initial bundle size and speed up page load
+// Lazy load modals for optimal bundle size
 const PlaceDetailModal = React.lazy(() => import('./components/PlaceDetailModal').then(m => ({ default: m.PlaceDetailModal })));
 const SearchModal = React.lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
-
-// Configure ScrollTrigger for maximum concurrency performance & minimum callback overhead
-ScrollTrigger.config({
-  limitCallbacks: true,
-  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
-});
 
 const contentData = contentDataRaw as unknown as ContentData;
 
 export default function App() {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  // Book Physical State
+  const [isBookOpen, setIsBookOpen] = useState<boolean>(true);
+  const [currentSpread, setCurrentSpread] = useState<number>(0);
+  const [isTurning, setIsTurning] = useState<boolean>(false);
+  const [turnDirection, setTurnDirection] = useState<'next' | 'prev'>('next');
+
+  // Interactive Modals State
   const [selectedPlace, setSelectedPlace] = useState<PlaceItem | null>(null);
   const [selectedPlaceCategory, setSelectedPlaceCategory] = useState<string>('');
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
 
-  // Flatten places with their group identity for global search and map
+  // Flatten places with their group identity for search and map
   const allPlaces = useMemo(() => {
     const list: { place: PlaceItem; groupName: string; groupId: string; slideIndex: number }[] = [];
     contentData.slides.forEach((slide, sIdx) => {
@@ -53,34 +50,43 @@ export default function App() {
     return list;
   }, []);
 
-  // Smooth scroll handler
-  const handleNavigateSlide = useCallback((slideIndex: number) => {
-    setCurrentSlide(prev => (prev === slideIndex ? prev : slideIndex));
-    if (slideIndex === 7) {
+  // Page Turn Handlers
+  const handleNavigateSpread = useCallback((targetIndex: number) => {
+    if (targetIndex === currentSpread || targetIndex < 0 || targetIndex >= contentData.slides.length) return;
+    const direction = targetIndex > currentSpread ? 'next' : 'prev';
+    setTurnDirection(direction);
+    setIsTurning(true);
+
+    if (targetIndex === 7) {
       window.dispatchEvent(new CustomEvent('activate-web-game'));
     }
-    const targetSlide = contentData.slides[slideIndex];
-    if (targetSlide) {
-      const element = 
-        document.getElementById(`slide-${targetSlide.id}`) ||
-        (targetSlide.id === 'game' ? document.getElementById('slide-game') : null) ||
-        (targetSlide.id === 'game' ? document.getElementById('slide-web-game') : null) ||
-        document.querySelectorAll<HTMLElement>('.slide-section')[slideIndex] ||
-        null;
-      if (element) {
-        const yOffset = -75;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
+
+    setTimeout(() => {
+      setCurrentSpread(targetIndex);
+      setTimeout(() => {
+        setIsTurning(false);
+      }, 350);
+    }, 350);
+  }, [currentSpread]);
+
+  const handleNextSpread = useCallback(() => {
+    if (currentSpread < contentData.slides.length - 1) {
+      handleNavigateSpread(currentSpread + 1);
     }
-  }, []);
+  }, [currentSpread, handleNavigateSpread]);
+
+  const handlePrevSpread = useCallback(() => {
+    if (currentSpread > 0) {
+      handleNavigateSpread(currentSpread - 1);
+    }
+  }, [currentSpread, handleNavigateSpread]);
 
   const handleOpenPlace = useCallback((place: PlaceItem, categoryTitle: string) => {
     setSelectedPlace(place);
     setSelectedPlaceCategory(categoryTitle);
   }, []);
 
-  // Global keyboard shortcut to open Search Modal (Ctrl+K / Cmd+K or /)
+  // Keyboard navigation: Left/Right Arrow to turn pages, Ctrl+K for search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const activeElement = document.activeElement;
@@ -92,222 +98,193 @@ export default function App() {
       } else if (e.key === '/' && !isInput) {
         e.preventDefault();
         setIsSearchOpen(true);
+      } else if (!isInput && !selectedPlace && !isSearchOpen && isBookOpen) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          handleNextSpread();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          handlePrevSpread();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          handleNavigateSpread(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          handleNavigateSpread(contentData.slides.length - 1);
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isBookOpen, handleNextSpread, handlePrevSpread, handleNavigateSpread, selectedPlace, isSearchOpen]);
 
-  // GSAP ScrollTrigger setup for magazine slide transitions
+  // Gentle Mouse Wheel / Touch Page Turn Detection
   useEffect(() => {
-    // Give DOM time to mount
-    const timer = setTimeout(() => {
-      const slideSections = document.querySelectorAll<HTMLElement>('.slide-section');
-      const triggers: ScrollTrigger[] = [];
+    let isWheeling = false;
 
-      slideSections.forEach((section, index) => {
-        // Active Slide tracking on scroll with state de-duplication
-        const trigger = ScrollTrigger.create({
-          trigger: section,
-          start: 'top 45%',
-          end: 'bottom 45%',
-          onEnter: () => setCurrentSlide(prev => (prev === index ? prev : index)),
-          onEnterBack: () => setCurrentSlide(prev => (prev === index ? prev : index)),
-        });
-        triggers.push(trigger);
+    const handleWheel = (e: WheelEvent) => {
+      if (selectedPlace || isSearchOpen || !isBookOpen) return;
+      const target = e.target as HTMLElement;
+      // Do not turn if user is scrolling inside an internal scrollable box
+      if (target.closest('.overflow-y-auto') || target.closest('iframe')) return;
 
-        // Smooth magazine reveal animation
-        const contentBox = section.querySelector('.slide-inner-anim');
-        if (contentBox) {
-          gsap.fromTo(
-            contentBox,
-            { opacity: 0, y: 40 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.9,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 75%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
+      if (Math.abs(e.deltaY) > 55 && !isWheeling) {
+        isWheeling = true;
+        if (e.deltaY > 0) {
+          handleNextSpread();
+        } else {
+          handlePrevSpread();
         }
-      });
-
-      return () => {
-        triggers.forEach((t) => t.kill());
-      };
-    }, 150);
-
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+        setTimeout(() => {
+          isWheeling = false;
+        }, 750);
+      }
     };
-  }, []);
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [isBookOpen, handleNextSpread, handlePrevSpread, selectedPlace, isSearchOpen]);
+
+  // Current Slide Data for the active spread
+  const activeSlide = contentData.slides[currentSpread] || contentData.slides[0];
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-[#f1f5f9] selection:bg-[#c29b38] selection:text-slate-950 relative overflow-x-hidden silk-smooth">
+    <div className="min-h-screen artbook-desk text-[#2c2219] selection:bg-[#ecd8af] selection:text-[#20160d] relative overflow-x-hidden flex flex-col justify-between silk-smooth">
       
-      {/* Ambient Silk Mouse Lighting Glow */}
+      {/* 1. Atmospheric Ambient Sunbeam & Living Elements */}
       <AmbientSilkLight />
 
-      {/* Sticky Top Header Navigation */}
-      <Header
-        currentSlide={currentSlide}
-        slides={contentData.slides}
-        onSelectSlide={handleNavigateSlide}
-        onOpenSearch={() => setIsSearchOpen(true)}
+      {/* 2. Closed Book Opening Scene (When isBookOpen is false) */}
+      <ArtBookCover 
+        projectInfo={contentData.projectInfo}
+        isOpen={isBookOpen}
+        onOpenBook={() => setIsBookOpen(true)}
       />
 
-      {/* Floating Side Dot Navigator */}
-      <SlideNavigator
-        currentSlide={currentSlide}
-        slides={contentData.slides}
-        onNavigateSlide={handleNavigateSlide}
-      />
+      {/* 3. Silk Ribbon Bookmark Header & Chapter Index Navigation */}
+      {isBookOpen && (
+        <ArtBookNavigation
+          currentSpread={currentSpread}
+          slides={contentData.slides}
+          onSelectSpread={handleNavigateSpread}
+          onOpenSearch={() => setIsSearchOpen(true)}
+          onCloseBook={() => setIsBookOpen(false)}
+        />
+      )}
 
-      {/* Top Global Silk Shimmer Progress Bar (Hardware Accelerated & Zero React Re-render) */}
-      <ScrollProgressBar 
-        totalSlides={contentData.slides.length} 
-        currentSlide={currentSlide} 
-      />
+      {/* 4. Physical 2-Page Art Book Spread Container */}
+      {isBookOpen && (
+        <main className="flex-1 flex items-center justify-center pt-18 sm:pt-20 pb-8 sm:pb-12 z-20">
+          <ArtBookSpreadContainer
+            currentSpread={currentSpread}
+            totalSpreads={contentData.slides.length}
+            currentSlide={activeSlide}
+            onNextSpread={handleNextSpread}
+            onPrevSpread={handlePrevSpread}
+            isTurning={isTurning}
+            turnDirection={turnDirection}
+          >
+            {/* SPREAD 1 (Chương 01): Trang Chủ & Bức Họa Toàn Cảnh */}
+            {currentSpread === 0 && (
+              <SlideHero
+                slide={contentData.slides[0]}
+                projectInfo={contentData.projectInfo}
+                onNavigateSlide={handleNavigateSpread}
+              />
+            )}
 
-      {/* 9 Slides Container */}
-      <main className="pt-20 pb-28 space-y-16 lg:space-y-24 relative z-20">
-        
-        {/* SLIDE 1 (S1): Trang chủ - Hero */}
-        <div className="slide-section" id="slide-hero">
-          <div className="slide-inner-anim">
-            <SlideHero
-              slide={contentData.slides[0]}
-              projectInfo={contentData.projectInfo}
-              onNavigateSlide={handleNavigateSlide}
-            />
-          </div>
-        </div>
+            {/* SPREAD 2 (Chương 02): Nhóm 1 - Không gian lịch sử và ký ức đô thị */}
+            {currentSpread === 1 && (
+              <SlideLearningGroup
+                slide={contentData.slides[1]}
+                onSelectPlace={handleOpenPlace}
+                onNextSlide={handleNextSpread}
+              />
+            )}
 
-        {/* SLIDE 2 (S2): Nhóm 1 - Không gian lịch sử và ký ức đô thị */}
-        <div className="slide-section" id="slide-group1">
-          <div className="slide-inner-anim">
-            <SlideLearningGroup
-              slide={contentData.slides[1]}
-              onSelectPlace={handleOpenPlace}
-              onNextSlide={() => handleNavigateSlide(2)}
-            />
-          </div>
-        </div>
+            {/* SPREAD 3 (Chương 03): Nhóm 2 - Kiến trúc biểu tượng và không gian tín ngưỡng */}
+            {currentSpread === 2 && (
+              <SlideLearningGroup
+                slide={contentData.slides[2]}
+                onSelectPlace={handleOpenPlace}
+                onNextSlide={handleNextSpread}
+              />
+            )}
 
-        {/* SLIDE 3 (S3): Nhóm 2 - Không gian kiến trúc và tín ngưỡng */}
-        <div className="slide-section" id="slide-group2">
-          <div className="slide-inner-anim">
-            <SlideLearningGroup
-              slide={contentData.slides[2]}
-              onSelectPlace={handleOpenPlace}
-              onNextSlide={() => handleNavigateSlide(3)}
-            />
-          </div>
-        </div>
+            {/* SPREAD 4 (Chương 04): Nhóm 3 - Không gian thương mại và đời sống cộng đồng */}
+            {currentSpread === 3 && (
+              <SlideLearningGroup
+                slide={contentData.slides[3]}
+                onSelectPlace={handleOpenPlace}
+                onNextSlide={handleNextSpread}
+              />
+            )}
 
-        {/* SLIDE 4 (S4): Nhóm 3 - Không gian thương mại và đời sống cộng đồng */}
-        <div className="slide-section" id="slide-group3">
-          <div className="slide-inner-anim">
-            <SlideLearningGroup
-              slide={contentData.slides[3]}
-              onSelectPlace={handleOpenPlace}
-              onNextSlide={() => handleNavigateSlide(4)}
-            />
-          </div>
-        </div>
+            {/* SPREAD 5 (Chương 05): Nhóm 4 - Không gian sáng tạo và làng nghề */}
+            {currentSpread === 4 && (
+              <SlideLearningGroup
+                slide={contentData.slides[4]}
+                onSelectPlace={handleOpenPlace}
+                onNextSlide={handleNextSpread}
+              />
+            )}
 
-        {/* SLIDE 5 (S5): Nhóm 4 - Không gian sáng tạo và làng nghề */}
-        <div className="slide-section" id="slide-group4">
-          <div className="slide-inner-anim">
-            <SlideLearningGroup
-              slide={contentData.slides[4]}
-              onSelectPlace={handleOpenPlace}
-              onNextSlide={() => handleNavigateSlide(5)}
-            />
-          </div>
-        </div>
+            {/* SPREAD 6 (Chương 06): Nhóm 5 - Không gian biển, sông nước và đô thị hiện đại */}
+            {currentSpread === 5 && (
+              <SlideLearningGroup
+                slide={contentData.slides[5]}
+                onSelectPlace={handleOpenPlace}
+                onNextSlide={handleNextSpread}
+              />
+            )}
 
-        {/* SLIDE 6 (S6): Nhóm 5 - Không gian biển, sông nước và đô thị hiện đại */}
-        <div className="slide-section" id="slide-group5">
-          <div className="slide-inner-anim">
-            <SlideLearningGroup
-              slide={contentData.slides[5]}
-              onSelectPlace={handleOpenPlace}
-              onNextSlide={() => handleNavigateSlide(6)}
-            />
-          </div>
-        </div>
+            {/* SPREAD 7 (Chương 07): Bản đồ số & Không gian Văn hóa Đô thị Mới */}
+            {currentSpread === 6 && (
+              <SlideInteractiveMap
+                slide={contentData.slides[6]}
+                allPlaces={allPlaces}
+                onSelectPlace={handleOpenPlace}
+              />
+            )}
 
-        {/* SLIDE 7 (S7): Bản đồ số & Không gian Văn hóa Đô thị Mới */}
-        <div className="slide-section" id="slide-map">
-          <div className="slide-inner-anim">
-            <SlideInteractiveMap
-              slide={contentData.slides[6]}
-              allPlaces={allPlaces}
-              onSelectPlace={handleOpenPlace}
-            />
-          </div>
-        </div>
+            {/* SPREAD 8 (Chương 08): Web Game Trải Nghiệm Sài Gòn Kỳ Bí */}
+            {currentSpread === 7 && (
+              <SlideWebGame onNextSlide={handleNextSpread} />
+            )}
 
-        {/* SLIDE 8: Web Game Trải Nghiệm Sài Gòn Kỳ Bí */}
-        <div className="slide-section" id="slide-game">
-          <div className="slide-inner-anim">
-            <SlideWebGame onNextSlide={() => handleNavigateSlide(8)} />
-          </div>
-        </div>
+            {/* SPREAD 9 (Chương 09): Lời Bạt, Sáng Lập & Sổ Lưu Niệm */}
+            {currentSpread === 8 && (
+              <SlideAbout
+                slide={contentData.slides[8] || contentData.slides[7]}
+                projectInfo={contentData.projectInfo}
+              />
+            )}
+          </ArtBookSpreadContainer>
+        </main>
+      )}
 
-        {/* SLIDE 9: Giới thiệu về HCMC CultureHub */}
-        <div className="slide-section" id="slide-about">
-          <div className="slide-inner-anim">
-            <SlideAbout
-              slide={contentData.slides[8] || contentData.slides[7]}
-              projectInfo={contentData.projectInfo}
-            />
-          </div>
-        </div>
-
-      </main>
-
-      {/* Magazine Footer */}
-      <footer className="border-t border-white/10 bg-black/80 backdrop-blur-xl py-10 px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/60">
-            <div className="space-y-1 text-center md:text-left">
-              <p className="font-accent font-bold text-[#f5e3a9] tracking-wider text-sm">
-                HCMC CULTUREHUB • KHO HỌC LIỆU DI SẢN SỐ
-              </p>
-              <p className="text-white/60">
-                {contentData.projectInfo.slogan}
-              </p>
+      {/* 5. Colophon & Book Edition Footer on Wooden Desk */}
+      {isBookOpen && (
+        <footer className="border-t border-[#423022] bg-[#1a120b]/90 py-5 px-4 sm:px-8 text-xs text-[#a88d74] relative z-20 select-none">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <div className="flex items-center gap-2">
+              <span className="font-serif-display font-bold text-[#d4a34b] tracking-wider">
+                HCMC CULTUREHUB • QUYỂN SÁCH DI SẢN SỐ
+              </span>
+              <span className="hidden md:inline">•</span>
+              <span className="hidden md:inline italic">{contentData.projectInfo.slogan}</span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 text-[11px]">
-              {contentData.slides.map((s, idx) => (
-                <button
-                  key={s.id}
-                  onClick={() => handleNavigateSlide(idx)}
-                  className="hover:text-[#c29b38] transition-colors"
-                >
-                  {s.id}
-                </button>
-              ))}
-            </div>
-
-            <div className="text-center md:text-right font-mono text-[11px] text-slate-400">
-              Liên hệ: <a href={`mailto:${contentData.projectInfo.contactEmail}`} className="text-[#c29b38] hover:underline font-semibold">{contentData.projectInfo.contactEmail}</a>
+            <div className="flex items-center gap-4 text-[11px] font-mono">
+              <span className="hidden sm:inline">Phím ← → lật trang</span>
+              <span>Liên hệ: <a href={`mailto:${contentData.projectInfo.contactEmail}`} className="text-[#d4a34b] hover:underline">{contentData.projectInfo.contactEmail}</a></span>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
 
-      {/* Modals */}
+      {/* 6. Archival Modals */}
       {selectedPlace && (
         <React.Suspense fallback={null}>
           <PlaceDetailModal
@@ -323,7 +300,7 @@ export default function App() {
           <SearchModal
             allPlaces={allPlaces}
             onSelectPlace={handleOpenPlace}
-            onNavigateSlide={handleNavigateSlide}
+            onNavigateSlide={handleNavigateSpread}
             onClose={() => setIsSearchOpen(false)}
           />
         </React.Suspense>
@@ -332,4 +309,3 @@ export default function App() {
     </div>
   );
 }
-

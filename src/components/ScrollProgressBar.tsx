@@ -49,10 +49,10 @@ export const ScrollProgressBar: React.FC<ScrollProgressBarProps> = ({
   }, [currentSlide, totalSlides]);
 
   return (
-    <div className="fixed top-18 left-0 right-0 h-[3px] bg-slate-900/80 z-30 overflow-hidden backdrop-blur-sm pointer-events-none">
+    <div className="fixed top-18 left-0 right-0 h-[3.5px] bg-[#eadfcb] z-30 overflow-hidden backdrop-blur-sm pointer-events-none">
       <div 
         ref={barRef}
-        className="h-full w-full origin-left silk-shimmer-bar transition-transform duration-75 ease-out shadow-md shadow-[#c29b38]/40"
+        className="h-full w-full origin-left silk-shimmer-bar transition-transform duration-75 ease-out shadow-sm shadow-[#b8863b]/30"
         style={{ transform: 'scaleX(0.05)', willChange: 'transform' }}
       />
     </div>

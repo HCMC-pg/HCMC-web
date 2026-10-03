@@ -15,7 +15,7 @@ export const SlideNavigator: React.FC<SlideNavigatorProps> = ({
   return (
     <aside 
       aria-label="Slide Navigation"
-      className="fixed right-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col items-center gap-2.5 p-2.5 rounded-full bg-[#0b0f17]/80 backdrop-blur-md border border-[#c29b38]/25 shadow-2xl"
+      className="fixed right-4 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col items-center gap-2.5 p-2.5 rounded-full bg-[#fbf7ef]/90 backdrop-blur-md border border-[#dfd3be] shadow-lg shadow-[rgba(67,52,35,0.08)]"
     >
       {/* Slide Indicator Dots */}
       <div className="flex flex-col items-center gap-2 py-1">
@@ -31,14 +31,15 @@ export const SlideNavigator: React.FC<SlideNavigatorProps> = ({
               <div 
                 className={`rounded-full transition-all duration-300 ${
                   isActive 
-                    ? 'w-3 h-3 bg-[#e6ca65] ring-4 ring-[#c29b38]/30 shadow-md shadow-[#c29b38]/50 scale-125' 
-                    : 'w-2 h-2 bg-slate-600 hover:bg-slate-400'
+                    ? 'w-3 h-3 bg-[#a33827] ring-4 ring-[#a33827]/25 shadow-md shadow-[#a33827]/30 scale-125' 
+                    : 'w-2 h-2 bg-[#d1c2ab] hover:bg-[#a6927a]'
                 }`}
               />
 
               {/* Tooltip on hover */}
-              <span className="pointer-events-none absolute right-7 px-2 py-1 rounded bg-[#111724] border border-[#c29b38]/40 text-[10px] font-semibold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-                {slide.category}: {slide.primaryTitle}
+              <span className="pointer-events-none absolute right-8 px-2.5 py-1 rounded-md bg-[#ffffff] border border-[#dfd3be] text-[11px] font-medium text-[#2d2015] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md shadow-[rgba(67,52,35,0.08)]">
+                <span className="text-[#a33827] font-bold mr-1">{slide.category}:</span>
+                {slide.primaryTitle}
               </span>
             </button>
           );

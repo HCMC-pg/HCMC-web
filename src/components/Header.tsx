@@ -40,31 +40,31 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-black/60 backdrop-blur-xl border-b border-white/10 transition-all duration-300 liquid-glass">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-[#fbf7ef]/92 backdrop-blur-xl border-b border-[#dfd3be] transition-all duration-300 shadow-[0_2px_12px_rgba(67,52,35,0.05)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         
-        {/* Brand Logo */}
+        {/* Brand Logo - Traditional Cultural Seal Emblem */}
         <div 
           onClick={() => onSelectSlide(0)}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group select-none"
           id="brand-logo-btn"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#c29b38] via-[#e6ca65] to-[#997523] p-[1px] flex items-center justify-center shadow-lg shadow-[#c29b38]/20 group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-[#000000] rounded-[10px] flex items-center justify-center">
-              <Compass className="w-5 h-5 text-[#e6ca65]" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#b8863b] via-[#d4a34b] to-[#a33827] p-[1.5px] flex items-center justify-center shadow-md shadow-[#a33827]/15 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full bg-[#fbf7ef] rounded-[9px] flex items-center justify-center">
+              <Compass className="w-5 h-5 text-[#a33827]" />
             </div>
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-serif-display font-bold tracking-wider text-xl text-white group-hover:text-[#e6ca65] transition-colors">
-                HCMC<span className="text-[#c29b38]">-CULTUREHUB</span>
+            <div className="flex items-center gap-1.5">
+              <span className="font-serif-display font-bold tracking-wider text-xl text-[#2b2016] group-hover:text-[#a33827] transition-colors">
+                HCMC<span className="text-[#a33827] font-extrabold">-CULTUREHUB</span>
               </span>
             </div>
           </div>
         </div>
 
-        {/* Desktop Slide Quick Jump - Clean labels, no S1, S2 */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+        {/* Desktop Slide Quick Jump - Vietnamese Editorial Ribbon */}
+        <nav className="hidden lg:flex items-center gap-1 bg-[#f4ece0] p-1.5 rounded-full border border-[#ded1be] shadow-inner">
           {slides.map((slide, idx) => {
             const isActive = currentSlide === idx;
             const label = getNavLabel(slide, idx);
@@ -77,13 +77,13 @@ export const Header: React.FC<HeaderProps> = ({
                 title={slide.primaryTitle}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#c29b38] to-[#d4af37] text-slate-950 font-bold shadow-md shadow-[#c29b38]/30 scale-105'
+                    ? 'bg-[#a33827] text-white font-bold shadow-md shadow-[#a33827]/25 scale-105'
                     : isGame
-                    ? 'text-emerald-300 hover:text-emerald-200 hover:bg-emerald-500/15'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                    ? 'text-[#255e37] hover:text-[#1b4729] bg-[#e3f0e6] hover:bg-[#d5ebd9] border border-[#bdddc3]'
+                    : 'text-[#4e3f31] hover:text-[#24180f] hover:bg-[#eae0cf]'
                 }`}
               >
-                {isGame && <Gamepad2 className="w-3.5 h-3.5 text-emerald-400" />}
+                {isGame && <Gamepad2 className="w-3.5 h-3.5 text-[#255e37]" />}
                 <span>{label}</span>
               </button>
             );
@@ -96,12 +96,12 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="header-search-btn"
             onClick={onOpenSearch}
-            className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-white/10 hover:bg-white/15 text-white hover:text-[#f5e3a9] border border-white/15 hover:border-[#c29b38]/50 transition-all flex items-center gap-2 text-xs font-semibold shadow-sm group"
+            className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-[#ffffff] hover:bg-[#fcf8f0] text-[#3c2f23] hover:text-[#a33827] border border-[#ded1be] hover:border-[#b8863b] transition-all flex items-center gap-2 text-xs font-semibold shadow-sm group"
             title="Tra cứu di tích, địa danh, học liệu (Ctrl+K)"
           >
-            <Search className="w-4 h-4 text-[#e6ca65] group-hover:scale-110 transition-transform" />
+            <Search className="w-4 h-4 text-[#b8863b] group-hover:scale-110 transition-transform" />
             <span>Tra cứu</span>
-            <kbd className="hidden lg:inline-flex items-center text-[10px] font-mono px-1.5 py-0.2 bg-black/40 text-slate-300 rounded border border-white/10 group-hover:border-[#c29b38]/40">
+            <kbd className="hidden lg:inline-flex items-center text-[10px] font-mono px-1.5 py-0.5 bg-[#f5ede0] text-[#6d5b4b] rounded border border-[#dfd3be] group-hover:border-[#b8863b]/50">
               ⌘K
             </kbd>
           </button>
@@ -112,10 +112,10 @@ export const Header: React.FC<HeaderProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             id="header-webgame-btn"
-            className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/35 hover:border-emerald-400 transition-all flex items-center gap-1.5 text-xs font-semibold shadow-sm group"
+            className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-[#e7f3ea] hover:bg-[#255e37] text-[#255e37] hover:text-white border border-[#bedfc6] hover:border-[#255e37] transition-all flex items-center gap-1.5 text-xs font-semibold shadow-sm group"
             title="Web game trải nghiệm di sản văn hóa Sài Gòn Kỳ Bí"
           >
-            <Gamepad2 className="w-4 h-4 text-emerald-400 group-hover:text-slate-950 transition-colors" />
+            <Gamepad2 className="w-4 h-4 text-[#255e37] group-hover:text-white transition-colors" />
             <span className="hidden sm:inline">Web Game</span>
           </a>
 
@@ -125,10 +125,10 @@ export const Header: React.FC<HeaderProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             id="header-survey-btn"
-            className="px-3.5 py-2 rounded-full bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 border border-[#c29b38]/40 transition-all flex items-center gap-1.5 text-xs font-semibold shadow-sm group"
+            className="px-3.5 py-2 rounded-full bg-[#faece9] hover:bg-[#a33827] text-[#a33827] hover:text-white border border-[#edcac4] hover:border-[#a33827] transition-all flex items-center gap-1.5 text-xs font-semibold shadow-sm group"
             title="Khảo sát ý kiến trải nghiệm website HCMC CultureHub"
           >
-            <ClipboardList className="w-4 h-4 text-[#e6ca65] group-hover:text-slate-950 transition-colors" />
+            <ClipboardList className="w-4 h-4 text-[#a33827] group-hover:text-white transition-colors" />
             <span className="hidden sm:inline">Khảo sát</span>
           </a>
 
@@ -136,16 +136,16 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="mobile-menu-toggle-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-white/80 hover:text-white"
+            className="lg:hidden p-2 rounded-xl bg-[#f4ece0] border border-[#ded1be] text-[#3c2f23] hover:text-[#a33827]"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Compass className="w-5 h-5 text-[#c29b38]" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Compass className="w-5 h-5 text-[#a33827]" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-2xl border-b border-white/15 px-4 py-4 space-y-3 shadow-2xl animate-in fade-in duration-200">
+        <div className="lg:hidden bg-[#fbf7ef]/98 backdrop-blur-2xl border-b border-[#dfd3be] px-4 py-4 space-y-3 shadow-xl animate-in fade-in duration-200">
           {/* Quick Search on Mobile - Tra cứu */}
           <button
             onClick={() => {
@@ -153,13 +153,13 @@ export const Header: React.FC<HeaderProps> = ({
               onOpenSearch();
             }}
             id="mobile-search-btn"
-            className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-xs flex items-center justify-between shadow-sm hover:bg-white/15 transition-all"
+            className="w-full p-3 rounded-xl bg-white border border-[#ded1be] text-[#2b2016] font-bold text-xs flex items-center justify-between shadow-sm hover:border-[#b8863b] transition-all"
           >
             <div className="flex items-center gap-2">
-              <Search className="w-4 h-4 text-[#e6ca65]" />
+              <Search className="w-4 h-4 text-[#b8863b]" />
               <span>Tra cứu di tích & địa danh</span>
             </div>
-            <span className="text-[10px] text-slate-400 font-mono">Tìm kiếm</span>
+            <span className="text-[10px] text-[#7d6b5b] font-mono">Tìm kiếm</span>
           </button>
 
           {/* Direct Web Game Link banner on mobile */}
@@ -167,10 +167,10 @@ export const Header: React.FC<HeaderProps> = ({
             href="https://hcmc-pg.github.io/exploreculture/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-bold text-xs flex items-center justify-between shadow-sm hover:bg-emerald-500 hover:text-slate-950 transition-all"
+            className="w-full p-3 rounded-xl bg-[#e7f3ea] border border-[#bedfc6] text-[#255e37] font-bold text-xs flex items-center justify-between shadow-sm hover:bg-[#255e37] hover:text-white transition-all"
           >
             <div className="flex items-center gap-2">
-              <Gamepad2 className="w-4 h-4 text-emerald-400" />
+              <Gamepad2 className="w-4 h-4 text-[#255e37]" />
               <span>Trải nghiệm Web Game Sài Gòn Kỳ Bí</span>
             </div>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -180,16 +180,16 @@ export const Header: React.FC<HeaderProps> = ({
             href="https://forms.gle/baf2AwYp29T3joxd7"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full p-3 rounded-xl bg-[#c29b38]/20 border border-[#c29b38]/50 text-[#f5e3a9] font-bold text-xs flex items-center justify-between shadow-sm"
+            className="w-full p-3 rounded-xl bg-[#faece9] border border-[#edcac4] text-[#a33827] font-bold text-xs flex items-center justify-between shadow-sm hover:bg-[#a33827] hover:text-white transition-all"
           >
             <div className="flex items-center gap-2">
-              <ClipboardList className="w-4 h-4 text-[#e6ca65]" />
+              <ClipboardList className="w-4 h-4 text-[#a33827]" />
               <span>Khảo sát ý kiến trải nghiệm website</span>
             </div>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
 
-          <p className="text-xs uppercase tracking-wider text-[#c29b38] font-bold px-2 pt-1">
+          <p className="text-xs uppercase tracking-wider text-[#a33827] font-bold px-2 pt-1 font-serif-display">
             Danh mục Học liệu & Không gian Trải nghiệm
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
@@ -205,14 +205,14 @@ export const Header: React.FC<HeaderProps> = ({
                   }}
                   className={`w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium flex items-center justify-between ${
                     currentSlide === idx 
-                      ? 'bg-[#c29b38] text-slate-950 font-bold' 
+                      ? 'bg-[#a33827] text-white font-bold shadow-sm' 
                       : isGame
-                      ? 'bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 border border-emerald-500/25'
-                      : 'bg-white/5 text-white/80 hover:bg-white/10'
+                      ? 'bg-[#e7f3ea] text-[#255e37] hover:bg-[#d8eedd] border border-[#bedfc6]'
+                      : 'bg-white/70 text-[#3d2e20] hover:bg-white border border-[#ebe2d3]'
                   }`}
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center font-mono text-[10px]">
+                    <span className="w-5 h-5 rounded-full bg-[#f4ece0] text-[#5a4837] flex items-center justify-center font-mono text-[10px]">
                       {idx + 1}
                     </span>
                     <span className="truncate">{slide.primaryTitle}</span>

@@ -100,22 +100,22 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
   const hasHeritageAge = !isXomLuoi && Boolean(meta.heritageAgeYears && meta.heritageAgeYears > 0);
 
   return (
-    <div className="space-y-6 text-slate-200">
+    <div className="space-y-6 text-[#24180f]">
       
       {/* Top Banner: Infographic Header & Navigation */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#101826] via-[#141f33] to-[#101826] border border-[#c29b38]/40 shadow-xl space-y-4">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-slate-800/80 pb-3.5">
+      <div className="p-4 sm:p-5 rounded-2xl bg-[#ffffff] border border-[#dfd3be] shadow-sm space-y-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-[#eee5d5] pb-3.5">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-gradient-to-br from-[#c29b38] to-[#e6ca65] text-slate-950 shadow-lg shadow-[#c29b38]/20 shrink-0">
+            <div className="p-2.5 rounded-xl bg-gradient-to-br from-[#a33827] to-[#ba4a37] text-white shadow-md shadow-[#a33827]/20 shrink-0">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-base sm:text-lg font-bold text-white font-serif-display tracking-wide">
+                <h3 className="text-base sm:text-lg font-bold text-[#24180f] font-serif-display tracking-wide">
                   Bảng Phân Tích Di Sản • {place.name}
                 </h3>
               </div>
-              <p className="text-xs text-white/70 mt-0.5">
+              <p className="text-xs text-[#6e5d4d] mt-0.5">
                 Tổng hợp trực quan các thông số cốt lõi, mốc son lịch sử & giá trị văn hóa di sản
               </p>
             </div>
@@ -125,24 +125,24 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => setIsZoomOpen(true)}
-              className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors border border-slate-700"
+              className="p-2 rounded-xl bg-[#faf6ee] hover:bg-[#faece9] text-[#5c4a3a] hover:text-[#a33827] transition-colors border border-[#ded1be] cursor-pointer"
               title="Phóng to ảnh khổ lớn"
             >
-              <Maximize2 className="w-4 h-4 text-[#e6ca65]" />
+              <Maximize2 className="w-4 h-4 text-[#a33827]" />
             </button>
           </div>
         </div>
 
-        {/* Mode Navigation Tabs (7 Vivid Educational Views) */}
+        {/* Mode Navigation Tabs */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-[#c29b38] uppercase tracking-wider flex items-center gap-1.5">
+            <span className="text-[11px] font-bold text-[#a33827] uppercase tracking-wider flex items-center gap-1.5 font-serif-display">
               <Layers className="w-3.5 h-3.5" />
               Chế độ trực quan hóa đồ họa:
             </span>
             {hasHeritageAge ? (
-              <div className="text-[11px] text-slate-400 font-mono hidden sm:block">
-                Niên đại di sản: <span className="text-[#e6ca65] font-bold">{meta.heritageAgeYears} năm tuổi</span>
+              <div className="text-[11px] text-[#7d6b5b] font-mono hidden sm:block">
+                Niên đại di sản: <span className="text-[#a33827] font-bold">{meta.heritageAgeYears} năm tuổi</span>
               </div>
             ) : null}
           </div>
@@ -150,10 +150,10 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <button
               onClick={() => setActiveMode('poster')}
-              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 cursor-pointer ${
                 activeMode === 'poster'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
+                  ? 'bg-[#a33827] border-[#a33827] text-white font-bold shadow-md shadow-[#a33827]/20'
+                  : 'bg-[#faf6ee] border-[#ded1be] text-[#5c4a3a] hover:text-[#24180f] hover:border-[#b8863b]'
               }`}
             >
               <Eye className="w-4 h-4 shrink-0" />
@@ -162,10 +162,10 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
 
             <button
               onClick={() => setActiveMode('timeline')}
-              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border text-center transition-all flex flex-col sm:flex-row items-center justify-center gap-1.5 cursor-pointer ${
                 activeMode === 'timeline'
-                  ? 'bg-[#c29b38] border-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900/70 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
+                  ? 'bg-[#a33827] border-[#a33827] text-white font-bold shadow-md shadow-[#a33827]/20'
+                  : 'bg-[#faf6ee] border-[#ded1be] text-[#5c4a3a] hover:text-[#24180f] hover:border-[#b8863b]'
               }`}
             >
               <Calendar className="w-4 h-4 shrink-0" />
@@ -176,9 +176,9 @@ export const AIPlaceInfographic: React.FC<AIPlaceInfographicProps> = ({
 
         {/* Generating Progress Indicator */}
         {isGenerating && (
-          <div className="p-3.5 rounded-xl bg-[#1a273e] border border-[#c29b38] animate-pulse flex items-center gap-3">
-            <RefreshCw className="w-4 h-4 text-[#e6ca65] animate-spin shrink-0" />
-            <span className="text-xs text-[#f5e3a9] font-medium">{generationStep}</span>
+          <div className="p-3.5 rounded-xl bg-[#faece9] border border-[#edcac4] animate-pulse flex items-center gap-3">
+            <RefreshCw className="w-4 h-4 text-[#a33827] animate-spin shrink-0" />
+            <span className="text-xs text-[#a33827] font-semibold">{generationStep}</span>
           </div>
         )}
       </div>

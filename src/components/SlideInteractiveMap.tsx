@@ -2,12 +2,10 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { 
   MapPin, 
   ExternalLink, 
-  Layers, 
   Compass, 
   Navigation, 
   Maximize2,
   CheckCircle2,
-  Sparkles,
   Search,
   Camera,
   Calendar,
@@ -102,33 +100,33 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
       className="relative min-h-[90vh] py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
       {/* Eyebrow and Titles */}
-      <div className="border-b border-slate-800 pb-5 mb-6">
+      <div className="border-b border-[#dfd3be] pb-5 mb-6">
         <div className="flex items-center gap-2 mb-2">
-          <span className="px-3 py-1 rounded-full bg-[#c29b38]/15 border border-[#c29b38]/30 text-[#f5e3a9] text-xs font-semibold">
+          <span className="px-3 py-1 rounded-full bg-[#faece9] border border-[#edcac4] text-[#a33827] text-xs font-semibold shadow-sm">
             {slide.category}
           </span>
-          <span className="text-xs text-slate-400 font-mono">
+          <span className="text-xs text-[#786452] font-mono tracking-wider">
             ĐỊNH VỊ 21 ĐIỂM ĐẾN
           </span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-[#24180f]">
           {slide.primaryTitle}
         </h2>
-        <p className="text-sm sm:text-base text-[#e6ca65] mt-1 font-medium">
+        <p className="text-sm sm:text-base text-[#944924] mt-1 font-serif-display italic font-medium">
           {slide.secondaryTitle}
         </p>
 
         {/* 100% Body Content text */}
-        <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-4xl">
+        <p className="mt-3 text-xs sm:text-sm text-[#45362a] leading-relaxed max-w-4xl">
           {slide.bodyContent}
         </p>
 
         {/* Highlights */}
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {slide.keyHighlights.map((h, i) => (
-            <div key={i} className="p-2.5 rounded-lg bg-[#111724] border border-slate-800 text-xs text-slate-300 flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#c29b38] shrink-0" />
+            <div key={i} className="p-2.5 rounded-xl bg-[#ffffff] border border-[#e5dac6] text-xs text-[#3f3124] flex items-center gap-2 shadow-sm">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#b8863b] shrink-0" />
               <span className="truncate">{h}</span>
             </div>
           ))}
@@ -143,10 +141,10 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
             <button
               key={reg.id}
               onClick={() => setSelectedRegionFilter(reg.id)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap cursor-pointer ${
                 selectedRegionFilter === reg.id
-                  ? 'bg-[#c29b38] text-slate-950 font-bold shadow-md shadow-[#c29b38]/20'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-[#a33827] text-white font-bold shadow-md shadow-[#a33827]/20'
+                  : 'bg-[#ffffff] text-[#5c4a3a] hover:text-[#24180f] border border-[#ded1be]'
               }`}
             >
               {reg.label}
@@ -156,18 +154,18 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
 
         {/* Search Box */}
         <div className="relative min-w-[240px] flex items-center">
-          <Search className="w-3.5 h-3.5 text-[#c29b38] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-3.5 h-3.5 text-[#b8863b] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             placeholder="Tìm địa danh, quận huyện, di tích..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-14 py-1.5 bg-slate-900/90 border border-slate-800 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#c29b38] transition-colors"
+            className="w-full pl-9 pr-14 py-1.5 bg-[#ffffff] border border-[#ded1be] rounded-lg text-xs text-[#24180f] placeholder-[#8f7d6d] focus:outline-none focus:border-[#b8863b] transition-colors shadow-sm"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-800 transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-[#8f7d6d] hover:text-[#24180f] p-1 rounded-md hover:bg-[#f4ece0] transition-colors"
               title="Xóa tìm kiếm"
             >
               <X className="w-3 h-3" />
@@ -182,10 +180,10 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
           <button
             key={grp.id}
             onClick={() => setSelectedGroupFilter(grp.id)}
-            className={`px-2.5 py-1 rounded-full transition-all whitespace-nowrap ${
+            className={`px-2.5 py-1 rounded-full transition-all whitespace-nowrap cursor-pointer ${
               selectedGroupFilter === grp.id
-                ? 'bg-[#c29b38]/25 text-[#f5e3a9] border border-[#c29b38]/60 font-semibold'
-                : 'bg-slate-900/60 text-slate-400 hover:text-slate-200 border border-slate-800/80'
+                ? 'bg-[#faece9] text-[#a33827] border border-[#edcac4] font-bold shadow-sm'
+                : 'bg-[#f4ece0] text-[#6d5a49] hover:text-[#24180f] border border-[#ded1be]'
             }`}
           >
             {grp.label}
@@ -193,22 +191,22 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
         ))}
       </div>
 
-      {/* Interactive Map & Split View Container */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-[#0f1624] border border-[#c29b38]/30 rounded-2xl p-4 sm:p-6 shadow-2xl">
+      {/* Interactive Map & Split View Container (Archival Atlas Folio) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-[#fffdfa] border border-[#dfd3be] rounded-3xl p-4 sm:p-6 shadow-[0_6px_24px_rgba(67,52,35,0.06)]">
         
         {/* Visual Map Representation (Left 7 Cols) */}
-        <div className="lg:col-span-7 bg-[#0a0e17] rounded-xl border border-slate-800 p-4 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
+        <div className="lg:col-span-7 bg-[#faf6ee] rounded-2xl border border-[#ded1be] p-4 relative overflow-hidden min-h-[420px] flex flex-col justify-between">
           
           {/* Subtle Cartographic Grid Pattern */}
-          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#c29b38_1px,transparent_1px)] [background-size:24px_24px]" />
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#b8863b_1px,transparent_1px)] [background-size:24px_24px]" />
           
           {/* Top Map Bar */}
-          <div className="relative z-10 flex items-center justify-between text-xs text-slate-400 bg-slate-900/90 backdrop-blur-sm p-2 rounded-lg border border-slate-800">
+          <div className="relative z-10 flex items-center justify-between text-xs text-[#5c4a3a] bg-[#ffffff]/90 backdrop-blur-sm p-2 rounded-xl border border-[#ded1be] shadow-sm">
             <div className="flex items-center gap-2">
-              <Compass className="w-4 h-4 text-[#c29b38] animate-spin-slow" />
+              <Compass className="w-4 h-4 text-[#a33827]" />
               <span>Vùng văn hóa đô thị: TP.HCM • Bình Dương • Bà Rịa – Vũng Tàu</span>
             </div>
-            <span className="font-mono text-[#f5e3a9] font-bold">{filteredPlaces.length} địa danh hiển thị</span>
+            <span className="font-mono text-[#a33827] font-bold">{filteredPlaces.length} địa danh hiển thị</span>
           </div>
 
           {/* Interactive Landmark Grid with Thumbnails */}
@@ -224,12 +222,12 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
                     onClick={() => setActivePin(place)}
                     className={`p-2.5 rounded-xl border transition-all cursor-pointer flex items-center gap-3 ${
                       isSelected
-                        ? 'bg-[#1e293b] border-[#c29b38] shadow-lg shadow-[#c29b38]/20 scale-[1.01]'
-                        : 'bg-slate-900/90 border-slate-800 hover:border-slate-700 hover:bg-slate-800/80'
+                        ? 'bg-[#ffffff] border-[#a33827] shadow-md shadow-[#a33827]/10 scale-[1.01]'
+                        : 'bg-[#ffffff]/80 border-[#ded1be] hover:border-[#b8863b] hover:bg-[#ffffff]'
                     }`}
                   >
                     {/* Landmark Thumbnail */}
-                    <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-950 border border-slate-700/80 relative">
+                    <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-[#f4eee2] border border-[#dfd2bd] relative">
                       <img
                         src={getMediaUrl(place.image)}
                         alt={place.name}
@@ -241,16 +239,16 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-1">
-                        <span className="text-xs font-semibold text-white truncate">
+                        <span className="text-xs font-semibold text-[#24180f] truncate">
                           {place.name}
                         </span>
-                        <MapPin className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#e6ca65]' : 'text-slate-500'}`} />
+                        <MapPin className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#a33827]' : 'text-[#a89886]'}`} />
                       </div>
                       <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#f4ece0] text-[#6d5a49] border border-[#ded1be]">
                           {regionBadge}
                         </span>
-                        <span className="text-[10px] text-slate-400 truncate">
+                        <span className="text-[10px] text-[#7d6b5b] truncate">
                           {groupName.split(':')[0]}
                         </span>
                       </div>
@@ -259,21 +257,21 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
                 );
               })
             ) : (
-              <div className="col-span-2 py-12 text-center text-xs text-slate-500">
+              <div className="col-span-2 py-12 text-center text-xs text-[#8f7d6d]">
                 Không tìm thấy địa danh phù hợp với bộ lọc hiện tại.
               </div>
             )}
           </div>
 
           {/* Bottom Satellite link */}
-          <div className="relative z-10 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
-            <span className="text-slate-500 text-[11px]">Hệ tọa độ VN2000 • Tích hợp Google Maps API</span>
+          <div className="relative z-10 pt-2 border-t border-[#ded1be] flex items-center justify-between text-xs">
+            <span className="text-[#7d6b5b] text-[11px]">Hệ tọa độ VN2000 • Tích hợp Google Maps API</span>
             {activePin?.mapUrl && (
               <a 
                 href={activePin.mapUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className="text-[#c29b38] hover:text-[#f5e3a9] flex items-center gap-1 font-semibold"
+                className="text-[#a33827] hover:text-[#832617] flex items-center gap-1 font-semibold"
               >
                 <span>Xem trên vệ tinh Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -282,29 +280,29 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
           </div>
         </div>
 
-        {/* Selected Place Preview Card (Right 5 Cols) */}
-        <div className="lg:col-span-5 bg-[#131b2a] rounded-xl border border-slate-800 p-5 flex flex-col justify-between">
+        {/* Selected Place Preview Card (Right 5 Cols - Artifact Register Card) */}
+        <div className="lg:col-span-5 bg-[#ffffff] rounded-2xl border border-[#ded1be] p-5 flex flex-col justify-between shadow-sm">
           {activePin ? (
             <div className="space-y-4">
               {/* Photo Banner with Badges */}
-              <div className="relative w-full h-44 rounded-xl overflow-hidden border border-slate-700 group bg-slate-900 shadow-md">
+              <div className="relative w-full h-44 rounded-xl overflow-hidden border border-[#dfd2bd] group bg-[#f4eee2] shadow-sm">
                 <img
                   src={getMediaUrl(activePin.image)}
                   alt={activePin.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#24180f]/70 via-transparent to-transparent" />
                 
                 {/* Classification badge */}
-                <span className="absolute bottom-2.5 left-3 text-[11px] font-semibold text-[#f5e3a9] bg-slate-950/80 px-2.5 py-1 rounded-md backdrop-blur-md border border-[#c29b38]/30 max-w-[80%] truncate">
+                <span className="absolute bottom-2.5 left-3 text-[11px] font-semibold text-white bg-[#24180f]/80 px-2.5 py-1 rounded-md backdrop-blur-md border border-white/20 max-w-[80%] truncate">
                   {activePin.classification || "Di sản văn hóa"}
                 </span>
 
                 {/* Photo counter badge */}
                 {activePin.gallery && activePin.gallery.length > 0 && (
-                  <span className="absolute top-2.5 right-2.5 text-[10px] font-bold text-white bg-slate-950/80 px-2 py-0.5 rounded-full border border-slate-700 flex items-center gap-1 backdrop-blur-sm">
-                    <Camera className="w-3 h-3 text-[#c29b38]" />
+                  <span className="absolute top-2.5 right-2.5 text-[10px] font-bold text-white bg-[#24180f]/80 px-2 py-0.5 rounded-full border border-white/20 flex items-center gap-1 backdrop-blur-sm">
+                    <Camera className="w-3 h-3 text-[#f5e3a9]" />
                     {activePin.gallery.length} ảnh
                   </span>
                 )}
@@ -313,10 +311,10 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
               {/* Title & Navigation */}
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#c29b38]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#a33827]">
                     Điểm đến đang chọn
                   </span>
-                  <h3 className="text-xl font-serif-display font-bold text-white mt-0.5">
+                  <h3 className="text-xl font-serif-display font-bold text-[#24180f] mt-0.5">
                     {activePin.name}
                   </h3>
                 </div>
@@ -325,7 +323,7 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
                     href={activePin.mapUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2 rounded-lg bg-[#c29b38]/20 hover:bg-[#c29b38] text-[#f5e3a9] hover:text-slate-950 transition-colors shrink-0"
+                    className="p-2 rounded-lg bg-[#faece9] hover:bg-[#a33827] text-[#a33827] hover:text-white transition-colors shrink-0"
                     title="Mở Google Maps"
                   >
                     <Navigation className="w-4 h-4" />
@@ -336,14 +334,14 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
               {/* Metadata tags */}
               <div className="flex flex-wrap items-center gap-2 text-[11px]">
                 {activePin.establishedYear && (
-                  <span className="px-2 py-0.5 rounded bg-[#0e1420] text-slate-300 border border-slate-800 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#c29b38]" />
+                  <span className="px-2 py-0.5 rounded bg-[#f4ece0] text-[#5c4a3a] border border-[#ded1be] flex items-center gap-1">
+                    <Calendar className="w-3 h-3 text-[#b8863b]" />
                     {activePin.establishedYear}
                   </span>
                 )}
                 {activePin.architectOrOrigin && (
-                  <span className="px-2 py-0.5 rounded bg-[#0e1420] text-slate-300 border border-slate-800 flex items-center gap-1">
-                    <Award className="w-3 h-3 text-[#c29b38]" />
+                  <span className="px-2 py-0.5 rounded bg-[#f4ece0] text-[#5c4a3a] border border-[#ded1be] flex items-center gap-1">
+                    <Award className="w-3 h-3 text-[#b8863b]" />
                     <span className="truncate max-w-[200px]">{activePin.architectOrOrigin}</span>
                   </span>
                 )}
@@ -351,9 +349,9 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
 
               {/* Location */}
               {activePin.location && (
-                <div className="p-2.5 rounded-lg bg-[#0e1420] border border-slate-800/80 text-xs text-slate-300">
-                  <div className="font-semibold text-[#f5e3a9] flex items-center gap-1 mb-1">
-                    <MapPin className="w-3.5 h-3.5 text-[#c29b38]" />
+                <div className="p-2.5 rounded-xl bg-[#faf6ee] border border-[#ded1be] text-xs text-[#45362a]">
+                  <div className="font-semibold text-[#a33827] flex items-center gap-1 mb-1">
+                    <MapPin className="w-3.5 h-3.5 text-[#a33827]" />
                     Vị trí
                   </div>
                   <p className="leading-relaxed">{activePin.location}</p>
@@ -361,15 +359,15 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
               )}
 
               {/* Short Intro */}
-              <div className="text-xs text-slate-300 leading-relaxed">
+              <div className="text-xs text-[#45362a] leading-relaxed">
                 <p className="line-clamp-3">{activePin.shortIntro}</p>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-3 border-t border-slate-800 flex flex-col sm:flex-row gap-2">
+              <div className="pt-3 border-t border-[#ded1be] flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={() => onSelectPlace(activePin, "Bản đồ di sản văn hóa")}
-                  className="flex-1 px-4 py-2.5 rounded-lg bg-[#c29b38] hover:bg-[#d4af37] text-slate-950 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-md shadow-[#c29b38]/20 active:scale-95"
+                  className="flex-1 px-4 py-2.5 rounded-xl bg-[#a33827] hover:bg-[#8d2a1b] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-md shadow-[#a33827]/20 active:scale-95 cursor-pointer"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   <span>Xem chi tiết hồ sơ di sản</span>
@@ -380,7 +378,7 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
                     href={activePin.mapUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+                    className="px-4 py-2.5 rounded-xl bg-[#f4ece0] hover:bg-[#ebe1d2] text-[#3d2e20] text-xs font-semibold transition-all flex items-center justify-center gap-1.5 border border-[#ded1be]"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Dẫn đường Google Maps</span>
@@ -389,7 +387,7 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
               </div>
             </div>
           ) : (
-            <div className="h-full flex items-center justify-center text-slate-500 text-xs">
+            <div className="h-full flex items-center justify-center text-[#8f7d6d] text-xs">
               Chọn một địa danh từ bản đồ để xem chi tiết
             </div>
           )}
@@ -399,5 +397,3 @@ export const SlideInteractiveMap: React.FC<SlideInteractiveMapProps> = React.mem
     </section>
   );
 });
-
-

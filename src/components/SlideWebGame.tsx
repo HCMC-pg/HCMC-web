@@ -82,14 +82,14 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
       className="relative min-h-[90vh] py-12 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
       {/* Header Eyebrow & Titles */}
-      <div className="border-b border-white/10 pb-5 mb-8 animate-fade-rise">
+      <div className="border-b border-[#dfd3be] pb-5 mb-8 animate-fade-rise">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
           <div className="flex items-center gap-2">
-            <span className="px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-[#f5e3a9] text-xs font-semibold backdrop-blur-md flex items-center gap-1.5">
-              <Gamepad2 className="w-3.5 h-3.5 text-[#e6ca65]" />
+            <span className="px-3.5 py-1 rounded-full bg-[#e8f4eb] border border-[#badbc2] text-[#205430] text-xs font-semibold shadow-sm flex items-center gap-1.5">
+              <Gamepad2 className="w-3.5 h-3.5 text-[#255e37]" />
               <span>WEB GAME TRẢI NGHIỆM TƯƠNG TÁC</span>
             </span>
-            <span className="text-xs text-white/50 font-mono hidden sm:inline">
+            <span className="text-xs text-[#786452] font-mono hidden sm:inline tracking-wider">
               SÀI GÒN KỲ BÍ • HCMC CULTUREHUB
             </span>
           </div>
@@ -99,39 +99,39 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
             target="_blank"
             rel="noopener noreferrer"
             id="open-game-new-tab-btn"
-            className="px-3.5 py-1.5 rounded-full bg-[#c29b38]/20 hover:bg-[#c29b38]/30 border border-[#c29b38]/40 text-[#f5e3a9] hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm"
+            className="px-3.5 py-1.5 rounded-full bg-[#ffffff] hover:bg-[#faf4ea] border border-[#ded1bd] hover:border-[#b8863b] text-[#3a2c1f] hover:text-[#a33827] text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm"
           >
             <span>Mở game ở tab mới</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-bold text-[#24180f] tracking-tight">
           Sài Gòn Kỳ Bí - Game Khám Phá Di Sản & Văn Hóa TP.HCM
         </h2>
-        <p className="text-sm sm:text-base text-[#e6ca65] mt-1 font-serif-display italic font-medium">
+        <p className="text-sm sm:text-base text-[#944924] mt-1 font-serif-display italic font-medium">
           Hòa mình vào không gian 3D tương tác, giải mã mật thư lịch sử và thu thập huy hiệu di sản phương Nam
         </p>
 
         {/* Feature Pill Grid */}
-        <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="p-3 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#c29b38]/20 flex items-center justify-center shrink-0 border border-[#c29b38]/30">
-              <Map className="w-4 h-4 text-[#f5e3a9]" />
+        <div className="mt-4 pt-4 border-t border-[#dfd3be]/80 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="p-3.5 rounded-2xl bg-[#ffffff] border border-[#e5dac6] text-xs text-[#45362a] flex items-center gap-3 shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-[#faece9] flex items-center justify-center shrink-0 border border-[#edcac4]">
+              <Map className="w-4 h-4 text-[#a33827]" />
             </div>
             <div>
-              <div className="font-semibold text-white">Bản đồ 3D tương tác</div>
-              <div className="text-[11px] text-white/60">Dạo bước di sản đô thị</div>
+              <div className="font-semibold text-[#24180f]">Bản đồ 3D tương tác</div>
+              <div className="text-[11px] text-[#7d6b5b]">Dạo bước di sản đô thị</div>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl liquid-glass border border-white/10 text-xs text-white/85 flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30">
-              <Sparkles className="w-4 h-4 text-emerald-300" />
+          <div className="p-3.5 rounded-2xl bg-[#ffffff] border border-[#e5dac6] text-xs text-[#45362a] flex items-center gap-3 shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-[#e8f4eb] flex items-center justify-center shrink-0 border border-[#badbc2]">
+              <Sparkles className="w-4 h-4 text-[#255e37]" />
             </div>
             <div>
-              <div className="font-semibold text-white">Nhiệm vụ giải mật thư</div>
-              <div className="text-[11px] text-white/60">Thử thách câu đố lịch sử</div>
+              <div className="font-semibold text-[#24180f]">Nhiệm vụ giải mật thư</div>
+              <div className="text-[11px] text-[#7d6b5b]">Thử thách câu đố lịch sử</div>
             </div>
           </div>
         </div>
@@ -142,16 +142,16 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
         ref={iframeContainerRef}
         className={`transition-all duration-300 ${
           isFullscreen 
-            ? 'fixed inset-0 z-50 bg-black/95 p-2 sm:p-4 flex flex-col' 
-            : 'relative rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl liquid-glass'
+            ? 'fixed inset-0 z-50 bg-[#24180f]/95 p-2 sm:p-4 flex flex-col' 
+            : 'relative rounded-3xl overflow-hidden border border-[#dfd3be] bg-[#ffffff] shadow-[0_8px_30px_rgba(67,52,35,0.08)]'
         }`}
       >
         {/* Game Top Control Bar */}
-        <div className="px-4 py-3 bg-black/70 border-b border-white/10 flex items-center justify-between gap-3 text-xs">
+        <div className="px-4 py-3 bg-[#faf6ee] border-b border-[#dfd3be] flex items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <span className={`w-2.5 h-2.5 rounded-full ${isActivated ? 'bg-emerald-400 animate-pulse' : 'bg-slate-500'}`} />
-            <span className="font-semibold text-white">Sài Gòn Kỳ Bí</span>
-            <span className="text-white/40 hidden sm:inline">
+            <span className={`w-2.5 h-2.5 rounded-full ${isActivated ? 'bg-emerald-600 animate-pulse' : 'bg-[#a6927d]'}`} />
+            <span className="font-semibold text-[#24180f]">Sài Gòn Kỳ Bí</span>
+            <span className="text-[#7d6b5b] hidden sm:inline">
               {isActivated ? '• Trải nghiệm 3D trực tiếp' : '• Chế độ tiết kiệm tài nguyên'}
             </span>
           </div>
@@ -161,7 +161,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
               <>
                 <button
                   onClick={() => setIsActivated(false)}
-                  className="px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors flex items-center gap-1.5"
+                  className="px-2.5 py-1.5 rounded-lg bg-[#faece9] hover:bg-[#f5d9d4] text-[#a33827] border border-[#edcac4] transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
                   title="Tạm dừng game để giải phóng bộ nhớ RAM & GPU thiết bị"
                 >
                   <Pause className="w-3.5 h-3.5" />
@@ -170,7 +170,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
 
                 <button
                   onClick={handleReload}
-                  className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                  className="p-1.5 rounded-lg bg-[#ffffff] hover:bg-[#f4ece0] text-[#5c4a3a] hover:text-[#24180f] border border-[#ded1be] transition-colors cursor-pointer"
                   title="Tải lại game"
                 >
                   <RotateCw className="w-3.5 h-3.5" />
@@ -178,7 +178,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
 
                 <button
                   onClick={toggleFullscreen}
-                  className="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 hover:text-white transition-colors flex items-center gap-1.5"
+                  className="px-2.5 py-1.5 rounded-lg bg-[#ffffff] hover:bg-[#f4ece0] text-[#5c4a3a] hover:text-[#24180f] border border-[#ded1be] transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
                   title={isFullscreen ? "Thu nhỏ" : "Phóng to toàn màn hình"}
                 >
                   {isFullscreen ? (
@@ -200,7 +200,7 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
               href={gameUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#c29b38] to-[#d4af37] text-slate-950 font-bold hover:brightness-110 transition-all flex items-center gap-1"
+              className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#a33827] to-[#b84a37] text-white font-bold hover:brightness-105 transition-all flex items-center gap-1 shadow-sm"
             >
               <span>Mở tab mới</span>
               <ExternalLink className="w-3 h-3" />
@@ -211,16 +211,16 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
         {/* Live Iframe Element or Smart Activation Preview */}
         <div className={`relative w-full ${isFullscreen ? 'flex-1' : 'h-[520px] sm:h-[620px] lg:h-[680px]'}`}>
           {!isActivated ? (
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0d1420] via-[#080d15] to-[#04060a] flex flex-col items-center justify-center p-6 text-center select-none">
-              <div className="w-16 h-16 rounded-2xl bg-[#c29b38]/15 border border-[#c29b38]/40 flex items-center justify-center text-[#f5e3a9] mb-4 shadow-xl shadow-[#c29b38]/15">
-                <Gamepad2 className="w-8 h-8 text-[#e6ca65]" />
+            <div className="absolute inset-0 bg-[#faf6ee] flex flex-col items-center justify-center p-6 text-center select-none">
+              <div className="w-16 h-16 rounded-2xl bg-[#e8f4eb] border border-[#badbc2] flex items-center justify-center text-[#255e37] mb-4 shadow-md shadow-[#255e37]/10">
+                <Gamepad2 className="w-8 h-8 text-[#255e37]" />
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-serif-display font-bold text-white mb-2">
+              <h3 className="text-xl sm:text-2xl font-serif-display font-bold text-[#24180f] mb-2">
                 Sài Gòn Kỳ Bí: 3D Heritage Experience
               </h3>
               
-              <p className="text-xs sm:text-sm text-slate-300 max-w-lg mb-6 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#5c4a3a] max-w-lg mb-6 leading-relaxed">
                 Khám phá di sản Nam Bộ qua đồ họa 3D tương tác. Chế độ tải thông minh tự động kích hoạt khi đến gần để không làm chậm máy khi nhiều người cùng vào web.
               </p>
 
@@ -231,9 +231,9 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
                     setIsLoading(true);
                   }}
                   id="activate-game-btn"
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#c29b38] via-[#d4af37] to-[#997523] text-slate-950 font-bold text-sm shadow-xl shadow-[#c29b38]/25 hover:brightness-110 active:scale-95 transition-all flex items-center gap-2"
+                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#a33827] via-[#b84a37] to-[#8d2a1b] text-white font-bold text-sm shadow-xl shadow-[#a33827]/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <Play className="w-4 h-4 fill-slate-950" />
+                  <Play className="w-4 h-4 fill-white" />
                   <span>Khởi chạy Web Game ngay</span>
                 </button>
 
@@ -241,16 +241,16 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
                   href={gameUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/20 transition-all flex items-center gap-2"
+                  className="px-5 py-3 rounded-full bg-[#ffffff] hover:bg-[#f4ece0] text-[#3d2e20] font-semibold text-sm border border-[#ded1be] transition-all flex items-center gap-2 shadow-sm"
                 >
                   <span>Mở ở tab mới</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-400">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-[11px] text-[#7d6b5b]">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
                   Tải thông minh (Zero-lag)
                 </span>
                 <span>•</span>
@@ -260,9 +260,9 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
           ) : (
             <>
               {isLoading && (
-                <div className="absolute inset-0 bg-black/60 pointer-events-none flex flex-col items-center justify-center gap-3 z-10 transition-opacity duration-300">
-                  <div className="w-10 h-10 border-2 border-[#c29b38]/30 border-t-[#e6ca65] rounded-full animate-spin" />
-                  <p className="text-xs text-[#f5e3a9] font-medium">Đang khởi chạy Web Game Sài Gòn Kỳ Bí...</p>
+                <div className="absolute inset-0 bg-[#faf6ee]/90 pointer-events-none flex flex-col items-center justify-center gap-3 z-10 transition-opacity duration-300">
+                  <div className="w-10 h-10 border-2 border-[#ded1be] border-t-[#a33827] rounded-full animate-spin" />
+                  <p className="text-xs text-[#a33827] font-semibold">Đang khởi chạy Web Game Sài Gòn Kỳ Bí...</p>
                 </div>
               )}
 
@@ -281,16 +281,16 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
       </div>
 
       {/* Bottom Footer Tip & Navigation */}
-      <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/60">
+      <div className="mt-8 pt-4 border-t border-[#dfd3be] flex flex-wrap items-center justify-between gap-4 text-xs text-[#6e5c4c]">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#e6ca65]" />
+          <Sparkles className="w-4 h-4 text-[#b8863b]" />
           <span>Mẹo: Bạn có thể click phóng to hoặc mở tab mới để tận hưởng đồ họa và âm thanh game tốt nhất.</span>
         </div>
 
         {onNextSlide && (
           <button
             onClick={onNextSlide}
-            className="flex items-center gap-1.5 text-[#c29b38] hover:text-[#f5e3a9] font-semibold transition-colors ml-auto"
+            className="flex items-center gap-1.5 text-[#a33827] hover:text-[#832617] font-semibold transition-colors ml-auto cursor-pointer"
           >
             <span>Tìm hiểu hành trình sáng lập</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -300,4 +300,3 @@ export const SlideWebGame: React.FC<SlideWebGameProps> = memo(({ onNextSlide }) 
     </section>
   );
 });
-
