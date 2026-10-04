@@ -40,6 +40,17 @@ export const ArtBookSpreadContainer: React.FC<ArtBookSpreadContainerProps> = ({
         <div className="hidden lg:block artbook-spine-gutter" />
         <div className="hidden lg:block artbook-spine-stitch" />
 
+        {/* Center Page Curvature Shading (Natural Light Falloff into Bound Spine) */}
+        <div className="hidden lg:block page-spread-gutter-shade page-gutter-left" style={{ right: '50%' }} />
+        <div className="hidden lg:block page-spread-gutter-shade page-gutter-right" style={{ left: '50%' }} />
+
+        {/* Hanging Silk Bookmark Ribbon Peeking from Top Binding Spine */}
+        <div className="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-6 h-10 silk-bookmark-ribbon rounded-b-md shadow-md z-30 pointer-events-none border-b-2 border-[#d4a34b]">
+          <div className="w-full h-full flex items-end justify-center pb-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#f5e3a9]/70" />
+          </div>
+        </div>
+
         {/* Dynamic 3D Page Turn Animation Leaf */}
         {isTurning && (
           <div 
@@ -49,7 +60,7 @@ export const ArtBookSpreadContainer: React.FC<ArtBookSpreadContainerProps> = ({
                 : 'left-0 animate-page-flip-prev shadow-2xl'
             }`}
             style={{
-              backgroundImage: 'linear-gradient(to right, rgba(36,24,15,0.12), rgba(255,255,255,0.25))'
+              backgroundImage: 'linear-gradient(to right, rgba(36,24,15,0.18), rgba(255,255,255,0.3) 25%, rgba(245,237,222,0.95) 100%)'
             }}
           />
         )}
@@ -88,7 +99,7 @@ export const ArtBookSpreadContainer: React.FC<ArtBookSpreadContainerProps> = ({
           <div 
             onClick={onPrevSpread}
             className="hidden lg:block page-dogear-corner page-dogear-corner-bl"
-            title="Lật về trang trước"
+            title="Lật về trang trước (Phím ←)"
           />
         )}
 
@@ -96,7 +107,7 @@ export const ArtBookSpreadContainer: React.FC<ArtBookSpreadContainerProps> = ({
           <div 
             onClick={onNextSpread}
             className="hidden lg:block page-dogear-corner page-dogear-corner-br"
-            title="Lật sang trang tiếp theo"
+            title="Lật sang trang tiếp theo (Phím →)"
           />
         )}
 

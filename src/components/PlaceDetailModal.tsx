@@ -22,6 +22,7 @@ import {
 import { PlaceItem, PlaceGalleryItem } from '../types';
 import { getMediaUrl } from '../utils/mediaFallback';
 import { AIPlaceInfographic } from './AIPlaceInfographic';
+import { LivingCulturalScene } from './LivingCulturalScene';
 
 interface PlaceDetailModalProps {
   place: PlaceItem | null;
@@ -116,14 +117,15 @@ export const PlaceDetailModal: React.FC<PlaceDetailModalProps> = ({
         className="relative w-full max-w-4xl bg-[#fffdfa] border border-[#dfd3be] rounded-3xl shadow-2xl overflow-hidden my-4 text-[#2b2016] animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] flex flex-col"
         id="place-detail-modal"
       >
-        {/* Modal Top Header Bar with Image banner */}
-        <div className="relative h-64 sm:h-72 w-full overflow-hidden shrink-0 bg-[#f4eee2]">
-          <img 
-            src={getMediaUrl(place.image)} 
+        {/* Modal Top Header Bar with Image banner as Living Artwork */}
+        <div className="relative h-64 sm:h-72 w-full overflow-hidden shrink-0 bg-[#f4eee2] living-painting-frame">
+          <LivingCulturalScene
+            imageSrc={place.image}
             alt={place.name}
-            className="w-full h-full object-cover brightness-[0.9] contrast-[1.03]"
+            placeName={place.name}
+            priority={true}
+            aspectClassName="h-full w-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#24180f]/90 via-[#24180f]/40 to-transparent" />
 
           {/* Close button */}
           <button

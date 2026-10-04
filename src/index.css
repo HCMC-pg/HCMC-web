@@ -413,3 +413,241 @@
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+/* ========================================================
+   LIVING PAINTING & ATMOSPHERIC ENVIRONMENTAL MOTION
+   ======================================================== */
+.living-painting-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background-color: #f7f1e6;
+  box-shadow: 
+    0 4px 16px rgba(36, 24, 15, 0.12),
+    0 1px 3px rgba(36, 24, 15, 0.08),
+    inset 0 0 0 1px rgba(223, 210, 190, 0.6);
+  contain: paint;
+}
+
+.living-painting-sheen::after {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 248, 230, 0.15) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.group:hover .living-painting-sheen::after {
+  transform: translateX(100%);
+}
+
+/* Subtle organic breathing for living artworks */
+@keyframes painting-ambient-float {
+  0%, 100% {
+    transform: scale(1.01) translateY(0);
+  }
+  50% {
+    transform: scale(1.025) translateY(-3px);
+  }
+}
+
+.animate-painting-living {
+  animation: painting-ambient-float 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Traditional Lacquer & Gilded Borders */
+.gold-leaf-border {
+  border: 1px solid rgba(212, 163, 75, 0.35);
+  box-shadow: inset 0 0 12px rgba(212, 163, 75, 0.08);
+}
+
+.lacquer-red-seal {
+  background: linear-gradient(135deg, #a33827 0%, #852618 100%);
+  color: #fff9f0;
+  box-shadow: 0 3px 10px rgba(163, 56, 39, 0.35);
+}
+
+/* Clouds horizontal pan */
+@keyframes clouds-pan-kf {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes clouds-pan-rev-kf {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-clouds-pan {
+  animation: clouds-pan-kf 65s linear infinite;
+  will-change: transform;
+}
+
+.animate-clouds-pan-reverse {
+  animation: clouds-pan-rev-kf 90s linear infinite;
+  will-change: transform;
+}
+
+/* Water & River reflections */
+@keyframes water-shimmer-kf {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    opacity: 0.38;
+    transform: translateY(-2px) scaleY(1.05);
+  }
+}
+
+.animate-water-shimmer {
+  animation: water-shimmer-kf 4.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes river-flow-kf {
+  0% {
+    transform: translateX(-15px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(15px);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(-15px);
+    opacity: 0.2;
+  }
+}
+
+.animate-river-flow {
+  animation: river-flow-kf 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Foliage breeze */
+@keyframes leaves-sway-slow-kf {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2.8deg);
+  }
+}
+
+.animate-leaves-sway-slow {
+  animation: leaves-sway-slow-kf 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Wind passes through the painting */
+@keyframes breeze-pass-kf {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-breeze-pass {
+  animation: breeze-pass-kf 14s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  will-change: transform;
+}
+
+/* Temple incense */
+@keyframes incense-drift-kf {
+  0% {
+    transform: translateY(8px) scale(0.9);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-4px) scale(1.08);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-16px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.animate-incense-drift {
+  animation: incense-drift-kf 6s ease-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Occasional birds across sky */
+@keyframes bird-flight-hero-kf {
+  0% {
+    transform: translate(-100px, 15px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.45;
+  }
+  40% {
+    transform: translate(600px, -20px);
+    opacity: 0.45;
+  }
+  45%, 100% {
+    transform: translate(800px, -30px);
+    opacity: 0;
+  }
+}
+
+.animate-bird-flight-hero {
+  animation: bird-flight-hero-kf 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* Page Curvature Highlight for Book Turn Storytelling */
+.page-spread-gutter-shade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.page-gutter-left {
+  right: 0;
+  background: linear-gradient(to right, transparent, rgba(36, 24, 15, 0.08) 70%, rgba(36, 24, 15, 0.18) 100%);
+}
+
+.page-gutter-right {
+  left: 0;
+  background: linear-gradient(to left, transparent, rgba(36, 24, 15, 0.08) 70%, rgba(36, 24, 15, 0.18) 100%);
+}
+
+/* ========================================================
+   PERFORMANCE & ACCESSIBILITY OPTIMIZATIONS
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  content-visibility: auto;
+}

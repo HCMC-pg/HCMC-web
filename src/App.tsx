@@ -21,8 +21,8 @@ const SearchModal = React.lazy(() => import('./components/SearchModal').then(m =
 const contentData = contentDataRaw as unknown as ContentData;
 
 export default function App() {
-  // Book Physical State
-  const [isBookOpen, setIsBookOpen] = useState<boolean>(true);
+  // Book Physical State: Starts closed for the cinematic opening scene
+  const [isBookOpen, setIsBookOpen] = useState<boolean>(false);
   const [currentSpread, setCurrentSpread] = useState<number>(0);
   const [isTurning, setIsTurning] = useState<boolean>(false);
   const [turnDirection, setTurnDirection] = useState<'next' | 'prev'>('next');

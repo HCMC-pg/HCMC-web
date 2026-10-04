@@ -1,7 +1,7 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { MapPin, Video, Sparkles, FileText, Camera, FileImage, ArrowUpRight } from 'lucide-react';
 import { PlaceItem } from '../types';
-import { getMediaUrl } from '../utils/mediaFallback';
+import { LivingCulturalScene } from './LivingCulturalScene';
 
 interface PlaceCardProps {
   place: PlaceItem;
@@ -18,38 +18,31 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
   variant = 'standard',
   className = ''
 }) => {
-  const [imgError, setImgError] = useState(false);
-  const primaryUrl = getMediaUrl(place.image);
-
-  // FEATURED VARIANT (Masterpiece Landmark Presentation)
+  // FEATURED VARIANT (Masterpiece Landmark Living Painting)
   if (variant === 'featured') {
     return (
       <div 
         onClick={() => onSelect(place)}
-        className={`group relative bg-[#ffffff] hover:bg-[#fffdfa] rounded-3xl border border-[#ded1bd] hover:border-[#a33827] transition-all duration-400 ease-out flex flex-col justify-between overflow-hidden shadow-[0_6px_28px_rgba(67,52,35,0.07)] hover:shadow-[0_16px_40px_rgba(67,52,35,0.14)] cursor-pointer transform hover:-translate-y-1.5 gpu-accelerated p-3 sm:p-4 ${className}`}
+        className={`group relative bg-[#ffffff] hover:bg-[#fffdf9] rounded-3xl border border-[#ded1bd] hover:border-[#a33827] transition-all duration-400 ease-out flex flex-col justify-between overflow-hidden shadow-[0_6px_28px_rgba(67,52,35,0.07)] hover:shadow-[0_18px_44px_rgba(67,52,35,0.15)] cursor-pointer transform hover:-translate-y-1.5 gpu-accelerated p-3 sm:p-4 ${className}`}
         id={`card-${place.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
       >
-        {/* Top Image Showcase with Double Passe-Partout Matting */}
-        <div className="relative h-64 sm:h-72 lg:h-80 w-full overflow-hidden rounded-2xl bg-[#f4eee2] border border-[#dfd2bd] p-1.5">
+        {/* Top Image Showcase: Living Painting Mount with Double Passe-Partout Matting */}
+        <div className="relative h-64 sm:h-72 lg:h-80 w-full overflow-hidden rounded-2xl bg-[#f4eee2] border border-[#dfd2bd] p-1.5 living-painting-frame">
           <div className="relative w-full h-full rounded-xl overflow-hidden">
-            <img 
-              src={imgError ? getMediaUrl('./assets/hero_hcmc_hub.webp') : primaryUrl} 
+            <LivingCulturalScene
+              imageSrc={place.image}
               alt={place.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-800 ease-out brightness-[0.98] contrast-[1.03]"
-              loading="lazy"
-              decoding="async"
-              referrerPolicy="no-referrer"
-              onError={() => setImgError(true)}
+              placeName={place.name}
+              aspectClassName="h-full w-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#24180f]/60 via-transparent to-transparent pointer-events-none" />
             
             {/* Spotlight Heritage Badge */}
-            <div className="absolute top-3 left-3 bg-[#ffffff]/95 backdrop-blur-md px-3 py-1 rounded-md border border-[#dfd3be] shadow-sm flex items-center gap-1.5 text-[10px] font-mono text-[#a33827] font-bold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a33827]" />
+            <div className="absolute top-3 left-3 bg-[#ffffff]/95 backdrop-blur-md px-3 py-1 rounded-md border border-[#dfd3be] shadow-sm flex items-center gap-1.5 text-[10px] font-mono text-[#a33827] font-bold uppercase tracking-wider z-20">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#a33827] animate-pulse" />
               Tiêu Điểm Di Sản
             </div>
 
-            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#ffffff]/90 backdrop-blur-md border border-[#dfd3be] flex items-center justify-center text-[#24180f] group-hover:bg-[#a33827] group-hover:text-white transition-colors shadow-sm">
+            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#ffffff]/90 backdrop-blur-md border border-[#dfd3be] flex items-center justify-center text-[#24180f] group-hover:bg-[#a33827] group-hover:text-white transition-colors shadow-sm z-20">
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </div>
@@ -71,7 +64,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
               </p>
             )}
 
-            <p className="text-xs sm:text-sm text-[#4b3c2f] line-clamp-4 leading-relaxed pt-1">
+            <p className="text-xs sm:text-sm text-[#4b3c2f] line-clamp-4 leading-relaxed pt-1 font-sans">
               {place.shortIntro}
             </p>
           </div>
@@ -114,26 +107,22 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
     );
   }
 
-  // LANDSCAPE VARIANT (Artistic Horizontal Split)
+  // LANDSCAPE VARIANT (Artistic Horizontal Living Folio)
   if (variant === 'landscape') {
     return (
       <div 
         onClick={() => onSelect(place)}
-        className={`group relative bg-[#ffffff] hover:bg-[#fffdfa] rounded-3xl border border-[#e5dac6] hover:border-[#b8863b] transition-all duration-300 ease-out flex flex-col sm:flex-row overflow-hidden shadow-[0_4px_16px_rgba(67,52,35,0.05)] hover:shadow-[0_12px_28px_rgba(67,52,35,0.10)] cursor-pointer transform hover:-translate-y-1 gpu-accelerated p-2.5 sm:p-3 ${className}`}
+        className={`group relative bg-[#ffffff] hover:bg-[#fffdf9] rounded-3xl border border-[#e5dac6] hover:border-[#b8863b] transition-all duration-300 ease-out flex flex-col sm:flex-row overflow-hidden shadow-[0_4px_16px_rgba(67,52,35,0.05)] hover:shadow-[0_14px_32px_rgba(67,52,35,0.12)] cursor-pointer transform hover:-translate-y-1 gpu-accelerated p-2.5 sm:p-3 ${className}`}
         id={`card-${place.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
       >
-        {/* Left Photo Mount */}
-        <div className="relative h-44 sm:h-auto sm:w-2/5 shrink-0 rounded-2xl overflow-hidden bg-[#f4eee2] border border-[#dfd2bd]">
-          <img 
-            src={imgError ? getMediaUrl('./assets/hero_hcmc_hub.webp') : primaryUrl} 
+        {/* Left Photo Mount as Living Painting */}
+        <div className="relative h-44 sm:h-auto sm:w-2/5 shrink-0 rounded-2xl overflow-hidden bg-[#f4eee2] border border-[#dfd2bd] living-painting-frame">
+          <LivingCulturalScene
+            imageSrc={place.image}
             alt={place.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.98] contrast-[1.02]"
-            loading="lazy"
-            decoding="async"
-            referrerPolicy="no-referrer"
-            onError={() => setImgError(true)}
+            placeName={place.name}
+            aspectClassName="h-full w-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#24180f]/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Right Info */}
@@ -187,26 +176,22 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
     );
   }
 
-  // STANDARD POSTCARD VARIANT
+  // STANDARD POSTCARD LIVING PAINTING VARIANT
   return (
     <div 
       onClick={() => onSelect(place)}
-      className={`group relative bg-[#ffffff] hover:bg-[#fffdf9] rounded-2xl border border-[#e5dac6] hover:border-[#b8863b]/70 transition-all duration-300 ease-out flex flex-col overflow-hidden shadow-[0_3px_12px_rgba(67,52,35,0.05)] hover:shadow-[0_12px_28px_-4px_rgba(67,52,35,0.12)] cursor-pointer transform hover:-translate-y-1.5 gpu-accelerated ${className}`}
+      className={`group relative bg-[#ffffff] hover:bg-[#fffdf9] rounded-2xl border border-[#e5dac6] hover:border-[#b8863b]/70 transition-all duration-300 ease-out flex flex-col overflow-hidden shadow-[0_3px_12px_rgba(67,52,35,0.05)] hover:shadow-[0_14px_30px_-4px_rgba(67,52,35,0.13)] cursor-pointer transform hover:-translate-y-1.5 gpu-accelerated ${className}`}
       id={`card-${place.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
     >
-      {/* Top Image Box with Postcard Matting */}
-      <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#f4eee2] p-2">
+      {/* Top Image Box with Postcard Living Matting */}
+      <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[#f4eee2] p-2 living-painting-frame">
         <div className="relative w-full h-full rounded-xl overflow-hidden border border-[#dfd2bd]">
-          <img 
-            src={imgError ? getMediaUrl('./assets/hero_hcmc_hub.webp') : primaryUrl} 
+          <LivingCulturalScene
+            imageSrc={place.image}
             alt={place.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-[0.98] contrast-[1.02]"
-            loading="lazy"
-            decoding="async"
-            referrerPolicy="no-referrer"
-            onError={() => setImgError(true)}
+            placeName={place.name}
+            aspectClassName="h-full w-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#24180f]/40 via-transparent to-transparent pointer-events-none" />
         </div>
       </div>
 
@@ -254,7 +239,7 @@ export const PlaceCard: React.FC<PlaceCardProps> = memo(({
             )}
             {place.aiPrompts && place.aiPrompts.length > 0 && (
               <span className="flex items-center gap-1 text-[#b8863b] bg-[#f8f2e2] px-1.5 py-0.5 rounded border border-[#ebdcb8] transition-colors" title={`${place.aiPrompts.length} câu hỏi AI gợi ý`}>
-                <Sparkles className="w-3 h-3 text-[#b8863b]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#b8863b]" />
                 {place.aiPrompts.length}
               </span>
             )}
